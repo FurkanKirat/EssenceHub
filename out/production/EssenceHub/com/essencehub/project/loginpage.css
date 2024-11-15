@@ -2,11 +2,13 @@
     -fx-border-width: 0px 0px 2px 0px;
     -fx-border-color: #1f75ea;
     -fx-background-color: transparent;
+    -fx-text-fill: white;
 
 
 }
 .label{
     -fx-font-family: "Segoe UI:";
+    -fx-text-fill: white;
 }
 #anchor1{
     -fx-background-color: linear-gradient(#6493d3,#1f75ea);

@@ -25,13 +25,8 @@ public class MyApplication extends Application {
             var bounds = Screen.getPrimary().getVisualBounds();
 
             // Sahne boyutunu ayarlayın
-            stage.setX(bounds.getMinX());
-            stage.setY(bounds.getMinY());
-            stage.setWidth(bounds.getWidth());
-            stage.setHeight(bounds.getHeight());
-            stage.setMaximized(true);
-            stage.setMinHeight(400);
-            stage.setMinWidth(600);
+
+            stage.setResizable(false);
             stage.setScene(scene);
             stage.getIcons().add(
                     new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));

@@ -9,16 +9,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@loginpage.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.LoginPageController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@loginpage.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.LoginPageController">
    <children>
-      <AnchorPane fx:id="anchor1" minHeight="400.0" minWidth="300.0" prefHeight="400.0" prefWidth="300.0">
+      <AnchorPane fx:id="anchor1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0">
          <children>
-            <Label fx:id="appLabel" layoutX="61.0" prefHeight="118.0" prefWidth="178.0" text="Essence Hub" />
-            <ImageView fx:id="logo" fitHeight="150.0" fitWidth="200.0" layoutX="75.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logo" fitHeight="400.0" fitWidth="678.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/logo.jpg" />
+                  <Image url="@images/background.png" />
                </image>
             </ImageView>
+            <Label fx:id="appLabel" layoutX="52.0" layoutY="8.0" prefHeight="118.0" prefWidth="178.0" text="Essence Hub" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="anchor2" minHeight="400.0" minWidth="300.0" prefHeight="400.0" prefWidth="300.0">
@@ -30,7 +30,5 @@
             <Button fx:id="loginbtn" layoutX="75.0" layoutY="281.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Login" />
          </children>
       </AnchorPane>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </HBox>
