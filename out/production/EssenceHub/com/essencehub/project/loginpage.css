@@ -1,0 +1,30 @@
+.text-field{
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-border-color: #1f75ea;
+    -fx-background-color: transparent;
+
+
+}
+.label{
+    -fx-font-family: "Segoe UI:";
+}
+#anchor1{
+    -fx-background-color: linear-gradient(#6493d3,#1f75ea);
+}
+#loginbtn{
+    -fx-background-color: linear-gradient(#6493d3,#1f75ea);
+    -fx-text-fill: white;
+    -fx-background-radius: 15;
+    -fx-cursor: hand;
+}
+#logo{
+    -fx-fill: linear-gradient(#6493d3,#1f75ea);
+}
+#appLabel{
+    -fx-text-fill: white;
+    -fx-back-color : #1f75ea;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-font-family: "sans-serif";
+}
