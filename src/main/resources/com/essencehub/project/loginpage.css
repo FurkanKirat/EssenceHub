@@ -1,0 +1,24 @@
+.text-field{
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-border-color: #31e191;
+    -fx-background-color: transparent;
+
+
+}
+
+#anchor1{
+    -fx-background-color: #31e191;
+}
+#loginbtn{
+    -fx-background-color: linear-gradient(#8ee5bd,#31e191);
+    -fx-text-fill: white;
+    -fx-background-radius: 15;
+}
+#appLabel{
+    -fx-text-fill: white;
+    -fx-back-color : #31e191;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-font-family: "Bookman Old Style";
+}
