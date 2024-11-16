@@ -19,20 +19,20 @@ public class MyApplication extends Application {
         try{
             //LineChartView lineChartView = new LineChartView();
             //Scene scene = new Scene(lineChartView.createLineChart(), 800, 600);
-            /*Parent root = FXMLLoader.load(getClass().getResource("loginpage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("loginpage.fxml"));
             Scene scene = new Scene(root);
             stage.setTitle("Essence Hub");
-            
+
             stage.setResizable(false);
             stage.setScene(scene);
             stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
-            stage.show();*/
+            stage.show();
 
-            Parent rootAdminPanel = FXMLLoader.load(getClass().getResource("essence.fxml"));
+            /*Parent rootAdminPanel = FXMLLoader.load(getClass().getResource("essence.fxml"));
             Scene sceneAdminPanel = new Scene(rootAdminPanel);
             stage.setTitle("Essence Hub");
             stage.setScene(sceneAdminPanel);
-            stage.show();
+            stage.show();*/
 
         } catch (Exception e) {
 
