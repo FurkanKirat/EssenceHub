@@ -22,10 +22,7 @@ public class MyApplication extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("loginpage.fxml"));
             Scene scene = new Scene(root);
             stage.setTitle("Essence Hub");
-            var bounds = Screen.getPrimary().getVisualBounds();
-
-            // Sahne boyutunu ayarlayın
-
+            
             stage.setResizable(false);
             stage.setScene(scene);
             stage.getIcons().add(
@@ -33,7 +30,7 @@ public class MyApplication extends Application {
             stage.show();
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+
         }
     }
 

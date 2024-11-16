@@ -1,23 +1,25 @@
 .text-field{
-    -fx-border-width: 0px 0px 2px 0px;
-    -fx-border-color: #1f75ea;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
     -fx-background-color: transparent;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 
 
 }
 .label{
     -fx-font-family: "Segoe UI:";
-    -fx-text-fill: white;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
 }
 #anchor1{
-    -fx-background-color: linear-gradient(#6493d3,#1f75ea);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
 }
 #loginbtn{
-    -fx-background-color: linear-gradient(#6493d3,#1f75ea);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
     -fx-text-fill: white;
     -fx-background-radius: 15;
     -fx-cursor: hand;
+    -fx-font-weight: bold;
 }
 #logo{
     -fx-fill: linear-gradient(#6493d3,#1f75ea);
@@ -29,4 +31,13 @@
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-family: "sans-serif";
+}
+#profile{
+    -fx-fill: red;
+}
+#hide{
+    -fx-cursor: hand;
+}
+#show{
+    -fx-cursor: hand;
 }
