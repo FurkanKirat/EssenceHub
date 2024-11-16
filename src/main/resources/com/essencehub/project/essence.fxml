@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" styleClass="gradient-background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.ControllerAdminPanel">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="1288.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="62.0" prefWidth="227.0" text="ADMIN PANEL" textFill="WHITE">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Label>
+            <Pane maxHeight="-Infinity" opacity="0.5" prefHeight="1.0" prefWidth="200.0" styleClass="line-color" stylesheets="@style.css" HBox.hgrow="ALWAYS" />
+            <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/admin%20panel/inbox.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/admin%20panel/settings.png" />
+               </image>
+            </ImageView>
+         </children>
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="290.0" spacing="10.0" styleClass="container" stylesheets="@style.css" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/admin%20panel/profile.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="208.0">
+                     <children>
+                        <Label text="Uğur Güdükbay" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" opacity="0.5" prefHeight="1.0" prefWidth="260.0" styleClass="line-color" stylesheets="@style.css">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Pane>
+            <VBox prefHeight="588.0" prefWidth="290.0" spacing="20.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="15.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/admin%20panel/dashboard%20(1).png" />
+                           </image>
+                        </ImageView>
+                        <Label text="DashBoard" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="35.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="15.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/admin%20panel/stockTracking.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Stock Tracking" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="15.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/admin%20panel/finance.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Finance" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="35.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="15.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/admin%20panel/employee.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Employee" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="35.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="15.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/admin%20panel/clipboard.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Assign Task" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="35.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

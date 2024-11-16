@@ -29,22 +29,22 @@
             <Button fx:id="loginbtn" layoutX="75.0" layoutY="281.0" mnemonicParsing="false" onAction="#loginClicked" prefHeight="26.0" prefWidth="150.0" text="Login" />
             <ImageView fx:id="passwordicon" fitHeight="25.0" fitWidth="25.0" layoutX="44.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/password.png" />
+                  <Image url="@images/login/password.png" />
                </image>
             </ImageView>
             <ImageView fx:id="ID" fitHeight="25.0" fitWidth="25.0" layoutX="44.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/ID.png" />
+                  <Image url="@images/login/ID.png" />
                </image>
             </ImageView>
             <ImageView fx:id="hide" fitHeight="25.0" fitWidth="25.0" layoutX="235.0" layoutY="231.0" onMouseReleased="#hideClicked" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
-                  <Image url="@images/hide.png" />
+                  <Image url="@images/login/hide.png" />
                </image>
             </ImageView>
             <ImageView fx:id="show" fitHeight="25.0" fitWidth="25.0" layoutX="235.0" layoutY="231.0" onMouseReleased="#hideClicked" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/show.png" />
+                  <Image url="@images/login/show.png" />
                </image>
             </ImageView>
             <TextField fx:id="passwordText" layoutX="75.0" layoutY="229.0" promptText="Your Password" visible="false" />
