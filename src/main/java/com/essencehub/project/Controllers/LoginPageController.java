@@ -112,7 +112,7 @@ public class LoginPageController {
         }
 
         if(currentStaff.getPassword().equals("1")&&currentStaff.getID().equals("1")){
-            System.out.println("invalid ID or password");
+
         }
         else if(currentStaff.isAdmin()){
 
@@ -136,7 +136,7 @@ public class LoginPageController {
             }
         }
         else{
-            System.out.println("you are not admin");
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/employeePanel.fxml"));
             Parent root = loader.load();
 

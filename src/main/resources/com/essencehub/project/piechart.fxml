@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.PieController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.PieController">
    <children>
-      <PieChart fx:id="pieChart" prefHeight="400.0" prefWidth="600.0" />
+      <PieChart fx:id="pieChart" layoutX="788.0" layoutY="523.0" prefHeight="222.0" prefWidth="411.0" />
+      <AreaChart fx:id="areachart" layoutX="288.0" layoutY="405.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" fx:id="xaxis" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="yaxis" side="LEFT" />
+        </yAxis>
+      </AreaChart>
    </children>
 </AnchorPane>
