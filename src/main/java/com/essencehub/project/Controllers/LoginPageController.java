@@ -141,8 +141,8 @@ public class LoginPageController {
                 stage.setTitle("Essence Hub");
                 stage.setScene(scene);
                 stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
-                stage.setMinWidth(1315);
-                stage.setMinHeight(890);
+                //stage.setMinWidth(1315);
+                //stage.setMinHeight(890);
                 stage.show();
 
                 Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
