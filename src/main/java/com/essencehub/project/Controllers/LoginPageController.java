@@ -4,6 +4,7 @@ import com.essencehub.project.Employees.Admin;
 import com.essencehub.project.Employees.Employee;
 import com.essencehub.project.Employees.Staff;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +15,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -84,6 +87,7 @@ public class LoginPageController {
 
 
         }
+
         show.setVisible(!show.isVisible());
         hide.setVisible(!hide.isVisible());
     }
@@ -97,9 +101,19 @@ public class LoginPageController {
         staffs.add(new Admin("54321","abcde"));
     }
 
+
     @FXML
     void loginClicked(ActionEvent event) throws IOException {
+        login(event);
 
+    }
+    @FXML
+    void loginEnter(KeyEvent event) throws IOException {
+        if(event.getCode() == KeyCode.ENTER){
+            login(event);
+        }
+    }
+    public void login(Event event) throws IOException {
         Staff currentStaff = new Employee("1","1");
         addStaffs();
 
@@ -127,6 +141,8 @@ public class LoginPageController {
                 stage.setTitle("Essence Hub");
                 stage.setScene(scene);
                 stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
+                stage.setMinWidth(1315);
+                stage.setMinHeight(890);
                 stage.show();
 
                 Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -145,14 +161,14 @@ public class LoginPageController {
             Stage stage = new Stage();
             stage.setTitle("Essence Hub");
             stage.setScene(scene);
+            stage.setMinWidth(1315);
+            stage.setMinHeight(890);
             stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
             stage.show();
 
             Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             currentStage.close();
         }
-
     }
-
 
 }

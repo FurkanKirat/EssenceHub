@@ -6,10 +6,10 @@
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.PieController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="861.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.PieController">
    <children>
-      <PieChart fx:id="pieChart" layoutX="788.0" layoutY="523.0" prefHeight="222.0" prefWidth="411.0" />
-      <AreaChart fx:id="areachart" layoutX="288.0" layoutY="405.0">
+      <PieChart fx:id="pieChart" layoutX="526.0" layoutY="151.0" prefHeight="155.0" prefWidth="178.0" />
+      <AreaChart fx:id="areachart" layoutX="134.0" layoutY="70.0" prefHeight="262.0" prefWidth="295.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" fx:id="xaxis" />
         </xAxis>

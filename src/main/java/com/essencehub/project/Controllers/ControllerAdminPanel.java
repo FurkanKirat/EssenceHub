@@ -70,6 +70,7 @@ public class ControllerAdminPanel {
             Parent root2 = FXMLLoader.load(getClass().getResource("/com/essencehub/project/essence.fxml"));
 
             AnchorPane anchorPane = new AnchorPane();
+            root1.relocate(300,300);
             anchorPane.getChildren().addAll(root2, root1);
 
             Scene scene = new Scene(anchorPane, 1315, 890);
@@ -77,10 +78,11 @@ public class ControllerAdminPanel {
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.setTitle("Essence Hub");
+
             stage.show();
         }
         catch(Exception e){
-            
+
         }
 
 
