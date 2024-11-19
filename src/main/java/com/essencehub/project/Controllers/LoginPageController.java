@@ -1,8 +1,7 @@
 package com.essencehub.project.Controllers;
 
-import com.essencehub.project.Employees.Admin;
-import com.essencehub.project.Employees.Employee;
-import com.essencehub.project.Employees.Staff;
+
+import com.essencehub.project.User.User;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -23,6 +22,10 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class LoginPageController {
@@ -70,6 +73,9 @@ public class LoginPageController {
     private ImageView show;
 
     @FXML
+    private Label warning;
+
+    @FXML
     void hideClicked(MouseEvent event) {
 
         if(passwordField.isVisible()){
@@ -91,15 +97,6 @@ public class LoginPageController {
         show.setVisible(!show.isVisible());
         hide.setVisible(!hide.isVisible());
     }
-    ArrayList<Staff> staffs = new ArrayList<>();
-
-    // Will be the method to add staffs from the SQL to arraylist
-    private void addStaffs(){
-
-        // These are for tests
-        staffs.add(new Employee("12345","abcde"));
-        staffs.add(new Admin("54321","abcde"));
-    }
 
 
     @FXML
@@ -114,61 +111,82 @@ public class LoginPageController {
         }
     }
     public void login(Event event) throws IOException {
-        Staff currentStaff = new Employee("1","1");
-        addStaffs();
+        try{
+            String id = idField.getText();
+            String password = passwordField.isVisible() ? passwordField.getText() : passwordText.getText();
+            Connection connection = DriverManager.getConnection(
+                    "jdbc:mysql://127.0.0.1:3306/project_schema",
+                    "root",
+                    "ruhi1234"
+            );
 
+            Statement statement = connection.createStatement();
+
+            ResultSet resultset = statement.executeQuery("SELECT * FROM users WHERE id = '" + id + "' AND password = '" + password + "'"
+            );
+
+            if(resultset.next()){
+
+                boolean isPasswordTrue = id.equals(resultset.getString("id"))&&password.equals(resultset.getString("password"));
+                if(isPasswordTrue){
+
+                    warning.setVisible(false);
+                    if(resultset.getInt("authorized_degree")==2){
+                        try {
+
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/essence.fxml"));
+                            Parent root = loader.load();
+
+                            Scene scene = new Scene(root);
+
+                            Stage stage = new Stage();
+                            stage.setTitle("Essence Hub");
+                            stage.setScene(scene);
+                            stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
+                            //stage.setMinWidth(1315);
+                            //stage.setMinHeight(890);
+                            stage.show();
+
+                            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                            currentStage.close();
+                        } catch (IOException e) {
+
+                        }
+                    }
+                    else{
+
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/employeePanel.fxml"));
+                        Parent root = loader.load();
+
+                        Scene scene = new Scene(root);
+
+                        Stage stage = new Stage();
+                        stage.setTitle("Essence Hub");
+                        stage.setScene(scene);
+                        stage.setMinWidth(1315);
+                        stage.setMinHeight(890);
+                        stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
+                        stage.show();
+
+                        Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                        currentStage.close();
+                    }
+
+                }
+                else{
+                    warning.setVisible(true);
+                }
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        
         // Get the staff that has the same ID and password
-        for(Staff staff: staffs){
-            boolean isPasswordTrue = passwordField.isVisible() ? staff.getPassword().equals(passwordField.getText()) : staff.getPassword().equals(passwordText.getText());
-            if(staff.getID().equals(idField.getText())&&isPasswordTrue){
-                currentStaff = staff;
-            }
-        }
 
-        if(currentStaff.getPassword().equals("1")&&currentStaff.getID().equals("1")){
 
-        }
-        else if(currentStaff.isAdmin()){
 
-            try {
-
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/essence.fxml"));
-                Parent root = loader.load();
-
-                Scene scene = new Scene(root);
-
-                Stage stage = new Stage();
-                stage.setTitle("Essence Hub");
-                stage.setScene(scene);
-                stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
-                //stage.setMinWidth(1315);
-                //stage.setMinHeight(890);
-                stage.show();
-
-                Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-                currentStage.close();
-            } catch (IOException e) {
-
-            }
-        }
-        else{
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/employeePanel.fxml"));
-            Parent root = loader.load();
-
-            Scene scene = new Scene(root);
-
-            Stage stage = new Stage();
-            stage.setTitle("Essence Hub");
-            stage.setScene(scene);
-            stage.setMinWidth(1315);
-            stage.setMinHeight(890);
-            stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
-            stage.show();
-
-            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            currentStage.close();
-        }
     }
 
 }

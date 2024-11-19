@@ -10,6 +10,11 @@ import javafx.stage.Stage;
 
 import javax.swing.text.html.ImageView;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 import static javafx.application.Application.launch;
 import static jdk.xml.internal.SecuritySupport.getResourceAsStream;
 
@@ -33,6 +38,8 @@ public class MyApplication extends Application {
             stage.setTitle("Essence Hub");
             stage.setScene(sceneAdminPanel);
             stage.show();*/
+
+
 
         } catch (Exception e) {
 

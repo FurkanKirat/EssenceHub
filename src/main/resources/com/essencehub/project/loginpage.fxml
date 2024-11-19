@@ -48,6 +48,7 @@
                </image>
             </ImageView>
             <TextField fx:id="passwordText" layoutX="75.0" layoutY="229.0" onKeyReleased="#loginEnter" promptText="Your Password" visible="false" />
+            <Label fx:id="warning" layoutX="83.0" layoutY="333.0" text="ID or password is wrong" visible="false" />
          </children>
       </AnchorPane>
    </children>
