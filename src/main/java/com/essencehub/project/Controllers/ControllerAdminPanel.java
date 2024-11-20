@@ -2,6 +2,7 @@ package com.essencehub.project.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,9 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -37,6 +36,9 @@ public class ControllerAdminPanel {
     private Label namePanel;
 
     @FXML
+    private BorderPane borderPane;
+
+    @FXML
     private ImageView profilPicturePanel;
 
     @FXML
@@ -47,6 +49,9 @@ public class ControllerAdminPanel {
 
     @FXML
     private HBox stockTrackingPanel;
+
+    @FXML
+    private HBox functions;
 
     @FXML
     void assignTaskPanelClicked(MouseEvent event) throws IOException {
@@ -67,20 +72,23 @@ public class ControllerAdminPanel {
     void financeClicked(MouseEvent event) {
         try{
             Parent root1 = FXMLLoader.load(getClass().getResource("/com/essencehub/project/piechart.fxml"));
+            functions.getChildren().clear();
+            functions.getChildren().add(root1);
+            //Stage prevStage = (Stage) stockTrackingPanel.getScene().getWindow();
+            //Parent root2 = prevStage.getScene().getRoot();
 
-            Parent root2 = FXMLLoader.load(getClass().getResource("/com/essencehub/project/essence.fxml"));
+            //StackPane stackPane = new StackPane();
+            //root1.relocate(300,300);
+            //stackPane.getChildren().addAll(root2, root1);
+            //stackPane.setAlignment(root1, Pos.BOTTOM_RIGHT);
 
-            AnchorPane anchorPane = new AnchorPane();
-            root1.relocate(300,300);
-            anchorPane.getChildren().addAll(root2, root1);
+            //Scene scene = new Scene(stackPane);
 
-            Scene scene = new Scene(anchorPane, 1315, 890);
-
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
+            /*Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            //stage.setScene(scene);
             stage.setTitle("Essence Hub");
 
-            stage.show();
+            stage.show();*/
         }
         catch(Exception e){
 
