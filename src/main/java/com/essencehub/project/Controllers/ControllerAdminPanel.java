@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -104,8 +105,22 @@ public class ControllerAdminPanel {
     }
 
     @FXML
-    void stockTrackingCLicked(MouseEvent event) {
+    void stockTrackingCLicked(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/stockTracking.fxml"));
+        Parent root = loader.load();
 
+        Scene scene = new Scene(root);
+
+        Stage stage = new Stage();
+        stage.setTitle("Essence Hub");
+        stage.setScene(scene);
+        stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
+        stage.setMinWidth(1315);
+        stage.setMinHeight(890);
+        stage.show();
+
+        Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 
 }

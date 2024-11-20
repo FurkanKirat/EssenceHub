@@ -28,11 +28,7 @@ public class MyApplication extends Application {
             stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
             stage.show();
 
-            /*Parent rootAdminPanel = FXMLLoader.load(getClass().getResource("essence.fxml"));
-            Scene sceneAdminPanel = new Scene(rootAdminPanel);
-            stage.setTitle("Essence Hub");
-            stage.setScene(sceneAdminPanel);
-            stage.show();*/
+
 
         } catch (Exception e) {
 

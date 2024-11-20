@@ -1,48 +1,72 @@
 package com.essencehub.project.Controllers;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
+
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 
 import java.util.ArrayList;
 
-public class ControllerEmployeePanel {
+public class lineChartController {
+
+    @FXML
+    private HBox assignTaskPanel;
 
     @FXML
     private HBox dashboardPanel;
 
     @FXML
+    private HBox employeePanel;
+
+    @FXML
+    private HBox financePanel;
+
+    @FXML
     private ImageView msgIcon;
 
     @FXML
-    private HBox performancePanel;
+    private Label namePanel;
 
     @FXML
-    private ImageView profilePicturePanel;
+    private ImageView profilPicturePanel;
 
     @FXML
     private ImageView settingIcon;
 
     @FXML
-    private HBox tasksPanel;
+    private Label statusPanel;
 
     @FXML
-    private WebView webview;
+    private HBox stockTrackingPanel;
 
     @FXML
-    void dashboardPanelClicked(MouseEvent event) {
+    private WebView webView;
+
+    @FXML
+    void assignTaskPanelClicked(MouseEvent event) {
 
     }
 
     @FXML
-    void msgIconCLicked(MouseEvent event) {
+    void dashboradClicked(MouseEvent event) {
 
     }
 
     @FXML
-    void performancePanelClicked(MouseEvent event) {
+    void employeePanelClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void financeClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void msgIconClicked(MouseEvent event) {
 
     }
 
@@ -52,18 +76,17 @@ public class ControllerEmployeePanel {
     }
 
     @FXML
-    void settingsIconClicked(MouseEvent event) {
+    void settingIconClicked(MouseEvent event) {
 
     }
 
     @FXML
-    void tasksPanelClicked(MouseEvent event) {
+    void stockTrackingCLicked(MouseEvent event) {
 
     }
-
     @FXML
     void initialize() {
-        WebEngine webEngine = webview.getEngine();
+        WebEngine webEngine = webView.getEngine();
         String highchartsHTML = """
                 <!DOCTYPE html>
                 <html>
@@ -172,4 +195,5 @@ public class ControllerEmployeePanel {
 
         });
     }
+
 }
