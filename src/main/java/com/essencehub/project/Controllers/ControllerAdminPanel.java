@@ -3,6 +3,7 @@ package com.essencehub.project.Controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -54,9 +55,9 @@ public class ControllerAdminPanel {
     private HBox functions;
 
     @FXML
-    void assignTaskPanelClicked(MouseEvent event) throws IOException {
+    void assignTaskPanelClicked(MouseEvent event) {
 
-            }
+    }
 
     @FXML
     void dashboradClicked(MouseEvent event) {
@@ -70,31 +71,7 @@ public class ControllerAdminPanel {
 
     @FXML
     void financeClicked(MouseEvent event) {
-        try{
-            Parent root1 = FXMLLoader.load(getClass().getResource("/com/essencehub/project/piechart.fxml"));
-            functions.getChildren().clear();
-            functions.getChildren().add(root1);
-            //Stage prevStage = (Stage) stockTrackingPanel.getScene().getWindow();
-            //Parent root2 = prevStage.getScene().getRoot();
-
-            //StackPane stackPane = new StackPane();
-            //root1.relocate(300,300);
-            //stackPane.getChildren().addAll(root2, root1);
-            //stackPane.setAlignment(root1, Pos.BOTTOM_RIGHT);
-
-            //Scene scene = new Scene(stackPane);
-
-            /*Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            //stage.setScene(scene);
-            stage.setTitle("Essence Hub");
-
-            stage.show();*/
-        }
-        catch(Exception e){
-
-        }
-
-
+        loadFXMLContent("/com/essencehub/project/piechart.fxml");
     }
 
     @FXML
@@ -113,22 +90,22 @@ public class ControllerAdminPanel {
     }
 
     @FXML
-    void stockTrackingCLicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/stockTracking.fxml"));
-        Parent root = loader.load();
+    void stockTrackingCLicked(MouseEvent event)  {
+        loadFXMLContent("/com/essencehub/project/trial.fxml");
 
-        Scene scene = new Scene(root);
-
-        Stage stage = new Stage();
-        stage.setTitle("Essence Hub");
-        stage.setScene(scene);
-        stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
-        stage.setMinWidth(1315);
-        stage.setMinHeight(890);
-        stage.show();
-
-        Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-        currentStage.close();
     }
+    public void loadFXMLContent(String fxmlFile) {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Node newContent = loader.load();
+
+            functions.getChildren().clear();
+            functions.getChildren().add(newContent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

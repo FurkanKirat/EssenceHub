@@ -85,21 +85,23 @@ public class stockTrackingController {
 
     @FXML
     void geoChartPaneClicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/geoChartClicked.fxml"));
-        Parent root = loader.load();
 
-        Scene scene = new Scene(root);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/geoChartClicked.fxml"));
+            Parent root = loader.load();
 
-        Stage stage = new Stage();
-        stage.setTitle("Essence Hub");
-        stage.setScene(scene);
-        stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
-        stage.setMinWidth(1315);
-        stage.setMinHeight(890);
-        stage.show();
+            Scene scene = new Scene(root);
 
-        Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-        currentStage.close();
+            Stage stage = new Stage();
+            stage.setTitle("Essence Hub");
+            stage.setScene(scene);
+            stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
+            stage.setMinWidth(1315);
+            stage.setMinHeight(890);
+            stage.show();
+
+            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
+
     }
 
     @FXML

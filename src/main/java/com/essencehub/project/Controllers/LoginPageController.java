@@ -173,18 +173,18 @@ public class LoginPageController {
                     }
 
                 }
-                else{
-                    warning.setVisible(true);
-                }
+
+            }
+            else{
+                warning.setText("ID or password is wrong");
+                warning.setVisible(true);
             }
         }
         catch (Exception e){
-            System.out.println(e.getMessage());
+            warning.setText("Something went wrong");
+            warning.setVisible(true);
+
         }
-
-        
-        // Get the staff that has the same ID and password
-
 
 
     }
