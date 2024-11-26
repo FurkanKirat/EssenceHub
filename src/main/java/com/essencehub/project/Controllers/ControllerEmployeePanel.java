@@ -1,11 +1,14 @@
 package com.essencehub.project.Controllers;
+import javafx.scene.control.Label;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.*;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ControllerEmployeePanel {
@@ -30,6 +33,11 @@ public class ControllerEmployeePanel {
 
     @FXML
     private WebView webview;
+
+    @FXML
+    private Label nameLabel;
+
+
 
     @FXML
     void dashboardPanelClicked(MouseEvent event) {
@@ -58,11 +66,6 @@ public class ControllerEmployeePanel {
 
     @FXML
     void tasksPanelClicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void initialize() {
         WebEngine webEngine = webview.getEngine();
         String highchartsHTML = """
                 <!DOCTYPE html>
@@ -171,5 +174,18 @@ public class ControllerEmployeePanel {
             }
 
         });
+    }
+
+    @FXML
+    void initialize() {
+        try {
+            String name =  LoginPageController.getResultSet().getString("name");
+            String surname = LoginPageController.getResultSet().getString("surname");
+            nameLabel.setText(name + " " + surname);
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+
     }
 }

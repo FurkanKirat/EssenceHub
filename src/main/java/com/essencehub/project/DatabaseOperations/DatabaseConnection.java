@@ -1,4 +1,4 @@
-package com.essencehub.project.User;
+package com.essencehub.project.DatabaseOperations;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -6,8 +6,8 @@ import java.sql.SQLException;
 public class DatabaseConnection {
     public static Connection getConnection() {
         String url = "jdbc:mysql://localhost:3306/BusinessProject";  // Veritabanı URL'si
-        String user = "buraya server ıdsini yazın beyler"; // Veritabanı kullanıcı adı
-        String password = "buraya server şifresini yazın beyler."; // Veritabanı şifresi
+        String user = "root"; // Veritabanı kullanıcı adı
+        String password = "ruhi1234"; // Veritabanı şifresi
 
         try {
             // JDBC sürücüsünü yükleme

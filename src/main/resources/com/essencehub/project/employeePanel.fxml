@@ -68,7 +68,7 @@
                   </ImageView>
                   <VBox alignment="CENTER" prefHeight="100.0" prefWidth="208.0">
                      <children>
-                        <Label text="Bill Gates" textFill="WHITE">
+                        <Label fx:id="nameLabel" text="Name Surname" textFill="WHITE">
                            <font>
                               <Font size="25.0" />
                            </font>

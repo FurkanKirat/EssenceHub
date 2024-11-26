@@ -15,6 +15,8 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ControllerAdminPanel {
 
@@ -53,6 +55,20 @@ public class ControllerAdminPanel {
 
     @FXML
     private HBox functions;
+
+
+    public void initialize() {
+        try {
+            String name =  LoginPageController.getResultSet().getString("name");
+            String surname = LoginPageController.getResultSet().getString("surname");
+            namePanel.setText(name + " " + surname);
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+
+
+    }
 
     @FXML
     void assignTaskPanelClicked(MouseEvent event) {
@@ -102,6 +118,7 @@ public class ControllerAdminPanel {
 
             functions.getChildren().clear();
             functions.getChildren().add(newContent);
+            HBox.setHgrow(newContent, Priority.ALWAYS);
         } catch (IOException e) {
             e.printStackTrace();
         }

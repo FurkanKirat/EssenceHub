@@ -1,7 +1,7 @@
 package com.essencehub.project.Controllers;
 
 
-import com.essencehub.project.User.User;
+import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -22,14 +22,10 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.sql.*;
 
 public class LoginPageController {
-
+    private static ResultSet resultset;
     @FXML
     private ImageView ID;
 
@@ -105,53 +101,49 @@ public class LoginPageController {
 
     }
     @FXML
-    void loginEnter(KeyEvent event) throws IOException {
+    void loginEnter(KeyEvent event) {
         if(event.getCode() == KeyCode.ENTER){
             login(event);
         }
     }
-    public void login(Event event) throws IOException {
+    public void login(Event event) {
         try{
-            String id = idField.getText();
+            warning.setVisible(false);
+            int id = Integer.parseInt(idField.getText());
             String password = passwordField.isVisible() ? passwordField.getText() : passwordText.getText();
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://127.0.0.1:3306/project_schema",
-                    "root",
-                    "ruhi1234"
-            );
+
+            Connection connection = DatabaseConnection.getConnection();
 
             Statement statement = connection.createStatement();
 
-            ResultSet resultset = statement.executeQuery("SELECT * FROM users WHERE id = '" + id + "' AND password = '" + password + "'"
-            );
+            resultset = statement.executeQuery("SELECT * FROM user WHERE id = " + id + " AND password = '" + password + "'");
+
+
 
             if(resultset.next()){
 
-                boolean isPasswordTrue = id.equals(resultset.getString("id"))&&password.equals(resultset.getString("password"));
+                boolean isPasswordTrue = id==(resultset.getInt("id"))&&password.equals(resultset.getString("password"));
                 if(isPasswordTrue){
 
                     warning.setVisible(false);
-                    if(resultset.getInt("authorized_degree")==2){
-                        try {
+                    if(resultset.getInt("isAdmin")==1){
 
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/essence.fxml"));
-                            Parent root = loader.load();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/essence.fxml"));
+                        Parent root = loader.load();
 
-                            Scene scene = new Scene(root);
+                        Scene scene = new Scene(root);
 
-                            Stage stage = new Stage();
-                            stage.setTitle("Essence Hub");
-                            stage.setScene(scene);
-                            stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
-                            //stage.setMinWidth(1315);
-                            //stage.setMinHeight(890);
-                            stage.show();
+                        Stage stage = new Stage();
+                        stage.setTitle("Essence Hub");
+                        stage.setScene(scene);
+                        stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
+                        //stage.setMinWidth(1315);
+                        //stage.setMinHeight(890);
+                        stage.show();
 
-                            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-                            currentStage.close();
-                        } catch (IOException e) {
+                        Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                        currentStage.close();
 
-                        }
                     }
                     else{
 
@@ -172,6 +164,10 @@ public class LoginPageController {
                         currentStage.close();
                     }
 
+                }else{
+                    warning.setText("ID or password is wrong");
+
+                    warning.setVisible(true);
                 }
 
             }
@@ -179,14 +175,27 @@ public class LoginPageController {
                 warning.setText("ID or password is wrong");
                 warning.setVisible(true);
             }
+
+        } catch (SQLException e) {
+            warning.setText("SQL Exception has occurred!");
+            e.printStackTrace();
+            warning.setVisible(true);
+        } catch (IOException e) {
+            warning.setText("FXML File Could not Loaded!");
+            e.printStackTrace();
+            warning.setVisible(true);
         }
         catch (Exception e){
-            warning.setText("Something went wrong");
+            warning.setText("Something went wrong!");
+            e.printStackTrace();
             warning.setVisible(true);
 
         }
 
 
+    }
+    public static ResultSet getResultSet(){
+        return resultset;
     }
 
 }

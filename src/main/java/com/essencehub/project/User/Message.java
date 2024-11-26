@@ -45,7 +45,7 @@ public class Message {
 
     public void setMessage(String message) {
         this.message = message;
-        this.title = message.length() > 50 ? message.substring(0, 50) : message; // Mesaj değiştiğinde title güncellenir
+        this.title = message.length() > 50 ? message.substring(0, 50) : message; 
     }
 
     public String getTitle() {
