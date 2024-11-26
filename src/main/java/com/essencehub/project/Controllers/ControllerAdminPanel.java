@@ -56,6 +56,9 @@ public class ControllerAdminPanel {
     @FXML
     private HBox functions;
 
+    @FXML
+    private VBox func;
+
 
     public void initialize() {
         try {
@@ -107,7 +110,7 @@ public class ControllerAdminPanel {
 
     @FXML
     void stockTrackingCLicked(MouseEvent event)  {
-        loadFXMLContent("/com/essencehub/project/trial.fxml");
+        loadFXMLContent("/com/essencehub/project/stocktrial.fxml");
 
     }
     public void loadFXMLContent(String fxmlFile) {
@@ -116,9 +119,9 @@ public class ControllerAdminPanel {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Node newContent = loader.load();
 
-            functions.getChildren().clear();
-            functions.getChildren().add(newContent);
-            HBox.setHgrow(newContent, Priority.ALWAYS);
+            func.getChildren().clear();
+            func.getChildren().add(newContent);
+            VBox.setVgrow(newContent, Priority.ALWAYS);
         } catch (IOException e) {
             e.printStackTrace();
         }
