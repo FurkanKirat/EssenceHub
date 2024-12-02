@@ -15,14 +15,14 @@ public class CreateUserTable {
                         + "phoneNumber VARCHAR(15), "
                         + "salary DOUBLE, "
                         + "isAdmin BOOLEAN, "
-                        + "birth DATE, "
+                        + "birth VARCHAR(50), "
                         + "department VARCHAR(50), "
                         + "email VARCHAR(100), "
                         + "remainingLeaveDays INT, "
                         + "monthlyPerformance VARCHAR(50), "
                         + "bonusSalary DOUBLE, "
                         + "isActive BOOLEAN, "
-                        + "password VARCHAR(255) NOT NULL" // Password sütunu eklendi
+                        + "password VARCHAR(255) NOT NULL" 
                         + ");";
                 try (Statement statement = connection.createStatement()) {
                     statement.execute(createTableSQL);

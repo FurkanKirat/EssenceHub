@@ -15,6 +15,11 @@
       <AnchorPane fx:id="anchor1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0">
          <children>
             <Label fx:id="appLabel" layoutX="52.0" layoutY="8.0" prefHeight="118.0" prefWidth="178.0" text="Essence Hub" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="66.0" layoutY="125.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/essence.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="anchor2" minHeight="400.0" minWidth="300.0" prefHeight="400.0" prefWidth="300.0">

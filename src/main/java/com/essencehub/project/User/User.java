@@ -30,13 +30,15 @@ public class User {
         this.surname = surname;
         this.phoneNumber = phoneNumber;
         this.salary = baseSalary;
-        this.isAdmin = isAdmin;  
+        this.isAdmin = isAdmin;
         this.birth = birth;
         this.department = department;
         this.email = email;
         this.remainingLeaveDays = remainingLeaveDays;
         this.isActive = isActive;
-        this.password = password; // Password parametresi ile atama
+        this.password = password;
+
+        this.monthlyPerformance = Performance.F; //Default user performance
     }
 
     // Getter ve Setter Metotları
@@ -153,5 +155,11 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return name +" " + surname;
+
     }
 }
