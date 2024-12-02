@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="func" prefHeight="200.0" prefWidth="100.0" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.DashboardController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="container" />
+      <HBox fx:id="functions" prefHeight="700.0" prefWidth="200.0" styleClass="container" VBox.vgrow="ALWAYS">
+         <children>
+            <DatePicker />
+         </children></HBox>
+   </children>
+</VBox>

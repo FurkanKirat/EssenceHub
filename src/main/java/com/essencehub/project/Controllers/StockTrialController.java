@@ -20,22 +20,26 @@ public class StockTrialController {
 
     @FXML
     void barChartPaneClicked(MouseEvent event) {
-
+        ControllerAdminPanel controllerAdminPanel = ControllerAdminPanel.getInstance();
+        controllerAdminPanel.loadFXMLContent("/com/essencehub/project/piechart.fxml");
     }
 
     @FXML
     void geoChartPaneClicked(MouseEvent event) {
-
+        ControllerAdminPanel controllerAdminPanel = ControllerAdminPanel.getInstance();
+        controllerAdminPanel.loadFXMLContent("/com/essencehub/project/geoChartClicked.fxml");
     }
 
     @FXML
     void linechartPaneClicked(MouseEvent event) {
-
+        ControllerAdminPanel controllerAdminPanel = ControllerAdminPanel.getInstance();
+        controllerAdminPanel.loadFXMLContent("/com/essencehub/project/lineChartClicked.fxml");
     }
 
     @FXML
     void pieChartPaneClicked(MouseEvent event) {
-
+        ControllerAdminPanel controllerAdminPanel = ControllerAdminPanel.getInstance();
+        controllerAdminPanel.loadFXMLContent("/com/essencehub/project/piechart.fxml");
     }
 
 }

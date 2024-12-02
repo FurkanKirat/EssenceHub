@@ -59,28 +59,35 @@ public class ControllerAdminPanel {
     @FXML
     private VBox func;
 
+    private static ControllerAdminPanel instance;
 
+    public ControllerAdminPanel() {
+        instance = this;
+    }
     public void initialize() {
+
         try {
             String name =  LoginPageController.getResultSet().getString("name");
             String surname = LoginPageController.getResultSet().getString("surname");
             namePanel.setText(name + " " + surname);
+
         }
         catch (SQLException e){
             e.printStackTrace();
         }
+        loadFXMLContent("/com/essencehub/project/dashboard.fxml");
 
 
     }
 
     @FXML
     void assignTaskPanelClicked(MouseEvent event) {
-
+        loadFXMLContent("/com/essencehub/project/AssignTask.fxml");
     }
 
     @FXML
     void dashboradClicked(MouseEvent event) {
-
+        loadFXMLContent("/com/essencehub/project/dashboard.fxml");
     }
 
     @FXML
@@ -90,7 +97,7 @@ public class ControllerAdminPanel {
 
     @FXML
     void financeClicked(MouseEvent event) {
-        loadFXMLContent("/com/essencehub/project/piechart.fxml");
+        loadFXMLContent("/com/essencehub/project/finance.fxml");
     }
 
     @FXML
@@ -100,7 +107,7 @@ public class ControllerAdminPanel {
 
     @FXML
     void profilePicturePanelClicked(MouseEvent event) {
-
+        
     }
 
     @FXML
@@ -127,5 +134,7 @@ public class ControllerAdminPanel {
         }
     }
 
-
+    public static ControllerAdminPanel getInstance() {
+        return instance;
+    }
 }
