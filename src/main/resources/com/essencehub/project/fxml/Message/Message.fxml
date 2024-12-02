@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView prefHeight="359.0" prefWidth="600.0">
+        <columns>
+          <TableColumn prefWidth="134.4000244140625" text="From" />
+          <TableColumn prefWidth="353.5999755859375" text="Last Message" />
+            <TableColumn prefWidth="108.00006103515625" text="Time " />
+        </columns>
+      </TableView>
+      <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="146.0" text="View Message" />
+   </children>
+</VBox>

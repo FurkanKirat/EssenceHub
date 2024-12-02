@@ -1,0 +1,23 @@
+.chart-legend-item{
+    -fx-text-fill: blue;
+}
+.chart-pie-label-line {
+    -fx-stroke: #8b4513;
+    -fx-fill: #8b4513;
+}
+
+.chart-pie-label {
+    -fx-fill: #8b4513;
+}
+.chart-legend {
+   -fx-background-color:  #fafad2;
+   -fx-stroke: #daa520;
+}
+.axis-label {
+  -fx-text-fill: #4682b4;
+}
+.chart-pie-label {-fx-fill: #ff4f0a;}
+
+.default-color0.chart-pie{
+    -fx-pie-color : purple;
+}

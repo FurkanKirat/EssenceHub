@@ -1,6 +1,7 @@
 package com.essencehub.project.User;
 
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
+import com.essencehub.project.Stock.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -45,7 +46,6 @@ public class AdminOperations {
             e.printStackTrace();
         }
     }
-
 
     // KULLANICI GÜNCELLE
     public static void updateUser(User user) {
@@ -179,9 +179,8 @@ public class AdminOperations {
 
     public static void getUsers() {
         List<User> usersTemp = new ArrayList<>();
-        users=usersTemp;
+        users = usersTemp;
         String query = "SELECT * FROM User";
-
         try (Connection connection = DatabaseConnection.getConnection();
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(query)) {
@@ -223,23 +222,107 @@ public class AdminOperations {
         }
     }
 
-    public static void main(String[] args) {
-         AdminOperations ao = new AdminOperations();
-         User user1 = new User("Uğur", "Güdükbay","1234567",1000, true, "1990-05-15",
-         "CS", "UGURGUDUKBAY@ICLOUD.COM", 40, true,"123");
-         ao.addUser(user1);//Ekleme yapıldı yapmadıysanız bir kere runlayın beyler
-         User user2 = new User("BILL", "GATES","9876543",1000, true, "1980-05-15",
-         "CS", "BILLGATES@ICLOUD.COM", 40, true,"ruhi1234");
-         ao.addUser(user2);//Ekleme yapıldı yapmadıysanız bir kere runlayın beyler
-         User user3 = new User("Elon", "Musk","5891238",100, false, "2000-05-15",
-         "CS", "ELONMUSK@ICLOUD.COM", 40, true,"abc");
-         ao.addUser(user3);//Ekleme yapıldı yapmadıysanız bir kere runlayın beyler
+    //Stock table'ına yeni bir product ekler.
+    public static void addProduct(Product product) {
+        String insertProductSQL = "INSERT INTO Stock (name, count, month_and_year) VALUES (?, ?, ?)";
 
-         ao.sendMessageMain(user1,user2,"Come to Bilkent Bill","Hello");
-         ao.sendMessageMain(user1,user2,"Okay Ugur","Hello");
-         ao.sendMessageMain(user2,user3,"How are u Elon","Hello");
-         ao.sendMessageMain(user3,user2,"Thanks BILL, Im fine and u ?","Hello");
+        try (Connection connection = DatabaseConnection.getConnection()) {
+            if (connection != null) {
+                try (PreparedStatement preparedStatement = connection.prepareStatement(insertProductSQL)) {
+                    preparedStatement.setString(1, product.getName()); 
+                    preparedStatement.setInt(2, product.getCount()); 
+                    preparedStatement.setString(3, product.getMonthAndYear()); 
 
-         ao.sendTaskMain(user1, user3,"Tesla Telefon Çıkart", "Telefon");
+                    int affectedRows = preparedStatement.executeUpdate();
+
+                    if (affectedRows > 0) {
+                        System.out.println("Ürün başarıyla eklendi.");
+                    } else {
+                        System.out.println("Ürün ekleme başarısız oldu.");
+                    }
+                }
+            } else {
+                System.out.println("Veritabanı bağlantısı başarısız.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Ürün ekleme hatası: " + e.getMessage());
+            e.printStackTrace();
+        }}
+
+    // Seçilen nesnenin count'ını increaseAmount kadar arttırır.
+    public static void addStock(Product product, int increaseAmount) {
+        // SQL UPDATE sorgusu
+        String updateStockSQL = "UPDATE Stock SET count = count + ? WHERE name = ? AND month_and_year = ?";
+
+        try (Connection connection = DatabaseConnection.getConnection()) {
+            if (connection != null) {
+                // PreparedStatement ile sorguyu hazırlayın
+                try (PreparedStatement preparedStatement = connection.prepareStatement(updateStockSQL)) {
+                    // Sorgu parametrelerini ayarlayın
+                    preparedStatement.setInt(1, increaseAmount); // count + increaseAmount
+                    preparedStatement.setString(2, product.getName()); // name
+                    preparedStatement.setString(3, product.getMonthAndYear()); // month_and_year
+
+                    // Sorguyu çalıştırın
+                    int affectedRows = preparedStatement.executeUpdate();
+
+                    if (affectedRows > 0) {
+                        System.out.println("Stok başarıyla güncellendi.");
+                    } else {
+                        System.out.println("Ürün bulunamadı. Stok güncellenemedi.");
+                    }
+                }
+            } else {
+                System.out.println("Veritabanı bağlantısı başarısız.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Stok güncelleme hatası: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
+
+    // Seçilen nesnenin count'ını decreaseAmount kadar eksiltir.
+    public static void removeStock(Product product, int decreaseAmount) {
+        String selectStockSQL = "SELECT count FROM Stock WHERE name = ? AND month_and_year = ?";
+        String updateStockSQL = "UPDATE Stock SET count = count - ? WHERE name = ? AND month_and_year = ?";
+
+        try (Connection connection = DatabaseConnection.getConnection()) {
+            if (connection != null) {
+                try (PreparedStatement selectStatement = connection.prepareStatement(selectStockSQL)) {
+                    selectStatement.setString(1, product.getName());
+                    selectStatement.setString(2, product.getMonthAndYear());
+
+                    try (ResultSet resultSet = selectStatement.executeQuery()) {
+                        if (resultSet.next()) {
+                            int currentCount = resultSet.getInt("count");
+                            if (currentCount >= decreaseAmount) {
+                                try (PreparedStatement updateStatement = connection.prepareStatement(updateStockSQL)) {
+                                    updateStatement.setInt(1, decreaseAmount);
+                                    updateStatement.setString(2, product.getName());
+                                    updateStatement.setString(3, product.getMonthAndYear());
+
+                                    int affectedRows = updateStatement.executeUpdate();
+                                    if (affectedRows > 0) {
+                                        System.out.println("Stok başarıyla güncellendi.");
+                                    } else {
+                                        System.out.println("Ürün bulunamadı. Stok güncellenemedi.");
+                                    }
+                                }
+                            } else {
+                                System.out.println("Yetersiz stok! Mevcut miktar: " + currentCount);
+                            }
+                        } else {
+                            System.out.println("Ürün bulunamadı.");
+                        }
+                    }
+                }
+            } else {
+                System.out.println("Veritabanı bağlantısı başarısız.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Stok güncelleme hatası: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 }
