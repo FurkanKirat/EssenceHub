@@ -8,10 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
-public class SettingsController {
-
-    @FXML
-    private Button EditInfoButton;
+public class PasswordController {
 
     @FXML
     private ImageView HomePageIcon;
@@ -26,51 +23,16 @@ public class SettingsController {
     private HBox ProfileInfoPanel;
 
     @FXML
-    private Button SaveInfoButton;
-
-    @FXML
     private HBox ThemeMenuPanel;
 
     @FXML
     private Label UserNamePanel;
 
     @FXML
-    private TextField bonusSalaryTextField;
+    private Button editPasswordButton;
 
     @FXML
-    private TextField dateOfBirthTextField;
-
-    @FXML
-    private TextField departmentTextField;
-
-    @FXML
-    private TextField emailTextField;
-
-    @FXML
-    private TextField idTextField;
-
-    @FXML
-    private TextField nameTextField;
-
-    @FXML
-    private TextField performanceTextField;
-
-    @FXML
-    private TextField phoneNumTextField;
-
-    @FXML
-    private TextField salaryTextField;
-
-    @FXML
-    private TextField surnameTextField;
-
-    @FXML
-    private TextField vacationDaysTextField;
-
-    @FXML
-    void EditInfoButtonClicked(MouseEvent event) {
-
-    }
+    private TextField passwordTextField;
 
     @FXML
     void HomePageIconClicked(MouseEvent event) {
@@ -93,17 +55,17 @@ public class SettingsController {
     }
 
     @FXML
-    void SaveInfoButtonClicked(MouseEvent event) {
-
-    }
-
-    @FXML
     void ThemeMenuPanelClicked(MouseEvent event) {
 
     }
 
     @FXML
     void UserNamePanelClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void editPasswordButtonClicked(MouseEvent event) {
 
     }
 
