@@ -2,6 +2,12 @@
 .gradient-background{
     -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
 }
+.first-color{
+    -fx-background-color: #14076b;
+}
+.second-color{
+    -fx-background-color: #1d346e;
+}
 .line-color{
     -fx-background-color: #f6f4f4;
 }
@@ -12,3 +18,15 @@
 .hide{
      -fx-cursor: hand;
  }
+.selected-border{
+    -fx-border-color: #fff;
+    -fx-border-width: 0 3 0 0;
+
+}
+.selected:hover{
+    -fx-background-color: #30247e;
+}
+.button{
+    -fx-background-color: #30247e;
+    -fx-background-radius: 30;
+}

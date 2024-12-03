@@ -100,12 +100,12 @@ public class AdminMenuController {
 
     @FXML
     void profilePicturePanelClicked(MouseEvent event) {
-        
+        loadFXMLContent("/com/essencehub/project/settings.fxml" );
     }
 
     @FXML
     void settingIconClicked(MouseEvent event) {
-
+        loadFXMLContent("/com/essencehub/project/settings.fxml" );
     }
 
     @FXML
