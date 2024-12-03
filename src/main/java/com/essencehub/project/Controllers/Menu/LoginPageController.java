@@ -29,7 +29,7 @@ public class LoginPageController {
     private static ResultSet resultset;
     private static Statement statement;
     private static Connection connection;
-
+    private static int UserID;
     @FXML
     private ImageView ID;
 
@@ -138,6 +138,7 @@ public class LoginPageController {
                 if(isPasswordTrue){
                     if(resultset.getInt("isActive")==1){
                         warning.setVisible(false);
+                        UserID = resultset.getInt("ID");
                         if(resultset.getInt("isAdmin")==1){
 
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/fxml/Menu/AdminMenu.fxml"));
@@ -218,5 +219,9 @@ public class LoginPageController {
 
     public static Connection getConnection() {
         return connection;
+    }
+
+    public static int getUserID() {
+        return UserID;
     }
 }

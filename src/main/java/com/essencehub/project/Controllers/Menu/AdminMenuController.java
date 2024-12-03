@@ -94,7 +94,7 @@ public class AdminMenuController {
 
     @FXML
     void employeePanelClicked(MouseEvent event) {
-
+        loadFXMLContent("/com/essencehub/project/fxml/EmployeeOption/EmployeeOption.fxml");
     }
 
     @FXML
