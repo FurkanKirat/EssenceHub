@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.AreaChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 
-<HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="990.0" stylesheets="@../../css/assigntask.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.StockTracking.PieController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/stock.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.StockTracking.PieChartController">
    <children>
-      <AreaChart fx:id="areachart" prefHeight="600.0" prefWidth="477.0" stylesheets="@../../css/assigntask.css">
-         <xAxis>
-            <CategoryAxis side="BOTTOM" fx:id="xaxis" />
-         </xAxis>
-         <yAxis>
-            <NumberAxis fx:id="yaxis" side="LEFT" />
-         </yAxis>
-      </AreaChart>
-      <PieChart fx:id="pieChart" prefHeight="600.0" prefWidth="518.0" stylesheets="@../../css/assigntask.css" />
+      <PieChart fx:id="pieChart" prefHeight="600.0" prefWidth="518.0" />
    </children>
-</HBox>
+</StackPane>

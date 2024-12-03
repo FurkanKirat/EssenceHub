@@ -13,10 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Settings.SettingsController">
    <left>
-      <VBox prefHeight="200.0" prefWidth="370.0" spacing="10.0" styleClass="first-color" stylesheets="@style.css" BorderPane.alignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="370.0" spacing="10.0" styleClass="first-color" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="40.0" prefWidth="200.0" spacing="10.0">
                <children>
@@ -25,7 +24,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="hide">
+                  <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#homePageClicked" pickOnBounds="true" preserveRatio="true" styleClass="hide">
                      <image>
                         <Image url="@images/Settings/homepage.png" />
                      </image>
@@ -57,7 +56,7 @@
                         <Insets />
                      </VBox.margin>
                   </ImageView>
-                  <Label text="User Name" textFill="WHITE">
+                  <Label fx:id="nameLabel" text="User Name" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -67,10 +66,10 @@
                   </Label>
                </children>
             </VBox>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" opacity="0.6" prefHeight="15.0" prefWidth="320.0" styleClass="line-color" stylesheets="@style.css" />
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" opacity="0.6" prefHeight="15.0" prefWidth="320.0" styleClass="line-color" />
             <VBox prefHeight="450.0" prefWidth="370.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="200.0" spacing="15.0" stylesheets="@style.css">
+                  <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="200.0" spacing="15.0">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -101,7 +100,7 @@
                         <String fx:value="selected-border" />
                      </styleClass>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="200.0" spacing="15.0" stylesheets="@style.css">
+                  <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="200.0" spacing="15.0">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -128,7 +127,7 @@
                         <String fx:value="selected" />
                      </styleClass>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="200.0" spacing="15.0" stylesheets="@style.css">
+                  <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="200.0" spacing="15.0">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -162,7 +161,7 @@
             </VBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" stylesheets="@style.css" text="Log out" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#logOutClicked" text="Log out" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -180,7 +179,7 @@
       </VBox>
    </left>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" styleClass="second-color" stylesheets="@style.css" BorderPane.alignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" styleClass="second-color" BorderPane.alignment="CENTER">
          <children>
             <Label text="Profile Information" textFill="WHITE">
                <font>

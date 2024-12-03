@@ -1,18 +1,25 @@
 package com.essencehub.project.Controllers.Menu;
 
+import com.essencehub.project.User.User;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.stage.Stage;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class AdminMenuController {
-
+    private double savedWidth;
+    private double savedHeight;
     @FXML
     private HBox assignTaskPanel;
 
@@ -54,12 +61,14 @@ public class AdminMenuController {
 
     private static AdminMenuController instance;
 
+
     public AdminMenuController() {
         instance = this;
     }
     public void initialize() {
 
         try {
+
             String name =  LoginPageController.getResultSet().getString("name");
             String surname = LoginPageController.getResultSet().getString("surname");
             namePanel.setText(name + " " + surname);
@@ -68,7 +77,7 @@ public class AdminMenuController {
         catch (SQLException e){
             e.printStackTrace();
         }
-        loadFXMLContent("/com/essencehub/project/dashboard.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/dashboard.fxml");
 
 
     }
@@ -80,7 +89,7 @@ public class AdminMenuController {
 
     @FXML
     void dashboradClicked(MouseEvent event) {
-        loadFXMLContent("/com/essencehub/project/dashboard.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/dashboard.fxml");
     }
 
     @FXML
@@ -100,17 +109,17 @@ public class AdminMenuController {
 
     @FXML
     void profilePicturePanelClicked(MouseEvent event) {
-        loadFXMLContent("/com/essencehub/project/settings.fxml" );
+        settings("/com/essencehub/project/settings.fxml",event);
     }
 
     @FXML
     void settingIconClicked(MouseEvent event) {
-        loadFXMLContent("/com/essencehub/project/settings.fxml" );
+        settings("/com/essencehub/project/settings.fxml",event);
     }
 
     @FXML
     void stockTrackingCLicked(MouseEvent event)  {
-        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/stocktrial.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/stock-tracking.fxml");
 
     }
     public void loadFXMLContent(String fxmlFile) {
@@ -126,8 +135,31 @@ public class AdminMenuController {
             e.printStackTrace();
         }
     }
+    public void settings(String fxmlFile, Event event){
+        try {
+
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Parent newContent = loader.load();
+            Scene scene = new Scene(newContent);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setHeight(savedHeight);
+
+            stage.setWidth(savedWidth);
+            savedHeight = stage.getHeight();
+            savedWidth = stage.getWidth();
+
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static AdminMenuController getInstance() {
         return instance;
     }
+
+
 }

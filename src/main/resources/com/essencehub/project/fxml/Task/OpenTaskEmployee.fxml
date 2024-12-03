@@ -8,17 +8,17 @@
 <VBox prefHeight="400.0" prefWidth="600.0" spacing="20.0" style="-fx-padding: 20;" stylesheets="@../../css/assigntask.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Task.OpenTaskEmployeeController">
 
     <!-- Title Label -->
-    <Label alignment="CENTER" style="-fx-font-size: 36px; -fx-font-weight: bold;" text="View Task" />
+    <Label alignment="CENTER" style="-fx-font-size: 36px; -fx-font-weight: bold;" styleClass="TaskLabel" text="View Task" />
 
     <!-- Task Title Input -->
     <HBox spacing="10.0">
-        <Label alignment="CENTER" prefWidth="150.0" style="-fx-font-size: 18px;" text="Task Title:" />
-      <Label prefHeight="37.0" prefWidth="400.0" text="be written there" />
+        <Label alignment="CENTER" prefWidth="150.0" style="-fx-font-size: 18px;" styleClass="TaskLabel" text="Task Title:" />
+      <Label prefHeight="37.0" prefWidth="400.0" styleClass="TaskLabel" text="be written there" />
     </HBox>
 
     <!-- Task Description Label -->
-    <Label alignment="CENTER" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Task Description" />
-   <Label alignment="TOP_LEFT" prefHeight="223.0" prefWidth="560.0" text="be writtern here" />
+    <Label alignment="CENTER" style="-fx-font-size: 18px; -fx-font-weight: bold;" styleClass="TaskLabel" text="Task Description" />
+   <Label alignment="TOP_LEFT" prefHeight="223.0" prefWidth="560.0" text="be written here" />
     <HBox prefHeight="100.0" prefWidth="200.0">
         <children>
             <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" text="Update the task" />

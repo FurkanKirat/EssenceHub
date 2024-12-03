@@ -2,6 +2,7 @@ package com.essencehub.project.Controllers.Menu;
 
 
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
+import com.essencehub.project.User.User;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -27,6 +28,8 @@ import java.sql.*;
 public class LoginPageController {
     private static ResultSet resultset;
     private static Statement statement;
+    private static Connection connection;
+
     @FXML
     private ImageView ID;
 
@@ -121,7 +124,7 @@ public class LoginPageController {
             int id = Integer.parseInt(idField.getText());
             String password = passwordField.isVisible() ? passwordField.getText() : passwordText.getText();
 
-            Connection connection = DatabaseConnection.getConnection();
+            connection = DatabaseConnection.getConnection();
 
             statement = connection.createStatement();
 
@@ -213,4 +216,7 @@ public class LoginPageController {
         return resultset;
     }
 
+    public static Connection getConnection() {
+        return connection;
+    }
 }

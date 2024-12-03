@@ -11,7 +11,7 @@
    <children>
       <HBox prefHeight="300.0" prefWidth="600.0">
          <children>
-            <Label alignment="CENTER_RIGHT" prefHeight="175.0" prefWidth="272.0" text=" Assign Task ">
+            <Label alignment="CENTER_RIGHT" prefHeight="175.0" prefWidth="272.0" styleClass="TaskLabel" text=" Assign Task ">
                <font>
                   <Font size="48.0" />
                </font>
@@ -25,7 +25,7 @@
       </HBox>
       <HBox prefHeight="299.0" prefWidth="600.0">
          <children>
-            <Label alignment="CENTER_RIGHT" prefHeight="246.0" prefWidth="267.0" text="View Tasks " wrapText="true">
+            <Label alignment="CENTER_RIGHT" prefHeight="246.0" prefWidth="267.0" styleClass="TaskLabel" text="View Tasks " wrapText="true">
                <font>
                   <Font size="48.0" />
                </font>
