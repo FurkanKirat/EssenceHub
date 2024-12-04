@@ -44,3 +44,7 @@
     -fx-border-width: 0 0 1 0;
     -fx-border-color: #ffffff;
 }
+.text-field {
+    -fx-text-fill: #fff;
+    -fx-font-size: 15px;
+}
