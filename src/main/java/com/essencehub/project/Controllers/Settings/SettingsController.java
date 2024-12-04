@@ -85,8 +85,16 @@ public class SettingsController {
     private TextField vacationDaysTextField;
 
     @FXML
-    void EditInfoButtonClicked(MouseEvent event) {
+    void EditInfoButtonClicked(MouseEvent event) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/essencehub/project/fxml/Settings/contactInfoUpdate.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Update Contact Info");
 
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
+        stage.show();
     }
     Node currentNode;
 
@@ -177,11 +185,6 @@ public class SettingsController {
         }
         ProfileInfoPanel.getStyleClass().add("selected-border");
         currentNode=ProfileInfoPanel;
-    }
-
-    @FXML
-    void SaveInfoButtonClicked(MouseEvent event) {
-
     }
 
     @FXML

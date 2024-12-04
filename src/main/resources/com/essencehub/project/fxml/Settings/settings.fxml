@@ -336,11 +336,6 @@
                         <String fx:value="button" />
                      </styleClass>
                   </Button>
-                  <Button fx:id="SaveInfoButton" mnemonicParsing="false" onMouseClicked="#SaveInfoButtonClicked" styleClass="hide" stylesheets="@../../css/style.css" text="Save Informations" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
                </children>
             </HBox>
          </children>
