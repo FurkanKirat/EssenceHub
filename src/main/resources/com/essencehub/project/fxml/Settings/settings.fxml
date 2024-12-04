@@ -236,7 +236,7 @@
                            </font>
                         </Label>
                         <Pane prefHeight="42.0" prefWidth="122.0" />
-                        <TextField fx:id="dateOfBirthTextField" prefHeight="42.0" prefWidth="573.0" promptText="Date Of Birth" />
+                        <TextField fx:id="dateOfBirthTextField" editable="false" prefHeight="42.0" prefWidth="573.0" />
                      </children>
                   </HBox>
                </children>
@@ -256,7 +256,7 @@
                            </font>
                         </Label>
                         <Pane prefHeight="38.0" prefWidth="103.0" />
-                        <TextField fx:id="phoneNumTextField" prefHeight="26.0" prefWidth="574.0" promptText="Phone Number" />
+                        <TextField fx:id="phoneNumTextField" editable="false" prefHeight="26.0" prefWidth="574.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
@@ -267,7 +267,7 @@
                            </font>
                         </Label>
                         <Pane prefHeight="38.0" prefWidth="174.0" />
-                        <TextField fx:id="emailTextField" prefHeight="26.0" prefWidth="575.0" promptText="E-Mail" />
+                        <TextField fx:id="emailTextField" editable="false" prefHeight="26.0" prefWidth="575.0" />
                      </children>
                   </HBox>
                </children>
