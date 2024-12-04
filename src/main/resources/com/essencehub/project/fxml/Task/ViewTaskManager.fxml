@@ -21,10 +21,11 @@
                     <TableColumn fx:id="employeeNameColumn" prefWidth="150" text="Employee Name" />
 
                           <!-- Task title -->
-                    <TableColumn fx:id="taskColumn" prefWidth="250" text="Assign Title" />
+                    <TableColumn fx:id="taskColumn" prefWidth="178.4000244140625" text="Assign Title" />
 
                     <!-- Task is done or not done -->
-                    <TableColumn fx:id="statusColumn" prefWidth="150" text="Done / Not Done" />
+                    <TableColumn fx:id="statusColumn" prefWidth="132.79998779296875" text="Done / Not Done" />
+               <TableColumn fx:id="employeeNameColumn1" prefWidth="227.99996948242188" text="Sender" />
                 </columns>
             </TableView>
 

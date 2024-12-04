@@ -1,9 +1,18 @@
 package com.essencehub.project.User;
 
+import com.essencehub.project.DatabaseOperations.DatabaseConnection;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
 
     private int id;
-    private static int idCounter = 1; // static değişken idCounter
+    private static int idCounter = 2000; // static değişken idCounter
     private String name;
     private String surname;
     private String password;  // Password özelliği eklendi
@@ -16,7 +25,11 @@ public class User {
     private int remainingLeaveDays;
     private Performance monthlyPerformance;
     private double bonusSalary;
-    private boolean isActive; 
+    private boolean isActive;
+
+
+    private ArrayList<Task> taskE;
+    private static ArrayList<Task> taskA;
 
     public User() {
         this.id = idCounter++;
@@ -162,4 +175,5 @@ public class User {
         return name +" " + surname;
 
     }
+
 }

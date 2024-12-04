@@ -16,7 +16,7 @@
     <!-- Receiver Selection -->
     <HBox spacing="10.0">
         <Label alignment="CENTER" prefHeight="35.0" prefWidth="150.0" style="-fx-font-size: 24px;" styleClass="TaskLabel" text="Receiver" />
-      <Label prefHeight="46.0" prefWidth="403.0" styleClass="TaskLabel" text="Name">
+      <Label fx:id="receiverNameLabel" prefHeight="46.0" prefWidth="403.0" styleClass="TaskLabel" text="Name">
          <font>
             <Font size="24.0" />
          </font>
@@ -36,7 +36,7 @@
     <TextArea fx:id="descriptionTextArea" prefHeight="248.0" prefWidth="560.0" promptText="Enter task details..." />
    <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
-         <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" text="Update the task" />
+         <Button mnemonicParsing="false" onAction="#updateTaskClicked" prefHeight="26.0" prefWidth="126.0" text="Update the task" />
       </children>
    </HBox>
 </VBox>

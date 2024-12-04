@@ -1,5 +1,6 @@
 package com.essencehub.project.Controllers.Settings;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -96,7 +97,7 @@ public class SettingsController {
         stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
         stage.show();
     }
-    Node currentNode;
+    private Node currentNode;
 
     @FXML
     void HomePageIconClicked(MouseEvent event) {
@@ -126,6 +127,7 @@ public class SettingsController {
             e.printStackTrace();
         }
         currentNode = ProfileInfoPanel;
+        profileInfo();
     }
 
     @FXML
@@ -151,19 +153,7 @@ public class SettingsController {
 
     @FXML
     void PasswordMenuPanelClicked(MouseEvent event) {
-
-        currentNode.getStyleClass().remove("selected-border");
-        try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/fxml/Settings/password.fxml"));
-            Node newContent = loader.load();
-
-            centerVBox.getChildren().clear();
-            centerVBox.getChildren().add(newContent);
-            VBox.setVgrow(newContent, Priority.ALWAYS);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        changeScene("/com/essencehub/project/fxml/Settings/password.fxml");
         PasswordMenuPanelClicked.getStyleClass().add("selected-border");
         currentNode=PasswordMenuPanelClicked;
 
@@ -185,14 +175,25 @@ public class SettingsController {
         }
         ProfileInfoPanel.getStyleClass().add("selected-border");
         currentNode=ProfileInfoPanel;
+        profileInfo();
     }
 
     @FXML
     void ThemeMenuPanelClicked(MouseEvent event) {
+        changeScene("/com/essencehub/project/fxml/Settings/theme.fxml");
+        ThemeMenuPanel.getStyleClass().add("selected-border");
+        currentNode=ThemeMenuPanel;
+    }
+
+    @FXML
+    void UserNamePanelClicked(MouseEvent event) {
+
+    }
+    void changeScene(String fxmlFile){
         currentNode.getStyleClass().remove("selected-border");
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/fxml/Settings/theme.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Node newContent = loader.load();
 
             centerVBox.getChildren().clear();
@@ -201,13 +202,24 @@ public class SettingsController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ThemeMenuPanel.getStyleClass().add("selected-border");
-        currentNode=ThemeMenuPanel;
     }
+    void profileInfo(){
+        try {
+            idTextField.setText(LoginPageController.getResultSet().getInt("ID")+"");
+            nameTextField.setText(LoginPageController.getResultSet().getString("name"));
+            surnameTextField.setText(LoginPageController.getResultSet().getString("surname"));
+            dateOfBirthTextField.setText(LoginPageController.getResultSet().getString("birth"));
+            departmentTextField.setText(LoginPageController.getResultSet().getString("department"));
+            phoneNumTextField.setText(LoginPageController.getResultSet().getString("phoneNumber"));
+            emailTextField.setText(LoginPageController.getResultSet().getString("email"));
 
-    @FXML
-    void UserNamePanelClicked(MouseEvent event) {
-
+            salaryTextField.setText(LoginPageController.getResultSet().getInt("salary")+"");
+            performanceTextField.setText(LoginPageController.getResultSet().getString("monthlyPerformance"));
+            bonusSalaryTextField.setText(LoginPageController.getResultSet().getInt("bonusSalary")+"");
+            vacationDaysTextField.setText(LoginPageController.getResultSet().getInt("remainingLeaveDays")+"");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

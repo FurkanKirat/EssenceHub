@@ -1,5 +1,6 @@
 package com.essencehub.project.Controllers;
 
+import com.essencehub.project.Controllers.Menu.LoginPageController;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import com.essencehub.project.User.AdminOperations;
 import com.essencehub.project.User.User;
@@ -14,9 +15,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import com.essencehub.project.Controllers.Menu.*;
 
 public class ApplicationMenuController {
+
+
 
     @FXML
     private TextField BirthField;
@@ -115,7 +117,7 @@ public class ApplicationMenuController {
     private Label salaryLabel;
 
     @FXML
-    private ComboBox<User> selectStatusComboBox;
+    private ComboBox<String> selectStatusComboBox;
 
     @FXML
     private ComboBox<User> selectUpdateComboBox;
@@ -154,7 +156,7 @@ public class ApplicationMenuController {
 
         if (success) {
             System.out.println("Worker fired successfully: " + selectedWorker.getName() + " " + selectedWorker.getSurname());
-            populateFireComboBox(); // Refresh the ComboBox to remove fired worker
+            populateComboBox(); // Refresh the ComboBox to remove fired worker
         } else {
             System.out.println("Failed to fire worker.");
         }
@@ -178,11 +180,18 @@ public class ApplicationMenuController {
     }
     @FXML
     private void initialize() {
-        populateFireComboBox();
+        populateComboBox();
+        workerStatusComboBox.getItems().addAll("Name", "Surname","Phone Number","Salary", "IsAdmin", "Birth", "Department", "Email", "RemainingLeaveDays","Performance", "BonusSalary","password");
+        workerStatusComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                System.out.println("Selected: " + newValue);
+            }
+        });
     }
 
-    private void populateFireComboBox() {
-        fireComboBox.getItems().clear(); // Clear existing items
+    private void populateComboBox() {
+        fireComboBox.getItems().clear();
+        selectUpdateComboBox.getItems().clear();
         int currentUserId = LoginPageController.getUserID();
 
         // Fetch all active workers from the database
@@ -210,6 +219,35 @@ public class ApplicationMenuController {
         });
 
         fireComboBox.setButtonCell(new ListCell<>() {
+            @Override
+            protected void updateItem(User user, boolean empty) {
+                super.updateItem(user, empty);
+                if (empty || user == null) {
+                    setText(null);
+                } else {
+                    setText(user.getName() + " " + user.getSurname());
+                }
+            }
+        });
+
+
+        selectUpdateComboBox.getItems().addAll(filteredWorkers); // Add workers to the ComboBox
+
+        // Customize the display of the ComboBox
+        selectUpdateComboBox.setCellFactory(comboBox -> new ListCell<>() {
+            @Override
+            protected void updateItem(User user, boolean empty) {
+                super.updateItem(user, empty);
+                if (empty || user == null) {
+                    setText(null);
+                } else {
+                    setText(user.getName() + " " + user.getSurname()); // Display "Name Surname"
+                }
+            }
+        });
+
+        // Display selected item in the ComboBox
+        selectUpdateComboBox.setButtonCell(new ListCell<>() {
             @Override
             protected void updateItem(User user, boolean empty) {
                 super.updateItem(user, empty);
@@ -308,6 +346,67 @@ public class ApplicationMenuController {
     @FXML
     void isUpdateButtonClicked(ActionEvent event) {
 
-    }
+        User selectedWorker = selectUpdateComboBox.getValue();
 
+        if (selectedWorker == null) {
+            System.out.println("No worker selected.");
+            return;
+        }
+
+        int workerId = selectedWorker.getId();
+        String whatToChange = workerStatusComboBox.getValue();
+        String newValue = selectStatusComboBox.getValue();
+
+        try (Connection conn = DatabaseConnection.getConnection()) {
+
+            String sql = null;
+            if (whatToChange.equals("Name")) {
+                sql = "UPDATE User SET name = ? WHERE id = ?";
+            } else if (whatToChange.equals("Surname")) {
+                sql = "UPDATE User SET surname = ? WHERE id = ?";
+            } else if (whatToChange.equals("Phone Number")) {
+                sql = "UPDATE User SET phoneNumber = ? WHERE id = ?";
+            } else if (whatToChange.equals("Salary")) {
+                sql = "UPDATE User SET salary = ? WHERE id = ?";
+            } else if (whatToChange.equals("IsAdmin")) {
+                sql = "UPDATE User SET isAdmin = ? WHERE id = ?";
+            } else if (whatToChange.equals("Birth")) {
+                sql = "UPDATE User SET birth = ? WHERE id = ?";
+            } else if (whatToChange.equals("Department")) {
+                sql = "UPDATE User SET department = ? WHERE id = ?";
+            } else if (whatToChange.equals("Email")) {
+                sql = "UPDATE User SET email = ? WHERE id = ?";
+            } else if (whatToChange.equals("RemainingLeaveDays")) {
+                sql = "UPDATE User SET remainingLeaveDays = ? WHERE id = ?";
+            } else if (whatToChange.equals("Performance")) {
+                sql = "UPDATE User SET monthlyPerformance = ? WHERE id = ?";
+            } else if (whatToChange.equals("BonusSalary")) {
+                sql = "UPDATE User SET bonusSalary = ? WHERE id = ?";
+            } else if (whatToChange.equals("password")) {
+                sql = "UPDATE User SET password = ? WHERE id = ?";
+            }
+
+            // Execute the query if the field matches
+            if (sql != null) {
+                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                    // Set the new value and worker ID
+                    pstmt.setString(1, newValue);
+                    pstmt.setInt(2, workerId);
+
+                    // Execute update
+                    int rowsUpdated = pstmt.executeUpdate();
+                    System.out.println("Rows updated: " + rowsUpdated);
+                }
+            } else {
+                System.out.println("Invalid field to update: " + whatToChange);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        populateComboBox();
+
+
+
+    }
 }

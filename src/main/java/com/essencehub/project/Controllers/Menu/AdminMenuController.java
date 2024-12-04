@@ -1,6 +1,5 @@
 package com.essencehub.project.Controllers.Menu;
 
-import com.essencehub.project.User.User;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,8 +11,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -119,7 +116,7 @@ public class AdminMenuController {
 
     @FXML
     void msgIconClicked(MouseEvent event) {
-
+        settings("/com/essencehub/project/fxml/Message/message.fxml",event);
     }
 
     @FXML

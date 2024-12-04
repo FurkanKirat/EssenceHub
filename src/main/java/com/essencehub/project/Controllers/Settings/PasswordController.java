@@ -78,9 +78,15 @@ public class PasswordController {
             stage.setTitle("Edit Password");
 
             stage.setResizable(false);
+
+            Stage parentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.initOwner(parentStage);
+            stage.initModality(Modality.WINDOW_MODAL);
+
             stage.setScene(scene);
+
             stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
-            stage.show();
+            stage.showAndWait();
 
         } catch (Exception e) {
 

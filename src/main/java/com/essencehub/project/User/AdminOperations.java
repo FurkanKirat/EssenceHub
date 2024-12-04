@@ -1,7 +1,7 @@
 package com.essencehub.project.User;
 
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
-import com.essencehub.project.Stock.*;
+import com.essencehub.project.Stock.Product;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +13,7 @@ import java.sql.Statement;
 
 public class AdminOperations {
     public static List<User> users = new ArrayList<>();
+    public static ArrayList<User> employees = new ArrayList<>();
 
     // KULLANICI İŞE AL
     public static void addUser(User user) {
@@ -20,7 +21,7 @@ public class AdminOperations {
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DatabaseConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+                PreparedStatement statement = connection.prepareStatement(sql)) {
 
             // Parametreleri set ediyoruz
             statement.setString(1, user.getName());
@@ -52,9 +53,8 @@ public class AdminOperations {
         String sql = "UPDATE User SET name = ?, surname = ?, phoneNumber = ?, salary = ?, isAdmin = ?, birth = ?, department = ?, email = ?, remainingLeaveDays = ?, monthlyPerformance = ?, bonusSalary = ?, isActive = ? WHERE id = ?";
 
         try (Connection connection = DatabaseConnection.getConnection();
-                PreparedStatement statement = connection.prepareStatement(sql)) {
+             PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            // Parametreleri set ediyoruz
             statement.setString(1, user.getName());
             statement.setString(2, user.getSurname());
             statement.setString(3, user.getPhoneNumber());
@@ -70,7 +70,6 @@ public class AdminOperations {
             statement.setBoolean(12, user.isActive());
             statement.setInt(13, user.getId());
 
-            // Veritabanında güncelleme yapıyoruz
             int rowsAffected = statement.executeUpdate();
             if (rowsAffected > 0) {
                 System.out.println("Kullanıcı başarıyla güncellendi.");
@@ -82,6 +81,42 @@ public class AdminOperations {
             e.printStackTrace();
         }
     }
+    public static void updateUser(String name, String surname, String phoneNumber, double baseSalary, boolean isAdmin, String birth,String department,
+                                    String email, int remainingLeaveDays, boolean isActive, String password) {
+        User user = new User(name,surname,phoneNumber,baseSalary,isAdmin,birth,department,email,remainingLeaveDays,isActive,password);
+        String sql = "UPDATE User SET name = ?, surname = ?, phoneNumber = ?, salary = ?, isAdmin = ?, birth = ?, department = ?, email = ?, remainingLeaveDays = ?, monthlyPerformance = ?, bonusSalary = ?, isActive = ? WHERE id = ?";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql)) {
+
+
+            statement.setString(1, user.getName());
+            statement.setString(2, user.getSurname());
+            statement.setString(3, user.getPhoneNumber());
+            statement.setDouble(4, user.getSalary());
+            statement.setBoolean(5, user.isAdmin());
+            statement.setString(6, user.getBirth());
+            statement.setString(7, user.getDepartment());
+            statement.setString(8, user.getEmail());
+            statement.setInt(9, user.getRemainingLeaveDays());
+            statement.setString(10,
+                    user.getMonthlyPerformance() != null ? user.getMonthlyPerformance().toString() : null);
+            statement.setDouble(11, user.getBonusSalary());
+            statement.setBoolean(12, user.isActive());
+            statement.setInt(13, user.getId());
+
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Kullanıcı başarıyla güncellendi.");
+            } else {
+                System.out.println("Kullanıcı bulunamadı.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     // MESAJ GÖNDER
     public static void sendMessageMain(User sender, User receiver, String message, String title) {
@@ -177,7 +212,7 @@ public class AdminOperations {
         }
     }
 
-    public static void getUsers() {
+    public static List<User> getUsers() {
         List<User> usersTemp = new ArrayList<>();
         users = usersTemp;
         String query = "SELECT * FROM User";
@@ -220,9 +255,11 @@ public class AdminOperations {
             System.out.println("Veritabanı sorgulama hatası: " + e.getMessage());
             e.printStackTrace();
         }
+        return users;
     }
 
-    //Stock table'ına yeni bir product ekler.
+    //Stock table'ına yeni bir product ekler.*p
+
     public static void addProduct(Product product) {
         String insertProductSQL = "INSERT INTO Stock (name, count, month_and_year) VALUES (?, ?, ?)";
 
@@ -324,5 +361,141 @@ public class AdminOperations {
             e.printStackTrace();
         }
     }
+
+    public static User getUserById(int userId) {
+        User user = null;
+        String query = "SELECT id, name, surname, phoneNumber, salary, isAdmin, birth, department, email, "
+                     + "remainingLeaveDays, isActive, password FROM User WHERE id = ?";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setInt(1, userId);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    user = new User();
+                    user.setId(resultSet.getInt("id"));
+                    user.setName(resultSet.getString("name"));
+                    user.setSurname(resultSet.getString("surname"));
+                    user.setPhoneNumber(resultSet.getString("phoneNumber"));
+                    user.setSalary(resultSet.getDouble("salary"));
+                    user.setAdmin(resultSet.getBoolean("isAdmin"));
+                    user.setBirth(resultSet.getString("birth"));
+                    user.setDepartment(resultSet.getString("department"));
+                    user.setEmail(resultSet.getString("email"));
+                    user.setRemainingLeaveDays(resultSet.getInt("remainingLeaveDays"));
+                    user.setActive(resultSet.getBoolean("isActive"));
+                    user.setPassword(resultSet.getString("password"));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+
+
+    public static List<Task> getAllTasks() {
+        List<Task> taskList = new ArrayList<>();
+        String query = "SELECT id, sender_id, receiver_id, task, title, send_date_time, is_task_done FROM Task";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                int senderId = resultSet.getInt("sender_id");
+                int receiverId = resultSet.getInt("receiver_id");
+                String task = resultSet.getString("task");
+                String title = resultSet.getString("title");
+                String sendDateTime = resultSet.getString("send_date_time");
+                boolean isTaskDone = resultSet.getBoolean("is_task_done");
+
+                Task taskObj = new Task(getUserById(senderId),getUserById(receiverId),task, title);
+                taskList.add(taskObj);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return taskList;
+    }
+
+    public static ArrayList<User> getEmployees() {
+        ArrayList<User> employeesTemp = new ArrayList<>();
+        employees = employeesTemp;
+        String query = "SELECT * FROM User WHERE isAdmin = 0 AND isActive = 1";
+        try (Connection connection = DatabaseConnection.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
+
+            while (resultSet.next()) {
+                User employee = new User();
+
+                employee.setId(resultSet.getInt("id"));
+                employee.setName(resultSet.getString("name"));
+                employee.setSurname(resultSet.getString("surname"));
+                employee.setPhoneNumber(resultSet.getString("phoneNumber"));
+                employee.setSalary(resultSet.getDouble("salary"));
+                employee.setAdmin(false);
+
+                String dateTimeString = resultSet.getString("birth");
+                if (dateTimeString != null) {
+                    employee.setBirth(dateTimeString);
+                }
+
+                employee.setDepartment(resultSet.getString("department"));
+                employee.setEmail(resultSet.getString("email"));
+                employee.setRemainingLeaveDays(resultSet.getInt("remainingLeaveDays"));
+
+                String performanceValue = resultSet.getString("monthlyPerformance");
+                if (performanceValue != null) {
+                    Performance performance = Performance.valueOf(performanceValue.toUpperCase());
+                    employee.setMonthlyPerformance(performance);
+                }
+
+                employee.setBonusSalary(resultSet.getDouble("bonusSalary"));
+                employee.setActive(true);
+                employee.setPassword(resultSet.getString("password"));
+
+                employees.add(employee);
+            }
+        } catch (SQLException e) {
+            System.out.println("Veritabanı sorgulama hatası: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return employees;
+    }
+
+    public static List<Task> getUserTasks(int userID) {
+        List<Task> taskList = new ArrayList<>();
+        String query = "SELECT id, sender_id, receiver_id, task, title, send_date_time, is_task_done FROM Task WHERE receiver_id = " + userID ;
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                int senderId = resultSet.getInt("sender_id");
+                int receiverId = resultSet.getInt("receiver_id");
+                String task = resultSet.getString("task");
+                String title = resultSet.getString("title");
+                String sendDateTime = resultSet.getString("send_date_time");
+                boolean isTaskDone = resultSet.getBoolean("is_task_done");
+
+                Task taskObj = new Task(getUserById(senderId),getUserById(receiverId),task, title);
+                taskList.add(taskObj);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return taskList;
+    }
+
 
 }

@@ -1,25 +1,71 @@
 package com.essencehub.project.Controllers.Task;
 
+import com.essencehub.project.Controllers.Menu.AdminMenuController;
+import com.essencehub.project.User.AdminOperations;
+import com.essencehub.project.User.Task;
+import com.essencehub.project.User.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-import javafx.event.ActionEvent;
-import java.io.IOException;
+import java.util.List;
 
 public class ViewTaskManagerController {
 
     @FXML
-    Button deleteTaskButton;
-
+    private Button deleteTaskButton;
 
     @FXML
-    public void deleteTask(ActionEvent e)throws IOException {
-        System.out.println("Task deleted");
-        //sql code
-    }
+    private TableColumn<Task, String> employeeNameColumn;
+
     @FXML
-    public void openTask(ActionEvent e)throws IOException{
-        // Opens the task
+    private TableColumn<Task, String> statusColumn;
+
+    @FXML
+    private TableColumn<Task, String> taskColumn;
+
+    @FXML
+    private TableView<Task> taskTable;
+
+    @FXML
+    private TableColumn<Task, String> employeeNameColumn1;
+
+    private static Task task;
+
+    @FXML
+    void deleteTask(ActionEvent event) {
+
     }
+
+    @FXML
+    void openTask(ActionEvent event) {
+
+        if(!taskTable.getSelectionModel().isEmpty()){
+            task = taskTable.getSelectionModel().getSelectedItem();
+
+            AdminMenuController adminMenuController = AdminMenuController.getInstance();
+            adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Task/OpenTask.fxml");
+        }
+
+
+    }
+    public void initialize(){
+
+        employeeNameColumn.setCellValueFactory(new PropertyValueFactory<>("receiver"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("task"));
+        taskColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+        employeeNameColumn1.setCellValueFactory(new PropertyValueFactory<>("sender"));
+        ObservableList<Task> tasks = FXCollections.observableArrayList(AdminOperations.getAllTasks());
+        taskTable.setItems(tasks);
+    }
+    public static Task getSelectedTask(){
+        return task;
+    }
+
 
 }

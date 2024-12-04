@@ -15,13 +15,14 @@
             <Label fx:id="headerLabel" styleClass="header-label" text="Viewing Tasks" />
 
             <!-- Task Table -->
-            <TableView fx:id="taskTable" prefHeight="300" prefWidth="580">
+            <TableView fx:id="taskTable" prefHeight="300" prefWidth="577.0">
                 <columns>
                     <!-- Task Title Column -->
-                    <TableColumn fx:id="taskColumn" prefWidth="350" text="Task Title" />
+                    <TableColumn fx:id="taskColumn" prefWidth="199.2000732421875" text="Task Title" />
 
                     <!-- Task Status Column -->
-                    <TableColumn fx:id="statusColumn" prefWidth="200" text="Task Done/ Task not Done" />
+                    <TableColumn fx:id="statusColumn" prefWidth="191.20001220703125" text="Task Done/ Task not Done" />
+               <TableColumn fx:id="senderColumn" prefWidth="360.0" text="Sender" />
                 </columns>
             </TableView>
 

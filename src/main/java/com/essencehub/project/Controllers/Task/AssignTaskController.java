@@ -22,24 +22,15 @@ public class AssignTaskController {
     private CheckBox[] checkBoxes;
     @FXML
     private TextField titleTextField;
-    private ArrayList<User> employees;
+
     @FXML
     private TextArea descriptionTextArea;
 
+    private ArrayList<User> employees;
     @FXML
     public void initialize() {
 
-        AdminOperations.getUsers();
-        employees = new ArrayList<>();
-        for(int i=0;i<AdminOperations.users.size();i++){
-            User user = AdminOperations.users.get(i);
-
-
-            if(user.isActive()&&!user.isAdmin()){
-                employees.add(user);
-            }
-        }
-        
+        employees = AdminOperations.getEmployees();
         checkBoxes = new CheckBox[employees.size()];
         ObservableList<HBox> list = FXCollections.observableArrayList();
 
@@ -59,8 +50,8 @@ public class AssignTaskController {
     public void assignTask(ActionEvent e) {
 
         try {
-            for(User user: AdminOperations.users){
-                if(user.getId()== LoginPageController.getResultSet().getInt("ID")){
+            for(User user: AdminOperations.getUsers()){
+                if(user.getId() == LoginPageController.getResultSet().getInt("ID")){
                     for(int i=0;i<checkBoxes.length;i++){
                         if(checkBoxes[i].isSelected()){
                             Task task = new Task(user, employees.get(i), descriptionTextArea.getText(), titleTextField.getText());

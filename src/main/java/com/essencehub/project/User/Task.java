@@ -1,6 +1,13 @@
 package com.essencehub.project.User;
 
+import com.essencehub.project.DatabaseOperations.DatabaseConnection;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Task {
     private int id;
@@ -96,4 +103,6 @@ public class Task {
     public void markTaskAsPending() {
         this.isTaskDone = false;
     }
+
+
 }
