@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettingsController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Settings.SettingsController">
    <left>
       <VBox prefHeight="200.0" prefWidth="370.0" spacing="10.0" styleClass="first-color" BorderPane.alignment="CENTER">
          <children>
@@ -176,7 +176,7 @@
       </VBox>
    </left>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0" styleClass="second-color" BorderPane.alignment="CENTER">
+      <VBox fx:id="centerVBox" prefHeight="200.0" prefWidth="100.0" spacing="30.0" styleClass="second-color" BorderPane.alignment="CENTER">
          <children>
             <Label text="Profile Information" textFill="WHITE">
                <font>
@@ -200,13 +200,14 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="idTextField" prefHeight="26.0" prefWidth="370.0" promptText="Id" styleClass="selected" />
+                        <Pane prefHeight="42.0" prefWidth="78.0" />
+                        <TextField fx:id="idTextField" prefHeight="26.0" prefWidth="283.0" promptText="Id" />
                         <Label text="Department:" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="departmentTextField" prefHeight="26.0" prefWidth="319.0" />
+                        <TextField fx:id="departmentTextField" prefHeight="26.0" prefWidth="297.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
@@ -216,13 +217,15 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="nameTextField" prefHeight="26.0" prefWidth="340.0" promptText="name" />
+                        <Pane prefHeight="42.0" prefWidth="46.0" />
+                        <TextField fx:id="nameTextField" prefHeight="26.0" prefWidth="284.0" promptText="name" />
                         <Label text="Surname:" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="surnameTextField" prefHeight="26.0" prefWidth="340.0" promptText="surname" />
+                        <Pane prefHeight="42.0" prefWidth="14.0" />
+                        <TextField fx:id="surnameTextField" prefHeight="26.0" prefWidth="298.0" promptText="surname" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
@@ -232,7 +235,8 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="dateOfBirthTextField" prefHeight="60.0" prefWidth="330.0" promptText="Date Of Birth" />
+                        <Pane prefHeight="42.0" prefWidth="122.0" />
+                        <TextField fx:id="dateOfBirthTextField" prefHeight="42.0" prefWidth="573.0" promptText="Date Of Birth" />
                      </children>
                   </HBox>
                </children>
@@ -251,7 +255,8 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="phoneNumTextField" prefHeight="26.0" prefWidth="362.0" promptText="Phone Number" />
+                        <Pane prefHeight="38.0" prefWidth="103.0" />
+                        <TextField fx:id="phoneNumTextField" prefHeight="26.0" prefWidth="574.0" promptText="Phone Number" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
@@ -261,7 +266,8 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="emailTextField" prefHeight="26.0" prefWidth="416.0" promptText="E-Mail" />
+                        <Pane prefHeight="38.0" prefWidth="174.0" />
+                        <TextField fx:id="emailTextField" prefHeight="26.0" prefWidth="575.0" promptText="E-Mail" />
                      </children>
                   </HBox>
                </children>
@@ -280,7 +286,8 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="salaryTextField" prefHeight="26.0" prefWidth="478.0" />
+                        <Pane prefHeight="44.0" prefWidth="179.0" />
+                        <TextField fx:id="salaryTextField" prefHeight="26.0" prefWidth="570.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="864.0" spacing="10.0">
@@ -290,7 +297,8 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="performanceTextField" prefHeight="26.0" prefWidth="432.0" />
+                        <Pane prefHeight="44.0" prefWidth="124.0" />
+                        <TextField fx:id="performanceTextField" prefHeight="26.0" prefWidth="572.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
@@ -300,7 +308,8 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="bonusSalaryTextField" prefHeight="26.0" prefWidth="448.0" />
+                        <Pane prefHeight="45.0" prefWidth="52.0" />
+                        <TextField fx:id="bonusSalaryTextField" prefHeight="26.0" prefWidth="459.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
@@ -310,7 +319,8 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="vacationDaysTextField" />
+                        <Pane prefHeight="45.0" prefWidth="138.0" />
+                        <TextField fx:id="vacationDaysTextField" prefHeight="26.0" prefWidth="460.0" />
                      </children>
                   </HBox>
                </children>
@@ -326,14 +336,10 @@
                         <String fx:value="button" />
                      </styleClass>
                   </Button>
-                  <Button fx:id="SaveInfoButton" mnemonicParsing="false" onMouseClicked="#SaveInfoButtonClicked" text="Save Informations" textFill="WHITE">
+                  <Button fx:id="SaveInfoButton" mnemonicParsing="false" onMouseClicked="#SaveInfoButtonClicked" styleClass="hide" stylesheets="@../../css/style.css" text="Save Informations" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
-                     <styleClass>
-                        <String fx:value="hide" />
-                        <String fx:value="button" />
-                     </styleClass>
                   </Button>
                </children>
             </HBox>

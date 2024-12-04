@@ -50,10 +50,14 @@ public class EmployeeMenuController {
     public EmployeeMenuController() {
         instance = this;
     }
-
+    Node currentNode;
     @FXML
     void dashboardPanelClicked(MouseEvent event) {
+        currentNode.getStyleClass().remove("selected-border");
         loadFXMLContent("/com/essencehub/project/fxml/dashboard.fxml");
+        dashboardPanel.getStyleClass().add("selected-border");
+        currentNode=dashboardPanel;
+
     }
 
     @FXML
@@ -63,22 +67,29 @@ public class EmployeeMenuController {
 
     @FXML
     void performancePanelClicked(MouseEvent event) {
+        currentNode.getStyleClass().remove("selected-border");
+        //loadFXMLContent("/com/essencehub/project/fxml/dashboard.fxml");       //adding fxml
+        dashboardPanel.getStyleClass().add("selected-border");
+        currentNode=dashboardPanel;
 
     }
 
     @FXML
     void profilePicturePanelClicked(MouseEvent event) {
-
+        settings("/com/essencehub/project/fxml/Settings/settings.fxml",event);
     }
 
     @FXML
     void settingsIconClicked(MouseEvent event) {
-        settings("/com/essencehub/project/settings.fxml",event);
+        settings("/com/essencehub/project/fxml/Settings/settings.fxml",event);
     }
 
     @FXML
     void tasksPanelClicked(MouseEvent event) {
+        currentNode.getStyleClass().remove("selected-border");
         loadFXMLContent("/com/essencehub/project/fxml/Task/ViewTaskEmployee.fxml");
+        tasksPanel.getStyleClass().add("selected-border");
+        currentNode=tasksPanel;
     }
 
     @FXML
@@ -91,6 +102,8 @@ public class EmployeeMenuController {
         catch (SQLException e){
             e.printStackTrace();
         }
+        dashboardPanel.getStyleClass().add("selected-border");
+        currentNode = dashboardPanel;
 
     }
 

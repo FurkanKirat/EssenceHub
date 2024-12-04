@@ -1,12 +1,17 @@
 package com.essencehub.project.Controllers.Settings;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.*;
 
 public class PasswordController {
 
@@ -66,7 +71,20 @@ public class PasswordController {
 
     @FXML
     void editPasswordButtonClicked(MouseEvent event) {
+        try{
+            Stage stage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/essencehub/project/fxml/Settings/passwordUpdate.fxml"));
+            Scene scene = new Scene(root);
+            stage.setTitle("Edit Password");
 
+            stage.setResizable(false);
+            stage.setScene(scene);
+            stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
+            stage.show();
+
+        } catch (Exception e) {
+
+        }
     }
 
 }

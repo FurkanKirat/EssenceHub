@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
@@ -94,7 +95,7 @@
             </Pane>
             <VBox prefHeight="588.0" prefWidth="290.0" spacing="20.0">
                <children>
-                  <HBox fx:id="dashboardPanel" alignment="CENTER_LEFT" onMouseClicked="#dashboradClicked" prefHeight="60.0" prefWidth="200.0" spacing="15.0" styleClass="hide" stylesheets="@../../css/style.css">
+                  <HBox fx:id="dashboardPanel" alignment="CENTER_LEFT" onMouseClicked="#dashboradClicked" prefHeight="60.0" prefWidth="200.0" spacing="15.0" stylesheets="@../../css/style.css">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -114,10 +115,17 @@
                         </Label>
                      </children>
                      <VBox.margin>
-                        <Insets left="35.0" />
+                        <Insets />
                      </VBox.margin>
+                     <styleClass>
+                        <String fx:value="hide" />
+                        <String fx:value="selected" />
+                     </styleClass>
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding>
                   </HBox>
-                  <HBox fx:id="stockTrackingPanel" alignment="CENTER_LEFT" onMouseClicked="#stockTrackingCLicked" prefHeight="60.0" prefWidth="200.0" spacing="15.0" styleClass="hide" stylesheets="@../../css/style.css">
+                  <HBox fx:id="stockTrackingPanel" alignment="CENTER_LEFT" onMouseClicked="#stockTrackingCLicked" prefHeight="60.0" prefWidth="200.0" spacing="15.0" stylesheets="@../../css/style.css">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -140,10 +148,17 @@
                         </Label>
                      </children>
                      <VBox.margin>
-                        <Insets left="30.0" />
+                        <Insets />
                      </VBox.margin>
+                     <styleClass>
+                        <String fx:value="hide" />
+                        <String fx:value="selected" />
+                     </styleClass>
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding>
                   </HBox>
-                  <HBox fx:id="financePanel" alignment="CENTER_LEFT" onMouseClicked="#financeClicked" prefHeight="60.0" prefWidth="200.0" spacing="15.0" styleClass="hide" stylesheets="@../../css/style.css">
+                  <HBox fx:id="financePanel" alignment="CENTER_LEFT" onMouseClicked="#financeClicked" prefHeight="60.0" prefWidth="200.0" spacing="15.0" stylesheets="@../../css/style.css">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -163,10 +178,17 @@
                         </Label>
                      </children>
                      <VBox.margin>
-                        <Insets left="35.0" />
+                        <Insets />
                      </VBox.margin>
+                     <styleClass>
+                        <String fx:value="hide" />
+                        <String fx:value="selected" />
+                     </styleClass>
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding>
                   </HBox>
-                  <HBox fx:id="employeePanel" alignment="CENTER_LEFT" onMouseClicked="#employeePanelClicked" prefHeight="60.0" prefWidth="200.0" spacing="15.0" styleClass="hide" stylesheets="@../../css/style.css">
+                  <HBox fx:id="employeePanel" alignment="CENTER_LEFT" onMouseClicked="#employeePanelClicked" prefHeight="60.0" prefWidth="200.0" spacing="15.0" stylesheets="@../../css/style.css">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -186,10 +208,17 @@
                         </Label>
                      </children>
                      <VBox.margin>
-                        <Insets left="35.0" />
+                        <Insets />
                      </VBox.margin>
+                     <styleClass>
+                        <String fx:value="hide" />
+                        <String fx:value="selected" />
+                     </styleClass>
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding>
                   </HBox>
-                  <HBox fx:id="assignTaskPanel" alignment="CENTER_LEFT" onMouseClicked="#assignTaskPanelClicked" prefHeight="60.0" prefWidth="200.0" spacing="15.0" styleClass="hide" stylesheets="@../../css/style.css">
+                  <HBox fx:id="assignTaskPanel" alignment="CENTER_LEFT" onMouseClicked="#assignTaskPanelClicked" prefHeight="60.0" prefWidth="200.0" spacing="15.0" stylesheets="@../../css/style.css">
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -209,8 +238,15 @@
                         </Label>
                      </children>
                      <VBox.margin>
-                        <Insets left="35.0" />
+                        <Insets />
                      </VBox.margin>
+                     <styleClass>
+                        <String fx:value="hide" />
+                        <String fx:value="selected" />
+                     </styleClass>
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding>
                   </HBox>
                </children>
             </VBox>
