@@ -9,7 +9,8 @@ import javafx.stage.Stage;
 
 public class MyApplication extends Application {
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
+
         try{
 
             Parent root = FXMLLoader.load(getClass().getResource("/com/essencehub/project/fxml/Menu/LoginPage.fxml"));

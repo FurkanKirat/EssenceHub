@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Task.ViewTaskEmployeeController">
+    <children>
+        <VBox alignment="TOP_CENTER" layoutX="0.0" prefHeight="400" prefWidth="600" spacing="15" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <!-- Header -->
+            <Label fx:id="headerLabel" styleClass="header-label" text="Viewing Tasks" />
+
+            <!-- Task Table -->
+            <TableView fx:id="taskTable" prefHeight="300" prefWidth="577.0">
+                <columns>
+                    <!-- Task Title Column -->
+                    <TableColumn fx:id="taskColumn" prefWidth="199.2000732421875" text="Task Title" />
+
+                    <!-- Task Status Column -->
+                    <TableColumn fx:id="statusColumn" prefWidth="191.20001220703125" text="Task Done/ Task not Done" />
+               <TableColumn fx:id="senderColumn" prefWidth="360.0" text="Sender" />
+                </columns>
+            </TableView>
+
+            <!-- Actions -->
+            <HBox alignment="CENTER" spacing="15">
+                <Button fx:id="viewTaskButton" mnemonicParsing="false" onAction="#openTask" text="View Task" />
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

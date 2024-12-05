@@ -18,8 +18,6 @@ import java.util.List;
 
 public class ApplicationMenuController {
 
-
-
     @FXML
     private TextField BirthField;
 
@@ -69,12 +67,6 @@ public class ApplicationMenuController {
     private Tab hireTab;
 
     @FXML
-    private TextField isActiveField;
-
-    @FXML
-    private Label isActiveLabel;
-
-    @FXML
     private TextField isAdminField;
 
     @FXML
@@ -91,12 +83,6 @@ public class ApplicationMenuController {
 
     @FXML
     private Label passwordLabel;
-
-    @FXML
-    private TextField performanceField;
-
-    @FXML
-    private Label performanceLabel;
 
     @FXML
     private TextField phoneField;
@@ -140,25 +126,33 @@ public class ApplicationMenuController {
     @FXML
     private Tab updateStatusTab;
 
+
+    @FXML
+    private TextField statusTextField;
+
     @FXML
     void isFireButtonClicked(ActionEvent event) {
-        User selectedWorker = fireComboBox.getValue(); // Get selected worker from ComboBox
+        User selectedWorker = fireComboBox.getValue();
         if (selectedWorker == null) {
-            System.out.println("No worker selected.");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("An Error Occurred");
+            alert.setContentText("No one is selected");
+            alert.showAndWait();
             return;
         }
 
-        int workerId = selectedWorker.getId(); // Retrieve worker's ID
-
-        // Call method to update worker's status in the database
+        int workerId = selectedWorker.getId();
 
         boolean success = fireWorker(workerId);
 
         if (success) {
-            System.out.println("Worker fired successfully: " + selectedWorker.getName() + " " + selectedWorker.getSurname());
-            populateComboBox(); // Refresh the ComboBox to remove fired worker
-        } else {
-            System.out.println("Failed to fire worker.");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Deactivation Successful");
+            alert.setHeaderText("User Deactivated");
+            alert.setContentText("The user with ID " + workerId + " has been successfully deactivated.");
+            alert.showAndWait();
+            populateComboBox();
         }
     }
 
@@ -171,10 +165,17 @@ public class ApplicationMenuController {
             statement.setInt(1, workerId);
 
             int rowsUpdated = statement.executeUpdate();
-            return rowsUpdated > 0; // Return true if the update was successful
+
+            return rowsUpdated > 0;
 
         } catch (SQLException e) {
             e.printStackTrace();
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("An Error Occurred");
+            alert.setContentText("Failed to deactivate the user. Please try again.");
+            alert.showAndWait();
             return false;
         }
     }
@@ -184,7 +185,7 @@ public class ApplicationMenuController {
         workerStatusComboBox.getItems().addAll("Name", "Surname","Phone Number","Salary", "IsAdmin", "Birth", "Department", "Email", "RemainingLeaveDays","Performance", "BonusSalary","password");
         workerStatusComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                System.out.println("Selected: " + newValue);
+
             }
         });
     }
@@ -194,18 +195,17 @@ public class ApplicationMenuController {
         selectUpdateComboBox.getItems().clear();
         int currentUserId = LoginPageController.getUserID();
 
-        // Fetch all active workers from the database
+
         List<User> activeWorkers = getActiveWorkers();
 
-        // Filter out the current user from the list
         List<User> filteredWorkers = activeWorkers.stream()
-                .filter(user -> user.getId() != currentUserId) // Exclude users with the same ID
+                .filter(user -> user.getId() != currentUserId)
                 .toList();
 
-        // Add the filtered workers to the ComboBox
+
         fireComboBox.getItems().addAll(filteredWorkers);
 
-        // Customize the display in the ComboBox
+
         fireComboBox.setCellFactory(comboBox -> new ListCell<>() {
             @Override
             protected void updateItem(User user, boolean empty) {
@@ -231,9 +231,9 @@ public class ApplicationMenuController {
         });
 
 
-        selectUpdateComboBox.getItems().addAll(filteredWorkers); // Add workers to the ComboBox
+        selectUpdateComboBox.getItems().addAll(filteredWorkers);
 
-        // Customize the display of the ComboBox
+
         selectUpdateComboBox.setCellFactory(comboBox -> new ListCell<>() {
             @Override
             protected void updateItem(User user, boolean empty) {
@@ -241,12 +241,11 @@ public class ApplicationMenuController {
                 if (empty || user == null) {
                     setText(null);
                 } else {
-                    setText(user.getName() + " " + user.getSurname()); // Display "Name Surname"
+                    setText(user.getName() + " " + user.getSurname());
                 }
             }
         });
 
-        // Display selected item in the ComboBox
         selectUpdateComboBox.setButtonCell(new ListCell<>() {
             @Override
             protected void updateItem(User user, boolean empty) {
@@ -273,7 +272,6 @@ public class ApplicationMenuController {
                 String name = resultSet.getString("name");
                 String surname = resultSet.getString("surname");
 
-                // Create a User object for each worker
                 User user = new User();
                 user.setId(id);
                 user.setName(name);
@@ -288,7 +286,6 @@ public class ApplicationMenuController {
 
     @FXML
     void isHireButtonClicked(ActionEvent event) {
-        // Get the input values from the fields
         String name = nameField.getText();
         String surname = surnameField.getText();
         String birthDate = BirthField.getText();
@@ -298,23 +295,32 @@ public class ApplicationMenuController {
         String salaryText = salaryField.getText();
         String bonusText = bonusField.getText();
         String isAdminText = isAdminField.getText();
-        String isActiveText = isActiveField.getText();
         String password = passwordField.getText();
-        String performanceText = performanceField.getText();
         String remainingDaysText = remainingDaysField.getText();
 
 
-        if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || department.isEmpty() || salaryText.isEmpty()) {
-            System.out.println("Please fill in all required fields.");
+        if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || department.isEmpty() || salaryText.isEmpty() || birthDate.isEmpty() || phone.isEmpty()|| remainingDaysText.isEmpty()|| password.isEmpty()|| bonusText.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Missing Fields");
+            alert.setHeaderText("Required Fields Missing");
+            alert.setContentText("Please fill in all required fields");
+            alert.showAndWait();
             return;
         }
+        if(isAdminText.equalsIgnoreCase("True") || isAdminText.equalsIgnoreCase("False")){
 
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("False Input On IsAdmin ");
+            alert.setHeaderText("MisWritten Word");
+            alert.setContentText("Should be true or false");
+            alert.showAndWait();
+            return;
+        }
 
         double salary = 0;
         double bonus = 0;
         boolean isAdmin = false;
-        boolean isActive = false;
-        int performance = 0;
         int remainingDays = 0;
 
         try {
@@ -323,24 +329,30 @@ public class ApplicationMenuController {
                 bonus = Double.parseDouble(bonusText);
             }
             isAdmin = Boolean.parseBoolean(isAdminText);
-            isActive = Boolean.parseBoolean(isActiveText);
-            if (!performanceText.isEmpty()) {
-                performance = Integer.parseInt(performanceText);
-            }
+
             if (!remainingDaysText.isEmpty()) {
                 remainingDays = Integer.parseInt(remainingDaysText);
             }
         } catch (NumberFormatException e) {
-            // Handle parsing errors
-            System.out.println("Invalid number format in one or more fields.");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Number Format Error");
+            alert.setContentText("Please ensure salary, bonus, and remaining days are valid numbers.");
+            alert.showAndWait();
             return;
         }
 
         AdminOperations ao = new AdminOperations();
-        User user = new User(name, surname, phone, salary, isAdmin, birthDate, department, email, remainingDays, isActive,password);
+        User user = new User(name, surname, phone, salary, isAdmin, birthDate, department, email, remainingDays, true,password);
         ao.addUser(user);
 
-        initialize();// to see added person immediately
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText("User Added");
+        alert.setContentText("The user " + name + " " + surname + " has been added successfully.");
+        alert.showAndWait();
+
+        initialize();
     }
 
     @FXML
@@ -349,13 +361,18 @@ public class ApplicationMenuController {
         User selectedWorker = selectUpdateComboBox.getValue();
 
         if (selectedWorker == null) {
-            System.out.println("No worker selected.");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Update Failed");
+            alert.setHeaderText("No Changes Made");
+            alert.setContentText("No rows were updated. Please check the input.");
+            alert.showAndWait();
             return;
         }
 
         int workerId = selectedWorker.getId();
         String whatToChange = workerStatusComboBox.getValue();
-        String newValue = selectStatusComboBox.getValue();
+        String newValue = statusTextField.getText();
+        int rowsUpdated = 0;
 
         try (Connection conn = DatabaseConnection.getConnection()) {
 
@@ -386,25 +403,49 @@ public class ApplicationMenuController {
                 sql = "UPDATE User SET password = ? WHERE id = ?";
             }
 
-            // Execute the query if the field matches
+
             if (sql != null) {
                 try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                    // Set the new value and worker ID
+
                     pstmt.setString(1, newValue);
                     pstmt.setInt(2, workerId);
 
-                    // Execute update
-                    int rowsUpdated = pstmt.executeUpdate();
-                    System.out.println("Rows updated: " + rowsUpdated);
-                }
-            } else {
-                System.out.println("Invalid field to update: " + whatToChange);
-            }
+                    if(!statusTextField.getText().isEmpty()){
+                        rowsUpdated = pstmt.executeUpdate();
+                    }
+                    if (rowsUpdated > 0) {
+                       if(!statusTextField.getText().isEmpty()){
+                           Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                           alert.setTitle("Update Successful");
+                           alert.setHeaderText("Update Completed");
+                           alert.setContentText("The field \"" + whatToChange + "\" for worker \"" + selectedWorker.getName() + "\" has been updated successfully!");
+                           alert.showAndWait();
+                       }else{
+                           Alert alert = new Alert(Alert.AlertType.WARNING);
+                           alert.setTitle("Update Failed");
+                           alert.setHeaderText("No Changes Made");
+                           alert.setContentText("No rows were updated. Please check the input.");
+                           alert.showAndWait();
+                       }
 
+                    }
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        if(rowsUpdated == 0){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Update Failed");
+            alert.setHeaderText("No Changes Made");
+            alert.setContentText("No rows were updated. Please check the input.");
+            alert.showAndWait();
+        }
+
         populateComboBox();
+        statusTextField.setText("");
+        workerStatusComboBox.setValue(null);
+
 
 
 

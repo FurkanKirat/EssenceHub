@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Statement;
@@ -149,8 +151,8 @@ public class AdminOperations {
     }
 
     // TASK GÖNDER
-    public static void sendTaskMain(User sender, User receiver, String task, String title) {
-        Task taskTemp = new Task(sender, receiver, task, title);
+    public static void sendTaskMain(User sender, User receiver, String task, String title, LocalDateTime sendDateTime, boolean isTaskDone) {
+        Task taskTemp = new Task(sender, receiver, task, title, sendDateTime, isTaskDone);
         sendTask(taskTemp);
     }
 
@@ -411,10 +413,11 @@ public class AdminOperations {
                 int receiverId = resultSet.getInt("receiver_id");
                 String task = resultSet.getString("task");
                 String title = resultSet.getString("title");
-                String sendDateTime = resultSet.getString("send_date_time");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                LocalDateTime sendDateTime = LocalDateTime.parse(resultSet.getString("send_date_time"),formatter);
                 boolean isTaskDone = resultSet.getBoolean("is_task_done");
 
-                Task taskObj = new Task(getUserById(senderId),getUserById(receiverId),task, title);
+                Task taskObj = new Task(getUserById(senderId),getUserById(receiverId),task, title,sendDateTime,isTaskDone);
                 taskList.add(taskObj);
             }
         } catch (Exception e) {
@@ -484,10 +487,11 @@ public class AdminOperations {
                 int receiverId = resultSet.getInt("receiver_id");
                 String task = resultSet.getString("task");
                 String title = resultSet.getString("title");
-                String sendDateTime = resultSet.getString("send_date_time");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                LocalDateTime sendDateTime = LocalDateTime.parse(resultSet.getString("send_date_time"),formatter);
                 boolean isTaskDone = resultSet.getBoolean("is_task_done");
 
-                Task taskObj = new Task(getUserById(senderId),getUserById(receiverId),task, title);
+                Task taskObj = new Task(getUserById(senderId),getUserById(receiverId),task, title,sendDateTime,isTaskDone);
                 taskList.add(taskObj);
             }
         } catch (Exception e) {

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" styleClass="gradient-background" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Menu.EmployeeMenuController">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="1288.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="62.0" prefWidth="227.0" text="Employee Panel" textFill="WHITE">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Label>
+            <Pane maxHeight="-Infinity" opacity="0.5" prefHeight="1.0" prefWidth="200.0" styleClass="line-color" stylesheets="@../../css/style.css" HBox.hgrow="ALWAYS" />
+            <ImageView fx:id="msgIcon" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#msgIconCLicked" pickOnBounds="true" preserveRatio="true" styleClass="hide">
+               <image>
+                  <Image url="@../../images/adminpanel/inbox.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="settingIcon" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#settingsIconClicked" pickOnBounds="true" preserveRatio="true" styleClass="hide">
+               <image>
+                  <Image url="@../../images/adminpanel/settings.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </children>
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="290.0" spacing="10.0" styleClass="container" stylesheets="@../../css/style.css" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="profilePicturePanel" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#profilePicturePanelClicked" pickOnBounds="true" preserveRatio="true" styleClass="hide">
+                     <image>
+                        <Image url="@../../images/adminpanel/profile.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="208.0">
+                     <children>
+                        <Label fx:id="nameLabel" text="Name Surname" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                        <Label text="Employee" textFill="#ffffffcc">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" opacity="0.5" prefHeight="1.0" prefWidth="260.0" styleClass="line-color" stylesheets="@../../css/style.css">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Pane>
+            <VBox prefHeight="588.0" prefWidth="290.0" spacing="20.0">
+               <children>
+                  <HBox fx:id="dashboardPanel" alignment="CENTER_LEFT" onMouseClicked="#dashboardPanelClicked" prefHeight="60.0" prefWidth="200.0" spacing="15.0" stylesheets="@../../css/style.css">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/adminpanel/dashboard.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <Label text="DashBoard" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding>
+                     <styleClass>
+                        <String fx:value="hide" />
+                        <String fx:value="selected" />
+                     </styleClass>
+                  </HBox>
+                  <HBox fx:id="performancePanel" alignment="CENTER_LEFT" onMouseClicked="#performancePanelClicked" prefHeight="60.0" prefWidth="200.0" spacing="15.0" stylesheets="@../../css/style.css">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/adminpanel/employee.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <Label text="Performance" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding>
+                     <styleClass>
+                        <String fx:value="hide" />
+                        <String fx:value="selected" />
+                     </styleClass>
+                  </HBox>
+                  <HBox fx:id="tasksPanel" alignment="CENTER_LEFT" onMouseClicked="#tasksPanelClicked" prefHeight="60.0" prefWidth="200.0" spacing="15.0" stylesheets="@../../css/style.css">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/adminpanel/clipboard.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <Label text="Tasks" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding>
+                     <styleClass>
+                        <String fx:value="hide" />
+                        <String fx:value="selected" />
+                     </styleClass>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+         </BorderPane.margin>
+         <children>
+            <VBox fx:id="func" prefHeight="524.0" prefWidth="974.0" styleClass="container" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

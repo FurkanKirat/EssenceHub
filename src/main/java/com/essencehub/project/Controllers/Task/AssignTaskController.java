@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class AssignTaskController {
@@ -54,7 +55,7 @@ public class AssignTaskController {
                 if(user.getId() == LoginPageController.getResultSet().getInt("ID")){
                     for(int i=0;i<checkBoxes.length;i++){
                         if(checkBoxes[i].isSelected()){
-                            Task task = new Task(user, employees.get(i), descriptionTextArea.getText(), titleTextField.getText());
+                            Task task = new Task(user, employees.get(i), descriptionTextArea.getText(), titleTextField.getText(), LocalDateTime.now(),false);
                             AdminOperations.sendTask(task);
 
                         }

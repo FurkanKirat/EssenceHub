@@ -1,0 +1,46 @@
+
+.gradient-background{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
+}
+.first-color{
+    -fx-background-color: #14076b;
+}
+.second-color{
+    -fx-background-color: #1d346e;
+}
+.line-color{
+    -fx-background-color: #f6f4f4;
+}
+.container{
+    -fx-background-color: rgba(255,255,255,0.2);
+    -fx-background-radius: 10;
+}
+.hide{
+     -fx-cursor: hand;
+ }
+.selected-border{
+    -fx-border-color: #fff;
+    -fx-border-width: 0 3 0 0;
+
+}
+.selected:hover{
+    -fx-background-color: #30247e;
+}
+.selected:clicked{
+    -fx-background-color: #30247e;
+}
+.button:clicked {
+    -fx-background-color: #30247e; /* Custom clicked state */
+}
+.selected:focused{
+    -fx-background-color: #30247e;
+}
+.button{
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-radius: 30;
+}
+.text-input{
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #ffffff;
+}

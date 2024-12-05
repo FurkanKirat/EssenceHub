@@ -7,7 +7,7 @@ public class DatabaseConnection {
     public static Connection getConnection() {
         String url = "jdbc:mysql://localhost:3306/BusinessProject";  // Veritabanı URL'si
         String user = "root"; // Veritabanı kullanıcı adı
-        String password = "k5rt2YH"; // Veritabanı şifresi
+        String password = "ruhi1234"; // Veritabanı şifresi
 
         try {
             // JDBC sürücüsünü yükleme

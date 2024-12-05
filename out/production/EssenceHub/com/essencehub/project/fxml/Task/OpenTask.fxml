@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="600.0" spacing="20.0" style="-fx-padding: 20;" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Task.OpenTaskContoller">
+
+    <!-- Title Label -->
+    <Label alignment="CENTER" style="-fx-font-size: 36px; -fx-font-weight: bold;" styleClass="TaskLabel" text="Update Task" />
+
+    <!-- Receiver Selection -->
+    <HBox spacing="10.0">
+        <Label alignment="CENTER" prefHeight="35.0" prefWidth="150.0" style="-fx-font-size: 24px;" styleClass="TaskLabel" text="Receiver" />
+      <Label fx:id="receiverNameLabel" prefHeight="46.0" prefWidth="403.0" styleClass="TaskLabel" text="Name">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+    </HBox>
+
+    <!-- Task Title Input -->
+    <HBox spacing="10.0">
+        <Label alignment="CENTER" prefWidth="150.0" style="-fx-font-size: 18px;" styleClass="TaskLabel" text="Task Title:" />
+        <TextField fx:id="titleTextField" prefHeight="40.0" prefWidth="400.0" promptText="Enter the task title" styleClass="menuTextField" />
+    </HBox>
+
+    <!-- Task Description Label -->
+    <Label alignment="CENTER" style="-fx-font-size: 18px; -fx-font-weight: bold;" styleClass="TaskLabel" text="Task Description" />
+
+    <!-- Task Description Input -->
+    <TextArea fx:id="descriptionTextArea" prefHeight="248.0" prefWidth="560.0" promptText="Enter task details..." />
+   <HBox prefHeight="100.0" prefWidth="200.0">
+      <children>
+         <Button mnemonicParsing="false" onAction="#updateTaskClicked" prefHeight="26.0" prefWidth="126.0" styleClass="menuButton" text="Update the task" textFill="WHITE" />
+      </children>
+   </HBox>
+</VBox>

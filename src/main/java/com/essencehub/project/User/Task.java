@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Task {
     private int id;
@@ -24,15 +25,18 @@ public class Task {
         this.id = idCounter++; // Otomatik ID atama
     }
 
-    public Task(User sender, User receiver, String task, String title) {
+    public Task(User sender, User receiver, String task, String title, LocalDateTime sendDateTime, boolean isTaskDone) {
         this(); 
         this.sender = sender;
         this.receiver = receiver;
         this.task = task;
         // Eğer title null ise veya boş verilirse task'ten türetilir
         this.title = title != null && !title.isEmpty() ? title : task.length() > 50 ? task.substring(0, 50) : task;
-        this.sendDateTime = LocalDateTime.now();
-        this.isTaskDone = false; // Başlangıçta görev tamamlanmamış olarak ayarlanır
+        this.sendDateTime = Objects.requireNonNullElseGet(sendDateTime, LocalDateTime::now);
+        this.isTaskDone = isTaskDone;
+
+
+
     }
 
     // Getter ve Setter Metotları
