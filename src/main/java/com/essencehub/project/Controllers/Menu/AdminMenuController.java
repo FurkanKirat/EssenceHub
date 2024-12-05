@@ -1,5 +1,6 @@
 package com.essencehub.project.Controllers.Menu;
 
+import com.essencehub.project.MyApplication;
 import com.essencehub.project.User.ImageManager;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -81,6 +82,7 @@ public class AdminMenuController {
         }
         loadFXMLContent("/com/essencehub/project/fxml/dashboard.fxml");
         dashboardPanel.getStyleClass().add("selected-border");
+
         currentNode = dashboardPanel;
 
 

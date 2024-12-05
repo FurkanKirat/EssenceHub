@@ -38,7 +38,7 @@ public class User {
 
     // Constructor, password parametresi eklendi
     public User(String name, String surname, String phoneNumber, double baseSalary, boolean isAdmin, String birth,
-                String department, String email, int remainingLeaveDays, boolean isActive, String password) {
+                String department, String email, int remainingLeaveDays, boolean isActive, String password, Performance monthlyPerformance, int bonusSalary) {
         this();
         this.name = name;
         this.surname = surname;
@@ -52,7 +52,8 @@ public class User {
         this.isActive = isActive;
         this.password = password;
 
-        this.monthlyPerformance = Performance.F; //Default user performance
+        this.monthlyPerformance = monthlyPerformance;
+        this.bonusSalary = bonusSalary;
     }
 
     // Getter ve Setter Metotları

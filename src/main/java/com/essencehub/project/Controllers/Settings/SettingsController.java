@@ -121,7 +121,6 @@ public class SettingsController {
     }
     public void initialize(){
 
-
         try {
 
             String name =  LoginPageController.getResultSet().getString("name");
@@ -164,8 +163,6 @@ public class SettingsController {
             }
         });
 
-
-
     }
 
     @FXML
@@ -173,7 +170,6 @@ public class SettingsController {
         changeScene("/com/essencehub/project/fxml/Settings/password.fxml");
         PasswordMenuPanelClicked.getStyleClass().add("selected-border");
         currentNode=PasswordMenuPanelClicked;
-
 
     }
 

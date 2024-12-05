@@ -2,6 +2,7 @@ package com.essencehub.project.Controllers.Settings;
 
 import com.essencehub.project.Controllers.Menu.LoginPageController;
 import com.essencehub.project.User.AdminOperations;
+import com.essencehub.project.User.Performance;
 import com.essencehub.project.User.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -39,7 +40,9 @@ public class ChangePasswordWindow {
                 resultSet.getString("email"),
                 resultSet.getInt("remainingLeaveDays"),
                 true,
-                newPasswordTextField.getText()
+                newPasswordTextField.getText(),
+                        Performance.valueOf(resultSet.getString("monthlyPerformance")),
+                        resultSet.getInt("bonusSalary")
 
                 ));
             } catch (Exception e) {

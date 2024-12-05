@@ -84,8 +84,8 @@ public class AdminOperations {
         }
     }
     public static void updateUser(String name, String surname, String phoneNumber, double baseSalary, boolean isAdmin, String birth,String department,
-                                    String email, int remainingLeaveDays, boolean isActive, String password) {
-        User user = new User(name,surname,phoneNumber,baseSalary,isAdmin,birth,department,email,remainingLeaveDays,isActive,password);
+                                    String email, int remainingLeaveDays, boolean isActive, String password, Performance monthlyPerformance, int bonusSalary) {
+        User user = new User(name,surname,phoneNumber,baseSalary,isAdmin,birth,department,email,remainingLeaveDays,isActive,password,monthlyPerformance,bonusSalary);
         String sql = "UPDATE User SET name = ?, surname = ?, phoneNumber = ?, salary = ?, isAdmin = ?, birth = ?, department = ?, email = ?, remainingLeaveDays = ?, monthlyPerformance = ?, bonusSalary = ?, isActive = ? WHERE id = ?";
 
         try (Connection connection = DatabaseConnection.getConnection();

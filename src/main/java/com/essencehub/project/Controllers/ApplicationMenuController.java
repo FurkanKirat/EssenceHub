@@ -3,6 +3,7 @@ package com.essencehub.project.Controllers;
 import com.essencehub.project.Controllers.Menu.LoginPageController;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import com.essencehub.project.User.AdminOperations;
+import com.essencehub.project.User.Performance;
 import com.essencehub.project.User.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -182,7 +183,7 @@ public class ApplicationMenuController {
     @FXML
     private void initialize() {
         populateComboBox();
-        workerStatusComboBox.getItems().addAll("Name", "Surname","Phone Number","Salary", "IsAdmin", "Birth", "Department", "Email", "RemainingLeaveDays","Performance", "BonusSalary","password");
+        workerStatusComboBox.getItems().addAll("Name", "Surname","Phone Number","Salary", "IsAdmin", "Birth", "Department", "Email", "RemainingLeaveDays","Performance","password");
         workerStatusComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
 
@@ -343,7 +344,7 @@ public class ApplicationMenuController {
         }
 
         AdminOperations ao = new AdminOperations();
-        User user = new User(name, surname, phone, salary, isAdmin, birthDate, department, email, remainingDays, true,password);
+        User user = new User(name, surname, phone, salary, isAdmin, birthDate, department, email, remainingDays, true,password, Performance.F,0);
         ao.addUser(user);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -371,37 +372,26 @@ public class ApplicationMenuController {
 
         int workerId = selectedWorker.getId();
         String whatToChange = workerStatusComboBox.getValue();
+
         String newValue = statusTextField.getText();
         int rowsUpdated = 0;
 
         try (Connection conn = DatabaseConnection.getConnection()) {
 
-            String sql = null;
-            if (whatToChange.equals("Name")) {
-                sql = "UPDATE User SET name = ? WHERE id = ?";
-            } else if (whatToChange.equals("Surname")) {
-                sql = "UPDATE User SET surname = ? WHERE id = ?";
-            } else if (whatToChange.equals("Phone Number")) {
-                sql = "UPDATE User SET phoneNumber = ? WHERE id = ?";
-            } else if (whatToChange.equals("Salary")) {
-                sql = "UPDATE User SET salary = ? WHERE id = ?";
-            } else if (whatToChange.equals("IsAdmin")) {
-                sql = "UPDATE User SET isAdmin = ? WHERE id = ?";
-            } else if (whatToChange.equals("Birth")) {
-                sql = "UPDATE User SET birth = ? WHERE id = ?";
-            } else if (whatToChange.equals("Department")) {
-                sql = "UPDATE User SET department = ? WHERE id = ?";
-            } else if (whatToChange.equals("Email")) {
-                sql = "UPDATE User SET email = ? WHERE id = ?";
-            } else if (whatToChange.equals("RemainingLeaveDays")) {
-                sql = "UPDATE User SET remainingLeaveDays = ? WHERE id = ?";
-            } else if (whatToChange.equals("Performance")) {
-                sql = "UPDATE User SET monthlyPerformance = ? WHERE id = ?";
-            } else if (whatToChange.equals("BonusSalary")) {
-                sql = "UPDATE User SET bonusSalary = ? WHERE id = ?";
-            } else if (whatToChange.equals("password")) {
-                sql = "UPDATE User SET password = ? WHERE id = ?";
-            }
+            String sql = switch (whatToChange) {
+                case "Name" -> "UPDATE User SET name = ? WHERE id = ?";
+                case "Surname" -> "UPDATE User SET surname = ? WHERE id = ?";
+                case "Phone Number" -> "UPDATE User SET phoneNumber = ? WHERE id = ?";
+                case "Salary" -> "UPDATE User SET salary = ? WHERE id = ?";
+                case "IsAdmin" -> "UPDATE User SET isAdmin = ? WHERE id = ?";
+                case "Birth" -> "UPDATE User SET birth = ? WHERE id = ?";
+                case "Department" -> "UPDATE User SET department = ? WHERE id = ?";
+                case "Email" -> "UPDATE User SET email = ? WHERE id = ?";
+                case "RemainingLeaveDays" -> "UPDATE User SET remainingLeaveDays = ? WHERE id = ?";
+                case "Performance" -> "UPDATE User SET monthlyPerformance = ? WHERE id = ?";
+                case "password" -> "UPDATE User SET password = ? WHERE id = ?";
+                default -> null;
+            };
 
 
             if (sql != null) {
@@ -416,6 +406,7 @@ public class ApplicationMenuController {
                     if (rowsUpdated > 0) {
                        if(!statusTextField.getText().isEmpty()){
                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
                            alert.setTitle("Update Successful");
                            alert.setHeaderText("Update Completed");
                            alert.setContentText("The field \"" + whatToChange + "\" for worker \"" + selectedWorker.getName() + "\" has been updated successfully!");
