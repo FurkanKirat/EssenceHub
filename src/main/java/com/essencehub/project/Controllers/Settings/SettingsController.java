@@ -24,6 +24,9 @@ import java.sql.SQLException;
 public class SettingsController {
 
     @FXML
+    private Button editProfileButton;
+
+    @FXML
     private Button EditInfoButton;
 
     @FXML
@@ -234,6 +237,22 @@ public class SettingsController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    @FXML
+    void editProfileButtonClicked(MouseEvent event) throws IOException {
+        createNewScene("/com/essencehub/project/fxml/Settings/pickProfilePicture.fxml","Edit Profile");
+
+
+    }
+    void createNewScene(String FXMLFile,String title) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource(FXMLFile));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle(title);
+        stage.setResizable(false);
+        stage.show();
+
     }
 
 }

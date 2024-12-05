@@ -46,7 +46,7 @@
                   <Insets top="60.0" />
                </VBox.margin>
                <children>
-                  <ImageView fx:id="profilePicture" fitHeight="110.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profilePicture" fitHeight="110.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" styleClass="settingsProfile">
                      <image>
                         <Image url="@../../images/adminpanel/profile.png" />
                      </image>
@@ -65,9 +65,14 @@
                         <DropShadow />
                      </effect>
                   </Label>
+                  <Button fx:id="editProfileButton" mnemonicParsing="false" onMouseClicked="#editProfileButtonClicked" styleClass="hide" text="Edit Profile" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
                </children>
             </VBox>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" opacity="0.6" prefHeight="15.0" prefWidth="320.0" styleClass="line-color" />
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" opacity="0.6" prefHeight="23.0" prefWidth="320.0" styleClass="line-color" />
             <VBox prefHeight="450.0" prefWidth="370.0">
                <children>
                   <HBox fx:id="ProfileInfoPanel" alignment="CENTER_LEFT" onMouseClicked="#ProfileInfoPanelClicked" prefHeight="75.0" prefWidth="200.0" spacing="15.0">
