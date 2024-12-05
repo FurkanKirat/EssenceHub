@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="890.4" prefWidth="994.8" spacing="10.0" styleClass="second-color" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Settings.ThemeController">
+<VBox prefHeight="890.4" prefWidth="994.8" spacing="10.0" styleClass="second-color" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Settings.ThemeController">
    <children>
       <Label text="Theme" textFill="WHITE">
          <font>
@@ -21,10 +21,10 @@
       </Label>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
          <children>
-            <ComboBox fx:id="themePicker" prefWidth="150.0" stylesheets="@../../css/style.css" />
+            <ComboBox fx:id="themePicker" prefWidth="150.0" />
          </children>
       </HBox>
-      <PasswordField styleClass="selected-border" stylesheets="@../../css/style.css" />
+      <PasswordField styleClass="selected-border" />
       <Button fx:id="changeButton" mnemonicParsing="false" onMouseClicked="#changeButtonClicked" styleClass="menuButton" text="Button" textFill="WHITE" />
    </children>
    <padding>

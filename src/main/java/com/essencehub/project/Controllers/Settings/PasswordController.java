@@ -75,6 +75,7 @@ public class PasswordController {
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("/com/essencehub/project/fxml/Settings/passwordUpdate.fxml"));
             Scene scene = new Scene(root);
+            ThemeController.changeTheme(scene);
             stage.setTitle("Edit Password");
 
             stage.setResizable(false);

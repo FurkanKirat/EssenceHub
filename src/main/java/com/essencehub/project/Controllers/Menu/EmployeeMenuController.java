@@ -1,4 +1,5 @@
 package com.essencehub.project.Controllers.Menu;
+import com.essencehub.project.Controllers.Settings.ThemeController;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -126,6 +127,7 @@ public class EmployeeMenuController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent newContent = loader.load();
             Scene scene = new Scene(newContent);
+            ThemeController.changeTheme(scene);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setHeight(savedHeight);

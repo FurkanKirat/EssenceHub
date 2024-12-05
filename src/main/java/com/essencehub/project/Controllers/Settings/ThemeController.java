@@ -12,6 +12,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Set;
 
 public class ThemeController {
 
@@ -19,29 +20,53 @@ public class ThemeController {
     private Button changeButton;
 
     @FXML
-    private ComboBox<?> themePicker;
-
+    private ComboBox<String> themePicker;
+    public static String theme = "/com/essencehub/project/css/style.css";
     @FXML
     void changeButtonClicked(MouseEvent event) {
-        // Kaynak ve hedef CSS dosyalarının yollarını tanımlayın
-        String sourceCssFile = "C:\\Users\\deniz\\OneDrive\\Masaüstü\\java\\CS102 HW\\EssenceHub\\EssenceHub\\src\\main\\resources\\com\\essencehub\\project\\css\\GrayStyle.css";
-        String destinationCssFile = "C:\\Users\\deniz\\OneDrive\\Masaüstü\\java\\CS102 HW\\EssenceHub\\EssenceHub\\src\\main\\resources\\com\\essencehub\\project\\css\\style.css";
+        // Tema seçimine göre kaynak CSS dosyasını belirleyin
+        if (themePicker.getValue().equals("Gray Theme")) {
+            theme = "/com/essencehub/project/css/GrayStyle.css";
+
+        } else {
+            theme = "/com/essencehub/project/css/BlueStyle.css";
+
+        }
+
+        String destinationCssFile = "src/main/resources/com/essencehub/project/css/style.css";
 
         try {
-            // Kaynak CSS dosyasını okuyun
-            Path sourcePath = Paths.get(sourceCssFile);
+            // Kaynak dosyayı ClassLoader kullanarak okuyun
+            URL sourceUrl = getClass().getResource(theme);
+            if (sourceUrl == null) {
+                throw new IOException("Kaynak dosya bulunamadı: " + theme);
+            }
+            Path sourcePath = Paths.get(sourceUrl.toURI());
+
+            // Kaynak dosyayı okuyun
             String cssContent = Files.readString(sourcePath);
 
             // İçeriği hedef CSS dosyasına yazın
             Path destinationPath = Paths.get(destinationCssFile);
             Files.writeString(destinationPath, cssContent);
 
-
-
             System.out.println("CSS dosyası başarıyla kopyalandı ve tema değiştirildi.");
-        } catch (IOException e) {
-            System.err.println("Bir hata oluştu: " + e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
+
+    }
+
+    public void initialize() {
+        themePicker.getItems().addAll("Blue Theme", "Gray Theme");
+        themePicker.setValue("Blue Theme");
+    }
+    public static void changeTheme(Scene scene){
+
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(ThemeController.class.getResource(theme).toExternalForm());
+
     }
 
 

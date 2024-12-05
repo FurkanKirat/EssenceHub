@@ -94,6 +94,7 @@ public class SettingsController {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/com/essencehub/project/fxml/Settings/contactInfoUpdate.fxml"));
         Scene scene = new Scene(root);
+        ThemeController.changeTheme(scene);
         stage.setTitle("Update Contact Info");
 
         stage.setResizable(false);
@@ -147,6 +148,7 @@ public class SettingsController {
 
                     Parent root = FXMLLoader.load(getClass().getResource("/com/essencehub/project/fxml/Menu/LoginPage.fxml"));
                     Scene scene = new Scene(root);
+                    ThemeController.changeTheme(scene);
 
                     Stage stage = new Stage();
                     Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -181,6 +183,7 @@ public class SettingsController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/fxml/Settings/settings.fxml"));
             Parent newContent = loader.load();
             Scene scene = new Scene(newContent);
+            ThemeController.changeTheme(scene);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
         } catch (IOException e) {
@@ -244,6 +247,7 @@ public class SettingsController {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource(FXMLFile));
         Scene scene = new Scene(root);
+        ThemeController.changeTheme(scene);
         stage.setScene(scene);
         stage.setTitle(title);
         stage.setResizable(false);

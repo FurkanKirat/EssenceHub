@@ -1,6 +1,7 @@
 package com.essencehub.project.Controllers.Menu;
 
 
+import com.essencehub.project.Controllers.Settings.ThemeController;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import com.essencehub.project.User.ImageManager;
 import com.essencehub.project.User.User;
@@ -149,6 +150,7 @@ public class LoginPageController {
                             Parent root = loader.load();
 
                             Scene scene = new Scene(root);
+                            ThemeController.changeTheme(scene);
 
                             Stage stage = new Stage();
                             stage.setTitle("Essence Hub");
@@ -168,6 +170,7 @@ public class LoginPageController {
                             Parent root = loader.load();
 
                             Scene scene = new Scene(root);
+                            ThemeController.changeTheme(scene);
 
                             Stage stage = new Stage();
                             stage.setTitle("Essence Hub");
