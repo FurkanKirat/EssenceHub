@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.Controllers.Menu.EmployeeMenuController;
@@ -96,6 +97,9 @@ public class SettingsController {
         Scene scene = new Scene(root);
         ThemeController.changeTheme(scene);
         stage.setTitle("Update Contact Info");
+        Stage parentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.initOwner(parentStage);
+        stage.initModality(Modality.WINDOW_MODAL);
 
         stage.setResizable(false);
         stage.setScene(scene);
@@ -153,6 +157,9 @@ public class SettingsController {
                     Stage stage = new Stage();
                     Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     stage.setTitle("Essence Hub");
+                    Stage parentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                    stage.initOwner(parentStage);
+                    stage.initModality(Modality.WINDOW_MODAL);
                     stage.setScene(scene);
                     stage.setResizable(false);
                     stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
@@ -239,14 +246,19 @@ public class SettingsController {
     }
     @FXML
     void editProfileButtonClicked(MouseEvent event) throws IOException {
-        createNewScene("/com/essencehub/project/fxml/Settings/pickProfilePicture.fxml","Edit Profile");
+        createNewScene("/com/essencehub/project/fxml/Settings/pickProfilePicture.fxml","Edit Profile",event);
 
 
     }
-    void createNewScene(String FXMLFile,String title) throws IOException {
+    void createNewScene(String FXMLFile,String title, Event event) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource(FXMLFile));
+
         Scene scene = new Scene(root);
+        Stage parentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.initOwner(parentStage);
+        stage.initModality(Modality.WINDOW_MODAL);
+
         ThemeController.changeTheme(scene);
         stage.setScene(scene);
         stage.setTitle(title);
