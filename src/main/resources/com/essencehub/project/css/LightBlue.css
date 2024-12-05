@@ -90,6 +90,10 @@
     -fx-cursor: hand;
 }
 
+.loginImage{
+     -fx-effect: innershadow(gaussian,#3a5fcd, 5, 1, 0, 0);
+}
+
 /* Tasks - Blue Theme */
 .TaskLabel {
     -fx-text-fill: #e0e0e0;

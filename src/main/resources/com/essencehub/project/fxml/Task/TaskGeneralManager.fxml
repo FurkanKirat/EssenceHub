@@ -18,7 +18,7 @@
             </Label>
             <ImageView cache="true" fitHeight="150.0" fitWidth="178.0" onMouseClicked="#goToAssignTask" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/Task/taskassign.jpg" />
+                  <Image url="@../../images/Task/taskassign.png" />
                </image>
             </ImageView>
          </children>
