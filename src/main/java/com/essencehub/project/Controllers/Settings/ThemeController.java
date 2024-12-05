@@ -1,7 +1,7 @@
 package com.essencehub.project.Controllers.Settings;
 
 import javafx.fxml.FXML;
-import javafx.scene.Node;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -12,7 +12,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Set;
+
 
 public class ThemeController {
 
