@@ -139,7 +139,7 @@
                </font>
                <styleClass>
                   <String fx:value="hide" />
-                  <String fx:value="button" />
+                  <String fx:value="menuButton" />
                </styleClass>
             </Button>
          </children>

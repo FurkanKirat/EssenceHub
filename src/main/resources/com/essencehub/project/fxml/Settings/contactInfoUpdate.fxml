@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -19,7 +20,7 @@
                </font>
             </Label>
             <Pane prefHeight="50.0" prefWidth="106.0" />
-            <TextField fx:id="newPasswordTextField" prefHeight="33.0" prefWidth="362.0" />
+            <TextField fx:id="newPasswordTextField" prefHeight="33.0" prefWidth="362.0" styleClass="menuTextField" />
          </children>
          <padding>
             <Insets left="20.0" />
@@ -32,7 +33,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="newPasswordAgainTextField" prefHeight="33.0" prefWidth="364.0" />
+            <TextField fx:id="newPasswordAgainTextField" prefHeight="33.0" prefWidth="364.0" styleClass="menuTextField" />
          </children>
          <padding>
             <Insets left="20.0" />
@@ -40,10 +41,14 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="SaveInfoButton" mnemonicParsing="false" onMouseClicked="#SaveInfoButtonClicked" styleClass="hide" stylesheets="@../../css/style.css" text="Save Informations" textFill="WHITE">
+            <Button fx:id="SaveInfoButton" mnemonicParsing="false" onMouseClicked="#SaveInfoButtonClicked" text="Save Informations" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
+               <styleClass>
+                  <String fx:value="hide" />
+                  <String fx:value="menuButton" />
+               </styleClass>
             </Button>
          </children>
          <padding>

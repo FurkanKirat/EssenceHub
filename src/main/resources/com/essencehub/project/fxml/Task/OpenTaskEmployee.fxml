@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" spacing="20.0" style="-fx-padding: 20;" stylesheets="@../../css/assigntask.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Task.OpenTaskEmployeeController">
+<VBox prefHeight="400.0" prefWidth="600.0" spacing="20.0" style="-fx-padding: 20;" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Task.OpenTaskEmployeeController">
 
     <!-- Title Label -->
     <Label alignment="CENTER" style="-fx-font-size: 36px; -fx-font-weight: bold;" styleClass="TaskLabel" text="View Task" />
@@ -22,10 +22,10 @@
    <Label fx:id="descriptionLabel" alignment="TOP_LEFT" prefHeight="223.0" prefWidth="560.0" text="be written here" />
    <BorderPane prefHeight="200.0" prefWidth="200.0">
       <left>
-         <Button fx:id="markAsDoneBtn" mnemonicParsing="false" onAction="#markDoneClicked" text="Mark As Done" BorderPane.alignment="CENTER" />
+         <Button fx:id="markAsDoneBtn" mnemonicParsing="false" onAction="#markDoneClicked" styleClass="menuButton" text="Mark As Done" textFill="WHITE" BorderPane.alignment="CENTER" />
       </left>
       <right>
-         <Button fx:id="markAsUndoneBtn" mnemonicParsing="false" onAction="#markUndoneCLicked" text="Mark As Undone" BorderPane.alignment="CENTER" />
+         <Button fx:id="markAsUndoneBtn" mnemonicParsing="false" onAction="#markUndoneCLicked" styleClass="menuButton" text="Mark As Undone" textFill="WHITE" BorderPane.alignment="CENTER" />
       </right>
    </BorderPane>
 </VBox>

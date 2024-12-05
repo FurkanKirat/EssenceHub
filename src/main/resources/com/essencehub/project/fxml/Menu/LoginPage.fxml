@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="hbpx" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/loginpage.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Menu.LoginPageController">
+<HBox fx:id="hbpx" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Menu.LoginPageController">
    <children>
       <AnchorPane fx:id="anchor1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0">
          <children>
@@ -24,13 +24,13 @@
       </AnchorPane>
       <AnchorPane fx:id="anchor2" minHeight="400.0" minWidth="300.0" prefHeight="400.0" prefWidth="300.0">
          <children>
-            <TextField fx:id="idField" layoutX="75.0" layoutY="113.0" onKeyReleased="#loginEnter" promptText="Your ID" />
-            <Label fx:id="idLabel" layoutX="75.0" layoutY="84.0" text="Employee ID">
+            <TextField fx:id="idField" layoutX="75.0" layoutY="113.0" onKeyReleased="#loginEnter" promptText="Your ID" styleClass="loginTextField" />
+            <Label fx:id="idLabel" layoutX="75.0" layoutY="84.0" styleClass="loginLabel" text="Employee ID">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <Label fx:id="passwordLabel" layoutX="75.0" layoutY="200.0" text="Password" />
-            <PasswordField fx:id="passwordField" layoutX="75.0" layoutY="229.0" onKeyReleased="#loginEnter" promptText="Your Password" />
+            <Label fx:id="passwordLabel" layoutX="75.0" layoutY="200.0" styleClass="loginLabel" text="Password" />
+            <PasswordField fx:id="passwordField" layoutX="75.0" layoutY="229.0" onKeyReleased="#loginEnter" promptText="Your Password" styleClass="loginTextField" />
             <Button fx:id="loginbtn" layoutX="75.0" layoutY="281.0" mnemonicParsing="false" onAction="#loginClicked" prefHeight="26.0" prefWidth="150.0" text="Login" />
             <ImageView fx:id="passwordicon" fitHeight="25.0" fitWidth="25.0" layoutX="44.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -52,7 +52,7 @@
                   <Image url="@../../images/loginpage/show.png" />
                </image>
             </ImageView>
-            <TextField fx:id="passwordText" layoutX="75.0" layoutY="229.0" onKeyReleased="#loginEnter" promptText="Your Password" visible="false" />
+            <TextField fx:id="passwordText" layoutX="75.0" layoutY="229.0" onKeyReleased="#loginEnter" promptText="Your Password" styleClass="loginTextField" visible="false" />
             <Label fx:id="warning" layoutX="83.0" layoutY="333.0" text="ID or password is wrong" visible="false" />
          </children>
       </AnchorPane>

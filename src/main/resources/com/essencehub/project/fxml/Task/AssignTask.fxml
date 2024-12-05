@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" spacing="20.0" style="-fx-padding: 20;" stylesheets="@../../css/assigntask.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Task.AssignTaskController">
+<VBox prefHeight="400.0" prefWidth="600.0" spacing="20.0" style="-fx-padding: 20;" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Task.AssignTaskController">
 
    <!-- Title Label -->
    <Label alignment="CENTER" style="-fx-font-size: 36px; -fx-font-weight: bold;" styleClass="TaskLabel" text="Assign Task" />
@@ -23,7 +23,7 @@
    <!-- Task Title Input -->
    <HBox spacing="10.0">
       <Label alignment="CENTER" prefWidth="150.0" style="-fx-font-size: 18px;" styleClass="TaskLabel" text="Task Title:" />
-      <TextField fx:id="titleTextField" prefHeight="40.0" prefWidth="400.0" promptText="Enter the task title" />
+      <TextField fx:id="titleTextField" prefHeight="40.0" prefWidth="400.0" promptText="Enter the task title" styleClass="menuTextField" />
    </HBox>
 
    <!-- Task Description Label -->
@@ -31,7 +31,7 @@
 
    <!-- Task Description Input -->
    <TextArea fx:id="descriptionTextArea" prefHeight="150.0" prefWidth="550.0" promptText="Enter task details..." />
-   <Button mnemonicParsing="false" onAction="#assignTask" prefHeight="26.0" prefWidth="147.0" text="Assign the Task">
+   <Button mnemonicParsing="false" onAction="#assignTask" prefHeight="26.0" prefWidth="147.0" styleClass="menuButton" text="Assign the Task" textFill="WHITE">
       <font>
          <Font size="14.0" />
       </font>
