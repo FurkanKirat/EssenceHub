@@ -2,6 +2,7 @@ package com.essencehub.project.Controllers.Menu;
 
 
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
+import com.essencehub.project.User.ImageManager;
 import com.essencehub.project.User.User;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -75,6 +76,8 @@ public class LoginPageController {
     @FXML
     private Label warning;
 
+    private static Image image;
+
     public static Statement getStatement() {
         return statement;
     }
@@ -139,6 +142,7 @@ public class LoginPageController {
                     if(resultset.getInt("isActive")==1){
                         warning.setVisible(false);
                         UserID = resultset.getInt("ID");
+                        image = ImageManager.getImage(resultset.getInt("image"));
                         if(resultset.getInt("isAdmin")==1){
 
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/fxml/Menu/AdminMenu.fxml"));
@@ -223,5 +227,9 @@ public class LoginPageController {
 
     public static int getUserID() {
         return UserID;
+    }
+
+    public static Image getImage() {
+        return image;
     }
 }

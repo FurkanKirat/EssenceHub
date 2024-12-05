@@ -1,6 +1,7 @@
 package com.essencehub.project.User;
 
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
+import javafx.scene.image.Image;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -26,7 +27,7 @@ public class User {
     private Performance monthlyPerformance;
     private double bonusSalary;
     private boolean isActive;
-
+    private Image image;
 
     private ArrayList<Task> taskE;
     private static ArrayList<Task> taskA;

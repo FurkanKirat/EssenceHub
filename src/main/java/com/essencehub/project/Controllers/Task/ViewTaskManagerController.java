@@ -24,7 +24,7 @@ public class ViewTaskManagerController {
     private TableColumn<Task, String> employeeNameColumn;
 
     @FXML
-    private TableColumn<Task, String> statusColumn;
+    private TableColumn<Task, Boolean> statusColumn;
 
     @FXML
     private TableColumn<Task, String> taskColumn;
@@ -57,7 +57,7 @@ public class ViewTaskManagerController {
     public void initialize(){
 
         employeeNameColumn.setCellValueFactory(new PropertyValueFactory<>("receiver"));
-        statusColumn.setCellValueFactory(new PropertyValueFactory<>("task"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("taskDone"));
         taskColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         employeeNameColumn1.setCellValueFactory(new PropertyValueFactory<>("sender"));
         ObservableList<Task> tasks = FXCollections.observableArrayList(AdminOperations.getAllTasks());

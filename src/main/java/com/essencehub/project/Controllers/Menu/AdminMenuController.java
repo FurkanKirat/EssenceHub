@@ -1,5 +1,6 @@
 package com.essencehub.project.Controllers.Menu;
 
+import com.essencehub.project.User.ImageManager;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -70,6 +71,9 @@ public class AdminMenuController {
             String name =  LoginPageController.getResultSet().getString("name");
             String surname = LoginPageController.getResultSet().getString("surname");
             namePanel.setText(name + " " + surname);
+
+            profilPicturePanel.setImage(LoginPageController.getImage());
+
 
         }
         catch (SQLException e){

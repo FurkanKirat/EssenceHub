@@ -52,7 +52,7 @@ public class ViewTaskEmployeeController {
     }
     public void initialize(){
 
-        statusColumn.setCellValueFactory(new PropertyValueFactory<>("task"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("taskDone"));
         taskColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         senderColumn.setCellValueFactory(new PropertyValueFactory<>("sender"));
         ObservableList<Task> tasks = null;

@@ -46,7 +46,7 @@
                   <Insets top="60.0" />
                </VBox.margin>
                <children>
-                  <ImageView fitHeight="110.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profilePicture" fitHeight="110.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/adminpanel/profile.png" />
                      </image>

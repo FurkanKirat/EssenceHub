@@ -84,6 +84,9 @@ public class SettingsController {
     private TextField vacationDaysTextField;
 
     @FXML
+    private ImageView profilePicture;
+
+    @FXML
     void EditInfoButtonClicked(MouseEvent event) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/com/essencehub/project/fxml/Settings/contactInfoUpdate.fxml"));
@@ -124,7 +127,9 @@ public class SettingsController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        profilePicture.setImage(LoginPageController.getImage());
         currentNode = ProfileInfoPanel;
+
         profileInfo();
     }
 
