@@ -1,14 +1,21 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 /* General Styles - Blue Theme */
 .gradient-background {
     -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
+=======
+
+.gradient-background{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
+>>>>>>> origin/main
 }
-.first-color {
-    -fx-background-color: #3a5fcd;
+.first-color{
+    -fx-background-color: #14076b;
 }
-.second-color {
-    -fx-background-color: #4f77c1;
+.second-color{
+    -fx-background-color: #1d346e;
 }
+<<<<<<< HEAD
 .line-color {
     -fx-background-color: #b0c4de;
 =======
@@ -25,31 +32,46 @@
 .line-color {
     -fx-background-color: #e0e0e0;
 >>>>>>> Stashed changes
+=======
+.line-color{
+    -fx-background-color: #f6f4f4;
+>>>>>>> origin/main
 }
-.container {
-    -fx-background-color: rgba(255, 255, 255, 0.1);
+.container{
+    -fx-background-color: rgba(255,255,255,0.2);
     -fx-background-radius: 10;
 }
+<<<<<<< HEAD
 .hide {
     -fx-cursor: hand;
 }
 .selected-border {
 <<<<<<< Updated upstream
     -fx-border-color: #b0c4de;
+=======
+.hide{
+     -fx-cursor: hand;
+ }
+.selected-border{
+    -fx-border-color: #fff;
+>>>>>>> origin/main
     -fx-border-width: 0 3 0 0;
+
 }
-.selected:hover {
-    -fx-background-color: #5a79b8;
+.selected:hover{
+    -fx-background-color: #30247e;
 }
-.selected:clicked {
-    -fx-background-color: #5a79b8;
-}
-.buttonClicked {
+.selected:clicked{
+    -fx-background-color: #30247e;
+}*/
+.buttonClicked{
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(58, 95, 205, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 255, 0.5), 10, 0.5, 0, 0);
 }
+
 .settingsProfile:hover {
     -fx-opacity: 0.8;
+<<<<<<< HEAD
     -fx-effect: dropshadow(gaussian, rgba(58, 95, 205, 0.5), 10, 0.5, 0, 0);
 =======
     -fx-border-color: #bfbfbf;
@@ -69,41 +91,62 @@
     -fx-opacity: 0.8;
     -fx-effect: dropshadow(gaussian, rgba(128, 128, 128, 0.5), 10, 0.5, 0, 0);
 >>>>>>> Stashed changes
+=======
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 255, 0.5), 10, 0.5, 0, 0);
+
+>>>>>>> origin/main
 }
-.menuButton {
-    -fx-background-color: rgba(255, 255, 255, 0.1);
+
+.menuButton{
+    -fx-background-color: rgba(255, 255, 255, 0.2);
     -fx-background-radius: 30;
 }
-.text-input {
-    -fx-background-color: rgba(0, 0, 0, 0);
+.text-input{
+    -fx-background-color: rgba(0,0,0,0);
     -fx-border-width: 0 0 1 0;
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     -fx-border-color: #b0c4de;
 =======
     -fx-border-color: #bfbfbf;
 >>>>>>> Stashed changes
+=======
+    -fx-border-color: #ffffff;
+>>>>>>> origin/main
 }
 .menuTextField {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #fff;
     -fx-font-size: 15px;
 }
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 /* Login Page - Blue Theme */
 .loginTextField {
     -fx-border-width: 2px;
     -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
+=======
+
+
+/* Login Page */
+.loginTextField{
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
+>>>>>>> origin/main
     -fx-background-color: transparent;
-    -fx-text-fill: #b0c4de;
+    -fx-text-fill: black;
+
+
 }
-.loginLabel {
-    -fx-font-family: "Segoe UI";
-    -fx-text-fill: #b0c4de;
+.loginLabel{
+    -fx-font-family: "Segoe UI:";
+    -fx-text-fill: black;
     -fx-font-weight: bold;
 }
-#anchor1 {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
+#anchor1{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
 }
+<<<<<<< HEAD
 #loginbtn {
     -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
 =======
@@ -130,10 +173,16 @@
     -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2b2b2b, #575757);
 >>>>>>> Stashed changes
     -fx-text-fill: #e0e0e0;
+=======
+#loginbtn{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
+    -fx-text-fill: white;
+>>>>>>> origin/main
     -fx-background-radius: 15;
     -fx-cursor: hand;
     -fx-font-weight: bold;
 }
+<<<<<<< HEAD
 #logo {
 <<<<<<< Updated upstream
     -fx-fill: linear-gradient(#3a5fcd, #6a89cc);
@@ -148,22 +197,37 @@
     -fx-text-fill: #e0e0e0;
     -fx-back-color: #6e6e6e;
 >>>>>>> Stashed changes
+=======
+#logo{
+    -fx-fill: linear-gradient(#6493d3,#1f75ea);
+}
+#appLabel{
+    -fx-text-fill: white;
+    -fx-back-color : #1f75ea;
+>>>>>>> origin/main
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-family: "sans-serif";
 }
+<<<<<<< HEAD
 #profile {
 <<<<<<< Updated upstream
     -fx-fill: #8098d1;
 =======
     -fx-fill: #7a7a7a;
 >>>>>>> Stashed changes
+=======
+#profile{
+    -fx-fill: red;
+>>>>>>> origin/main
 }
-#show {
+
+#show{
     -fx-cursor: hand;
 }
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 /* Tasks - Blue Theme */
 =======
@@ -186,24 +250,45 @@
 /* Stock - Blue Theme */
 .chart-legend-item {
     -fx-text-fill: #b0c4de;
+=======
+
+.loginImage{
+     -fx-effect: innershadow(gaussian, #30247e, 5, 1, 0, 0);
+}
+
+/* Tasks */
+.TaskLabel{
+    -fx-text-fill: white;
+}
+
+/* Employee Option*/
+.employeeLabel{
+    -fx-text-fill: white;
+}
+
+/* Stock */
+.chart-legend-item{
+    -fx-text-fill: blue;
+>>>>>>> origin/main
 }
 .chart-pie-label-line {
-    -fx-stroke: #b0c4de;
-    -fx-fill: #b0c4de;
+    -fx-stroke: white;
+    -fx-fill: white;
 }
+
 .chart-pie-label {
-    -fx-fill: #b0c4de;
+    -fx-fill: white;
 }
 .chart-legend {
-    -fx-background-color: #4f77c1;
-    -fx-stroke: #4f77c1;
+   -fx-background-color:  white;
+   -fx-stroke: white;
 }
 .axis-label {
-    -fx-text-fill: #b0c4de;
+  -fx-text-fill: white;
 }
-.chart-pie-label {
-    -fx-fill: #e0e0e0;
+.chart-pie-label {-fx-fill: white;
 }
+<<<<<<< HEAD
 =======
 /* Stock */
 .chart-legend-item {
@@ -227,3 +312,6 @@
     -fx-fill: #e0e0e0;
 }
 >>>>>>> Stashed changes
+=======
+
+>>>>>>> origin/main

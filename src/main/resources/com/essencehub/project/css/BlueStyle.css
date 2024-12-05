@@ -98,11 +98,11 @@
 #show{
     -fx-cursor: hand;
 }
-/*
-.image-view {
-    -fx-blend-mode: multiply;
-    -fx-background-color: blue;
-}*/
+
+
+.loginImage{
+     -fx-effect: innershadow(gaussian, #30247e, 5, 1, 0, 0);
+}
 
 /* Tasks */
 .TaskLabel{
