@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /* General Styles - Blue Theme */
 .gradient-background {
     -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
@@ -10,6 +11,20 @@
 }
 .line-color {
     -fx-background-color: #b0c4de;
+=======
+/* General Styles */
+.gradient-background {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2b2b2b, #575757);
+}
+.first-color {
+    -fx-background-color: #2b2b2b;
+}
+.second-color {
+    -fx-background-color: #3a3a3a;
+}
+.line-color {
+    -fx-background-color: #e0e0e0;
+>>>>>>> Stashed changes
 }
 .container {
     -fx-background-color: rgba(255, 255, 255, 0.1);
@@ -19,6 +34,7 @@
     -fx-cursor: hand;
 }
 .selected-border {
+<<<<<<< Updated upstream
     -fx-border-color: #b0c4de;
     -fx-border-width: 0 3 0 0;
 }
@@ -35,6 +51,24 @@
 .settingsProfile:hover {
     -fx-opacity: 0.8;
     -fx-effect: dropshadow(gaussian, rgba(58, 95, 205, 0.5), 10, 0.5, 0, 0);
+=======
+    -fx-border-color: #bfbfbf;
+    -fx-border-width: 0 3 0 0;
+}
+.selected:hover {
+    -fx-background-color: #4a4a4a;
+}
+.selected:clicked {
+    -fx-background-color: #4a4a4a;
+}
+.buttonClicked {
+    -fx-opacity: 0.8;
+    -fx-effect: dropshadow(gaussian, rgba(128, 128, 128, 0.5), 10, 0.5, 0, 0);
+}
+.settingsProfile:hover {
+    -fx-opacity: 0.8;
+    -fx-effect: dropshadow(gaussian, rgba(128, 128, 128, 0.5), 10, 0.5, 0, 0);
+>>>>>>> Stashed changes
 }
 .menuButton {
     -fx-background-color: rgba(255, 255, 255, 0.1);
@@ -43,13 +77,18 @@
 .text-input {
     -fx-background-color: rgba(0, 0, 0, 0);
     -fx-border-width: 0 0 1 0;
+<<<<<<< Updated upstream
     -fx-border-color: #b0c4de;
+=======
+    -fx-border-color: #bfbfbf;
+>>>>>>> Stashed changes
 }
 .menuTextField {
     -fx-text-fill: #e0e0e0;
     -fx-font-size: 15px;
 }
 
+<<<<<<< Updated upstream
 /* Login Page - Blue Theme */
 .loginTextField {
     -fx-border-width: 2px;
@@ -67,39 +106,83 @@
 }
 #loginbtn {
     -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
+=======
+/* Login Page */
+.loginTextField {
+    -fx-border-width: 2px;
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #2b2b2b, #575757);
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+}
+.loginLabel {
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+.images{
+    -fx-blend-mode: multiply;
+    -fx-background-color: #2b2b2b;
+}
+#anchor1 {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2b2b2b, #575757);
+}
+#loginbtn {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2b2b2b, #575757);
+>>>>>>> Stashed changes
     -fx-text-fill: #e0e0e0;
     -fx-background-radius: 15;
     -fx-cursor: hand;
     -fx-font-weight: bold;
 }
 #logo {
+<<<<<<< Updated upstream
     -fx-fill: linear-gradient(#3a5fcd, #6a89cc);
 }
 #appLabel {
     -fx-text-fill: #e0e0e0;
     -fx-back-color: #6a89cc;
+=======
+    -fx-fill: linear-gradient(#474747, #6e6e6e);
+}
+#appLabel {
+    -fx-text-fill: #e0e0e0;
+    -fx-back-color: #6e6e6e;
+>>>>>>> Stashed changes
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-family: "sans-serif";
 }
 #profile {
+<<<<<<< Updated upstream
     -fx-fill: #8098d1;
+=======
+    -fx-fill: #7a7a7a;
+>>>>>>> Stashed changes
 }
 #show {
     -fx-cursor: hand;
 }
 
+<<<<<<< Updated upstream
 /* Tasks - Blue Theme */
+=======
+/* Tasks */
+>>>>>>> Stashed changes
 .TaskLabel {
     -fx-text-fill: #e0e0e0;
 }
 
+<<<<<<< Updated upstream
 /* Employee Option - Blue Theme */
+=======
+/* Employee Option */
+>>>>>>> Stashed changes
 .employeeLabel {
     -fx-text-fill: #e0e0e0;
 }
 
+<<<<<<< Updated upstream
 /* Stock - Blue Theme */
 .chart-legend-item {
     -fx-text-fill: #b0c4de;
@@ -121,3 +204,26 @@
 .chart-pie-label {
     -fx-fill: #e0e0e0;
 }
+=======
+/* Stock */
+.chart-legend-item {
+    -fx-text-fill: #bfbfbf;
+}
+.chart-pie-label-line {
+    -fx-stroke: #bfbfbf;
+    -fx-fill: #bfbfbf;
+}
+.chart-pie-label {
+    -fx-fill: #bfbfbf;
+}
+.chart-legend {
+    -fx-background-color: #3a3a3a;
+    -fx-stroke: #3a3a3a;
+}
+.axis-label {
+    -fx-text-fill: #e0e0e0;
+}
+.chart-pie-label {
+    -fx-fill: #e0e0e0;
+}
+>>>>>>> Stashed changes

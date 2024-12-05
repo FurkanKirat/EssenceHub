@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" styleClass="second-color" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Settings.PickProfileController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" styleClass="second-color" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Settings.PickProfileController">
    <children>
       <VBox prefHeight="68.0" prefWidth="600.0" spacing="5.0">
          <children>
@@ -41,8 +41,8 @@
       </VBox>
       <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="600.0" spacing="20.0">
          <children>
-            <Pane prefHeight="62.0" prefWidth="36.0" />
-            <Pane fx:id="pane1" prefHeight="65.0" prefWidth="65.0">
+            <Pane prefHeight="62.0" prefWidth="18.0" />
+            <VBox fx:id="vBox1" alignment="CENTER" prefHeight="65.0" prefWidth="65.0">
                <children>
                   <ImageView fx:id="img1" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#img1Clicked" pickOnBounds="true" preserveRatio="true">
                      <styleClass>
@@ -55,8 +55,8 @@
                      </image>
                   </ImageView>
                </children>
-            </Pane>
-            <Pane fx:id="pane2" prefHeight="65.0" prefWidth="65.0">
+            </VBox>
+            <VBox fx:id="vBox2" alignment="CENTER" prefHeight="65.0" prefWidth="65.0">
                <children>
                   <ImageView fx:id="img2" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#img2Clicked" pickOnBounds="true" preserveRatio="true">
                      <styleClass>
@@ -69,8 +69,8 @@
                      </image>
                   </ImageView>
                </children>
-            </Pane>
-            <Pane fx:id="pane3" prefHeight="65.0" prefWidth="65.0">
+            </VBox>
+            <VBox fx:id="vBox3" alignment="CENTER" prefHeight="65.0" prefWidth="65.0">
                <children>
                   <ImageView fx:id="img3" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#img3Clicked" pickOnBounds="true" preserveRatio="true">
                      <styleClass>
@@ -83,8 +83,8 @@
                      </image>
                   </ImageView>
                </children>
-            </Pane>
-            <Pane fx:id="pane4" prefHeight="65.0" prefWidth="65.0">
+            </VBox>
+            <VBox fx:id="vBox4" alignment="CENTER" prefHeight="65.0" prefWidth="65.0">
                <children>
                   <ImageView fx:id="img4" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#img4Clicked" pickOnBounds="true" preserveRatio="true">
                      <styleClass>
@@ -97,8 +97,8 @@
                      </image>
                   </ImageView>
                </children>
-            </Pane>
-            <Pane fx:id="pane5" prefHeight="65.0" prefWidth="65.0">
+            </VBox>
+            <VBox fx:id="vBox5" alignment="CENTER" prefHeight="65.0" prefWidth="65.0">
                <children>
                   <ImageView fx:id="img5" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#img5Clicked" pickOnBounds="true" preserveRatio="true">
                      <styleClass>
@@ -111,8 +111,8 @@
                      </image>
                   </ImageView>
                </children>
-            </Pane>
-            <Pane fx:id="pane6" prefHeight="65.0" prefWidth="65.0">
+            </VBox>
+            <VBox fx:id="vBox6" alignment="CENTER" prefHeight="65.0" prefWidth="65.0">
                <children>
                   <ImageView fx:id="img6" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#img6Clicked" pickOnBounds="true" preserveRatio="true">
                      <styleClass>
@@ -125,7 +125,7 @@
                      </image>
                   </ImageView>
                </children>
-            </Pane>
+            </VBox>
          </children>
          <padding>
             <Insets left="20.0" />

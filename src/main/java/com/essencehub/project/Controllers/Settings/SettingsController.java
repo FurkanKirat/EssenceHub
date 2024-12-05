@@ -267,5 +267,8 @@ public class SettingsController {
 
     }
 
+    public VBox getCenterVBox() {
+        return centerVBox;
+    }
 }
 

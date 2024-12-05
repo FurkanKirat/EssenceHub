@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,31 +34,31 @@ public class PickProfileController {
     @FXML
     private ImageView img6;
     @FXML
-    private Pane pane1;
+    private VBox vBox1;
 
     @FXML
-    private Pane pane2;
+    private VBox vBox2;
 
     @FXML
-    private Pane pane3;
+    private VBox vBox3;
 
     @FXML
-    private Pane pane4;
+    private VBox vBox4;
 
     @FXML
-    private Pane pane5;
+    private VBox vBox5;
 
     @FXML
-    private Pane pane6;
+    private VBox vBox6;
 
     private List<ImageView> images;
-    private List<Pane> panes;
+    private List<Pane> boxes;
 
     @FXML
     public void initialize() {
         // Listeleri initialize içinde doldurun
         images = Arrays.asList(img1, img2, img3, img4, img5, img6);
-        panes = Arrays.asList(pane1, pane2, pane3, pane4, pane5, pane6);
+        boxes = Arrays.asList(vBox1, vBox2, vBox3, vBox4, vBox5, vBox6);
     }
     @FXML
     void editProfileButtonClicked(MouseEvent event) {
@@ -66,47 +67,47 @@ public class PickProfileController {
     @FXML
     void img1Clicked(MouseEvent event) {
         clearStyle();
-        pane1.getStyleClass().add("container");
+        vBox1.getStyleClass().add("container");
     }
 
     @FXML
     void img2Clicked(MouseEvent event) {
         clearStyle();
-        pane2.getStyleClass().add("container");
+        vBox2.getStyleClass().add("container");
         img2.getStyleClass().add("buttonClicked");
     }
 
     @FXML
     void img3Clicked(MouseEvent event) {
         clearStyle();
-        pane3.getStyleClass().add("container");
+        vBox3.getStyleClass().add("container");
         img3.getStyleClass().add("buttonClicked");
     }
 
     @FXML
     void img4Clicked(MouseEvent event) {
         clearStyle();
-        pane4.getStyleClass().add("container");
+        vBox4.getStyleClass().add("container");
         img4.getStyleClass().add("buttonClicked");
     }
 
     @FXML
     void img5Clicked(MouseEvent event) {
         clearStyle();
-        pane5.getStyleClass().add("container");
+        vBox5.getStyleClass().add("container");
         img5.getStyleClass().add("buttonClicked");
     }
 
     @FXML
     void img6Clicked(MouseEvent event) {
         clearStyle();
-        pane6.getStyleClass().add("container");
+        vBox6.getStyleClass().add("container");
         img6.getStyleClass().add("buttonClicked");
     }
     void clearStyle(){
         for(int i = 0;i<6;i++) {
             images.get(i).getStyleClass().remove("buttonClicked");
-            panes.get(i).getStyleClass().remove("container");
+            boxes.get(i).getStyleClass().remove("container");
         }
     }
 
