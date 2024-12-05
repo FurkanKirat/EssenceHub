@@ -28,10 +28,26 @@ public class ThemeController {
         if (themePicker.getValue().equals("Gray Theme")) {
             theme = "/com/essencehub/project/css/GrayStyle.css";
 
-        } else {
+        }
+        else if(themePicker.getValue().equals("Blue Theme")){
             theme = "/com/essencehub/project/css/BlueStyle.css";
 
         }
+        else if(themePicker.getValue().equals("Light Blue Theme")){
+            theme = "/com/essencehub/project/css/LightBlue.css";
+        }
+        else if(themePicker.getValue().equals("Green Theme")){
+            theme = "/com/essencehub/project/css/GreenStyle.css";
+        }
+        else if(themePicker.getValue().equals("Purple Theme")){
+            theme = "/com/essencehub/project/css/PurpleTheme.css";
+        }
+        else if(themePicker.getValue().equals("Red Theme")){
+            theme = "/com/essencehub/project/css/RedStyle.css";
+        }
+
+
+
 
         String destinationCssFile = "src/main/resources/com/essencehub/project/css/style.css";
 
@@ -59,7 +75,7 @@ public class ThemeController {
     }
 
     public void initialize() {
-        themePicker.getItems().addAll("Blue Theme", "Gray Theme");
+        themePicker.getItems().addAll("Blue Theme", "Gray Theme","Green Theme","Light Blue Theme","Purple Theme","Red Theme");
         themePicker.setValue("Blue Theme");
     }
     public static void changeTheme(Scene scene){

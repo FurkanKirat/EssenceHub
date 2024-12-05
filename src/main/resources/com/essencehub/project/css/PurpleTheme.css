@@ -1,15 +1,15 @@
-/* General Styles - Blue Theme */
+/* General Styles - Purple Theme */
 .gradient-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #4b0082, #8a2be2);
 }
 .first-color {
-    -fx-background-color: #3a5fcd;
+    -fx-background-color: #4b0082;
 }
 .second-color {
-    -fx-background-color: #4f77c1;
+    -fx-background-color: #6a0dad;
 }
 .line-color {
-    -fx-background-color: #b0c4de;
+    -fx-background-color: #dda0dd;
 }
 .container {
     -fx-background-color: rgba(255, 255, 255, 0.1);
@@ -19,22 +19,22 @@
     -fx-cursor: hand;
 }
 .selected-border {
-    -fx-border-color: #b0c4de;
+    -fx-border-color: #dda0dd;
     -fx-border-width: 0 3 0 0;
 }
 .selected:hover {
-    -fx-background-color: #5a79b8;
+    -fx-background-color: #7e3fbf;
 }
 .selected:clicked {
-    -fx-background-color: #5a79b8;
+    -fx-background-color: #7e3fbf;
 }
 .buttonClicked {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(58, 95, 205, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(128, 0, 128, 0.5), 10, 0.5, 0, 0);
 }
 .settingsProfile:hover {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(58, 95, 205, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(128, 0, 128, 0.5), 10, 0.5, 0, 0);
 }
 .menuButton {
     -fx-background-color: rgba(255, 255, 255, 0.1);
@@ -43,80 +43,80 @@
 .text-input {
     -fx-background-color: rgba(0, 0, 0, 0);
     -fx-border-width: 0 0 1 0;
-    -fx-border-color: #b0c4de;
+    -fx-border-color: #dda0dd;
 }
 .menuTextField {
     -fx-text-fill: #e0e0e0;
     -fx-font-size: 15px;
 }
 
-/* Login Page - Blue Theme */
+/* Login Page - Purple Theme */
 .loginTextField {
     -fx-border-width: 2px;
-    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #4b0082, #8a2be2);
     -fx-background-color: transparent;
-    -fx-text-fill: #b0c4de;
+    -fx-text-fill: #dda0dd;
 }
 .loginLabel {
     -fx-font-family: "Segoe UI";
-    -fx-text-fill: #b0c4de;
+    -fx-text-fill: #dda0dd;
     -fx-font-weight: bold;
 }
 #anchor1 {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #4b0082, #8a2be2);
 }
 #loginbtn {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #4b0082, #8a2be2);
     -fx-text-fill: #e0e0e0;
     -fx-background-radius: 15;
     -fx-cursor: hand;
     -fx-font-weight: bold;
 }
 #logo {
-    -fx-fill: linear-gradient(#3a5fcd, #6a89cc);
+    -fx-fill: linear-gradient(#4b0082, #8a2be2);
 }
 #appLabel {
     -fx-text-fill: #e0e0e0;
-    -fx-back-color: #6a89cc;
+    -fx-back-color: #8a2be2;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-family: "sans-serif";
 }
 #profile {
-    -fx-fill: #8098d1;
+    -fx-fill: #b666d2;
 }
 #show {
     -fx-cursor: hand;
 }
 
-/* Tasks - Blue Theme */
+/* Tasks - Purple Theme */
 .TaskLabel {
     -fx-text-fill: #e0e0e0;
 }
 
-/* Employee Option - Blue Theme */
+/* Employee Option - Purple Theme */
 .employeeLabel {
     -fx-text-fill: #e0e0e0;
 }
 
-/* Stock - Blue Theme */
+/* Stock - Purple Theme */
 .chart-legend-item {
-    -fx-text-fill: #b0c4de;
+    -fx-text-fill: #dda0dd;
 }
 .chart-pie-label-line {
-    -fx-stroke: #b0c4de;
-    -fx-fill: #b0c4de;
+    -fx-stroke: #dda0dd;
+    -fx-fill: #dda0dd;
 }
 .chart-pie-label {
-    -fx-fill: #b0c4de;
+    -fx-fill: #dda0dd;
 }
 .chart-legend {
-    -fx-background-color: #4f77c1;
-    -fx-stroke: #4f77c1;
+    -fx-background-color: #6a0dad;
+    -fx-stroke: #6a0dad;
 }
 .axis-label {
-    -fx-text-fill: #b0c4de;
+    -fx-text-fill: #dda0dd;
 }
 .chart-pie-label {
     -fx-fill: #e0e0e0;
