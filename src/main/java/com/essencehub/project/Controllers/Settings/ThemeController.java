@@ -6,12 +6,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 
 public class ThemeController {
@@ -46,15 +48,17 @@ public class ThemeController {
             // Kaynak dosyayı okuyun
             String cssContent = Files.readString(sourcePath);
 
-            // İçeriği hedef CSS dosyasına yazın
-            Path destinationPath = Paths.get(destinationCssFile);
-            Files.writeString(destinationPath, cssContent);
+            // Ana sahneyi al
+            Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             System.out.println("CSS dosyası başarıyla kopyalandı ve tema değiştirildi.");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+            // Yeni sahneyi uygula
+            primaryStage.setScene(scene);
+            primaryStage.show();
 
     }
 
