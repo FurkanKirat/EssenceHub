@@ -93,7 +93,7 @@
 
 /* Tasks - Neuvillette Theme */
 .TaskLabel {
-    -fx-text-fill: #e6f2ff;
+    -fx-text-fill: white;
 }
 
 /* Employee Option - Neuvillette Theme */
@@ -121,4 +121,42 @@
 }
 .chart-pie-label {
     -fx-fill: #d0e2f2;
+}
+
+/* TableView - Neuvillette Theme */
+.table-view {
+    -fx-background-color: rgba(255, 255, 255, 0.1); /* Hafif şeffaf arka plan */
+    -fx-border-color: #5a8abf; /* Kenar rengi */
+    -fx-border-radius: 10; /* Köşeleri yuvarlat */
+    -fx-background-radius: 10;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf); /* Başlık arka planı için degrade */
+}
+
+.table-view .cell {
+    -fx-text-fill: #e6f2ff; /* Hücre yazı rengi (açık mavi) */
+    -fx-background-color: rgba(0, 0, 0, 0.2); /* Hafif şeffaf hücre arka planı */
+    -fx-border-color: #5a8abf; /* Hücre kenar çizgisi */
+}
+
+/* Seçili Satır */
+.table-row-cell:selected {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3974a7, #1a3b5d); /* Seçilen satır için degrade arka plan */
+    -fx-text-fill: #ffffff; /* Yazı rengi beyaz */
+    -fx-border-width: 2; /* Kenar çizgisi genişliği */
+    -fx-border-color: #d0e2f2; /* Seçili satır kenarlığı */
+    -fx-effect: dropshadow(gaussian, rgba(208, 226, 242, 0.8), 10, 0.5, 0, 0); /* Hafif parlama efekti */
+}
+
+/* Hover Efekti */
+.table-row-cell:hover {
+    -fx-background-color: rgba(57, 116, 167, 0.8); /* Üzerine gelindiğinde arka plan */
+}
+
+/* Seçili Satırdaki Yazı */
+.table-view .cell:selected {
+    -fx-text-fill: #ffffff; /* Seçilen satırdaki yazı rengi */
+    -fx-font-weight: bold; /* Seçili yazıyı kalın yap */
 }
