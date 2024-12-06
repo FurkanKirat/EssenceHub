@@ -1,127 +1,162 @@
-/* General Styles - Blue Theme */
+/* General Styles - Neuvillette Theme */
 .gradient-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
 }
 .first-color {
-    -fx-background-color: #3a5fcd;
+    -fx-background-color: #1a3b5d;
 }
 .second-color {
-    -fx-background-color: #4f77c1;
+    -fx-background-color: #5a8abf;
 }
 .line-color {
-    -fx-background-color: #b0c4de;
+    -fx-background-color: #d0e2f2;
 }
 .container {
-    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-color: rgba(255, 255, 255, 0.2);
     -fx-background-radius: 10;
 }
 .hide {
     -fx-cursor: hand;
 }
 .selected-border {
-    -fx-border-color: #b0c4de;
+    -fx-border-color: #d0e2f2;
     -fx-border-width: 0 3 0 0;
 }
 .selected:hover {
-    -fx-background-color: #5a79b8;
+    -fx-background-color: #3974a7;
 }
 .selected:clicked {
-    -fx-background-color: #5a79b8;
+    -fx-background-color: #3974a7;
 }
 .buttonClicked {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(58, 95, 205, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(58, 138, 191, 0.5), 10, 0.5, 0, 0);
 }
 .settingsProfile:hover {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(58, 95, 205, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(58, 138, 191, 0.5), 10, 0.5, 0, 0);
 }
 .menuButton {
-    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-color: rgba(255, 255, 255, 0.2);
     -fx-background-radius: 30;
+    -fx-text-fill : white;
 }
 .text-input {
     -fx-background-color: rgba(0, 0, 0, 0);
     -fx-border-width: 0 0 1 0;
-    -fx-border-color: #b0c4de;
+    -fx-border-color: #d0e2f2;
 }
 .menuTextField {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #d0e2f2;
     -fx-font-size: 15px;
 }
 
-/* Login Page - Blue Theme */
+/* Login Page - Neuvillette Theme */
 .loginTextField {
     -fx-border-width: 2px;
-    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
     -fx-background-color: transparent;
-    -fx-text-fill: #b0c4de;
+    -fx-text-fill: black;
 }
 .loginLabel {
     -fx-font-family: "Segoe UI";
-    -fx-text-fill: #b0c4de;
+    -fx-text-fill: black;
     -fx-font-weight: bold;
 }
 #anchor1 {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
 }
 #loginbtn {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
-    -fx-text-fill: #e0e0e0;
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
+    -fx-text-fill: #ffffff;
     -fx-background-radius: 15;
     -fx-cursor: hand;
     -fx-font-weight: bold;
 }
 #logo {
-    -fx-fill: linear-gradient(#3a5fcd, #6a89cc);
+    -fx-fill: linear-gradient(#1a3b5d, #5a8abf);
 }
 #appLabel {
-    -fx-text-fill: #e0e0e0;
-    -fx-back-color: #6a89cc;
+    -fx-text-fill: #ffffff;
+    -fx-back-color: #5a8abf;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-family: "sans-serif";
 }
 #profile {
-    -fx-fill: #8098d1;
+    -fx-fill: #3974a7;
 }
 #show {
     -fx-cursor: hand;
 }
 
-.loginImage{
-     -fx-effect: innershadow(gaussian,#3a5fcd, 5, 1, 0, 0);
-}
-
-/* Tasks - Blue Theme */
+/* Tasks - Neuvillette Theme */
 .TaskLabel {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: white;
 }
 
-/* Employee Option - Blue Theme */
+/* Employee Option - Neuvillette Theme */
 .employeeLabel {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #e6f2ff;
 }
 
-/* Stock - Blue Theme */
+/* Stock - Neuvillette Theme */
 .chart-legend-item {
-    -fx-text-fill: #b0c4de;
+    -fx-text-fill: #e6f2ff;
 }
 .chart-pie-label-line {
-    -fx-stroke: #b0c4de;
-    -fx-fill: #b0c4de;
+    -fx-stroke: #e6f2ff;
+    -fx-fill: #e6f2ff;
 }
 .chart-pie-label {
-    -fx-fill: #b0c4de;
+    -fx-fill: #e6f2ff;
 }
 .chart-legend {
-    -fx-background-color: #4f77c1;
-    -fx-stroke: #4f77c1;
+    -fx-background-color: #5a8abf;
+    -fx-stroke: #5a8abf;
 }
 .axis-label {
-    -fx-text-fill: #b0c4de;
+    -fx-text-fill: #d0e2f2;
 }
 .chart-pie-label {
-    -fx-fill: #e0e0e0;
+    -fx-fill: #d0e2f2;
+}
+
+/* TableView - Neuvillette Theme */
+.table-view {
+    -fx-background-color: rgba(255, 255, 255, 0.1); /* Hafif şeffaf arka plan */
+    -fx-border-color: #5a8abf; /* Kenar rengi */
+    -fx-border-radius: 10; /* Köşeleri yuvarlat */
+    -fx-background-radius: 10;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf); /* Başlık arka planı için degrade */
+}
+
+.table-view .cell {
+    -fx-text-fill: #e6f2ff; /* Hücre yazı rengi (açık mavi) */
+    -fx-background-color: rgba(0, 0, 0, 0.2); /* Hafif şeffaf hücre arka planı */
+    -fx-border-color: #5a8abf; /* Hücre kenar çizgisi */
+}
+
+/* Seçili Satır */
+.table-row-cell:selected {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3974a7, #1a3b5d); /* Seçilen satır için degrade arka plan */
+    -fx-text-fill: #ffffff; /* Yazı rengi beyaz */
+    -fx-border-width: 2; /* Kenar çizgisi genişliği */
+    -fx-border-color: #d0e2f2; /* Seçili satır kenarlığı */
+    -fx-effect: dropshadow(gaussian, rgba(208, 226, 242, 0.8), 10, 0.5, 0, 0); /* Hafif parlama efekti */
+}
+
+/* Hover Efekti */
+.table-row-cell:hover {
+    -fx-background-color: rgba(57, 116, 167, 0.8); /* Üzerine gelindiğinde arka plan */
+}
+
+/* Seçili Satırdaki Yazı */
+.table-view .cell:selected {
+    -fx-text-fill: #ffffff; /* Seçilen satırdaki yazı rengi */
+    -fx-font-weight: bold; /* Seçili yazıyı kalın yap */
 }

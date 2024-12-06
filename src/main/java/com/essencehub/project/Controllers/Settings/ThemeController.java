@@ -54,10 +54,7 @@ public class ThemeController {
             theme = "/com/essencehub/project/css/RedStyle.css";
         }
 
-
-
-
-        String destinationCssFile = "C:\\Users\\deniz\\OneDrive\\Masaüstü\\java\\CS102 HW\\EssenceHub\\EssenceHub\\src\\main\\resources\\com\\essencehub\\project\\css\\style.css";
+        String destinationCssFile = "src/main/resources/com/essencehub/project/css/style.css";
 
         try {
 

@@ -3,10 +3,7 @@ package com.essencehub.project.User;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import javafx.scene.image.Image;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +25,7 @@ public class User {
     private double bonusSalary;
     private boolean isActive;
     private Image image;
+    private String imageLocation;
 
     private ArrayList<Task> taskE;
     private static ArrayList<Task> taskA;
@@ -38,7 +36,7 @@ public class User {
 
     // Constructor, password parametresi eklendi
     public User(String name, String surname, String phoneNumber, double baseSalary, boolean isAdmin, String birth,
-                String department, String email, int remainingLeaveDays, boolean isActive, String password, Performance monthlyPerformance, int bonusSalary) {
+                String department, String email, int remainingLeaveDays, boolean isActive, String password, Performance monthlyPerformance, double bonusSalary, String imageLocation) {
         this();
         this.name = name;
         this.surname = surname;
@@ -54,6 +52,9 @@ public class User {
 
         this.monthlyPerformance = monthlyPerformance;
         this.bonusSalary = bonusSalary;
+        this.imageLocation = imageLocation;
+        this.image = new Image(imageLocation);
+
     }
 
     // Getter ve Setter Metotları
@@ -178,4 +179,72 @@ public class User {
 
     }
 
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
+
+    public String getImageLocation() {
+        return imageLocation;
+    }
+
+    public void setImageLocation(String imageLocation) {
+        this.imageLocation = imageLocation;
+    }
+
+    public void changePassword(String password) {
+        this.password = password;
+
+        updatePasswordInDatabase();
+    }
+
+    private void updatePasswordInDatabase() {
+        String updateSQL = "UPDATE User SET password = ? WHERE id = ?";
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(updateSQL)) {
+
+            preparedStatement.setString(1, this.password);
+            preparedStatement.setInt(2, this.id);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Şifre başarıyla güncellendi. Kullanıcı ID: " + this.id);
+            } else {
+                System.out.println("Şifre güncellenemedi. Kullanıcı bulunamadı.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Veritabanı güncelleme hatası: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public void changeImage(String imageLocation) {
+        this.imageLocation = imageLocation;
+        this.image = new Image(imageLocation);
+
+        updateImageInDatabase();
+    }
+
+    private void updateImageInDatabase() {
+        String updateSQL = "UPDATE User SET imageLocation = ? WHERE id = ?";
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(updateSQL)) {
+
+            preparedStatement.setString(1, this.imageLocation); // String türü için setString kullanıldı
+            preparedStatement.setInt(2, this.id);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Image değeri başarıyla güncellendi. Kullanıcı ID: " + this.id);
+            } else {
+                System.out.println("Image değeri güncellenemedi. Kullanıcı bulunamadı.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Veritabanı güncelleme hatası: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }

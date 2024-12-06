@@ -7,6 +7,7 @@ import com.essencehub.project.User.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 
 import java.sql.ResultSet;
@@ -26,28 +27,9 @@ public class ChangePasswordWindow {
     void savePasswordButtonClicked(MouseEvent event) {
 
         if(newPasswordTextField.getText().equals(newPasswordAgainTextField.getText())){
-            ResultSet resultSet = LoginPageController.getResultSet();
-            try {
-                AdminOperations.updateUser(new User(
+            User user = LoginPageController.getUser();
+            user.changePassword(newPasswordTextField.getText());
 
-                resultSet.getString("name"),
-                resultSet.getString("surname"),
-                resultSet.getString("phoneNumber"),
-                resultSet.getInt("salary"),
-                resultSet.getBoolean("isAdmin"),
-                resultSet.getString("birth"),
-                resultSet.getString("department"),
-                resultSet.getString("email"),
-                resultSet.getInt("remainingLeaveDays"),
-                true,
-                newPasswordTextField.getText(),
-                        Performance.valueOf(resultSet.getString("monthlyPerformance")),
-                        resultSet.getInt("bonusSalary")
-
-                ));
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
         }
     }
 

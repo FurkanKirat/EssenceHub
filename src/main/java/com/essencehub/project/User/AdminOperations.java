@@ -19,8 +19,8 @@ public class AdminOperations {
 
     // KULLANICI İŞE AL
     public static void addUser(User user) {
-        String sql = "INSERT INTO User (name, surname, phoneNumber, salary, isAdmin, birth, department, email, remainingLeaveDays, monthlyPerformance, bonusSalary, isActive, password) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO User (name, surname, phoneNumber, salary, isAdmin, birth, department, email, remainingLeaveDays, monthlyPerformance, bonusSalary, isActive, password,imageLocation) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DatabaseConnection.getConnection();
                 PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -40,6 +40,7 @@ public class AdminOperations {
             statement.setDouble(11, user.getBonusSalary());
             statement.setBoolean(12, user.isActive());
             statement.setString(13, user.getPassword()); // Şifreyi ekliyoruz
+            statement.setString(14,user.getImageLocation());
 
             // Veritabanına ekliyoruz
             statement.executeUpdate();
@@ -52,7 +53,7 @@ public class AdminOperations {
 
     // KULLANICI GÜNCELLE
     public static void updateUser(User user) {
-        String sql = "UPDATE User SET name = ?, surname = ?, phoneNumber = ?, salary = ?, isAdmin = ?, birth = ?, department = ?, email = ?, remainingLeaveDays = ?, monthlyPerformance = ?, bonusSalary = ?, isActive = ? WHERE id = ?";
+        String sql = "UPDATE User SET name = ?, surname = ?, phoneNumber = ?, salary = ?, isAdmin = ?, birth = ?, department = ?, email = ?, remainingLeaveDays = ?, monthlyPerformance = ?, bonusSalary = ?, isActive = ?, imageLocation = ? WHERE id = ?";
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -70,7 +71,9 @@ public class AdminOperations {
                     user.getMonthlyPerformance() != null ? user.getMonthlyPerformance().toString() : null);
             statement.setDouble(11, user.getBonusSalary());
             statement.setBoolean(12, user.isActive());
-            statement.setInt(13, user.getId());
+            statement.setString(13, user.getImageLocation());
+            statement.setInt(14, user.getId());
+
 
             int rowsAffected = statement.executeUpdate();
             if (rowsAffected > 0) {
@@ -84,9 +87,9 @@ public class AdminOperations {
         }
     }
     public static void updateUser(String name, String surname, String phoneNumber, double baseSalary, boolean isAdmin, String birth,String department,
-                                    String email, int remainingLeaveDays, boolean isActive, String password, Performance monthlyPerformance, int bonusSalary) {
-        User user = new User(name,surname,phoneNumber,baseSalary,isAdmin,birth,department,email,remainingLeaveDays,isActive,password,monthlyPerformance,bonusSalary);
-        String sql = "UPDATE User SET name = ?, surname = ?, phoneNumber = ?, salary = ?, isAdmin = ?, birth = ?, department = ?, email = ?, remainingLeaveDays = ?, monthlyPerformance = ?, bonusSalary = ?, isActive = ? WHERE id = ?";
+                                    String email, int remainingLeaveDays, boolean isActive, String password, Performance monthlyPerformance, int bonusSalary, String imageLocation) {
+        User user = new User(name,surname,phoneNumber,baseSalary,isAdmin,birth,department,email,remainingLeaveDays,isActive,password,monthlyPerformance,bonusSalary, imageLocation);
+        String sql = "UPDATE User SET name = ?, surname = ?, phoneNumber = ?, salary = ?, isAdmin = ?, birth = ?, department = ?, email = ?, remainingLeaveDays = ?, monthlyPerformance = ?, bonusSalary = ?, isActive = ?, imageLocation WHERE id = ?";
 
         try (Connection connection = DatabaseConnection.getConnection();
                 PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -105,7 +108,8 @@ public class AdminOperations {
                     user.getMonthlyPerformance() != null ? user.getMonthlyPerformance().toString() : null);
             statement.setDouble(11, user.getBonusSalary());
             statement.setBoolean(12, user.isActive());
-            statement.setInt(13, user.getId());
+            statement.setString(13, user.getImageLocation());
+            statement.setInt(14, user.getId());
 
             int rowsAffected = statement.executeUpdate();
             if (rowsAffected > 0) {
@@ -181,6 +185,8 @@ public class AdminOperations {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -250,6 +256,7 @@ public class AdminOperations {
                 user.setBonusSalary(resultSet.getDouble("bonusSalary"));
                 user.setActive(resultSet.getBoolean("isActive"));
                 user.setPassword(resultSet.getString("password"));
+                user.setImageLocation(resultSet.getString("imageLocation"));
 
                 users.add(user);
             }
@@ -367,7 +374,7 @@ public class AdminOperations {
     public static User getUserById(int userId) {
         User user = null;
         String query = "SELECT id, name, surname, phoneNumber, salary, isAdmin, birth, department, email, "
-                     + "remainingLeaveDays, isActive, password FROM User WHERE id = ?";
+                     + "remainingLeaveDays, isActive, password, imageLocation FROM User WHERE id = ?";
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -389,6 +396,7 @@ public class AdminOperations {
                     user.setRemainingLeaveDays(resultSet.getInt("remainingLeaveDays"));
                     user.setActive(resultSet.getBoolean("isActive"));
                     user.setPassword(resultSet.getString("password"));
+                    user.setImageLocation(resultSet.getString("imageLocation"));
                 }
             }
         } catch (Exception e) {
@@ -463,6 +471,7 @@ public class AdminOperations {
                 employee.setBonusSalary(resultSet.getDouble("bonusSalary"));
                 employee.setActive(true);
                 employee.setPassword(resultSet.getString("password"));
+                employee.setImageLocation(resultSet.getString("imageLocation"));
 
                 employees.add(employee);
             }

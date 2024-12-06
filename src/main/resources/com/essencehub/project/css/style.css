@@ -1,159 +1,60 @@
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-/* General Styles - Blue Theme */
+/* General Styles - Neuvillette Theme */
 .gradient-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
-=======
-
-.gradient-background{
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
->>>>>>> origin/main
-}
-.first-color{
-    -fx-background-color: #14076b;
-}
-.second-color{
-    -fx-background-color: #1d346e;
-}
-<<<<<<< HEAD
-.line-color {
-    -fx-background-color: #b0c4de;
-=======
-/* General Styles */
-.gradient-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2b2b2b, #575757);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
 }
 .first-color {
-    -fx-background-color: #2b2b2b;
+    -fx-background-color: #1a3b5d;
 }
 .second-color {
-    -fx-background-color: #3a3a3a;
+    -fx-background-color: #5a8abf;
 }
 .line-color {
-    -fx-background-color: #e0e0e0;
->>>>>>> Stashed changes
-=======
-.line-color{
-    -fx-background-color: #f6f4f4;
->>>>>>> origin/main
+    -fx-background-color: #d0e2f2;
 }
-.container{
-    -fx-background-color: rgba(255,255,255,0.2);
+.container {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
     -fx-background-radius: 10;
 }
-<<<<<<< HEAD
 .hide {
     -fx-cursor: hand;
 }
 .selected-border {
-<<<<<<< Updated upstream
-    -fx-border-color: #b0c4de;
-=======
-.hide{
-     -fx-cursor: hand;
- }
-.selected-border{
-    -fx-border-color: #fff;
->>>>>>> origin/main
-    -fx-border-width: 0 3 0 0;
-
-}
-.selected:hover{
-    -fx-background-color: #30247e;
-}
-.selected:clicked{
-    -fx-background-color: #30247e;
-}*/
-.buttonClicked{
-    -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 255, 0.5), 10, 0.5, 0, 0);
-}
-
-.settingsProfile:hover {
-    -fx-opacity: 0.8;
-<<<<<<< HEAD
-    -fx-effect: dropshadow(gaussian, rgba(58, 95, 205, 0.5), 10, 0.5, 0, 0);
-=======
-    -fx-border-color: #bfbfbf;
+    -fx-border-color: #d0e2f2;
     -fx-border-width: 0 3 0 0;
 }
 .selected:hover {
-    -fx-background-color: #4a4a4a;
+    -fx-background-color: #3974a7;
 }
 .selected:clicked {
-    -fx-background-color: #4a4a4a;
+    -fx-background-color: #3974a7;
 }
 .buttonClicked {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(128, 128, 128, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(58, 138, 191, 0.5), 10, 0.5, 0, 0);
 }
 .settingsProfile:hover {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(128, 128, 128, 0.5), 10, 0.5, 0, 0);
->>>>>>> Stashed changes
-=======
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 255, 0.5), 10, 0.5, 0, 0);
-
->>>>>>> origin/main
+    -fx-effect: dropshadow(gaussian, rgba(58, 138, 191, 0.5), 10, 0.5, 0, 0);
 }
-
-.menuButton{
+.menuButton {
     -fx-background-color: rgba(255, 255, 255, 0.2);
     -fx-background-radius: 30;
+    -fx-text-fill : white;
 }
-.text-input{
-    -fx-background-color: rgba(0,0,0,0);
+.text-input {
+    -fx-background-color: rgba(0, 0, 0, 0);
     -fx-border-width: 0 0 1 0;
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    -fx-border-color: #b0c4de;
-=======
-    -fx-border-color: #bfbfbf;
->>>>>>> Stashed changes
-=======
-    -fx-border-color: #ffffff;
->>>>>>> origin/main
+    -fx-border-color: #d0e2f2;
 }
 .menuTextField {
-    -fx-text-fill: #fff;
+    -fx-text-fill: #d0e2f2;
     -fx-font-size: 15px;
 }
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-/* Login Page - Blue Theme */
+/* Login Page - Neuvillette Theme */
 .loginTextField {
     -fx-border-width: 2px;
-    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
-=======
-
-
-/* Login Page */
-.loginTextField{
-    -fx-border-width: 2px 2px 2px 2px;
-    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
->>>>>>> origin/main
-    -fx-background-color: transparent;
-    -fx-text-fill: black;
-
-
-}
-.loginLabel{
-    -fx-font-family: "Segoe UI:";
-    -fx-text-fill: black;
-    -fx-font-weight: bold;
-}
-#anchor1{
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
-}
-<<<<<<< HEAD
-#loginbtn {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3a5fcd, #6a89cc);
-=======
-/* Login Page */
-.loginTextField {
-    -fx-border-width: 2px;
-    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #2b2b2b, #575757);
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
     -fx-background-color: transparent;
     -fx-text-fill: black;
 }
@@ -162,131 +63,64 @@
     -fx-text-fill: black;
     -fx-font-weight: bold;
 }
-.images{
-    -fx-blend-mode: multiply;
-    -fx-background-color: #2b2b2b;
-}
 #anchor1 {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2b2b2b, #575757);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
 }
 #loginbtn {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2b2b2b, #575757);
->>>>>>> Stashed changes
-    -fx-text-fill: #e0e0e0;
-=======
-#loginbtn{
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
-    -fx-text-fill: white;
->>>>>>> origin/main
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
+    -fx-text-fill: #ffffff;
     -fx-background-radius: 15;
     -fx-cursor: hand;
     -fx-font-weight: bold;
 }
-<<<<<<< HEAD
 #logo {
-<<<<<<< Updated upstream
-    -fx-fill: linear-gradient(#3a5fcd, #6a89cc);
+    -fx-fill: linear-gradient(#1a3b5d, #5a8abf);
 }
 #appLabel {
-    -fx-text-fill: #e0e0e0;
-    -fx-back-color: #6a89cc;
-=======
-    -fx-fill: linear-gradient(#474747, #6e6e6e);
-}
-#appLabel {
-    -fx-text-fill: #e0e0e0;
-    -fx-back-color: #6e6e6e;
->>>>>>> Stashed changes
-=======
-#logo{
-    -fx-fill: linear-gradient(#6493d3,#1f75ea);
-}
-#appLabel{
-    -fx-text-fill: white;
-    -fx-back-color : #1f75ea;
->>>>>>> origin/main
+    -fx-text-fill: #ffffff;
+    -fx-back-color: #5a8abf;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-family: "sans-serif";
 }
-<<<<<<< HEAD
 #profile {
-<<<<<<< Updated upstream
-    -fx-fill: #8098d1;
-=======
-    -fx-fill: #7a7a7a;
->>>>>>> Stashed changes
-=======
-#profile{
-    -fx-fill: red;
->>>>>>> origin/main
+    -fx-fill: #3974a7;
 }
-
-#show{
+#show {
     -fx-cursor: hand;
 }
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-/* Tasks - Blue Theme */
-=======
-/* Tasks */
->>>>>>> Stashed changes
+/* Tasks - Neuvillette Theme */
 .TaskLabel {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #e6f2ff;
 }
 
-<<<<<<< Updated upstream
-/* Employee Option - Blue Theme */
-=======
-/* Employee Option */
->>>>>>> Stashed changes
+/* Employee Option - Neuvillette Theme */
 .employeeLabel {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #e6f2ff;
 }
 
-<<<<<<< Updated upstream
-/* Stock - Blue Theme */
+/* Stock - Neuvillette Theme */
 .chart-legend-item {
-    -fx-text-fill: #b0c4de;
-=======
-
-.loginImage{
-     -fx-effect: innershadow(gaussian, #30247e, 5, 1, 0, 0);
-}
-
-/* Tasks */
-.TaskLabel{
-    -fx-text-fill: white;
-}
-
-/* Employee Option*/
-.employeeLabel{
-    -fx-text-fill: white;
-}
-
-/* Stock */
-.chart-legend-item{
-    -fx-text-fill: blue;
->>>>>>> origin/main
+    -fx-text-fill: #e6f2ff;
 }
 .chart-pie-label-line {
-    -fx-stroke: white;
-    -fx-fill: white;
+    -fx-stroke: #e6f2ff;
+    -fx-fill: #e6f2ff;
 }
-
 .chart-pie-label {
-    -fx-fill: white;
+    -fx-fill: #e6f2ff;
 }
 .chart-legend {
-   -fx-background-color:  white;
-   -fx-stroke: white;
+    -fx-background-color: #5a8abf;
+    -fx-stroke: #5a8abf;
 }
 .axis-label {
-  -fx-text-fill: white;
+    -fx-text-fill: #d0e2f2;
 }
-.chart-pie-label {-fx-fill: white;
+.chart-pie-label {
+    -fx-fill: #d0e2f2;
 }
 <<<<<<< HEAD
 =======
@@ -315,3 +149,45 @@
 =======
 
 >>>>>>> origin/main
+
+
+/* TableView - Neuvillette Theme */
+.table-view {
+    -fx-background-color: rgba(255, 255, 255, 0.1); /* Hafif şeffaf arka plan */
+    -fx-border-color: #5a8abf; /* Kenar rengi */
+    -fx-border-radius: 10; /* Köşeleri yuvarlat */
+    -fx-background-radius: 10;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf); /* Başlık arka planı için degrade */
+}
+
+.table-view .cell {
+    -fx-text-fill: #e6f2ff; /* Hücre yazı rengi (açık mavi) */
+    -fx-background-color: rgba(0, 0, 0, 0.2); /* Hafif şeffaf hücre arka planı */
+    -fx-border-color: #5a8abf; /* Hücre kenar çizgisi */
+}
+
+/* Seçili Satır */
+.table-row-cell:selected {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3974a7, #1a3b5d); /* Seçilen satır için degrade arka plan */
+    -fx-text-fill: #ffffff; /* Yazı rengi beyaz */
+    -fx-border-width: 2; /* Kenar çizgisi genişliği */
+    -fx-border-color: #d0e2f2; /* Seçili satır kenarlığı */
+    -fx-effect: dropshadow(gaussian, rgba(208, 226, 242, 0.8), 10, 0.5, 0, 0); /* Hafif parlama efekti */
+}
+
+/* Hover Efekti */
+.table-row-cell:hover {
+    -fx-background-color: rgba(57, 116, 167, 0.8); /* Üzerine gelindiğinde arka plan */
+}
+
+/* Seçili Satırdaki Yazı */
+.table-view .cell:selected {
+    -fx-text-fill: #ffffff; /* Seçilen satırdaki yazı rengi */
+    -fx-font-weight: bold; /* Seçili yazıyı kalın yap */
+}
+
+
+

@@ -194,7 +194,7 @@ public class ApplicationMenuController {
     private void populateComboBox() {
         fireComboBox.getItems().clear();
         selectUpdateComboBox.getItems().clear();
-        int currentUserId = LoginPageController.getUserID();
+        int currentUserId = LoginPageController.getUser().getId();
 
 
         List<User> activeWorkers = getActiveWorkers();
@@ -344,7 +344,7 @@ public class ApplicationMenuController {
         }
 
         AdminOperations ao = new AdminOperations();
-        User user = new User(name, surname, phone, salary, isAdmin, birthDate, department, email, remainingDays, true,password, Performance.F,0);
+        User user = new User(name, surname, phone, salary, isAdmin, birthDate, department, email, remainingDays, true,password, Performance.F,0,"/com/essencehub/project/images/ProfilePictures/1.png");
         ao.addUser(user);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
