@@ -52,7 +52,7 @@ public class AssignTaskController {
 
         try {
             for(User user: AdminOperations.getUsers()){
-                if(user.getId() == LoginPageController.getResultSet().getInt("ID")){
+                if(user.getId() == LoginPageController.getUserID()){
                     for(int i=0;i<checkBoxes.length;i++){
                         if(checkBoxes[i].isSelected()){
                             Task task = new Task(user, employees.get(i), descriptionTextArea.getText(), titleTextField.getText(), LocalDateTime.now(),false);
@@ -64,7 +64,7 @@ public class AssignTaskController {
                 }
             }
 
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
     }

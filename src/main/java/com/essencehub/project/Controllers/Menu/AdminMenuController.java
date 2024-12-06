@@ -2,7 +2,6 @@ package com.essencehub.project.Controllers.Menu;
 
 import com.essencehub.project.Controllers.Settings.ThemeController;
 import com.essencehub.project.MyApplication;
-import com.essencehub.project.User.ImageManager;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -70,15 +69,15 @@ public class AdminMenuController {
 
         try {
 
-            String name =  LoginPageController.getResultSet().getString("name");
-            String surname = LoginPageController.getResultSet().getString("surname");
+            String name =  LoginPageController.getUser().getName();
+            String surname = LoginPageController.getUser().getSurname();
             namePanel.setText(name + " " + surname);
 
-            profilPicturePanel.setImage(LoginPageController.getImage());
+            profilPicturePanel.setImage(LoginPageController.getUser().getImage());
 
 
         }
-        catch (SQLException e){
+        catch (Exception e){
             e.printStackTrace();
         }
         loadFXMLContent("/com/essencehub/project/fxml/dashboard.fxml");

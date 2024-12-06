@@ -3,12 +3,13 @@ package com.essencehub.project.Controllers.Menu;
 
 import com.essencehub.project.Controllers.Settings.ThemeController;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
-import com.essencehub.project.User.ImageManager;
+import com.essencehub.project.User.Performance;
 import com.essencehub.project.User.User;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -77,8 +78,6 @@ public class LoginPageController {
     @FXML
     private Label warning;
 
-    private static Image image;
-
     public static Statement getStatement() {
         return statement;
     }
@@ -86,6 +85,8 @@ public class LoginPageController {
     public static void setStatement(Statement statement) {
         LoginPageController.statement = statement;
     }
+
+    public static  User loggedUser;
 
     @FXML
     void hideClicked(MouseEvent event) {
@@ -123,106 +124,56 @@ public class LoginPageController {
         }
     }
     public void login(Event event) {
-        try{
+        try {
             warning.setVisible(false);
             int id = Integer.parseInt(idField.getText());
             String password = passwordField.isVisible() ? passwordField.getText() : passwordText.getText();
 
             connection = DatabaseConnection.getConnection();
-
             statement = connection.createStatement();
 
             resultset = statement.executeQuery("SELECT * FROM user WHERE id = " + id + " AND password = '" + password + "'");
 
+            if (resultset.next()) {
+                loggedUser = new User();
+                logUser(resultset); // Pass the ResultSet to logUser()
 
+                boolean isPasswordTrue = id == resultset.getInt("id") && password.equals(resultset.getString("password"));
 
-            if(resultset.next()){
-
-                boolean isPasswordTrue = id==(resultset.getInt("id"))&&password.equals(resultset.getString("password"));
-                if(isPasswordTrue){
-                    if(resultset.getInt("isActive")==1){
+                if (isPasswordTrue) {
+                    if (resultset.getInt("isActive") == 1) {
                         warning.setVisible(false);
-                        UserID = resultset.getInt("ID");
-                        image = ImageManager.getImage(resultset.getInt("image"));
-                        if(resultset.getInt("isAdmin")==1){
-
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/fxml/Menu/AdminMenu.fxml"));
-                            Parent root = loader.load();
-
-                            Scene scene = new Scene(root);
-                            ThemeController.changeTheme(scene);
-
-                            Stage stage = new Stage();
-                            stage.setTitle("Essence Hub");
-                            stage.setScene(scene);
-                            stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
-                            //stage.setMinWidth(1315);
-                            //stage.setMinHeight(890);
-                            stage.show();
-
-                            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-                            currentStage.close();
-
-                        }
-                        else{
-
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/fxml/Menu/EmployeeMenu.fxml"));
-                            Parent root = loader.load();
-
-                            Scene scene = new Scene(root);
-                            ThemeController.changeTheme(scene);
-
-                            Stage stage = new Stage();
-                            stage.setTitle("Essence Hub");
-                            stage.setScene(scene);
-                            stage.setMinWidth(1315);
-                            stage.setMinHeight(890);
-                            stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
-                            stage.show();
-
-                            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-                            currentStage.close();
-                        }
-                    }
-                    else{
+                        loadAppropriateMenu(event); // Extracted menu-loading logic to a separate method.
+                    } else {
                         warning.setVisible(true);
                         warning.setText("This user is not active");
                     }
-
-
-                }else{
+                } else {
                     warning.setText("ID or password is wrong");
-
                     warning.setVisible(true);
                 }
-
-            }
-            else{
+            } else {
                 warning.setText("ID or password is wrong");
                 warning.setVisible(true);
             }
-
         } catch (SQLException e) {
             warning.setText("SQL Exception has occurred!");
             e.printStackTrace();
             warning.setVisible(true);
         } catch (IOException e) {
-            warning.setText("FXML File Could not Loaded!");
+            warning.setText("FXML File Could not Load!");
             e.printStackTrace();
             warning.setVisible(true);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             warning.setText("Something went wrong!");
             e.printStackTrace();
             warning.setVisible(true);
-
         }
-
-
     }
-    public static ResultSet getResultSet(){
-        return resultset;
-    }
+
+//    public static ResultSet getResultSet(){
+//        return resultset;
+//    }
 
     public static Connection getConnection() {
         return connection;
@@ -232,7 +183,64 @@ public class LoginPageController {
         return UserID;
     }
 
-    public static Image getImage() {
-        return image;
+
+    public static User getUser(){
+        return loggedUser;
     }
+    public void logUser(ResultSet resultset) {
+        try {
+            loggedUser.setId(resultset.getInt("id"));
+            loggedUser.setName(resultset.getString("name"));
+            loggedUser.setSurname(resultset.getString("surname"));
+            loggedUser.setPhoneNumber(resultset.getString("phoneNumber"));
+            loggedUser.setSalary(resultset.getDouble("salary"));
+            loggedUser.setAdmin(resultset.getBoolean("isAdmin"));
+
+            String dateTimeString = resultset.getString("birth");
+            if (dateTimeString != null) {
+                loggedUser.setBirth(dateTimeString);
+            }
+
+            loggedUser.setDepartment(resultset.getString("department"));
+            loggedUser.setEmail(resultset.getString("email"));
+            loggedUser.setRemainingLeaveDays(resultset.getInt("remainingLeaveDays"));
+
+            String performanceValue = resultset.getString("monthlyPerformance");
+            if (performanceValue != null) {
+                Performance performance = Performance.valueOf(performanceValue.toUpperCase());
+                loggedUser.setMonthlyPerformance(performance);
+            }
+
+            loggedUser.setBonusSalary(resultset.getDouble("bonusSalary"));
+            loggedUser.setActive(resultset.getBoolean("isActive"));
+            loggedUser.setPassword(resultset.getString("password"));
+            loggedUser.setImage(new Image(resultset.getString("imageLocation")));
+            loggedUser.setImageLocation(resultset.getString("imageLocation"));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private void loadAppropriateMenu(Event event) throws IOException {
+        String fxmlFile;
+
+        if (loggedUser.isAdmin()) {
+            fxmlFile = "/com/essencehub/project/fxml/Menu/AdminMenu.fxml"; // Admin menu
+        } else {
+            fxmlFile = "/com/essencehub/project/fxml/Menu/EmployeeMenu.fxml"; // User menu
+        }
+
+        // Load the FXML
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+        Parent root = loader.load();
+
+        // Set the new scene
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        ThemeController.changeTheme(scene);
+        stage.setResizable(true);
+        stage.setScene(scene);
+        stage.show();
+        stage.centerOnScreen();
+    }
+
 }

@@ -57,8 +57,8 @@ public class ViewTaskEmployeeController {
         senderColumn.setCellValueFactory(new PropertyValueFactory<>("sender"));
         ObservableList<Task> tasks = null;
         try {
-            tasks = FXCollections.observableArrayList(AdminOperations.getUserTasks(LoginPageController.getResultSet().getInt("ID")));
-        } catch (SQLException e) {
+            tasks = FXCollections.observableArrayList(AdminOperations.getUserTasks(LoginPageController.getUser().getId()));
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
         taskTable.setItems(tasks);

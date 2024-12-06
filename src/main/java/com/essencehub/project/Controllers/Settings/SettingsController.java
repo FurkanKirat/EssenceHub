@@ -111,7 +111,7 @@ public class SettingsController {
     @FXML
     void HomePageIconClicked(MouseEvent event) {
         try {
-            if(LoginPageController.getResultSet().getBoolean("isAdmin")){
+            if(LoginPageController.getUser().isAdmin()){
                 AdminMenuController adminMenuController = AdminMenuController.getInstance();
                 adminMenuController.settings("/com/essencehub/project/fxml/Menu/AdminMenu.fxml",event);
             }
@@ -119,7 +119,7 @@ public class SettingsController {
                 EmployeeMenuController employeeMenuController = EmployeeMenuController.getInstance();
                 employeeMenuController.settings("/com/essencehub/project/fxml/Menu/EmployeeMenu.fxml",event);
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -128,13 +128,13 @@ public class SettingsController {
 
         try {
 
-            String name =  LoginPageController.getResultSet().getString("name");
-            String surname = LoginPageController.getResultSet().getString("surname");
+            String name =  LoginPageController.getUser().getName();
+            String surname = LoginPageController.getUser().getSurname();
             UserNamePanel.setText(name + " " + surname);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        profilePicture.setImage(LoginPageController.getImage());
+        profilePicture.setImage(LoginPageController.getUser().getImage());
         currentNode = ProfileInfoPanel;
 
         profileInfo();
@@ -228,19 +228,19 @@ public class SettingsController {
     }
     void profileInfo(){
         try {
-            idTextField.setText(LoginPageController.getResultSet().getInt("ID")+"");
-            nameTextField.setText(LoginPageController.getResultSet().getString("name"));
-            surnameTextField.setText(LoginPageController.getResultSet().getString("surname"));
-            dateOfBirthTextField.setText(LoginPageController.getResultSet().getString("birth"));
-            departmentTextField.setText(LoginPageController.getResultSet().getString("department"));
-            phoneNumTextField.setText(LoginPageController.getResultSet().getString("phoneNumber"));
-            emailTextField.setText(LoginPageController.getResultSet().getString("email"));
+            idTextField.setText(LoginPageController.getUser().getId()+"");
+            nameTextField.setText(LoginPageController.getUser().getName());
+            surnameTextField.setText(LoginPageController.getUser().getSurname());
+            dateOfBirthTextField.setText(LoginPageController.getUser().getBirth());
+            departmentTextField.setText(LoginPageController.getUser().getDepartment());
+            phoneNumTextField.setText(LoginPageController.getUser().getPhoneNumber());
+            emailTextField.setText(LoginPageController.getUser().getEmail());
 
-            salaryTextField.setText(LoginPageController.getResultSet().getInt("salary")+"");
-            performanceTextField.setText(LoginPageController.getResultSet().getString("monthlyPerformance"));
-            bonusSalaryTextField.setText(LoginPageController.getResultSet().getInt("bonusSalary")+"");
-            vacationDaysTextField.setText(LoginPageController.getResultSet().getInt("remainingLeaveDays")+"");
-        } catch (SQLException e) {
+            salaryTextField.setText(LoginPageController.getUser().getSalary()+"");
+            performanceTextField.setText(LoginPageController.getUser().getMonthlyPerformance().toString());
+            bonusSalaryTextField.setText(LoginPageController.getUser().getBonusSalary()+"");
+            vacationDaysTextField.setText(LoginPageController.getUser().getRemainingLeaveDays()+"");
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

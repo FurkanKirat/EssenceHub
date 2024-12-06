@@ -96,11 +96,12 @@ public class EmployeeMenuController {
     @FXML
     void initialize() {
         try {
-            String name =  LoginPageController.getResultSet().getString("name");
-            String surname = LoginPageController.getResultSet().getString("surname");
+            String name =  LoginPageController.getUser().getName();
+            String surname = LoginPageController.getUser().getSurname();
+            profilePicturePanel.setImage(LoginPageController.getUser().getImage());
             nameLabel.setText(name + " " + surname);
         }
-        catch (SQLException e){
+        catch (Exception e){
             e.printStackTrace();
         }
         dashboardPanel.getStyleClass().add("selected-border");
