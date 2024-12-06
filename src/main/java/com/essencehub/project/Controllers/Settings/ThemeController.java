@@ -46,9 +46,6 @@ public class ThemeController {
             theme = "/com/essencehub/project/css/RedStyle.css";
         }
 
-
-
-
         String destinationCssFile = "src/main/resources/com/essencehub/project/css/style.css";
 
         try {

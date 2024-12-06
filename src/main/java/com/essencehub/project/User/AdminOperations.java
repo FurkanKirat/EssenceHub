@@ -185,6 +185,8 @@ public class AdminOperations {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -372,7 +374,7 @@ public class AdminOperations {
     public static User getUserById(int userId) {
         User user = null;
         String query = "SELECT id, name, surname, phoneNumber, salary, isAdmin, birth, department, email, "
-                     + "remainingLeaveDays, isActive, password FROM User WHERE id = ?";
+                     + "remainingLeaveDays, isActive, password, imageLocation FROM User WHERE id = ?";
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {

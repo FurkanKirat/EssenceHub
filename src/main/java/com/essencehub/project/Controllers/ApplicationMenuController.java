@@ -194,7 +194,7 @@ public class ApplicationMenuController {
     private void populateComboBox() {
         fireComboBox.getItems().clear();
         selectUpdateComboBox.getItems().clear();
-        int currentUserId = LoginPageController.getUserID();
+        int currentUserId = LoginPageController.getUser().getId();
 
 
         List<User> activeWorkers = getActiveWorkers();

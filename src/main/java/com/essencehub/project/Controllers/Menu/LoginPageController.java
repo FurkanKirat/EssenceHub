@@ -179,10 +179,6 @@ public class LoginPageController {
         return connection;
     }
 
-    public static int getUserID() {
-        return UserID;
-    }
-
 
     public static User getUser(){
         return loggedUser;

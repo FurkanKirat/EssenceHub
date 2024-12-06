@@ -28,8 +28,7 @@ public class ChangePasswordWindow {
 
         if(newPasswordTextField.getText().equals(newPasswordAgainTextField.getText())){
             User user = LoginPageController.getUser();
-            user.setPassword(newPasswordTextField.getText());
-            AdminOperations.updateUser(user);
+            user.changePassword(newPasswordTextField.getText());
 
         }
     }

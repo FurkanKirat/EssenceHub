@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class AssignTaskController {
-
+    private User user;
     @FXML
     private ListView <HBox> receiverListView; // Employees names + checkbox
 
@@ -45,22 +45,19 @@ public class AssignTaskController {
         }
 
         receiverListView.setItems(list);
+        user = LoginPageController.getUser();
     }
 
     @FXML
     public void assignTask(ActionEvent e) {
 
         try {
-            for(User user: AdminOperations.getUsers()){
-                if(user.getId() == LoginPageController.getUserID()){
-                    for(int i=0;i<checkBoxes.length;i++){
-                        if(checkBoxes[i].isSelected()){
-                            Task task = new Task(user, employees.get(i), descriptionTextArea.getText(), titleTextField.getText(), LocalDateTime.now(),false);
-                            AdminOperations.sendTask(task);
 
-                        }
-                    }
-                    break;
+            for(int i=0;i<checkBoxes.length;i++){
+                if(checkBoxes[i].isSelected()){
+                    Task task = new Task(user, employees.get(i), descriptionTextArea.getText(), titleTextField.getText(), LocalDateTime.now(),false);
+                    AdminOperations.sendTask(task);
+
                 }
             }
 

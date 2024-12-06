@@ -73,9 +73,7 @@ public class PickProfileController {
     @FXML
     void editProfileButtonClicked(MouseEvent event) {
 
-        user.setImage(selectedImage);
-        user.setImageLocation(selectedImageLocation);
-        AdminOperations.updateUser(user);
+        user.changeImage(selectedImageLocation);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
 
