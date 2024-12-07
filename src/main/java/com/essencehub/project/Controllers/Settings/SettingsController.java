@@ -90,6 +90,11 @@ public class SettingsController {
     @FXML
     private ImageView profilePicture;
 
+    private static SettingsController instance;
+
+    public SettingsController(){
+        instance=this;
+    }
     @FXML
     void EditInfoButtonClicked(MouseEvent event) throws IOException {
         Stage stage = new Stage();
@@ -269,6 +274,10 @@ public class SettingsController {
 
     public VBox getCenterVBox() {
         return centerVBox;
+    }
+
+    public static SettingsController getInstance() {
+        return instance;
     }
 }
 

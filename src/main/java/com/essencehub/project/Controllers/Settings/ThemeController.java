@@ -54,7 +54,7 @@ public class ThemeController {
             theme = "/com/essencehub/project/css/RedStyle.css";
         }
 
-        String destinationCssFile = "src/main/resources/com/essencehub/project/css/style.css";
+        String destinationCssFile = "C:\\Users\\deniz\\OneDrive\\Masaüstü\\java\\CS102 HW\\EssenceHub\\EssenceHub\\src\\main\\resources\\com\\essencehub\\project\\css\\style.css";
 
         try {
 
@@ -72,7 +72,7 @@ public class ThemeController {
             Files.writeString(destinationPath, cssContent);
 
             sceneLoader(event);
-            FXMLoader("com/essencehub/project/fxml/Settings/theme.fxml");
+            FXMLoader("/com/essencehub/project/fxml/Settings/theme.fxml");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -92,7 +92,7 @@ public class ThemeController {
     }
     void FXMLoader(String FXMLFile){
         try {
-            SettingsController settings = new SettingsController();
+            SettingsController settings = SettingsController.getInstance();
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource(FXMLFile));
             Node newContent = loader.load();

@@ -57,6 +57,7 @@
     -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
     -fx-background-color: transparent;
     -fx-text-fill: black;
+    -fx-font-weight: bold;
 }
 .loginLabel {
     -fx-font-family: "Segoe UI";
