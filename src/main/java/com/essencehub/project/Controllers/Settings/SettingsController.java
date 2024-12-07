@@ -102,6 +102,7 @@ public class SettingsController {
         Scene scene = new Scene(root);
         ThemeController.changeTheme(scene);
         stage.setTitle("Update Contact Info");
+
         Stage parentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         stage.initOwner(parentStage);
         stage.initModality(Modality.WINDOW_MODAL);
@@ -251,6 +252,7 @@ public class SettingsController {
     }
     @FXML
     void editProfileButtonClicked(MouseEvent event) throws IOException {
+
         createNewScene("/com/essencehub/project/fxml/Settings/pickProfilePicture.fxml","Edit Profile",event);
 
 
@@ -278,6 +280,14 @@ public class SettingsController {
 
     public static SettingsController getInstance() {
         return instance;
+    }
+
+    public ImageView getProfilePicture() {
+        return profilePicture;
+    }
+    public void updateInfo(String email, String phoneNumber){
+        emailTextField.setText(email);
+        phoneNumTextField.setText(phoneNumber);
     }
 }
 

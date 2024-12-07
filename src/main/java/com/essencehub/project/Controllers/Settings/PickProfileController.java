@@ -4,7 +4,10 @@ import com.essencehub.project.Controllers.Menu.LoginPageController;
 import com.essencehub.project.User.AdminOperations;
 import com.essencehub.project.User.User;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -63,9 +67,11 @@ public class PickProfileController {
     private String selectedImageLocation;
     private User user;
 
+
+
     @FXML
     public void initialize() {
-        // Listeleri initialize içinde doldurun
+
         images = Arrays.asList(img1, img2, img3, img4, img5, img6);
         boxes = Arrays.asList(vBox1, vBox2, vBox3, vBox4, vBox5, vBox6);
         selectedImage = LoginPageController.getUser().getImage();
@@ -75,8 +81,12 @@ public class PickProfileController {
     void editProfileButtonClicked(MouseEvent event) {
 
         user.changeImage(selectedImageLocation);
+
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
+        SettingsController settingsController = SettingsController.getInstance();
+        settingsController.getProfilePicture().setImage(user.getImage());
+
 
     }
 
@@ -86,6 +96,7 @@ public class PickProfileController {
         vBox1.getStyleClass().add("container");
         selectedImageLocation = "/com/essencehub/project/images/ProfilePictures/1.png";
         selectedImage = img1.getImage();
+
     }
 
     @FXML
@@ -138,6 +149,8 @@ public class PickProfileController {
             boxes.get(i).getStyleClass().remove("container");
         }
     }
+
+
 
 
 
