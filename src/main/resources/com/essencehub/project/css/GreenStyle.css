@@ -160,3 +160,55 @@
 .chart-pie-label {
     -fx-fill: #e0e0e0;
 }
+
+/* TableView Styles - Green Theme */
+.table-view {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 10;
+    -fx-border-color: #a8df65;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e0e0e0;
+}
+
+.table-view .table-row-cell:focused {
+    -fx-background-color: #168f5e;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #168f5e;
+}
+
+.table-view .table-row-cell:pressed {
+    -fx-background-color: #134e5e;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header:pressed {
+    -fx-background-color: #0c7764;
+}
+
+.table-view .column-header:focused {
+    -fx-background-color: #168f5e;
+}
+
+.table-view .column-header {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
+    -fx-text-fill: #e0e0e0;  /* Light gray text for better contrast */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;  /* Optional: Adjust font size */
+    -fx-alignment: center;
+}
+
+.table-view .column-header .text {
+    -fx-fill: #e0e0e0;  /* Light gray text for header */
+}

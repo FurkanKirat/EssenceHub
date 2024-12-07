@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="hbpx" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Menu.LoginPageController">
+<HBox fx:id="hbpx" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Menu.LoginPageController">
    <children>
       <AnchorPane fx:id="anchor1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0">
          <children>
@@ -32,22 +32,22 @@
             <Label fx:id="passwordLabel" layoutX="75.0" layoutY="200.0" styleClass="loginLabel" text="Password" />
             <PasswordField fx:id="passwordField" layoutX="75.0" layoutY="229.0" onKeyReleased="#loginEnter" promptText="Your Password" styleClass="loginTextField" />
             <Button fx:id="loginbtn" layoutX="75.0" layoutY="281.0" mnemonicParsing="false" onAction="#loginClicked" prefHeight="26.0" prefWidth="150.0" text="Login" />
-            <ImageView fx:id="passwordicon" fitHeight="25.0" fitWidth="25.0" layoutX="44.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="passwordicon" fitHeight="25.0" fitWidth="25.0" layoutX="44.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" styleClass="loginImage">
                <image>
                   <Image url="@../../images/loginpage/password.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="ID" fitHeight="25.0" fitWidth="25.0" layoutX="44.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="ID" fitHeight="25.0" fitWidth="25.0" layoutX="44.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true" styleClass="loginImage">
                <image>
                   <Image url="@../../images/loginpage/ID.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="hide" fitHeight="25.0" fitWidth="25.0" layoutX="235.0" layoutY="231.0" onMouseReleased="#hideClicked" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="hide" fitHeight="25.0" fitWidth="25.0" layoutX="235.0" layoutY="231.0" onMouseReleased="#hideClicked" pickOnBounds="true" preserveRatio="true" styleClass="loginImage" visible="false">
                <image>
                   <Image url="@../../images/loginpage/hide.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="show" fitHeight="25.0" fitWidth="25.0" layoutX="235.0" layoutY="231.0" onMouseReleased="#hideClicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="show" fitHeight="25.0" fitWidth="25.0" layoutX="235.0" layoutY="231.0" onMouseReleased="#hideClicked" pickOnBounds="true" preserveRatio="true" styleClass="loginImage">
                <image>
                   <Image url="@../../images/loginpage/show.png" />
                </image>

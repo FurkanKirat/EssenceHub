@@ -20,7 +20,7 @@
       </VBox>
       <HBox prefHeight="269.0" prefWidth="974.0" spacing="24.0">
          <children>
-            <StackPane fx:id="incomePane" onMouseClicked="#incomeClicked" prefHeight="150.0" prefWidth="460.0" stylesheets="@../../css/style.css" HBox.hgrow="ALWAYS">
+            <StackPane fx:id="incomePane" onMouseClicked="#incomeClicked" prefHeight="150.0" prefWidth="460.0" HBox.hgrow="ALWAYS">
                <children>
                   <ImageView fitHeight="183.0" fitWidth="203.0" layoutX="200.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_CENTER">
                      <image>
@@ -57,7 +57,7 @@
       </HBox>
       <HBox prefHeight="269.0" prefWidth="974.0" spacing="24.0">
          <children>
-            <StackPane fx:id="outgoingsPane" onMouseClicked="#outgoingsClicked" prefHeight="150.0" prefWidth="460.0" stylesheets="@../../css/style.css" HBox.hgrow="ALWAYS">
+            <StackPane fx:id="outgoingsPane" onMouseClicked="#outgoingsClicked" prefHeight="150.0" prefWidth="460.0" HBox.hgrow="ALWAYS">
                <children>
                   <ImageView fitHeight="183.0" fitWidth="203.0" layoutX="200.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_CENTER">
                      <image>

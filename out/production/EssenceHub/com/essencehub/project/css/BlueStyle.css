@@ -1,155 +1,156 @@
-/* General Styles */
-.gradient-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2b2b2b, #575757);
+
+.gradient-background{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
 }
-.first-color {
-    -fx-background-color: #2b2b2b;
+.first-color{
+    -fx-background-color: #14076b;
 }
-.second-color {
-    -fx-background-color: #3a3a3a;
+.second-color{
+    -fx-background-color: #1d346e;
 }
-.line-color {
-    -fx-background-color: #e0e0e0;
+.line-color{
+    -fx-background-color: #f6f4f4;
 }
-.container {
-    -fx-background-color: rgba(255, 255, 255, 0.1);
+.container{
+    -fx-background-color: rgba(255,255,255,0.2);
     -fx-background-radius: 10;
 }
-.hide {
-    -fx-cursor: hand;
-}
-.selected-border {
-    -fx-border-color: #bfbfbf;
+.hide{
+     -fx-cursor: hand;
+ }
+.selected-border{
+    -fx-border-color: #fff;
     -fx-border-width: 0 3 0 0;
+
 }
-.selected:hover {
-    -fx-background-color: #4a4a4a;
+.selected:hover{
+    -fx-background-color: #30247e;
 }
-.selected:clicked {
-    -fx-background-color: #4a4a4a;
-}
-.buttonClicked {
+.selected:clicked{
+    -fx-background-color: #30247e;
+}*/
+.buttonClicked{
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(128, 128, 128, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 255, 0.5), 10, 0.5, 0, 0);
 }
+
 .settingsProfile:hover {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(128, 128, 128, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 255, 0.5), 10, 0.5, 0, 0);
+
 }
-.menuButton {
-    -fx-background-color: rgba(255, 255, 255, 0.1);
+
+.menuButton{
+    -fx-background-color: rgba(255, 255, 255, 0.2);
     -fx-background-radius: 30;
     -fx-text-fill : white;
 }
-.text-input {
-    -fx-background-color: rgba(0, 0, 0, 0);
+.text-input{
+    -fx-background-color: rgba(0,0,0,0);
     -fx-border-width: 0 0 1 0;
-    -fx-border-color: #bfbfbf;
+    -fx-border-color: #ffffff;
 }
 .menuTextField {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #fff;
     -fx-font-size: 15px;
 }
 
+
+
 /* Login Page */
-.loginTextField {
-    -fx-border-width: 2px;
-    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #2b2b2b, #575757);
+.loginTextField{
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
     -fx-background-color: transparent;
     -fx-text-fill: black;
+
+
 }
-.loginLabel {
-    -fx-font-family: "Segoe UI";
+.loginLabel{
+    -fx-font-family: "Segoe UI:";
     -fx-text-fill: black;
     -fx-font-weight: bold;
 }
-#anchor1 {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2b2b2b, #575757);
+#anchor1{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
 }
-#loginbtn {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2b2b2b, #575757);
-    -fx-text-fill: #e0e0e0;
+#loginbtn{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
+    -fx-text-fill: white;
     -fx-background-radius: 15;
     -fx-cursor: hand;
     -fx-font-weight: bold;
 }
-#logo {
-    -fx-fill: linear-gradient(#474747, #6e6e6e);
+#logo{
+    -fx-fill: linear-gradient(#6493d3,#1f75ea);
 }
-#appLabel {
-    -fx-text-fill: #e0e0e0;
-    -fx-back-color: #6e6e6e;
+#appLabel{
+    -fx-text-fill: white;
+    -fx-back-color : #1f75ea;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-family: "sans-serif";
 }
-#profile {
-    -fx-fill: #7a7a7a;
+#profile{
+    -fx-fill: red;
 }
-#show {
+
+#show{
     -fx-cursor: hand;
 }
 
+
 .loginImage{
-     -fx-effect: innershadow(gaussian, #2b2b2b, 5, 1, 0, 0);
+     -fx-effect: innershadow(gaussian, #30247e, 5, 1, 0, 0);
 }
 
 /* Tasks */
-.TaskLabel {
-    -fx-text-fill: #e0e0e0;
+.TaskLabel{
+    -fx-text-fill: white;
 }
 
-/* Employee Option */
-.employeeLabel {
-    -fx-text-fill: #e0e0e0;
+/* Employee Option*/
+.employeeLabel{
+    -fx-text-fill: white;
 }
 
 /* Stock */
-.chart-legend-item {
-    -fx-text-fill: #bfbfbf;
+.chart-legend-item{
+    -fx-text-fill: blue;
 }
 .chart-pie-label-line {
-    -fx-stroke: #bfbfbf;
-    -fx-fill: #bfbfbf;
+    -fx-stroke: white;
+    -fx-fill: white;
 }
+
 .chart-pie-label {
-    -fx-fill: #bfbfbf;
+    -fx-fill: white;
 }
 .chart-legend {
-    -fx-background-color: #3a3a3a;
-    -fx-stroke: #3a3a3a;
+   -fx-background-color:  white;
+   -fx-stroke: white;
 }
 .axis-label {
-    -fx-text-fill: #e0e0e0;
+  -fx-text-fill: white;
 }
-.chart-pie-label {
-    -fx-fill: #e0e0e0;
+.chart-pie-label {-fx-fill: white;
 }
 
-/* General Styles ile Uyumluluk */
-
-/* TableView Genel Arka Plan */
 .table-view {
     -fx-background-color: rgba(255, 255, 255, 0.1); /* Hafif şeffaf arka plan */
     -fx-border-color: #3a3a3a; /* Kenar rengi */
     -fx-border-radius: 10; /* Köşeleri yuvarlat */
     -fx-background-radius: 10;
 }
-
-/* TableView Başlık Arka Planı */
 .table-view .column-header-background {
     -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2b2b2b, #575757); /* Başlık degrade */
 }
-
-/* Hücreler (Satırlar) */
 .table-view .cell {
     -fx-text-fill: #e0e0e0; /* Hücre yazı rengi (açık gri) */
     -fx-background-color: rgba(0, 0, 0, 0.2); /* Hücre arka planı (şeffaf siyah) */
     -fx-border-color: #3a3a3a; /* Hücre kenar çizgisi */
 }
-
-/* Seçili Satır */
 .table-row-cell:selected {
     -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #4a4a4a, #2b2b2b); /* Seçilen satır degrade arka plan */
     -fx-text-fill: #ffffff; /* Seçili yazı rengi beyaz */
@@ -157,15 +158,10 @@
     -fx-border-color: #e0e0e0; /* Kenar çizgisi (açık gri) */
     -fx-effect: dropshadow(gaussian, rgba(224, 224, 224, 0.5), 10, 0.5, 0, 0); /* Hafif parlama */
 }
-
-/* Hover Efekti */
 .table-row-cell:hover {
     -fx-background-color: rgba(74, 74, 74, 0.8); /* Üzerine gelindiğinde arka plan */
 }
-
-/* Seçili Satır Yazı */
 .table-view .cell:selected {
     -fx-text-fill: #e0e0e0; /* Yazı rengini açık gri yap */
     -fx-font-weight: bold; /* Yazıyı kalın yap */
 }
-

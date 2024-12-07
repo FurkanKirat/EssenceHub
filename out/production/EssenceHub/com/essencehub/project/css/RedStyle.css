@@ -1,0 +1,128 @@
+/* General Styles - Red Theme */
+.gradient-background {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #8b0000, #ff4500);
+}
+.first-color {
+    -fx-background-color: #8b0000;
+}
+.second-color {
+    -fx-background-color: #b22222;
+}
+.line-color {
+    -fx-background-color: #ff7f7f;
+}
+.container {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 10;
+}
+.hide {
+    -fx-cursor: hand;
+}
+.selected-border {
+    -fx-border-color: #ff7f7f;
+    -fx-border-width: 0 3 0 0;
+}
+.selected:hover {
+    -fx-background-color: #ff6347;
+}
+.selected:clicked {
+    -fx-background-color: #ff6347;
+}
+.buttonClicked {
+    -fx-opacity: 0.8;
+    -fx-effect: dropshadow(gaussian, rgba(255, 69, 0, 0.5), 10, 0.5, 0, 0);
+}
+.settingsProfile:hover {
+    -fx-opacity: 0.8;
+    -fx-effect: dropshadow(gaussian, rgba(255, 69, 0, 0.5), 10, 0.5, 0, 0);
+}
+.menuButton {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 30;
+    -fx-text-fill : white;
+}
+.text-input {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #ff7f7f;
+}
+.menuTextField {
+    -fx-text-fill: #e0e0e0;
+    -fx-font-size: 15px;
+}
+
+/* Login Page - Red Theme */
+.loginTextField {
+    -fx-border-width: 2px;
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #8b0000, #ff4500);
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+}
+.loginLabel {
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+#anchor1 {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #8b0000, #ff4500);
+}
+#loginbtn {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #8b0000, #ff4500);
+    -fx-text-fill: #e0e0e0;
+    -fx-background-radius: 15;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+}
+#logo {
+    -fx-fill: linear-gradient(#8b0000, #ff4500);
+}
+#appLabel {
+    -fx-text-fill: #e0e0e0;
+    -fx-back-color: #ff4500;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-font-family: "sans-serif";
+}
+#profile {
+    -fx-fill: #ff8c69;
+}
+#show {
+    -fx-cursor: hand;
+}
+
+.loginImage{
+     -fx-effect: innershadow(gaussian, #b22222, 5, 1, 0, 0);
+}
+
+/* Tasks - Red Theme */
+.TaskLabel {
+    -fx-text-fill: #e0e0e0;
+}
+
+/* Employee Option - Red Theme */
+.employeeLabel {
+    -fx-text-fill: #e0e0e0;
+}
+
+/* Stock - Red Theme */
+.chart-legend-item {
+    -fx-text-fill: #ff7f7f;
+}
+.chart-pie-label-line {
+    -fx-stroke: #ff7f7f;
+    -fx-fill: #ff7f7f;
+}
+.chart-pie-label {
+    -fx-fill: #ff7f7f;
+}
+.chart-legend {
+    -fx-background-color: #b22222;
+    -fx-stroke: #b22222;
+}
+.axis-label {
+    -fx-text-fill: #ff7f7f;
+}
+.chart-pie-label {
+    -fx-fill: #e0e0e0;
+}

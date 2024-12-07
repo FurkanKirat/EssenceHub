@@ -22,7 +22,8 @@ public class PieChartController {
     public void initialize() {
 
         try {
-            Statement statement = LoginPageController.getConnection().createStatement();
+            Connection connection = DatabaseConnection.getConnection();
+            Statement statement = connection.createStatement();
             resultset = statement.executeQuery("SELECT * FROM stock");
             //XYChart.Series<String, Number> series1 = new XYChart.Series<>();
 

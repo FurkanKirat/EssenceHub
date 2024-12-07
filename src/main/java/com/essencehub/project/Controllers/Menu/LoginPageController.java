@@ -29,10 +29,7 @@ import java.io.IOException;
 import java.sql.*;
 
 public class LoginPageController {
-    private static ResultSet resultset;
-    private static Statement statement;
-    private static Connection connection;
-    private static int UserID;
+
     @FXML
     private ImageView ID;
 
@@ -78,15 +75,7 @@ public class LoginPageController {
     @FXML
     private Label warning;
 
-    public static Statement getStatement() {
-        return statement;
-    }
-
-    public static void setStatement(Statement statement) {
-        LoginPageController.statement = statement;
-    }
-
-    public static  User loggedUser;
+    public static User loggedUser;
 
     @FXML
     void hideClicked(MouseEvent event) {
@@ -129,10 +118,10 @@ public class LoginPageController {
             int id = Integer.parseInt(idField.getText());
             String password = passwordField.isVisible() ? passwordField.getText() : passwordText.getText();
 
-            connection = DatabaseConnection.getConnection();
-            statement = connection.createStatement();
+            Connection connection = DatabaseConnection.getConnection();
+            Statement statement = connection.createStatement();
 
-            resultset = statement.executeQuery("SELECT * FROM user WHERE id = " + id + " AND password = '" + password + "'");
+            ResultSet resultset = statement.executeQuery("SELECT * FROM user WHERE id = " + id + " AND password = '" + password + "'");
 
             if (resultset.next()) {
                 loggedUser = new User();
@@ -174,10 +163,6 @@ public class LoginPageController {
 //    public static ResultSet getResultSet(){
 //        return resultset;
 //    }
-
-    public static Connection getConnection() {
-        return connection;
-    }
 
 
     public static User getUser(){
