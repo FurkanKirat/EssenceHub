@@ -202,6 +202,7 @@ public class LoginPageController {
         }
     }
     private void loadAppropriateMenu(Event event) throws IOException {
+
         String fxmlFile;
 
         if (loggedUser.isAdmin()) {
@@ -217,11 +218,13 @@ public class LoginPageController {
         // Set the new scene
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
+
         ThemeController.changeTheme(scene);
         stage.setResizable(true);
         stage.setScene(scene);
         stage.show();
         stage.centerOnScreen();
     }
+
 
 }

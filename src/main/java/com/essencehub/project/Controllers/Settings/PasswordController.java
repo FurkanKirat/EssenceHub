@@ -74,6 +74,7 @@ public class PasswordController {
         try{
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("/com/essencehub/project/fxml/Settings/passwordUpdate.fxml"));
+            stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
             Scene scene = new Scene(root);
             ThemeController.changeTheme(scene);
             stage.setTitle("Edit Password");

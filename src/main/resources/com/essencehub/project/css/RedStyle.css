@@ -121,9 +121,7 @@
 #profile {
     -fx-fill: #ff8c69;
 }
-#show {
-    -fx-cursor: hand;
-}
+
 
 .loginImage{
      -fx-effect: innershadow(gaussian, #b22222, 5, 1, 0, 0);

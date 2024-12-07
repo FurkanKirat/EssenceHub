@@ -54,24 +54,26 @@ public class ThemeController {
             theme = "/com/essencehub/project/css/RedStyle.css";
         }
 
-        String destinationCssFile = System.getProperty("user.home") + "/style.css"; // Ev dizinine yazma
+        String destinationCssFile = "src/main/resources/com/essencehub/project/css/style.css";
+
         try {
+            // Kaynak dosyayı ClassLoader kullanarak okuyun
             URL sourceUrl = getClass().getResource(theme);
             if (sourceUrl == null) {
                 throw new IOException("Kaynak dosya bulunamadı: " + theme);
             }
-
             Path sourcePath = Paths.get(sourceUrl.toURI());
+
+            // Kaynak dosyayı okuyun
             String cssContent = Files.readString(sourcePath);
 
+            // İçeriği hedef CSS dosyasına yazın
             Path destinationPath = Paths.get(destinationCssFile);
             Files.writeString(destinationPath, cssContent);
 
-            System.out.println("Dosya başarıyla yazıldı: " + destinationCssFile);
-
+            System.out.println("CSS dosyası başarıyla kopyalandı ve tema değiştirildi.");
             sceneLoader(event);
             FXMLoader("/com/essencehub/project/fxml/Settings/theme.fxml");
-
         } catch (Exception e) {
             e.printStackTrace();
         }

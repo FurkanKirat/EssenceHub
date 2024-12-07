@@ -99,6 +99,7 @@ public class SettingsController {
     void EditInfoButtonClicked(MouseEvent event) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/com/essencehub/project/fxml/Settings/contactInfoUpdate.fxml"));
+        stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
         Scene scene = new Scene(root);
         ThemeController.changeTheme(scene);
         stage.setTitle("Update Contact Info");
@@ -161,6 +162,7 @@ public class SettingsController {
                     ThemeController.changeTheme(scene);
 
                     Stage stage = new Stage();
+                    stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
                     Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     stage.setTitle("Essence Hub");
                     Stage parentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -259,6 +261,7 @@ public class SettingsController {
     }
     void createNewScene(String FXMLFile,String title, Event event) throws IOException {
         Stage stage = new Stage();
+        stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
         Parent root = FXMLLoader.load(getClass().getResource(FXMLFile));
 
         Scene scene = new Scene(root);

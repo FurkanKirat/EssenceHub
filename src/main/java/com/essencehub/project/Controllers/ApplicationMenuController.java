@@ -14,13 +14,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ApplicationMenuController {
 
-    @FXML
-    private TextField BirthField;
 
     @FXML
     private TabPane tabPane;
@@ -29,10 +29,10 @@ public class ApplicationMenuController {
     private Label birthLabel;
 
     @FXML
-    private TextField bonusField;
+    private ComboBox<String> isAdminCombobox;
 
     @FXML
-    private Label bonusLabel;
+    private DatePicker birthPicker;
 
     @FXML
     private TextField departmantField;
@@ -66,9 +66,6 @@ public class ApplicationMenuController {
 
     @FXML
     private Tab hireTab;
-
-    @FXML
-    private TextField isAdminField;
 
     @FXML
     private Label isAdminLabel;
@@ -127,9 +124,20 @@ public class ApplicationMenuController {
     @FXML
     private Tab updateStatusTab;
 
+    @FXML
+    private ComboBox<String> propertyComboBox;
 
     @FXML
     private TextField statusTextField;
+
+    @FXML
+    private DatePicker birthPickerHire;
+
+    private int whichStatus = 0;
+    @FXML
+    void statusSelected(ActionEvent event) {
+        initializeCombobox();
+    }
 
     @FXML
     void isFireButtonClicked(ActionEvent event) {
@@ -189,6 +197,10 @@ public class ApplicationMenuController {
 
             }
         });
+        birthPickerHire.setValue(LocalDate.of(2000, Month.JANUARY,1));
+        isAdminCombobox.setValue("false");
+        isAdminCombobox.getItems().addAll("true","false");
+
     }
 
     private void populateComboBox() {
@@ -289,18 +301,17 @@ public class ApplicationMenuController {
     void isHireButtonClicked(ActionEvent event) {
         String name = nameField.getText();
         String surname = surnameField.getText();
-        String birthDate = BirthField.getText();
+        String birthDate = birthPickerHire.getValue().toString();
         String email = emailField.getText();
         String phone = phoneField.getText();
         String department = departmantField.getText();
         String salaryText = salaryField.getText();
-        String bonusText = bonusField.getText();
-        String isAdminText = isAdminField.getText();
+        String isAdminText = isAdminCombobox.getValue();
         String password = passwordField.getText();
         String remainingDaysText = remainingDaysField.getText();
 
 
-        if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || department.isEmpty() || salaryText.isEmpty() || birthDate.isEmpty() || phone.isEmpty()|| remainingDaysText.isEmpty()|| password.isEmpty()|| bonusText.isEmpty()) {
+        if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || department.isEmpty() || salaryText.isEmpty() || birthDate.isEmpty() || phone.isEmpty()|| remainingDaysText.isEmpty()|| password.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Missing Fields");
             alert.setHeaderText("Required Fields Missing");
@@ -326,9 +337,7 @@ public class ApplicationMenuController {
 
         try {
             salary = Double.parseDouble(salaryText);
-            if (!bonusText.isEmpty()) {
-                bonus = Double.parseDouble(bonusText);
-            }
+
             isAdmin = Boolean.parseBoolean(isAdminText);
 
             if (!remainingDaysText.isEmpty()) {
@@ -373,7 +382,13 @@ public class ApplicationMenuController {
         int workerId = selectedWorker.getId();
         String whatToChange = workerStatusComboBox.getValue();
 
-        String newValue = statusTextField.getText();
+
+        String newValue;
+        newValue = switch(whichStatus){
+            case 1 -> propertyComboBox.getValue();
+            case 2 -> birthPicker.getValue().toString();
+            default -> statusTextField.getText();
+        };
         int rowsUpdated = 0;
 
         try (Connection conn = DatabaseConnection.getConnection()) {
@@ -400,11 +415,11 @@ public class ApplicationMenuController {
                     pstmt.setString(1, newValue);
                     pstmt.setInt(2, workerId);
 
-                    if(!statusTextField.getText().isEmpty()){
+                    if((whichStatus==0&&!statusTextField.getText().isEmpty())||(whichStatus==1&&!propertyComboBox.getValue().isEmpty())||(whichStatus==2)){
                         rowsUpdated = pstmt.executeUpdate();
                     }
                     if (rowsUpdated > 0) {
-                       if(!statusTextField.getText().isEmpty()){
+                       if((whichStatus==0&&!statusTextField.getText().isEmpty())||(whichStatus==1&&!propertyComboBox.getValue().isEmpty())||(whichStatus==2)){
                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
                            alert.setTitle("Update Successful");
@@ -428,6 +443,7 @@ public class ApplicationMenuController {
         if(rowsUpdated == 0){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Update Failed");
+            System.out.println("v");
             alert.setHeaderText("No Changes Made");
             alert.setContentText("No rows were updated. Please check the input.");
             alert.showAndWait();
@@ -435,10 +451,43 @@ public class ApplicationMenuController {
 
         populateComboBox();
         statusTextField.setText("");
-        workerStatusComboBox.setValue(null);
+       // workerStatusComboBox.setValue(null);
 
+    }
+    private void initializeCombobox(){
+        switch (workerStatusComboBox.getValue()){
+            case "Name":
+            case "Surname":
+            case "Phone Number":
+            case "Salary":
+            case "Department":
+            case "Email":
+            case "RemainingLeaveDays":
+            case "password":
+                statusTextField.setVisible(true);
+                propertyComboBox.setVisible(false);
+                birthPicker.setVisible(false);
+                whichStatus=0;
+                break;
+            case "IsAdmin":
+                statusTextField.setVisible(false);
+                birthPicker.setVisible(false);
+                propertyComboBox.setVisible(true);
+                propertyComboBox.getItems().setAll("1","0");
+                whichStatus=1;
+                break;
+            case "Performance":
+                whichStatus=1;
+                statusTextField.setVisible(false);
+                propertyComboBox.getItems().setAll("A_PLUS","A","A_MINUS","B_PLUS","B","B_MINUS","C_PLUS","C","C_MINUS","D","F");
+                propertyComboBox.setVisible(true);
+                break;
+            case "Birth":
+                whichStatus=2;
+                birthPicker.setVisible(true);
+                statusTextField.setVisible(false);
+                propertyComboBox.setVisible(false);
 
-
-
+        }
     }
 }

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -20,12 +21,9 @@
                         <TextField fx:id="surnameField" layoutX="158.0" layoutY="67.0" styleClass="menuTextField" />
                         <TextField fx:id="phoneField" layoutX="158.0" layoutY="107.0" styleClass="menuTextField" />
                         <TextField fx:id="salaryField" layoutX="158.0" layoutY="147.0" styleClass="menuTextField" />
-                        <TextField fx:id="isAdminField" layoutX="158.0" layoutY="187.0" styleClass="menuTextField" />
-                        <TextField fx:id="BirthField" layoutX="158.0" layoutY="227.0" styleClass="menuTextField" />
                         <TextField fx:id="departmantField" layoutX="158.0" layoutY="267.0" styleClass="menuTextField" />
                         <TextField fx:id="emailField" layoutX="158.0" layoutY="307.0" styleClass="menuTextField" />
                         <TextField fx:id="remainingDaysField" layoutX="158.0" layoutY="347.0" styleClass="menuTextField" />
-                        <TextField fx:id="bonusField" layoutX="158.0" layoutY="427.0" styleClass="menuTextField" />
                         <TextField fx:id="passwordField" layoutX="158.0" layoutY="387.0" styleClass="menuTextField" />
                         <Label fx:id="nameLabel" layoutX="69.0" layoutY="32.0" prefHeight="17.0" prefWidth="42.0" styleClass="employeeLabel" text="Name" />
                         <Label fx:id="surnameLabel" layoutX="69.0" layoutY="72.0" styleClass="employeeLabel" text="Surname" />
@@ -33,12 +31,13 @@
                         <Label fx:id="salaryLabel" layoutX="69.0" layoutY="152.0" prefHeight="17.0" prefWidth="69.0" styleClass="employeeLabel" text="Salary" />
                         <Label fx:id="isAdminLabel" layoutX="69.0" layoutY="192.0" prefHeight="17.0" prefWidth="65.0" styleClass="employeeLabel" text="IsAdmin" />
                         <Label fx:id="birthLabel" layoutX="69.0" layoutY="232.0" prefHeight="17.0" prefWidth="40.0" styleClass="employeeLabel" text="Birth" />
-                        <Label fx:id="departmantLabel" layoutX="69.0" layoutY="272.0" prefHeight="17.0" prefWidth="74.0" styleClass="employeeLabel" text="Departmant" />
+                        <Label fx:id="departmantLabel" layoutX="69.0" layoutY="272.0" prefHeight="17.0" prefWidth="74.0" styleClass="employeeLabel" text="Department" />
                         <Label fx:id="emailLabel" layoutX="69.0" layoutY="312.0" styleClass="employeeLabel" text="Email" />
                         <Label fx:id="remainingDaysLabel" layoutX="69.0" layoutY="352.0" styleClass="employeeLabel" text="RemainingDays" />
-                        <Label fx:id="bonusLabel" layoutX="69.0" layoutY="432.0" prefHeight="17.0" prefWidth="43.0" styleClass="employeeLabel" text="Bonus" />
                         <Label fx:id="passwordLabel" layoutX="69.0" layoutY="392.0" styleClass="employeeLabel" text="Password" />
                         <Button layoutX="459.0" layoutY="228.0" mnemonicParsing="false" onAction="#isHireButtonClicked" styleClass="menuButton" text="Apply" textFill="WHITE" />
+                        <DatePicker fx:id="birthPickerHire" editable="false" layoutX="157.0" layoutY="227.0" prefHeight="26.0" prefWidth="151.0" />
+                        <ComboBox fx:id="isAdminCombobox" layoutX="157.0" layoutY="188.0" prefWidth="150.0" />
                      </children>
                   </AnchorPane>
             </content>
@@ -59,8 +58,10 @@
                      <children>
                         <ComboBox fx:id="selectUpdateComboBox" layoutX="104.0" layoutY="63.0" prefHeight="26.0" prefWidth="454.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="57.0" />
                         <Button fx:id="updateButton" layoutX="207.0" layoutY="247.0" mnemonicParsing="false" onAction="#isUpdateButtonClicked" prefHeight="36.0" prefWidth="112.0" text="Update" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="207.0" />
-                        <ComboBox fx:id="workerStatusComboBox" layoutX="159.0" layoutY="125.0" prefHeight="26.0" prefWidth="307.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
+                        <ComboBox fx:id="workerStatusComboBox" layoutX="159.0" layoutY="125.0" onAction="#statusSelected" prefHeight="26.0" prefWidth="307.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
                         <TextField fx:id="statusTextField" layoutX="211.0" layoutY="189.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
+                        <ComboBox fx:id="propertyComboBox" layoutX="60.0" layoutY="189.0" prefHeight="26.0" prefWidth="489.0" visible="false" />
+                        <DatePicker fx:id="birthPicker" editable="false" layoutX="53.0" layoutY="189.0" prefHeight="26.0" prefWidth="495.0" promptText="Birth" visible="false" />
                      </children>
                   </AnchorPane>
                </content>

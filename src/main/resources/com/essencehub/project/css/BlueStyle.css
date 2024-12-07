@@ -130,10 +130,6 @@
     -fx-fill: red;
 }
 
-#show{
-    -fx-cursor: hand;
-}
-
 
 .loginImage{
      -fx-effect: innershadow(gaussian, #30247e, 5, 1, 0, 0);
