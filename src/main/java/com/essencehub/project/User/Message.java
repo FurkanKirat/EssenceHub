@@ -1,6 +1,7 @@
 package com.essencehub.project.User;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Message {
 
@@ -13,12 +14,13 @@ public class Message {
     public Message() {
     }
 
-    public Message(User sender, User receiver, String message, String title) {
+    public Message(User sender, User receiver, String message, String title, LocalDateTime sendDateTime) {
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
         this.title = title;
-        this.sendDateTime = LocalDateTime.now();
+        this.sendDateTime = Objects.requireNonNullElseGet(sendDateTime, LocalDateTime::now);
+
     }
 
     // Getter ve Setter metotları

@@ -3,21 +3,22 @@ package com.essencehub.project.Controllers.Settings;
 import com.essencehub.project.Controllers.Menu.LoginPageController;
 import com.essencehub.project.User.AdminOperations;
 import com.essencehub.project.User.User;
+import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.Arrays;
 import java.util.List;
 
@@ -43,6 +44,10 @@ public class PickProfileController {
 
     @FXML
     private ImageView img6;
+
+    @FXML
+    private ImageView img7;
+
     @FXML
     private VBox vBox1;
 
@@ -61,12 +66,14 @@ public class PickProfileController {
     @FXML
     private VBox vBox6;
 
+    @FXML
+    private VBox vBox7;
+
     private List<ImageView> images;
     private List<Pane> boxes;
-    private Image selectedImage;
+
     private String selectedImageLocation;
     private User user;
-
 
 
     @FXML
@@ -74,8 +81,10 @@ public class PickProfileController {
 
         images = Arrays.asList(img1, img2, img3, img4, img5, img6);
         boxes = Arrays.asList(vBox1, vBox2, vBox3, vBox4, vBox5, vBox6);
-        selectedImage = LoginPageController.getUser().getImage();
         user = LoginPageController.getUser();
+        selectedImageLocation = user.getImageLocation();
+
+
     }
     @FXML
     void editProfileButtonClicked(MouseEvent event) {
@@ -94,8 +103,7 @@ public class PickProfileController {
     void img1Clicked(MouseEvent event) {
         clearStyle();
         vBox1.getStyleClass().add("container");
-        selectedImageLocation = "/com/essencehub/project/images/ProfilePictures/1.png";
-        selectedImage = img1.getImage();
+        uploadImage(event);
 
     }
 
@@ -104,8 +112,7 @@ public class PickProfileController {
         clearStyle();
         vBox2.getStyleClass().add("container");
         img2.getStyleClass().add("buttonClicked");
-        selectedImage = img2.getImage();
-        selectedImageLocation = "/com/essencehub/project/images/ProfilePictures/2.png";
+        selectedImageLocation = "/com/essencehub/project/images/ProfilePictures/defaultpicture2.png";
     }
 
     @FXML
@@ -113,8 +120,7 @@ public class PickProfileController {
         clearStyle();
         vBox3.getStyleClass().add("container");
         img3.getStyleClass().add("buttonClicked");
-        selectedImage = img3.getImage();
-        selectedImageLocation = "/com/essencehub/project/images/ProfilePictures/3.png";
+        selectedImageLocation = "/com/essencehub/project/images/ProfilePictures/defaultpicture3.png";
     }
 
     @FXML
@@ -122,8 +128,7 @@ public class PickProfileController {
         clearStyle();
         vBox4.getStyleClass().add("container");
         img4.getStyleClass().add("buttonClicked");
-        selectedImage = img4.getImage();
-        selectedImageLocation = "/com/essencehub/project/images/ProfilePictures/4.png";
+        selectedImageLocation = "/com/essencehub/project/images/ProfilePictures/defaultpicture4.png";
     }
 
     @FXML
@@ -131,8 +136,7 @@ public class PickProfileController {
         clearStyle();
         vBox5.getStyleClass().add("container");
         img5.getStyleClass().add("buttonClicked");
-        selectedImage = img5.getImage();
-        selectedImageLocation = "/com/essencehub/project/images/ProfilePictures/5.png";
+        selectedImageLocation = "/com/essencehub/project/images/ProfilePictures/defaultpicture5.png";
     }
 
     @FXML
@@ -140,15 +144,72 @@ public class PickProfileController {
         clearStyle();
         vBox6.getStyleClass().add("container");
         img6.getStyleClass().add("buttonClicked");
-        selectedImage = img6.getImage();
-        selectedImageLocation = "/com/essencehub/project/images/ProfilePictures/6.png";
+        selectedImageLocation = "/com/essencehub/project/images/ProfilePictures/defaultpicture6.png";
     }
+
+    @FXML
+    void img7Clicked(MouseEvent event) {
+        clearStyle();
+        vBox7.getStyleClass().add("container");
+        img7.getStyleClass().add("buttonClicked");
+        uploadImage(event);
+    }
+
     void clearStyle(){
         for(int i = 0;i<6;i++) {
             images.get(i).getStyleClass().remove("buttonClicked");
             boxes.get(i).getStyleClass().remove("container");
         }
     }
+
+    void uploadImage(Event event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("PNG Files", "*.png")
+        );
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        File selectedFile = fileChooser.showOpenDialog(stage);
+
+        if (selectedFile == null || !selectedFile.exists()) {
+            System.err.println("Geçersiz dosya seçildi.");
+            return;
+        }
+
+        // Kullanıcı ana dizini altında hedef yol
+        String absolutePath = System.getProperty("user.home") + "/essencehub/ProfilePictures/" + user.getId() + ".png";
+
+        selectedImageLocation = "file:" + System.getProperty("user.home") + "\\essencehub\\ProfilePictures\\" + user.getId() + ".png";
+
+        System.out.println(selectedImageLocation);
+        File profilePicture = new File(absolutePath);
+
+        // Klasörü kontrol et ve oluştur
+        if (!profilePicture.getParentFile().exists()) {
+            boolean created = profilePicture.getParentFile().mkdirs();
+            if (!created) {
+                System.err.println("Hedef klasör oluşturulamadı: " + profilePicture.getParentFile().getAbsolutePath());
+                return;
+            }
+        }
+
+        try {
+            // Dosyayı kopyala
+            Files.copy(selectedFile.toPath(), profilePicture.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+            System.out.println("Dosya başarıyla kopyalandı: " + profilePicture.getAbsolutePath());
+
+            // Kullanıcı profil resmini güncelle
+            String imageUrl = profilePicture.toURI().toString();
+
+            System.out.println("Profil resmi güncellendi: " + imageUrl);
+        } catch (IOException e) {
+            System.err.println("Dosya kopyalanırken hata oluştu: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+
 
 
 

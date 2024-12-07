@@ -125,8 +125,8 @@ public class AdminOperations {
 
 
     // MESAJ GÖNDER
-    public static void sendMessageMain(User sender, User receiver, String message, String title) {
-        Message messageTemp = new Message(sender, receiver, message, title);
+    public static void sendMessageMain(User sender, User receiver, String message, String title, LocalDateTime sendDateTime) {
+        Message messageTemp = new Message(sender, receiver, message, title, sendDateTime);
         sendMessage(messageTemp);
     }
 
