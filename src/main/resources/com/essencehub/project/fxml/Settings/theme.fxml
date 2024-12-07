@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -20,10 +21,18 @@
       </Label>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
          <children>
-            <ComboBox fx:id="themePicker" prefWidth="150.0" />
+            <ComboBox fx:id="themePicker" prefWidth="150.0">
+               <styleClass>
+                  <String fx:value="comboBoxDesign" />
+                  <String fx:value="hide" />
+               </styleClass></ComboBox>
          </children>
       </HBox>
-      <Button fx:id="changeButton" mnemonicParsing="false" onMouseClicked="#changeButtonClicked" styleClass="menuButton" text="Accept" textFill="WHITE" />
+      <Button fx:id="changeButton" mnemonicParsing="false" onMouseClicked="#changeButtonClicked" text="Accept" textFill="WHITE">
+         <styleClass>
+            <String fx:value="menuButton" />
+            <String fx:value="hide" />
+         </styleClass></Button>
    </children>
    <padding>
       <Insets bottom="30.0" left="50.0" right="30.0" top="30.0" />

@@ -47,7 +47,7 @@
                   <Image url="@../../images/loginpage/hide.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="show" fitHeight="25.0" fitWidth="25.0" layoutX="235.0" layoutY="231.0" onMouseReleased="#hideClicked" pickOnBounds="true" preserveRatio="true" styleClass="loginImage">
+            <ImageView fx:id="show" fitHeight="25.0" fitWidth="25.0" layoutX="241.0" layoutY="231.0" onMouseReleased="#hideClicked" pickOnBounds="true" preserveRatio="true" styleClass="loginImage">
                <image>
                   <Image url="@../../images/loginpage/show.png" />
                </image>

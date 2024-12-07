@@ -56,6 +56,39 @@
 }
 
 
+/* combo box */
+.combo-box {
+    -fx-background-color: #134e5e;
+    -fx-border-color: #a8df65;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-font-size: 14px;
+
+}
+
+.combo-box .arrow {
+    -fx-background-color: #a8df65;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Ok işareti */
+}
+
+.combo-box:hover {
+    -fx-background-color: #168f5e;
+    -list-cell-background-color: #168f5e;
+}
+
+.list-cell {
+    -fx-background-color: #134e5e;
+    -fx-text-fill: #e0e0e0;
+    -fx-font-size: 14px;
+}
+
+.list-cell:hover {
+    -fx-background-color: #168f5e;
+    -fx-text-fill: #ffffff;
+}
+.combo-box .text-input {
+    -fx-background-color: transparent;
+}
 
 /* Login Page */
 .loginTextField{
