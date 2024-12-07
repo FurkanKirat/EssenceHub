@@ -54,22 +54,20 @@ public class ThemeController {
             theme = "/com/essencehub/project/css/RedStyle.css";
         }
 
-        String destinationCssFile = "C:\\Users\\deniz\\OneDrive\\Masaüstü\\java\\CS102 HW\\EssenceHub\\EssenceHub\\src\\main\\resources\\com\\essencehub\\project\\css\\style.css";
-
+        String destinationCssFile = System.getProperty("user.home") + "/style.css"; // Ev dizinine yazma
         try {
-
             URL sourceUrl = getClass().getResource(theme);
             if (sourceUrl == null) {
                 throw new IOException("Kaynak dosya bulunamadı: " + theme);
             }
+
             Path sourcePath = Paths.get(sourceUrl.toURI());
-
-
             String cssContent = Files.readString(sourcePath);
-
 
             Path destinationPath = Paths.get(destinationCssFile);
             Files.writeString(destinationPath, cssContent);
+
+            System.out.println("Dosya başarıyla yazıldı: " + destinationCssFile);
 
             sceneLoader(event);
             FXMLoader("/com/essencehub/project/fxml/Settings/theme.fxml");
@@ -77,6 +75,7 @@ public class ThemeController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
 
 
     }
