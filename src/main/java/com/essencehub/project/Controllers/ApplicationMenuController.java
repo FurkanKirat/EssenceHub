@@ -201,6 +201,8 @@ public class ApplicationMenuController {
         isAdminCombobox.setValue("false");
         isAdminCombobox.getItems().addAll("true","false");
 
+
+
     }
 
     private void populateComboBox() {
@@ -311,7 +313,7 @@ public class ApplicationMenuController {
         String remainingDaysText = remainingDaysField.getText();
 
 
-        if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || department.isEmpty() || salaryText.isEmpty() || birthDate.isEmpty() || phone.isEmpty()|| remainingDaysText.isEmpty()|| password.isEmpty()) {
+        if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || department.isEmpty() || salaryText.isEmpty() || birthDate.isEmpty() || phone.isEmpty()|| remainingDaysText.isEmpty()|| password.isEmpty()||isAdminText.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Missing Fields");
             alert.setHeaderText("Required Fields Missing");
@@ -464,29 +466,33 @@ public class ApplicationMenuController {
             case "Email":
             case "RemainingLeaveDays":
             case "password":
-                statusTextField.setVisible(true);
                 propertyComboBox.setVisible(false);
                 birthPicker.setVisible(false);
+                statusTextField.setVisible(true);
                 whichStatus=0;
                 break;
             case "IsAdmin":
                 statusTextField.setVisible(false);
                 birthPicker.setVisible(false);
                 propertyComboBox.setVisible(true);
+                propertyComboBox.setValue("1");
                 propertyComboBox.getItems().setAll("1","0");
                 whichStatus=1;
                 break;
             case "Performance":
                 whichStatus=1;
                 statusTextField.setVisible(false);
+                birthPicker.setVisible(false);
+                propertyComboBox.setValue("F");
                 propertyComboBox.getItems().setAll("A_PLUS","A","A_MINUS","B_PLUS","B","B_MINUS","C_PLUS","C","C_MINUS","D","F");
                 propertyComboBox.setVisible(true);
                 break;
             case "Birth":
                 whichStatus=2;
-                birthPicker.setVisible(true);
+                birthPicker.setValue(LocalDate.of(2000,Month.JANUARY,1));
                 statusTextField.setVisible(false);
                 propertyComboBox.setVisible(false);
+                birthPicker.setVisible(true);
 
         }
     }
