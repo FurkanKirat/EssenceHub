@@ -191,15 +191,12 @@ public class ApplicationMenuController {
     @FXML
     private void initialize() {
         populateComboBox();
-        workerStatusComboBox.getItems().addAll("Name", "Surname","Phone Number","Salary", "IsAdmin", "Birth", "Department", "Email", "RemainingLeaveDays","Performance","password");
+        workerStatusComboBox.getItems().addAll("Name", "Surname","Phone Number","Salary", "Status", "Birth", "Department", "Email", "RemainingLeaveDays","Performance","Password");
         workerStatusComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-
-            }
         });
         birthPickerHire.setValue(LocalDate.of(2000, Month.JANUARY,1));
-        isAdminCombobox.setValue("false");
-        isAdminCombobox.getItems().addAll("true","false");
+        isAdminCombobox.setValue("Employee");
+        isAdminCombobox.getItems().addAll("Admin","Employee");
 
 
 
@@ -308,26 +305,21 @@ public class ApplicationMenuController {
         String phone = phoneField.getText();
         String department = departmantField.getText();
         String salaryText = salaryField.getText();
-        String isAdminText = isAdminCombobox.getValue();
+
+        String isAdminText = switch (isAdminCombobox.getValue()){
+            case "Admin" -> "true";
+            default -> "false";
+        };
+
         String password = passwordField.getText();
         String remainingDaysText = remainingDaysField.getText();
 
 
-        if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || department.isEmpty() || salaryText.isEmpty() || birthDate.isEmpty() || phone.isEmpty()|| remainingDaysText.isEmpty()|| password.isEmpty()||isAdminText.isEmpty()) {
+        if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || department.isEmpty() || salaryText.isEmpty() || birthDate.isEmpty() || phone.isEmpty() || remainingDaysText.isEmpty() || password.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Missing Fields");
             alert.setHeaderText("Required Fields Missing");
             alert.setContentText("Please fill in all required fields");
-            alert.showAndWait();
-            return;
-        }
-        if(isAdminText.equalsIgnoreCase("True") || isAdminText.equalsIgnoreCase("False")){
-
-        }else{
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("False Input On IsAdmin ");
-            alert.setHeaderText("MisWritten Word");
-            alert.setContentText("Should be true or false");
             alert.showAndWait();
             return;
         }
@@ -342,9 +334,7 @@ public class ApplicationMenuController {
 
             isAdmin = Boolean.parseBoolean(isAdminText);
 
-            if (!remainingDaysText.isEmpty()) {
-                remainingDays = Integer.parseInt(remainingDaysText);
-            }
+            remainingDays = Integer.parseInt(remainingDaysText);
         } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Invalid Input");
@@ -354,9 +344,9 @@ public class ApplicationMenuController {
             return;
         }
 
-        AdminOperations ao = new AdminOperations();
+
         User user = new User(name, surname, phone, salary, isAdmin, birthDate, department, email, remainingDays, true,password, Performance.F,0, "/com/essencehub/project/images/ProfilePictures/defaultpicture1.png");
-        ao.addUser(user);
+        AdminOperations.addUser(user);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Success");
@@ -364,7 +354,7 @@ public class ApplicationMenuController {
         alert.setContentText("The user " + name + " " + surname + " has been added successfully.");
         alert.showAndWait();
 
-        initialize();
+        //initialize();
     }
 
     @FXML
@@ -386,10 +376,17 @@ public class ApplicationMenuController {
 
 
         String newValue;
-        newValue = switch(whichStatus){
-            case 1 -> propertyComboBox.getValue();
-            case 2 -> birthPicker.getValue().toString();
-            default -> statusTextField.getText();
+        switch(whichStatus){
+            case 1 -> {
+                newValue = propertyComboBox.getValue();
+                if(newValue.equals("Admin")){
+                    newValue = "1";
+                }else if(newValue.equals("Employee")){
+                    newValue = "0";
+                }
+            }
+            case 2 -> newValue = birthPicker.getValue().toString();
+            default -> newValue = statusTextField.getText();
         };
         int rowsUpdated = 0;
 
@@ -400,13 +397,13 @@ public class ApplicationMenuController {
                 case "Surname" -> "UPDATE User SET surname = ? WHERE id = ?";
                 case "Phone Number" -> "UPDATE User SET phoneNumber = ? WHERE id = ?";
                 case "Salary" -> "UPDATE User SET salary = ? WHERE id = ?";
-                case "IsAdmin" -> "UPDATE User SET isAdmin = ? WHERE id = ?";
+                case "Status" -> "UPDATE User SET isAdmin = ? WHERE id = ?";
                 case "Birth" -> "UPDATE User SET birth = ? WHERE id = ?";
                 case "Department" -> "UPDATE User SET department = ? WHERE id = ?";
                 case "Email" -> "UPDATE User SET email = ? WHERE id = ?";
                 case "RemainingLeaveDays" -> "UPDATE User SET remainingLeaveDays = ? WHERE id = ?";
                 case "Performance" -> "UPDATE User SET monthlyPerformance = ? WHERE id = ?";
-                case "password" -> "UPDATE User SET password = ? WHERE id = ?";
+                case "Password" -> "UPDATE User SET password = ? WHERE id = ?";
                 default -> null;
             };
 
@@ -471,12 +468,12 @@ public class ApplicationMenuController {
                 statusTextField.setVisible(true);
                 whichStatus=0;
                 break;
-            case "IsAdmin":
+            case "Status":
                 statusTextField.setVisible(false);
                 birthPicker.setVisible(false);
                 propertyComboBox.setVisible(true);
-                propertyComboBox.setValue("1");
-                propertyComboBox.getItems().setAll("1","0");
+                propertyComboBox.setValue("Employee");
+                propertyComboBox.getItems().setAll("Admin","Employee");
                 whichStatus=1;
                 break;
             case "Performance":
