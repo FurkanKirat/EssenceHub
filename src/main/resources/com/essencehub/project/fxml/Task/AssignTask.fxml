@@ -30,7 +30,7 @@
    <Label alignment="CENTER" style="-fx-font-size: 18px; -fx-font-weight: bold;" styleClass="TaskLabel" text="Task Description" />
 
    <!-- Task Description Input -->
-   <TextArea fx:id="descriptionTextArea" prefHeight="150.0" prefWidth="550.0" promptText="Enter task details..." />
+   <TextArea fx:id="descriptionTextArea" prefHeight="150.0" prefWidth="550.0" promptText="Enter task details..." wrapText="true" />
    <Button mnemonicParsing="false" onAction="#assignTask" prefHeight="26.0" prefWidth="147.0" styleClass="menuButton" text="Assign the Task" textFill="WHITE">
       <font>
          <Font size="14.0" />

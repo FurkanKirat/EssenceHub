@@ -6,12 +6,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 
 public class OpenTaskEmployeeController {
 
 
     @FXML
-    private Label descriptionLabel;
+    private TextArea descriptionArea;
 
     @FXML
     private Label titleLabel;
@@ -27,7 +28,7 @@ public class OpenTaskEmployeeController {
     public void initialize(){
         task = ViewTaskEmployeeController.getSelectedTask();
         titleLabel.setText(task.getTitle());
-        descriptionLabel.setText(task.getTask());
+        descriptionArea.setText(task.getTask());
     }
 
 

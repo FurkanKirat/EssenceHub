@@ -125,40 +125,42 @@ public class AdminOperations {
 
 
     // MESAJ GÖNDER
-    public static void sendMessageMain(User sender, User receiver, String message, String title, LocalDateTime sendDateTime) {
-        Message messageTemp = new Message(sender, receiver, message, title, sendDateTime);
-        sendMessage(messageTemp);
-    }
+//    public static void sendMessageMain(User sender, User receiver, String message, String title, LocalDateTime sendDateTime) {
+//        Message messageTemp = new Message(sender, receiver, message, title, sendDateTime);
+//        sendMessage(messageTemp);
+//    }
 
-    private static void sendMessage(Message message) {
-        String sql = "INSERT INTO Message (sender_id, receiver_id, message, title, send_date_time) VALUES (?, ?, ?, ?, ?)";
-
-        try (Connection connection = DatabaseConnection.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-
-            // Veritabanına ekliyoruz
-            preparedStatement.setInt(1, message.getSender().getId());
-            preparedStatement.setInt(2, message.getReceiver().getId());
-            preparedStatement.setString(3, message.getMessage());
-            preparedStatement.setString(4, message.getTitle());
-
-            // LocalDateTime'ı doğrudan set edebiliriz, MySQL'de DATETIME tipi ile uyumludur
-            preparedStatement.setObject(5, message.getSendDateTime());
-
-            // SQL komutunu çalıştır
-            preparedStatement.executeUpdate();
-            System.out.println("Mesaj başarıyla gönderildi.");
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+//    private static void sendMessage(Message message) {
+//        String sql = "INSERT INTO Message (sender_id, receiver_id, message, title, send_date_time) VALUES (?, ?, ?, ?, ?)";
+//
+//        try (Connection connection = DatabaseConnection.getConnection();
+//                PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+//
+//            // Veritabanına ekliyoruz
+//            preparedStatement.setInt(1, message.getSender().getId());
+//            preparedStatement.setInt(2, message.getReceiver().getId());
+//            preparedStatement.setString(3, message.getMessage());
+//            preparedStatement.setString(4, message.getTitle());
+//
+//            // LocalDateTime'ı doğrudan set edebiliriz, MySQL'de DATETIME tipi ile uyumludur
+//            preparedStatement.setObject(5, message.getSendDateTime());
+//
+//            // SQL komutunu çalıştır
+//            preparedStatement.executeUpdate();
+//            System.out.println("Mesaj başarıyla gönderildi.");
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     // TASK GÖNDER
     public static void sendTaskMain(User sender, User receiver, String task, String title, LocalDateTime sendDateTime, boolean isTaskDone) {
         Task taskTemp = new Task(sender, receiver, task, title, sendDateTime, isTaskDone);
         sendTask(taskTemp);
     }
+
+
 
     public static void sendTask(Task task) {
         String insertTaskSQL = "INSERT INTO Task (sender_id, receiver_id, task, title, send_date_time, is_task_done) "
@@ -426,6 +428,7 @@ public class AdminOperations {
                 boolean isTaskDone = resultSet.getBoolean("is_task_done");
 
                 Task taskObj = new Task(getUserById(senderId),getUserById(receiverId),task, title,sendDateTime,isTaskDone);
+                taskObj.setId(id);
                 taskList.add(taskObj);
             }
         } catch (Exception e) {
@@ -501,6 +504,7 @@ public class AdminOperations {
                 boolean isTaskDone = resultSet.getBoolean("is_task_done");
 
                 Task taskObj = new Task(getUserById(senderId),getUserById(receiverId),task, title,sendDateTime,isTaskDone);
+                taskObj.setId(id);
                 taskList.add(taskObj);
             }
         } catch (Exception e) {
