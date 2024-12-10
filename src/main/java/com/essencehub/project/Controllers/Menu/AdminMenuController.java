@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -54,6 +55,9 @@ public class AdminMenuController {
 
     @FXML
     private HBox functions;
+
+    @FXML
+    private BarChart<?, ?> barChart;
 
     @FXML
     private VBox func;
@@ -138,7 +142,7 @@ public class AdminMenuController {
     @FXML
     void stockTrackingCLicked(MouseEvent event)  {
         currentNode.getStyleClass().remove("selected-border");
-        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/stock-tracking.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/ViewStock.fxml");
         stockTrackingPanel.getStyleClass().add("selected-border");
         currentNode=stockTrackingPanel;
 
