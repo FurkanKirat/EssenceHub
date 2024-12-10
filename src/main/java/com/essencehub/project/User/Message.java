@@ -18,11 +18,11 @@ public class Message {
     public Message() {
     }
 
-    public Message(User sender, User receiver, String message) {
+    public Message(User sender, User receiver, String message, LocalDateTime time) {
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
-        this.sendDateTime = LocalDateTime.now();
+        this.sendDateTime = time;
     }
 
     // Getter ve Setter metotları
@@ -59,7 +59,7 @@ public class Message {
         this.sendDateTime = sendDateTime;
     }
 
-    public ArrayList<Message> getMessagesBetweenUsers(User sender, User receiver) {
+    public static ArrayList<Message> getMessagesBetweenUsers(User sender, User receiver) {
         ArrayList<Message> messages = new ArrayList<>();
         String query = "SELECT sender_id, receiver_id, message, send_date_time " +
                 "FROM Message " +
@@ -82,8 +82,7 @@ public class Message {
                     String messageText = resultSet.getString("message");
                     LocalDateTime sendDateTime = resultSet.getTimestamp("send_date_time").toLocalDateTime();
 
-                    Message message = new Message(messageSender, messageReceiver, messageText);
-                    message.setSendDateTime(sendDateTime);
+                    Message message = new Message(messageSender, messageReceiver, messageText,sendDateTime);
                     messages.add(message);
                 }
             }

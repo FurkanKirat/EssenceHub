@@ -1,99 +1,93 @@
-/* General Styles - Neuvillette Theme */
+/* General Styles - Green Theme */
 .gradient-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
 }
 .first-color {
-    -fx-background-color: #1a3b5d;
+    -fx-background-color: #134e5e;
 }
 .second-color {
-    -fx-background-color: #5a8abf;
+    -fx-background-color: #0c7764;
 }
 .line-color {
-    -fx-background-color: #d0e2f2;
+    -fx-background-color: #a8df65;
 }
 .container {
-    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-color: rgba(255, 255, 255, 0.1);
     -fx-background-radius: 10;
 }
 .hide {
     -fx-cursor: hand;
 }
 .selected-border {
-    -fx-border-color: #d0e2f2;
+    -fx-border-color: #a8df65;
     -fx-border-width: 0 3 0 0;
 }
 .selected:hover {
-    -fx-background-color: #3974a7;
+    -fx-background-color: #168f5e;
 }
 .selected:clicked {
-    -fx-background-color: #3974a7;
+    -fx-background-color: #168f5e;
 }
 .buttonClicked {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(58, 138, 191, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(64, 128, 64, 0.5), 10, 0.5, 0, 0);
 }
 .settingsProfile:hover {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(58, 138, 191, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(64, 128, 64, 0.5), 10, 0.5, 0, 0);
 }
 .menuButton {
-    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-color: rgba(255, 255, 255, 0.1);
     -fx-background-radius: 30;
     -fx-text-fill : white;
 }
 .text-input {
     -fx-background-color: rgba(0, 0, 0, 0);
     -fx-border-width: 0 0 1 0;
-    -fx-border-color: #d0e2f2;
+    -fx-border-color: #a8df65;
 }
 .menuTextField {
-    -fx-text-fill: #d0e2f2;
+    -fx-text-fill: #e0e0e0;
     -fx-font-size: 15px;
 }
-/* ComboBox - Neuvillette Theme */
+/* combo box */
 .combo-box {
-    -fx-background-color: #1a3b5d;
-    -fx-border-color: #d0e2f2;
+    -fx-background-color: #134e5e;
+    -fx-border-color: #a8df65;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
     -fx-font-size: 14px;
-    -fx-text-fill: #e6f2ff;
+
 }
 
 .combo-box .arrow {
-    -fx-background-color: #d0e2f2;
-    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Ok şekli */
+    -fx-background-color: #a8df65;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Ok işareti */
 }
 
 .combo-box:hover {
-    -fx-background-color:  #3974a7
+    -fx-background-color: #168f5e;
+    -list-cell-background-color: #168f5e;
 }
-
-.combo-box .text-input {
-    -fx-background-color: transparent;
-    -fx-text-fill: #e6f2ff;
-}
-
 
 .list-cell {
-    -fx-background-color: #1a3b5d;
-    -fx-text-fill: #e6f2ff;
+    -fx-background-color: #134e5e;
+    -fx-text-fill: #e0e0e0;
     -fx-font-size: 14px;
 }
 
 .list-cell:hover {
-    -fx-background-color: #3974a7;
+    -fx-background-color: #168f5e;
     -fx-text-fill: #ffffff;
+}
+.combo-box .text-input {
+    -fx-background-color: transparent;
 }
 
-.list-cell:selected {
-    -fx-background-color:#1a3b5d;
-    -fx-text-fill: #ffffff;
-}
-/* Login Page - Neuvillette Theme */
+/* Login Page - Green Theme */
 .loginTextField {
     -fx-border-width: 2px;
-    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
     -fx-background-color: transparent;
     -fx-text-fill: black;
     -fx-font-weight: bold;
@@ -104,100 +98,114 @@
     -fx-font-weight: bold;
 }
 #anchor1 {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
 }
 #loginbtn {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
-    -fx-text-fill: #ffffff;
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
+    -fx-text-fill: #e0e0e0;
     -fx-background-radius: 15;
     -fx-cursor: hand;
     -fx-font-weight: bold;
 }
 #logo {
-    -fx-fill: linear-gradient(#1a3b5d, #5a8abf);
+    -fx-fill: linear-gradient(#134e5e, #71b280);
 }
 #appLabel {
-    -fx-text-fill: #ffffff;
-    -fx-back-color: #5a8abf;
+    -fx-text-fill: #e0e0e0;
+    -fx-back-color: #71b280;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-family: "sans-serif";
 }
 #profile {
-    -fx-fill: #3974a7;
+    -fx-fill: #6abf69;
 }
 
 .loginImage{
-    -fx-effect: innershadow(gaussian, #1a3b5d, 5, 1, 0, 0);
+     -fx-effect: innershadow(gaussian, #134e5e, 5, 1, 0, 0);
 }
 
-/* Tasks - Neuvillette Theme */
+/* Tasks - Green Theme */
 .TaskLabel {
+    -fx-text-fill: #e0e0e0;
+}
+
+/* Employee Option - Green Theme */
+.employeeLabel {
+    -fx-text-fill: #e0e0e0;
+}
+
+/* Stock - Green Theme */
+.chart-legend-item {
+    -fx-text-fill: #a8df65;
+}
+.chart-pie-label-line {
+    -fx-stroke: #a8df65;
+    -fx-fill: #a8df65;
+}
+.chart-pie-label {
+    -fx-fill: #a8df65;
+}
+.chart-legend {
+    -fx-background-color: #0c7764;
+    -fx-stroke: #0c7764;
+}
+.axis-label {
+    -fx-text-fill: #a8df65;
+}
+.chart-pie-label {
+    -fx-fill: #e0e0e0;
+}
+
+/* TableView Styles - Green Theme */
+.table-view {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 10;
+    -fx-border-color: #a8df65;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e0e0e0;
+}
+
+.table-view .table-row-cell:focused {
+    -fx-background-color: #168f5e;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #168f5e;
+}
+
+.table-view .table-row-cell:pressed {
+    -fx-background-color: #134e5e;
     -fx-text-fill: white;
 }
 
-/* Employee Option - Neuvillette Theme */
-.employeeLabel {
-    -fx-text-fill: #e6f2ff;
+.table-view .column-header:pressed {
+    -fx-background-color: #0c7764;
 }
 
-/* Stock - Neuvillette Theme */
-.chart-legend-item {
-    -fx-text-fill: #e6f2ff;
-}
-.chart-pie-label-line {
-    -fx-stroke: #e6f2ff;
-    -fx-fill: #e6f2ff;
-}
-.chart-pie-label {
-    -fx-fill: #e6f2ff;
-}
-.chart-legend {
-    -fx-background-color: #5a8abf;
-    -fx-stroke: #5a8abf;
-}
-.axis-label {
-    -fx-text-fill: #d0e2f2;
-}
-.chart-pie-label {
-    -fx-fill: #d0e2f2;
+.table-view .column-header:focused {
+    -fx-background-color: #168f5e;
 }
 
-/* TableView - Neuvillette Theme */
-.table-view {
-    -fx-background-color: rgba(255, 255, 255, 0.1); /* Hafif şeffaf arka plan */
-    -fx-border-color: #5a8abf; /* Kenar rengi */
-    -fx-border-radius: 10; /* Köşeleri yuvarlat */
-    -fx-background-radius: 10;
+.table-view .column-header {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
+    -fx-text-fill: #e0e0e0;  /* Light gray text for better contrast */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;  /* Optional: Adjust font size */
+    -fx-alignment: center;
 }
 
-.table-view .column-header-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf); /* Başlık arka planı için degrade */
-}
-
-.table-view .cell {
-    -fx-text-fill: #e6f2ff; /* Hücre yazı rengi (açık mavi) */
-    -fx-background-color: rgba(0, 0, 0, 0.2); /* Hafif şeffaf hücre arka planı */
-    -fx-border-color: #5a8abf; /* Hücre kenar çizgisi */
-}
-
-/* Seçili Satır */
-.table-row-cell:selected {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3974a7, #1a3b5d); /* Seçilen satır için degrade arka plan */
-    -fx-text-fill: #ffffff; /* Yazı rengi beyaz */
-    -fx-border-width: 2; /* Kenar çizgisi genişliği */
-    -fx-border-color: #d0e2f2; /* Seçili satır kenarlığı */
-    -fx-effect: dropshadow(gaussian, rgba(208, 226, 242, 0.8), 10, 0.5, 0, 0); /* Hafif parlama efekti */
-}
-
-/* Hover Efekti */
-.table-row-cell:hover {
-    -fx-background-color: rgba(57, 116, 167, 0.8); /* Üzerine gelindiğinde arka plan */
-}
-
-/* Seçili Satırdaki Yazı */
-.table-view .cell:selected {
-    -fx-text-fill: #ffffff; /* Seçilen satırdaki yazı rengi */
-    -fx-font-weight: bold; /* Seçili yazıyı kalın yap */
+.table-view .column-header .text {
+    -fx-fill: #e0e0e0;  /* Light gray text for header */
 }

@@ -5,15 +5,15 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Message.MessageController">
    <children>
-      <TableView prefHeight="359.0" prefWidth="600.0">
+      <TableView fx:id="tableView" prefHeight="359.0" prefWidth="600.0">
         <columns>
-          <TableColumn prefWidth="134.4000244140625" text="From" />
-          <TableColumn prefWidth="353.5999755859375" text="Last Message" />
-            <TableColumn prefWidth="108.00006103515625" text="Time " />
+          <TableColumn fx:id="fromColumn" prefWidth="134.4000244140625" text="From" />
+          <TableColumn fx:id="messageColumn" prefWidth="353.5999755859375" text="Last Message" />
+            <TableColumn fx:id="timeColumn" prefWidth="108.00006103515625" text="Time " />
         </columns>
       </TableView>
-      <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="146.0" text="View Message" />
+      <Button fx:id="viewButton" mnemonicParsing="false" onAction="#viewClicked" prefHeight="57.0" prefWidth="146.0" text="View Message" />
    </children>
 </VBox>

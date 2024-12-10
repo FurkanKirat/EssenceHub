@@ -22,7 +22,7 @@ public class StockTrackingController {
     @FXML
     void barChartPaneClicked(MouseEvent event) {
         AdminMenuController adminMenuController = AdminMenuController.getInstance();
-        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/StockTracking/pie-chart.fxml");
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/StockTracking/Stock.fxml");
     }
 
     @FXML
