@@ -1,197 +1,203 @@
-
-.gradient-background{
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
+/* General Styles - Dark Blue Theme */
+.gradient-background {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1b2838, #2a394d);
 }
-.first-color{
-    -fx-background-color: #14076b;
+.first-color {
+    -fx-background-color: #1b2838;
 }
-.second-color{
-    -fx-background-color: #1d346e;
+.second-color {
+    -fx-background-color: #1d3a53;
 }
-.line-color{
-    -fx-background-color: #f6f4f4;
+.line-color {
+    -fx-background-color: #5a8aa5;
 }
-.container{
-    -fx-background-color: rgba(255,255,255,0.2);
+.container {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
     -fx-background-radius: 10;
 }
-.hide{
-     -fx-cursor: hand;
- }
-.selected-border{
-    -fx-border-color: #fff;
+.hide {
+    -fx-cursor: hand;
+}
+.selected-border {
+    -fx-border-color: #5a8aa5;
     -fx-border-width: 0 3 0 0;
-
 }
-.selected:hover{
-    -fx-background-color: #30247e;
+.selected:hover {
+    -fx-background-color: #254b64;
 }
-.selected:clicked{
-    -fx-background-color: #30247e;
-}*/
-.buttonClicked{
+.selected:clicked {
+    -fx-background-color: #254b64;
+}
+.buttonClicked {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 255, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(50, 90, 120, 0.5), 10, 0.5, 0, 0);
 }
-
 .settingsProfile:hover {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 255, 0.5), 10, 0.5, 0, 0);
-
+    -fx-effect: dropshadow(gaussian, rgba(50, 90, 120, 0.5), 10, 0.5, 0, 0);
 }
-
-.menuButton{
-    -fx-background-color: rgba(255, 255, 255, 0.2);
+.menuButton {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
     -fx-background-radius: 30;
-    -fx-text-fill : white;
+    -fx-text-fill: white;
 }
-.text-input{
-    -fx-background-color: rgba(0,0,0,0);
+.text-input {
+    -fx-background-color: rgba(0, 0, 0, 0);
     -fx-border-width: 0 0 1 0;
-    -fx-border-color: #ffffff;
+    -fx-border-color: #5a8aa5;
 }
 .menuTextField {
-    -fx-text-fill: #fff;
+    -fx-text-fill: #d0d0d0;
     -fx-font-size: 15px;
 }
-
-
 /* combo box */
 .combo-box {
-    -fx-background-color: #134e5e;
-    -fx-border-color: #a8df65;
+    -fx-background-color: #1b2838;
+    -fx-border-color: #5a8aa5;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
     -fx-font-size: 14px;
-
 }
-
 .combo-box .arrow {
-    -fx-background-color: #a8df65;
-    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Ok işareti */
+    -fx-background-color: #5a8aa5;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
 }
-
 .combo-box:hover {
-    -fx-background-color: #168f5e;
-    -list-cell-background-color: #168f5e;
+    -fx-background-color: #254b64;
+    -list-cell-background-color: #254b64;
 }
-
 .list-cell {
-    -fx-background-color: #134e5e;
-    -fx-text-fill: #e0e0e0;
+    -fx-background-color: #1b2838;
+    -fx-text-fill: #d0d0d0;
     -fx-font-size: 14px;
 }
-
 .list-cell:hover {
-    -fx-background-color: #168f5e;
+    -fx-background-color: #254b64;
     -fx-text-fill: #ffffff;
 }
 .combo-box .text-input {
     -fx-background-color: transparent;
 }
 
-/* Login Page */
-.loginTextField{
-    -fx-border-width: 2px 2px 2px 2px;
-    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
+/* Login Page - Dark Blue Theme */
+.loginTextField {
+    -fx-border-width: 2px;
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #1b2838, #2a394d);
     -fx-background-color: transparent;
-    -fx-text-fill: black;
-    -fx-font-weight: bold;
-
-
-}
-.loginLabel{
-    -fx-font-family: "Segoe UI:";
-    -fx-text-fill: black;
-    -fx-font-weight: bold;
-}
-#anchor1{
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
-}
-#loginbtn{
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #14076b,#4895f9);
     -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.loginLabel {
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+#anchor1 {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1b2838, #2a394d);
+}
+#loginbtn {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1b2838, #2a394d);
+    -fx-text-fill: #d0d0d0;
     -fx-background-radius: 15;
     -fx-cursor: hand;
     -fx-font-weight: bold;
 }
-#logo{
-    -fx-fill: linear-gradient(#6493d3,#1f75ea);
+#logo {
+    -fx-fill: linear-gradient(#1b2838, #2a394d);
 }
-#appLabel{
-    -fx-text-fill: white;
-    -fx-back-color : #1f75ea;
+#appLabel {
+    -fx-text-fill: #d0d0d0;
+    -fx-back-color: #2a394d;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-family: "sans-serif";
 }
-#profile{
-    -fx-fill: red;
+#profile {
+    -fx-fill: #4a7895;
 }
 
-
-.loginImage{
-     -fx-effect: innershadow(gaussian, #30247e, 5, 1, 0, 0);
+.loginImage {
+    -fx-effect: innershadow(gaussian, #1b2838, 5, 1, 0, 0);
 }
 
-/* Tasks */
-.TaskLabel{
-    -fx-text-fill: white;
+/* Tasks - Dark Blue Theme */
+.TaskLabel {
+    -fx-text-fill: #d0d0d0;
 }
 
-/* Employee Option*/
-.employeeLabel{
-    -fx-text-fill: white;
+/* Employee Option - Dark Blue Theme */
+.employeeLabel {
+    -fx-text-fill: #d0d0d0;
 }
 
-/* Stock */
-.chart-legend-item{
-    -fx-text-fill: blue;
+/* Stock - Dark Blue Theme */
+.chart-legend-item {
+    -fx-text-fill: #5a8aa5;
 }
 .chart-pie-label-line {
-    -fx-stroke: white;
-    -fx-fill: white;
+    -fx-stroke: #5a8aa5;
+    -fx-fill: #5a8aa5;
 }
-
 .chart-pie-label {
-    -fx-fill: white;
+    -fx-fill: #5a8aa5;
 }
 .chart-legend {
-   -fx-background-color:  white;
-   -fx-stroke: white;
+    -fx-background-color: #1d3a53;
+    -fx-stroke: #1d3a53;
 }
 .axis-label {
-  -fx-text-fill: white;
+    -fx-text-fill: #5a8aa5;
 }
-.chart-pie-label {-fx-fill: white;
+.chart-pie-label {
+    -fx-fill: #d0d0d0;
 }
 
+/* TableView Styles - Dark Blue Theme */
 .table-view {
-    -fx-background-color: rgba(255, 255, 255, 0.1); /* Hafif şeffaf arka plan */
-    -fx-border-color: #3a3a3a; /* Kenar rengi */
-    -fx-border-radius: 10; /* Köşeleri yuvarlat */
+    -fx-background-color: rgba(255, 255, 255, 0.1);
     -fx-background-radius: 10;
+    -fx-border-color: #5a8aa5;
+    -fx-border-width: 1;
 }
-.table-view .column-header-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2b2b2b, #575757); /* Başlık degrade */
+
+.table-view .column-header {
+    -fx-background-color: #1b2838;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
 }
-.table-view .cell {
-    -fx-text-fill: #e0e0e0; /* Hücre yazı rengi (açık gri) */
-    -fx-background-color: rgba(0, 0, 0, 0.2); /* Hücre arka planı (şeffaf siyah) */
-    -fx-border-color: #3a3a3a; /* Hücre kenar çizgisi */
+
+/* Radio Button - Dark Blue Theme */
+.radio-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #d0d0d0;
+    -fx-font-size: 14px;
 }
-.table-row-cell:selected {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #4a4a4a, #2b2b2b); /* Seçilen satır degrade arka plan */
-    -fx-text-fill: #ffffff; /* Seçili yazı rengi beyaz */
-    -fx-border-width: 2; /* Kenar çizgisi genişliği */
-    -fx-border-color: #e0e0e0; /* Kenar çizgisi (açık gri) */
-    -fx-effect: dropshadow(gaussian, rgba(224, 224, 224, 0.5), 10, 0.5, 0, 0); /* Hafif parlama */
+.radio-button .box {
+    -fx-border-color: #5a8aa5;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+    -fx-background-color: transparent;
+    -fx-min-width: 16px;
+    -fx-min-height: 16px;
+    -fx-max-width: 16px;
+    -fx-max-height: 16px;
 }
-.table-row-cell:hover {
-    -fx-background-color: rgba(74, 74, 74, 0.8); /* Üzerine gelindiğinde arka plan */
+.radio-button:selected .box {
+    -fx-background-color: #5a8aa5;
+    -fx-border-color: #1b2838;
 }
-.table-view .cell:selected {
-    -fx-text-fill: #e0e0e0; /* Yazı rengini açık gri yap */
-    -fx-font-weight: bold; /* Yazıyı kalın yap */
+.radio-button .box:hover {
+    -fx-border-color: #254b64;
+}
+.radio-button:selected .box:hover {
+    -fx-background-color: #254b64;
+}
+.radio-button:selected .radio .dot {
+    -fx-background-color: #1d3a53;
+    -fx-background-insets: 0;
+}
+.radio-button .label {
+    -fx-text-fill: #d0d0d0;
 }

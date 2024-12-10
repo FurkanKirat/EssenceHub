@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="func" prefHeight="807.2" prefWidth="973.6" spacing="10.0" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.StockTracking.ViewStockTimeController">
+<VBox fx:id="func" prefHeight="807.2" prefWidth="973.6" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.StockTracking.ViewStockTimeController">
    <children>
       <HBox prefHeight="35.0" prefWidth="974.0" spacing="10.0">
          <children>
