@@ -13,7 +13,7 @@
     <children>
         <VBox alignment="TOP_CENTER" layoutX="0.0" prefHeight="400" prefWidth="600" spacing="15" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <!-- Header -->
-            <Label fx:id="headerLabel" text="Viewing Tasks">
+            <Label fx:id="headerLabel" text="Viewing Your All Tasks" textFill="WHITE">
             <styleClass>
                <String fx:value="header-label" />
                <String fx:value="taskLabel" />
@@ -23,12 +23,15 @@
             <TableView fx:id="taskTable" prefHeight="300" prefWidth="577.0">
                 <columns>
                     <!-- Task Title Column -->
-                    <TableColumn fx:id="taskColumn" prefWidth="199.2000732421875" text="Task Title" />
+                    <TableColumn fx:id="taskColumn" prefWidth="221.60003662109375" text="Task Title" />
 
                     <!-- Task Status Column -->
-                    <TableColumn fx:id="statusColumn" prefWidth="191.20001220703125" text="Task Done/ Task not Done" />
-               <TableColumn fx:id="senderColumn" prefWidth="360.0" text="Sender" />
+                    <TableColumn fx:id="statusColumn" prefWidth="188.0" text="Task Completed" />
+               <TableColumn fx:id="senderColumn" prefWidth="201.5999755859375" text="Sender" />
                 </columns>
+            <columnResizePolicy>
+               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
             </TableView>
 
             <!-- Actions -->

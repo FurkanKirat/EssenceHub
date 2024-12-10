@@ -20,20 +20,20 @@
                </font>
             </Label>
             <Pane prefHeight="50.0" prefWidth="106.0" />
-            <TextField fx:id="newPasswordTextField" prefHeight="33.0" prefWidth="362.0" styleClass="menuTextField" />
+            <TextField fx:id="emailField" prefHeight="33.0" prefWidth="362.0" styleClass="menuTextField" />
          </children>
          <padding>
             <Insets left="20.0" />
          </padding>
       </HBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="55.0">
          <children>
-            <Label text="New Password Again:" textFill="WHITE">
+            <Label text="Phone Number:" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="newPasswordAgainTextField" prefHeight="33.0" prefWidth="364.0" styleClass="menuTextField" />
+            <TextField fx:id="phoneNumberField" prefHeight="33.0" prefWidth="364.0" styleClass="menuTextField" />
          </children>
          <padding>
             <Insets left="20.0" />

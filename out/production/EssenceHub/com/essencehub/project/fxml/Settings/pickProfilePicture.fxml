@@ -7,7 +7,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -39,10 +38,9 @@
             </Label>
          </children>
       </VBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="600.0" spacing="20.0">
+      <HBox alignment="CENTER" prefHeight="62.0" prefWidth="600.0" spacing="20.0">
          <children>
-            <Pane prefHeight="62.0" prefWidth="36.0" />
-            <Pane fx:id="pane1" prefHeight="65.0" prefWidth="65.0">
+            <VBox fx:id="vBox1" alignment="CENTER" prefHeight="65.0" prefWidth="65.0">
                <children>
                   <ImageView fx:id="img1" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#img1Clicked" pickOnBounds="true" preserveRatio="true">
                      <styleClass>
@@ -51,12 +49,12 @@
                         <String fx:value="settingsProfile" />
                      </styleClass>
                      <image>
-                        <Image url="@../../images/profilePictures/1.png" />
+                        <Image url="@../../images/ProfilePictures/defaultpicture1.png" />
                      </image>
                   </ImageView>
                </children>
-            </Pane>
-            <Pane fx:id="pane2" prefHeight="65.0" prefWidth="65.0">
+            </VBox>
+            <VBox fx:id="vBox2" alignment="CENTER" prefHeight="65.0" prefWidth="65.0">
                <children>
                   <ImageView fx:id="img2" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#img2Clicked" pickOnBounds="true" preserveRatio="true">
                      <styleClass>
@@ -65,12 +63,12 @@
                         <String fx:value="settingsProfile" />
                      </styleClass>
                      <image>
-                        <Image url="@../../images/profilePictures/2.png" />
+                        <Image url="@../../images/ProfilePictures/defaultpicture2.png" />
                      </image>
                   </ImageView>
                </children>
-            </Pane>
-            <Pane fx:id="pane3" prefHeight="65.0" prefWidth="65.0">
+            </VBox>
+            <VBox fx:id="vBox3" alignment="CENTER" prefHeight="65.0" prefWidth="65.0">
                <children>
                   <ImageView fx:id="img3" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#img3Clicked" pickOnBounds="true" preserveRatio="true">
                      <styleClass>
@@ -79,12 +77,12 @@
                         <String fx:value="settingsProfile" />
                      </styleClass>
                      <image>
-                        <Image url="@../../images/profilePictures/3.png" />
+                        <Image url="@../../images/ProfilePictures/defaultpicture3.png" />
                      </image>
                   </ImageView>
                </children>
-            </Pane>
-            <Pane fx:id="pane4" prefHeight="65.0" prefWidth="65.0">
+            </VBox>
+            <VBox fx:id="vBox4" alignment="CENTER" prefHeight="65.0" prefWidth="65.0">
                <children>
                   <ImageView fx:id="img4" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#img4Clicked" pickOnBounds="true" preserveRatio="true">
                      <styleClass>
@@ -93,12 +91,12 @@
                         <String fx:value="settingsProfile" />
                      </styleClass>
                      <image>
-                        <Image url="@../../images/profilePictures/4.png" />
+                        <Image url="@../../images/ProfilePictures/defaultpicture4.png" />
                      </image>
                   </ImageView>
                </children>
-            </Pane>
-            <Pane fx:id="pane5" prefHeight="65.0" prefWidth="65.0">
+            </VBox>
+            <VBox fx:id="vBox5" alignment="CENTER" prefHeight="65.0" prefWidth="65.0">
                <children>
                   <ImageView fx:id="img5" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#img5Clicked" pickOnBounds="true" preserveRatio="true">
                      <styleClass>
@@ -107,12 +105,12 @@
                         <String fx:value="settingsProfile" />
                      </styleClass>
                      <image>
-                        <Image url="@../../images/profilePictures/5.png" />
+                        <Image url="@../../images/ProfilePictures/defaultpicture5.png" />
                      </image>
                   </ImageView>
                </children>
-            </Pane>
-            <Pane fx:id="pane6" prefHeight="65.0" prefWidth="65.0">
+            </VBox>
+            <VBox fx:id="vBox6" alignment="CENTER" prefHeight="65.0" prefWidth="65.0">
                <children>
                   <ImageView fx:id="img6" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#img6Clicked" pickOnBounds="true" preserveRatio="true">
                      <styleClass>
@@ -121,11 +119,25 @@
                         <String fx:value="settingsProfile" />
                      </styleClass>
                      <image>
-                        <Image url="@../../images/profilePictures/6.png" />
+                        <Image url="@../../images/ProfilePictures/defaultpicture6.png" />
                      </image>
                   </ImageView>
                </children>
-            </Pane>
+            </VBox>
+            <VBox fx:id="vBox7" alignment="CENTER" prefHeight="65.0" prefWidth="65.0">
+               <children>
+                  <ImageView fx:id="img7" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#img7Clicked" pickOnBounds="true" preserveRatio="true">
+                     <styleClass>
+                        <String fx:value="hide" />
+                        <String fx:value="selected" />
+                        <String fx:value="settingsProfile" />
+                     </styleClass>
+                     <image>
+                        <Image url="@../../images/ProfilePictures/upload.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
          </children>
          <padding>
             <Insets left="20.0" />

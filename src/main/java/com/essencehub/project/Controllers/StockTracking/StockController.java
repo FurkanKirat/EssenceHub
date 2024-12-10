@@ -56,6 +56,7 @@ public class StockController {
         productNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         stockColumn.setCellValueFactory(new PropertyValueFactory<>("count"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("monthAndYear"));
+        productDateAxis.getCategories().addAll("JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER");
         try {
             Connection connection = DatabaseConnection.getConnection();
             Statement statement = connection.createStatement();
