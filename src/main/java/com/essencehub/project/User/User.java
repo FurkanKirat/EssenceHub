@@ -34,6 +34,10 @@ public class User {
         this.id = idCounter++;
     }
 
+    public User(int id) {
+        this.id = id;
+    }
+
     // Constructor, password parametresi eklendi
     public User(String name, String surname, String phoneNumber, double baseSalary, boolean isAdmin, String birth,
                 String department, String email, int remainingLeaveDays, boolean isActive, String password, Performance monthlyPerformance, double bonusSalary, String imageLocation) {

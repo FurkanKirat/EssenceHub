@@ -13,7 +13,6 @@ public class CreateMessageTable {
                         + "sender_id INT NOT NULL, "
                         + "receiver_id INT NOT NULL, "
                         + "message TEXT NOT NULL, "
-                        + "title VARCHAR(50), "
                         + "send_date_time DATETIME NOT NULL, "
                         + "FOREIGN KEY (sender_id) REFERENCES User(id), "
                         + "FOREIGN KEY (receiver_id) REFERENCES User(id)"

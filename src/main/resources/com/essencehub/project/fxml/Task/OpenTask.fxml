@@ -33,7 +33,7 @@
     <Label alignment="CENTER" style="-fx-font-size: 18px; -fx-font-weight: bold;" styleClass="TaskLabel" text="Task Description" />
 
     <!-- Task Description Input -->
-    <TextArea fx:id="descriptionTextArea" prefHeight="248.0" prefWidth="560.0" promptText="Enter task details..." />
+    <TextArea fx:id="descriptionTextArea" prefHeight="248.0" prefWidth="560.0" promptText="Enter task details..." wrapText="true" />
    <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
          <Button mnemonicParsing="false" onAction="#updateTaskClicked" prefHeight="26.0" prefWidth="126.0" styleClass="menuButton" text="Update the task" textFill="WHITE" />

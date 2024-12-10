@@ -79,8 +79,8 @@ public class PickProfileController {
     @FXML
     public void initialize() {
 
-        images = Arrays.asList(img1, img2, img3, img4, img5, img6);
-        boxes = Arrays.asList(vBox1, vBox2, vBox3, vBox4, vBox5, vBox6);
+        images = Arrays.asList(img1, img2, img3, img4, img5, img6,img7);
+        boxes = Arrays.asList(vBox1, vBox2, vBox3, vBox4, vBox5, vBox6,vBox7);
         user = LoginPageController.getUser();
         selectedImageLocation = user.getImageLocation();
 
@@ -103,8 +103,8 @@ public class PickProfileController {
     void img1Clicked(MouseEvent event) {
         clearStyle();
         vBox1.getStyleClass().add("container");
-        uploadImage(event);
-
+        img2.getStyleClass().add("buttonClicked");
+        selectedImageLocation = "/com/essencehub/project/images/ProfilePictures/defaultpicture1.png";
     }
 
     @FXML
@@ -156,7 +156,7 @@ public class PickProfileController {
     }
 
     void clearStyle(){
-        for(int i = 0;i<6;i++) {
+        for(int i = 0;i<7;i++) {
             images.get(i).getStyleClass().remove("buttonClicked");
             boxes.get(i).getStyleClass().remove("container");
         }
@@ -172,7 +172,7 @@ public class PickProfileController {
         File selectedFile = fileChooser.showOpenDialog(stage);
 
         if (selectedFile == null || !selectedFile.exists()) {
-            System.err.println("Geçersiz dosya seçildi.");
+            //System.err.println("Geçersiz dosya seçildi.");
             return;
         }
 

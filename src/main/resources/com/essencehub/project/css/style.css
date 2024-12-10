@@ -1,15 +1,15 @@
-/* General Styles - Purple Theme */
+/* General Styles - Green Theme */
 .gradient-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #4b0082, #8a2be2);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
 }
 .first-color {
-    -fx-background-color: #4b0082;
+    -fx-background-color: #134e5e;
 }
 .second-color {
-    -fx-background-color: #6a0dad;
+    -fx-background-color: #0c7764;
 }
 .line-color {
-    -fx-background-color: #dda0dd;
+    -fx-background-color: #a8df65;
 }
 .container {
     -fx-background-color: rgba(255, 255, 255, 0.1);
@@ -19,22 +19,22 @@
     -fx-cursor: hand;
 }
 .selected-border {
-    -fx-border-color: #dda0dd;
+    -fx-border-color: #a8df65;
     -fx-border-width: 0 3 0 0;
 }
 .selected:hover {
-    -fx-background-color: #7e3fbf;
+    -fx-background-color: #168f5e;
 }
 .selected:clicked {
-    -fx-background-color: #7e3fbf;
+    -fx-background-color: #168f5e;
 }
 .buttonClicked {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(128, 0, 128, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(64, 128, 64, 0.5), 10, 0.5, 0, 0);
 }
 .settingsProfile:hover {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(128, 0, 128, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(64, 128, 64, 0.5), 10, 0.5, 0, 0);
 }
 .menuButton {
     -fx-background-color: rgba(255, 255, 255, 0.1);
@@ -44,7 +44,7 @@
 .text-input {
     -fx-background-color: rgba(0, 0, 0, 0);
     -fx-border-width: 0 0 1 0;
-    -fx-border-color: #dda0dd;
+    -fx-border-color: #a8df65;
 }
 .menuTextField {
     -fx-text-fill: #e0e0e0;
@@ -84,10 +84,10 @@
     -fx-background-color: transparent;
 }
 
-/* Login Page - Purple Theme */
+/* Login Page - Green Theme */
 .loginTextField {
     -fx-border-width: 2px;
-    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #4b0082, #8a2be2);
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
     -fx-background-color: transparent;
     -fx-text-fill: black;
     -fx-font-weight: bold;
@@ -98,63 +98,114 @@
     -fx-font-weight: bold;
 }
 #anchor1 {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #4b0082, #8a2be2);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
 }
 #loginbtn {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #4b0082, #8a2be2);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
     -fx-text-fill: #e0e0e0;
     -fx-background-radius: 15;
     -fx-cursor: hand;
     -fx-font-weight: bold;
 }
 #logo {
-    -fx-fill: linear-gradient(#4b0082, #8a2be2);
+    -fx-fill: linear-gradient(#134e5e, #71b280);
 }
 #appLabel {
     -fx-text-fill: #e0e0e0;
-    -fx-back-color: #8a2be2;
+    -fx-back-color: #71b280;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-family: "sans-serif";
 }
 #profile {
-    -fx-fill: #b666d2;
+    -fx-fill: #6abf69;
 }
 
 .loginImage{
-     -fx-effect: innershadow(gaussian,#4b0082, 5, 1, 0, 0);
+     -fx-effect: innershadow(gaussian, #134e5e, 5, 1, 0, 0);
 }
 
-
-/* Tasks - Purple Theme */
+/* Tasks - Green Theme */
 .TaskLabel {
     -fx-text-fill: #e0e0e0;
 }
 
-/* Employee Option - Purple Theme */
+/* Employee Option - Green Theme */
 .employeeLabel {
     -fx-text-fill: #e0e0e0;
 }
 
-/* Stock - Purple Theme */
+/* Stock - Green Theme */
 .chart-legend-item {
-    -fx-text-fill: #dda0dd;
+    -fx-text-fill: #a8df65;
 }
 .chart-pie-label-line {
-    -fx-stroke: #dda0dd;
-    -fx-fill: #dda0dd;
+    -fx-stroke: #a8df65;
+    -fx-fill: #a8df65;
 }
 .chart-pie-label {
-    -fx-fill: #dda0dd;
+    -fx-fill: #a8df65;
 }
 .chart-legend {
-    -fx-background-color: #6a0dad;
-    -fx-stroke: #6a0dad;
+    -fx-background-color: #0c7764;
+    -fx-stroke: #0c7764;
 }
 .axis-label {
-    -fx-text-fill: #dda0dd;
+    -fx-text-fill: #a8df65;
 }
 .chart-pie-label {
     -fx-fill: #e0e0e0;
+}
+
+/* TableView Styles - Green Theme */
+.table-view {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 10;
+    -fx-border-color: #a8df65;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e0e0e0;
+}
+
+.table-view .table-row-cell:focused {
+    -fx-background-color: #168f5e;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #168f5e;
+}
+
+.table-view .table-row-cell:pressed {
+    -fx-background-color: #134e5e;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header:pressed {
+    -fx-background-color: #0c7764;
+}
+
+.table-view .column-header:focused {
+    -fx-background-color: #168f5e;
+}
+
+.table-view .column-header {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
+    -fx-text-fill: #e0e0e0;  /* Light gray text for better contrast */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;  /* Optional: Adjust font size */
+    -fx-alignment: center;
+}
+
+.table-view .column-header .text {
+    -fx-fill: #e0e0e0;  /* Light gray text for header */
 }

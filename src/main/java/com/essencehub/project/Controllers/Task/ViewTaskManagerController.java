@@ -39,7 +39,12 @@ public class ViewTaskManagerController {
 
     @FXML
     void deleteTask(ActionEvent event) {
-
+        if(!taskTable.getSelectionModel().isEmpty()){
+            task = taskTable.getSelectionModel().getSelectedItem();
+            Task.deleteTask(task);
+            AdminMenuController adminMenuController = AdminMenuController.getInstance();
+            adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Task/ViewTaskManager.fxml");
+        }
     }
 
     @FXML

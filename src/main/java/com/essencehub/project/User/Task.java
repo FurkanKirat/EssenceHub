@@ -2,9 +2,7 @@ package com.essencehub.project.User;
 
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +10,6 @@ import java.util.Objects;
 
 public class Task {
     private int id;
-    private static int idCounter = 1;
     private User sender;
     private User receiver;
     private String task;
@@ -21,12 +18,8 @@ public class Task {
     private boolean isTaskDone; // Görev tamamlanma durumu
 
     // Constructor
-    public Task() {
-        this.id = idCounter++; // Otomatik ID atama
-    }
 
     public Task(User sender, User receiver, String task, String title, LocalDateTime sendDateTime, boolean isTaskDone) {
-        this(); 
         this.sender = sender;
         this.receiver = receiver;
         this.task = task;
@@ -34,8 +27,6 @@ public class Task {
         this.title = title != null && !title.isEmpty() ? title : task.length() > 50 ? task.substring(0, 50) : task;
         this.sendDateTime = Objects.requireNonNullElseGet(sendDateTime, LocalDateTime::now);
         this.isTaskDone = isTaskDone;
-
-
 
     }
 
@@ -108,5 +99,27 @@ public class Task {
         this.isTaskDone = false;
     }
 
+    public static void deleteTask(Task task) {
+        String deleteSQL = "DELETE FROM Task WHERE id = ?";
+        try (Connection connection = DatabaseConnection.getConnection()) {
+
+            if (connection != null) {
+                try (PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL)) {
+                    preparedStatement.setInt(1, task.getId());
+                    int rowsAffected = preparedStatement.executeUpdate();
+
+                    if (rowsAffected > 0) {
+                        System.out.println("Görev başarıyla silindi: " + task.getId());
+                    } else {
+                        System.out.println("Silinmek istenen görev bulunamadı: " + task.getId());
+                    }
+                }
+            } else {
+                System.out.println("Veritabanı bağlantısı başarısız.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
