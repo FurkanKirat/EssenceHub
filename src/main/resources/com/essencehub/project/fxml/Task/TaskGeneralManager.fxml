@@ -28,7 +28,7 @@
                         <Insets bottom="10.0" />
                      </StackPane.margin>
                   </ImageView>
-                  <Label text="AssignTask" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+                  <Label text="Assign Task" textFill="WHITE" StackPane.alignment="TOP_LEFT">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -58,7 +58,7 @@
                         <Insets bottom="10.0" />
                      </StackPane.margin>
                   </ImageView>
-                  <Label text="ViewTask" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+                  <Label text="View Tasks" textFill="WHITE" StackPane.alignment="TOP_LEFT">
                      <font>
                         <Font size="25.0" />
                      </font>

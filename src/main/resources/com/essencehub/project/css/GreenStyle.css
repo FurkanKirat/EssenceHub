@@ -138,7 +138,7 @@
 
 /* Stock - Green Theme */
 .chart-legend-item {
-    -fx-text-fill: #a8df65;
+    -fx-text-fill: black;
 }
 .chart-pie-label-line {
     -fx-stroke: #a8df65;
@@ -148,15 +148,30 @@
     -fx-fill: #a8df65;
 }
 .chart-legend {
-    -fx-background-color: #0c7764;
+    -fx-background-color: white;
     -fx-stroke: #0c7764;
 }
 .axis-label {
-    -fx-text-fill: #a8df65;
+    -fx-text-fill: white;
 }
 .chart-pie-label {
-    -fx-fill: #e0e0e0;
+    -fx-fill: white;
 }
+/* BarChart Y-Axis Label Color - White */
+.chart-legend-item {
+    -fx-text-fill: #a8df65;
+}
+
+.chart .x-axis .axis-label,
+.chart .y-axis .axis-label {
+    -fx-text-fill: white; /* Y eksenindeki etiketlerin rengi beyaz */
+}
+
+.chart .x-axis .tick-label,
+.chart .y-axis .tick-label {
+    -fx-text-fill: white; /* Y eksenindeki sayı etiketlerinin rengi beyaz */
+}
+
 
 /* TableView Styles - Green Theme */
 .table-view {
@@ -174,15 +189,17 @@
 
 .table-view .table-row-cell {
     -fx-background-color: transparent;
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: white;
 }
 
 .table-view .table-row-cell:focused {
     -fx-background-color: #168f5e;
+    -fx-text-fill: white;
 }
 
 .table-view .table-row-cell:hover {
     -fx-background-color: #168f5e;
+    -fx-text-fill: white;
 }
 
 .table-view .table-row-cell:pressed {
@@ -248,3 +265,35 @@
 .radio-button .label {
     -fx-text-fill: #e0e0e0; /* Metin rengi */
 }
+
+/* ScrollPane Styles - Green Theme */
+.scroll-pane {
+    -fx-background: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
+    -fx-background-color: transparent; /* Arka planı şeffaf */
+    -fx-border-color: #a8df65; /* Kenar çizgisi rengi */
+    -fx-border-width: 2; /* Kenar kalınlığı */
+    -fx-border-radius: 10; /* Kenar yuvarlaklığı */
+    -fx-background-radius: 10; /* Arka plan yuvarlaklığı */
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent; /* İçerik bölgesi şeffaf */
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: transparent; /* Dikey kaydırma çubuğu şeffaf */
+    -fx-border-color: #134e5e; /* Çubuk kenar rengi */
+    -fx-border-width: 1; /* Kenar kalınlığı */
+}
+
+.scroll-bar .thumb {
+    -fx-background-color:#0c7764; /* Kaydırma tutacağı rengi */
+    -fx-background-radius: 5; /* Yuvarlak tutacak */
+}
+
+.scroll-bar .track {
+    -fx-background-color: transparent; /* Track arka planı */
+}
+
+
+

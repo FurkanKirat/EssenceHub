@@ -228,7 +228,7 @@
                               <DropShadow />
                            </effect>
                         </ImageView>
-                        <Label text="Assign Task" textFill="WHITE">
+                        <Label text="Task" textFill="WHITE">
                            <font>
                               <Font size="25.0" />
                            </font>

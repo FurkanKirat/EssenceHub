@@ -1,93 +1,92 @@
-/* General Styles - Red Theme */
+/* General Styles - Vibrant Red Theme */
 .gradient-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #8b0000, #ff4500);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #7d1a1a, #c23d3d);
 }
 .first-color {
-    -fx-background-color: #8b0000;
+    -fx-background-color: #7d1a1a;
 }
 .second-color {
-    -fx-background-color: #b22222;
+    -fx-background-color: #a12e2e;
 }
 .line-color {
-    -fx-background-color: #ff7f7f;
+    -fx-background-color: #f05d5d;
 }
 .container {
-    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-color: rgba(255, 255, 255, 0.15);
     -fx-background-radius: 10;
 }
 .hide {
     -fx-cursor: hand;
 }
 .selected-border {
-    -fx-border-color: #ff7f7f;
+    -fx-border-color: #f05d5d;
     -fx-border-width: 0 3 0 0;
 }
 .selected:hover {
-    -fx-background-color: #ff6347;
+    -fx-background-color: #d84343;
 }
 .selected:clicked {
-    -fx-background-color: #ff6347;
+    -fx-background-color: #d84343;
 }
 .buttonClicked {
-    -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(255, 69, 0, 0.5), 10, 0.5, 0, 0);
+    -fx-opacity: 0.9;
+    -fx-effect: dropshadow(gaussian, rgba(240, 93, 93, 0.5), 10, 0.5, 0, 0);
 }
 .settingsProfile:hover {
-    -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(255, 69, 0, 0.5), 10, 0.5, 0, 0);
+    -fx-opacity: 0.9;
+    -fx-effect: dropshadow(gaussian, rgba(240, 93, 93, 0.5), 10, 0.5, 0, 0);
 }
 .menuButton {
-    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-color: rgba(255, 255, 255, 0.15);
     -fx-background-radius: 30;
-    -fx-text-fill : white;
+    -fx-text-fill: white;
 }
 .text-input {
     -fx-background-color: rgba(0, 0, 0, 0);
     -fx-border-width: 0 0 1 0;
-    -fx-border-color: #ff7f7f;
+    -fx-border-color: #f05d5d;
 }
 .menuTextField {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #ffe6e6;
     -fx-font-size: 15px;
 }
 /* combo box */
 .combo-box {
-    -fx-background-color: #134e5e;
-    -fx-border-color: #a8df65;
+    -fx-background-color: #7d1a1a;
+    -fx-border-color: #f05d5d;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
     -fx-font-size: 14px;
-
 }
 
 .combo-box .arrow {
-    -fx-background-color: #a8df65;
-    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Ok işareti */
+    -fx-background-color: #f05d5d;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
 }
 
 .combo-box:hover {
-    -fx-background-color: #168f5e;
-    -list-cell-background-color: #168f5e;
+    -fx-background-color: #d84343;
+    -list-cell-background-color: #d84343;
 }
 
 .list-cell {
-    -fx-background-color: #134e5e;
-    -fx-text-fill: #e0e0e0;
+    -fx-background-color: #7d1a1a;
+    -fx-text-fill: #ffe6e6;
     -fx-font-size: 14px;
 }
 
 .list-cell:hover {
-    -fx-background-color: #168f5e;
+    -fx-background-color: #d84343;
     -fx-text-fill: #ffffff;
 }
 .combo-box .text-input {
     -fx-background-color: transparent;
 }
 
-/* Login Page - Red Theme */
+/* Login Page - Vibrant Red Theme */
 .loginTextField {
     -fx-border-width: 2px;
-    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #8b0000, #ff4500);
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #7d1a1a, #c23d3d);
     -fx-background-color: transparent;
     -fx-text-fill: black;
     -fx-font-weight: bold;
@@ -98,63 +97,153 @@
     -fx-font-weight: bold;
 }
 #anchor1 {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #8b0000, #ff4500);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #7d1a1a, #c23d3d);
 }
 #loginbtn {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #8b0000, #ff4500);
-    -fx-text-fill: #e0e0e0;
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #7d1a1a, #c23d3d);
+    -fx-text-fill: #ffe6e6;
     -fx-background-radius: 15;
     -fx-cursor: hand;
     -fx-font-weight: bold;
 }
 #logo {
-    -fx-fill: linear-gradient(#8b0000, #ff4500);
+    -fx-fill: linear-gradient(#7d1a1a, #c23d3d);
 }
 #appLabel {
-    -fx-text-fill: #e0e0e0;
-    -fx-back-color: #ff4500;
+    -fx-text-fill: #ffe6e6;
+    -fx-back-color: #c23d3d;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-family: "sans-serif";
 }
 #profile {
-    -fx-fill: #ff8c69;
+    -fx-fill: #f05d5d;
 }
 
-
-.loginImage{
-     -fx-effect: innershadow(gaussian, #b22222, 5, 1, 0, 0);
+.loginImage {
+    -fx-effect: innershadow(gaussian, #7d1a1a, 5, 1, 0, 0);
 }
 
-/* Tasks - Red Theme */
+/* Tasks - Vibrant Red Theme */
 .TaskLabel {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #ffe6e6;
 }
 
-/* Employee Option - Red Theme */
+/* Employee Option - Vibrant Red Theme */
 .employeeLabel {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #ffe6e6;
 }
 
-/* Stock - Red Theme */
+/* Stock - Vibrant Red Theme */
 .chart-legend-item {
-    -fx-text-fill: #ff7f7f;
+    -fx-text-fill: #f05d5d;
 }
 .chart-pie-label-line {
-    -fx-stroke: #ff7f7f;
-    -fx-fill: #ff7f7f;
+    -fx-stroke: #f05d5d;
+    -fx-fill: #f05d5d;
 }
 .chart-pie-label {
-    -fx-fill: #ff7f7f;
+    -fx-fill: #f05d5d;
 }
 .chart-legend {
-    -fx-background-color: #b22222;
-    -fx-stroke: #b22222;
+    -fx-background-color: #a12e2e;
+    -fx-stroke: #a12e2e;
 }
 .axis-label {
-    -fx-text-fill: #ff7f7f;
+    -fx-text-fill: #f05d5d;
 }
 .chart-pie-label {
-    -fx-fill: #e0e0e0;
+    -fx-fill: #ffe6e6;
+}
+
+/* TableView Styles - Vibrant Red Theme */
+.table-view {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-background-radius: 10;
+    -fx-border-color: #f05d5d;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header {
+    -fx-background-color:  #7d1a1a;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffe6e6;
+}
+
+.table-view .table-row-cell:focused {
+    -fx-background-color: #d84343;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #d84343;
+}
+
+.table-view .table-row-cell:pressed {
+    -fx-background-color: #7d1a1a;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header:pressed {
+    -fx-background-color: #a12e2e;
+}
+
+.table-view .column-header:focused {
+    -fx-background-color: #d84343;
+}
+
+.table-view .column-header {
+    -fx-background-color: #7d1a1a;
+    -fx-text-fill: #ffe6e6;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+
+.table-view .column-header .text {
+    -fx-fill: #ffe6e6;
+}
+/* Radio Button - Vibrant Red Theme */
+.radio-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffe6e6;
+    -fx-font-size: 14px;
+}
+
+.radio-button .box {
+    -fx-border-color: #f05d5d;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+    -fx-background-color: transparent;
+    -fx-min-width: 16px;
+    -fx-min-height: 16px;
+    -fx-max-width: 16px;
+    -fx-max-height: 16px;
+}
+
+.radio-button:selected .box {
+    -fx-background-color: #f05d5d;
+    -fx-border-color: #7d1a1a;
+}
+
+.radio-button .box:hover {
+    -fx-border-color: #d84343;
+}
+
+.radio-button:selected .box:hover {
+    -fx-background-color: #d84343;
+}
+.radio-button:selected .radio .dot {
+    -fx-background-color: #a12e2e;
+    -fx-background-insets: 0;
+}
+
+.radio-button .label {
+    -fx-text-fill: #ffe6e6;
 }

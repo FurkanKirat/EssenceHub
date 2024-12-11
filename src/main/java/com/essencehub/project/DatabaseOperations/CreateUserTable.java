@@ -22,7 +22,8 @@ public class CreateUserTable {
                         + "monthlyPerformance VARCHAR(50), "
                         + "bonusSalary DOUBLE, "
                         + "isActive BOOLEAN, "
-                        + "password VARCHAR(255) NOT NULL" 
+                        + "password VARCHAR(255) NOT NULL"
+                        + "imageLocation"
                         + ");";
                 try (Statement statement = connection.createStatement()) {
                     statement.execute(createTableSQL);

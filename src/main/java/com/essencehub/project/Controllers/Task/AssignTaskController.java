@@ -40,6 +40,8 @@ public class AssignTaskController {
             CheckBox checkBox = new CheckBox();
             checkBoxes[i] = checkBox;
             Label label = new Label(employees.get(i).toString());
+            label.getStyleClass().add("TaskLabel");
+
             hBox.getChildren().addAll(checkBox, label);
             list.add(hBox);
         }

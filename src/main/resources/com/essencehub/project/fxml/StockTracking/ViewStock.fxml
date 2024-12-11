@@ -51,10 +51,10 @@
          <children>
             <BarChart fx:id="barChart">
               <xAxis>
-                <CategoryAxis fx:id="categoryAxis" side="BOTTOM" />
+                <CategoryAxis fx:id="categoryAxis" side="BOTTOM" tickLabelFill="WHITE" />
               </xAxis>
               <yAxis>
-                <NumberAxis fx:id="numberAxis" side="LEFT" />
+                <NumberAxis fx:id="numberAxis" side="LEFT" tickLabelFill="WHITE" />
               </yAxis>
             </BarChart>
          </children>

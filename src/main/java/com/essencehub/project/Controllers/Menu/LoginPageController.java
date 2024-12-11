@@ -121,7 +121,7 @@ public class LoginPageController {
             Connection connection = DatabaseConnection.getConnection();
             Statement statement = connection.createStatement();
 
-            ResultSet resultset = statement.executeQuery("SELECT * FROM user WHERE id = " + id + " AND password = '" + password + "'");
+            ResultSet resultset = statement.executeQuery("SELECT * FROM User WHERE id = " + id + " AND password = '" + password + "'");
 
             if (resultset.next()) {
                 loggedUser = new User();

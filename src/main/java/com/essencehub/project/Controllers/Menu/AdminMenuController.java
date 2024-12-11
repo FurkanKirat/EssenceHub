@@ -126,7 +126,7 @@ public class AdminMenuController {
 
     @FXML
     void msgIconClicked(MouseEvent event) {
-        settings("/com/essencehub/project/fxml/Message/message.fxml",event);
+        settings("/com/essencehub/project/fxml/Message/MessageApp.fxml",event);
     }
 
     @FXML

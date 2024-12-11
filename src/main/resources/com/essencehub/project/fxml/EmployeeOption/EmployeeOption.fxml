@@ -90,7 +90,7 @@
                         <ComboBox fx:id="selectUpdateComboBox" layoutX="104.0" layoutY="63.0" prefHeight="26.0" prefWidth="454.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="57.0" />
                         <Button fx:id="updateButton" layoutX="207.0" layoutY="247.0" mnemonicParsing="false" onAction="#isUpdateButtonClicked" prefHeight="36.0" prefWidth="112.0" text="Update" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="207.0" />
                         <ComboBox fx:id="workerStatusComboBox" layoutX="159.0" layoutY="125.0" onAction="#statusSelected" prefHeight="26.0" prefWidth="307.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
-                        <TextField fx:id="statusTextField" layoutX="211.0" layoutY="189.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
+                        <TextField fx:id="statusTextField" layoutX="211.0" layoutY="189.0" styleClass="menuTextField" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
                         <ComboBox fx:id="propertyComboBox" layoutX="60.0" layoutY="189.0" prefHeight="26.0" prefWidth="780.0" visible="false" />
                         <DatePicker fx:id="birthPicker" editable="false" layoutX="61.0" layoutY="189.0" prefHeight="26.0" prefWidth="780.0" promptText="Birth" visible="false" />
                      </children>
