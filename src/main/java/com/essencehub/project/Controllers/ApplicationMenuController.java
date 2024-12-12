@@ -418,20 +418,20 @@ public class ApplicationMenuController {
                         rowsUpdated = pstmt.executeUpdate();
                     }
                     if (rowsUpdated > 0) {
-                       if((whichStatus==0&&!statusTextField.getText().isEmpty())||(whichStatus==1&&!propertyComboBox.getValue().isEmpty())||(whichStatus==2)){
-                           Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        if((whichStatus==0&&!statusTextField.getText().isEmpty())||(whichStatus==1&&!propertyComboBox.getValue().isEmpty())||(whichStatus==2)){
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
-                           alert.setTitle("Update Successful");
-                           alert.setHeaderText("Update Completed");
-                           alert.setContentText("The field \"" + whatToChange + "\" for worker \"" + selectedWorker.getName() + "\" has been updated successfully!");
-                           alert.showAndWait();
-                       }else{
-                           Alert alert = new Alert(Alert.AlertType.WARNING);
-                           alert.setTitle("Update Failed");
-                           alert.setHeaderText("No Changes Made");
-                           alert.setContentText("No rows were updated. Please check the input.");
-                           alert.showAndWait();
-                       }
+                            alert.setTitle("Update Successful");
+                            alert.setHeaderText("Update Completed");
+                            alert.setContentText("The field \"" + whatToChange + "\" for worker \"" + selectedWorker.getName() + "\" has been updated successfully!");
+                            alert.showAndWait();
+                        }else{
+                            Alert alert = new Alert(Alert.AlertType.WARNING);
+                            alert.setTitle("Update Failed");
+                            alert.setHeaderText("No Changes Made");
+                            alert.setContentText("No rows were updated. Please check the input.");
+                            alert.showAndWait();
+                        }
 
                     }
                 }
@@ -450,7 +450,7 @@ public class ApplicationMenuController {
 
         populateComboBox();
         statusTextField.setText("");
-       // workerStatusComboBox.setValue(null);
+        // workerStatusComboBox.setValue(null);
 
     }
     private void initializeCombobox(){

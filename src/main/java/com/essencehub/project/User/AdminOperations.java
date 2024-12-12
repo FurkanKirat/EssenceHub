@@ -23,7 +23,7 @@ public class AdminOperations {
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DatabaseConnection.getConnection();
-                PreparedStatement statement = connection.prepareStatement(sql)) {
+             PreparedStatement statement = connection.prepareStatement(sql)) {
 
             // Parametreleri set ediyoruz
             statement.setString(1, user.getName());
@@ -87,12 +87,12 @@ public class AdminOperations {
         }
     }
     public static void updateUser(String name, String surname, String phoneNumber, double baseSalary, boolean isAdmin, String birth,String department,
-                                    String email, int remainingLeaveDays, boolean isActive, String password, Performance monthlyPerformance, int bonusSalary, String imageLocation) {
+                                  String email, int remainingLeaveDays, boolean isActive, String password, Performance monthlyPerformance, int bonusSalary, String imageLocation) {
         User user = new User(name,surname,phoneNumber,baseSalary,isAdmin,birth,department,email,remainingLeaveDays,isActive,password,monthlyPerformance,bonusSalary, imageLocation);
         String sql = "UPDATE User SET name = ?, surname = ?, phoneNumber = ?, salary = ?, isAdmin = ?, birth = ?, department = ?, email = ?, remainingLeaveDays = ?, monthlyPerformance = ?, bonusSalary = ?, isActive = ?, imageLocation WHERE id = ?";
 
         try (Connection connection = DatabaseConnection.getConnection();
-                PreparedStatement statement = connection.prepareStatement(sql)) {
+             PreparedStatement statement = connection.prepareStatement(sql)) {
 
 
             statement.setString(1, user.getName());
@@ -124,7 +124,7 @@ public class AdminOperations {
     }
 
 
-     //MESAJ GÖNDER
+    //MESAJ GÖNDER
     public static void sendMessageMain(User sender, User receiver, String message, LocalDateTime sendDateTime) {
         Message messageTemp = new Message(sender, receiver, message, sendDateTime);
         sendMessage(messageTemp);
@@ -134,7 +134,7 @@ public class AdminOperations {
         String sql = "INSERT INTO Message (sender_id, receiver_id, message, send_date_time) VALUES (?, ?, ?, ?)";
 
         try (Connection connection = DatabaseConnection.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
             // Veritabanına ekliyoruz
             preparedStatement.setInt(1, message.getSender().getId());
@@ -166,7 +166,7 @@ public class AdminOperations {
                 + "VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DatabaseConnection.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(insertTaskSQL)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(insertTaskSQL)) {
 
             // SQL sorgusunda ? yerlerine parametreleri yerleştiriyoruz
             preparedStatement.setInt(1, task.getSender().getId()); // Gönderenin ID'si
@@ -200,7 +200,7 @@ public class AdminOperations {
                 + "WHERE id = ?";
 
         try (Connection connection = DatabaseConnection.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(updateTaskSQL)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(updateTaskSQL)) {
 
             // SQL sorgusundaki ? yerlerine parametreleri yerleştiriyoruz
             preparedStatement.setString(1, task.getTask()); // Görev açıklaması
@@ -226,8 +226,8 @@ public class AdminOperations {
         users = usersTemp;
         String query = "SELECT * FROM User";
         try (Connection connection = DatabaseConnection.getConnection();
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(query)) {
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
                 User user = new User();
@@ -276,9 +276,9 @@ public class AdminOperations {
         try (Connection connection = DatabaseConnection.getConnection()) {
             if (connection != null) {
                 try (PreparedStatement preparedStatement = connection.prepareStatement(insertProductSQL)) {
-                    preparedStatement.setString(1, product.getName()); 
-                    preparedStatement.setInt(2, product.getCount()); 
-                    preparedStatement.setString(3, product.getMonthAndYear()); 
+                    preparedStatement.setString(1, product.getName());
+                    preparedStatement.setInt(2, product.getCount());
+                    preparedStatement.setString(3, product.getMonthAndYear());
 
                     int affectedRows = preparedStatement.executeUpdate();
 
@@ -375,7 +375,7 @@ public class AdminOperations {
     public static User getUserById(int userId) {
         User user = null;
         String query = "SELECT id, name, surname, phoneNumber, salary, isAdmin, birth, department, email, "
-                     + "remainingLeaveDays, isActive, password, imageLocation FROM User WHERE id = ?";
+                + "remainingLeaveDays, isActive, password, imageLocation FROM User WHERE id = ?";
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {

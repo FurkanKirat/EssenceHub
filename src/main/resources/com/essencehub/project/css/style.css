@@ -268,7 +268,10 @@
 
 /* ScrollPane Styles - Green Theme */
 .scroll-pane {
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
     -fx-background-color: transparent; /* Arka planı şeffaf */
     -fx-border-color: #a8df65; /* Kenar çizgisi rengi */
     -fx-border-width: 2; /* Kenar kalınlığı */

@@ -50,7 +50,7 @@ public class MessageAppController {
                     refresh();
                 });
             }
-        }, 0, 1000);
+        }, 0, 1);
     }
     public void refresh(){
 
