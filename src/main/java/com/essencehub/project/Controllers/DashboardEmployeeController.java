@@ -1,6 +1,9 @@
 package com.essencehub.project.Controllers;
 
+import com.essencehub.project.Controllers.Menu.AdminMenuController;
+import com.essencehub.project.Controllers.Menu.EmployeeMenuController;
 import com.essencehub.project.Controllers.Menu.LoginPageController;
+import com.essencehub.project.Controllers.Task.ViewTaskManagerController;
 import com.essencehub.project.User.AdminOperations;
 import com.essencehub.project.User.Message;
 import com.essencehub.project.User.Task;
@@ -11,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -51,5 +55,14 @@ public class DashboardEmployeeController {
         );
 
         taskTable.setItems(lastFiveTasks);
+    }
+    @FXML
+    void taskClicked(MouseEvent event) {
+        if(!taskTable.getSelectionModel().isEmpty()){
+            ViewTaskManagerController.setTask(taskTable.getSelectionModel().getSelectedItem());
+
+            EmployeeMenuController employeeMenuController = EmployeeMenuController.getInstance();
+            employeeMenuController.loadFXMLContent("/com/essencehub/project/fxml/Task/OpenTask.fxml");
+        }
     }
 }

@@ -72,5 +72,7 @@ public class ViewTaskManagerController {
         return task;
     }
 
-
+    public static void setTask(Task task) {
+        ViewTaskManagerController.task = task;
+    }
 }

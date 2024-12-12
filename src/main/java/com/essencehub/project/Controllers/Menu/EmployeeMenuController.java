@@ -28,9 +28,6 @@ public class EmployeeMenuController {
     private ImageView msgIcon;
 
     @FXML
-    private HBox performancePanel;
-
-    @FXML
     private ImageView profilePicturePanel;
 
     @FXML
@@ -63,17 +60,9 @@ public class EmployeeMenuController {
 
     @FXML
     void msgIconCLicked(MouseEvent event) {
-
+        settings("/com/essencehub/project/fxml/Message/MessageApp.fxml",event);
     }
 
-    @FXML
-    void performancePanelClicked(MouseEvent event) {
-        currentNode.getStyleClass().remove("selected-border");
-        loadFXMLContent("/com/essencehub/project/fxml/DashboardEmployee.fxml");       //adding fxml
-        dashboardPanel.getStyleClass().add("selected-border");
-        currentNode=dashboardPanel;
-
-    }
 
     @FXML
     void profilePicturePanelClicked(MouseEvent event) {

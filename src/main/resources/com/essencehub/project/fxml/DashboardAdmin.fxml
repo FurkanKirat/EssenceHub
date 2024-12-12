@@ -24,7 +24,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <TableView fx:id="taskTable" prefHeight="289.0" prefWidth="302.0">
+                  <TableView fx:id="taskTable" onMouseClicked="#taskClicked" prefHeight="289.0" prefWidth="302.0">
                      <columns>
                         <TableColumn fx:id="employeeNameColumn" prefWidth="154.39997518062592" text="Employee " />
                         <TableColumn fx:id="taskColumn" prefWidth="131.20000457763672" text="Title" />
