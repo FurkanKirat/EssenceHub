@@ -12,10 +12,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+
+
 
 import java.util.List;
 
 public class ViewTaskManagerController {
+
+    @FXML
+    private ImageView assignTaskIcon;
 
     @FXML
     private Button deleteTaskButton;
@@ -35,6 +42,12 @@ public class ViewTaskManagerController {
     @FXML
     private TableColumn<Task, String> employeeNameColumn1;
 
+    @FXML
+    void assignTaskIconClicked(MouseEvent event) {
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Task/AssignTask.fxml");
+    }
+
     private static Task task;
 
     @FXML
@@ -46,7 +59,6 @@ public class ViewTaskManagerController {
             adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Task/ViewTaskManager.fxml");
         }
     }
-
     @FXML
     void openTask(ActionEvent event) {
 
@@ -56,8 +68,6 @@ public class ViewTaskManagerController {
             AdminMenuController adminMenuController = AdminMenuController.getInstance();
             adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Task/OpenTask.fxml");
         }
-
-
     }
     public void initialize(){
 

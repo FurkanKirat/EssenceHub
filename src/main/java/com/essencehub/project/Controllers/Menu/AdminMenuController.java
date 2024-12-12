@@ -93,7 +93,7 @@ public class AdminMenuController {
     @FXML
     void assignTaskPanelClicked(MouseEvent event) {
         currentNode.getStyleClass().remove("selected-border");
-        loadFXMLContent("/com/essencehub/project/fxml/Task/TaskGeneralManager.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/Task/ViewTaskManager.fxml");
         assignTaskPanel.getStyleClass().add("selected-border");
         currentNode=assignTaskPanel;
     }

@@ -1,5 +1,6 @@
 package com.essencehub.project.Controllers.Task;
 
+import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.Controllers.Menu.LoginPageController;
 import com.essencehub.project.User.AdminOperations;
 import com.essencehub.project.User.Task;
@@ -9,9 +10,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
-import java.sql.SQLException;
+
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -28,6 +32,17 @@ public class AssignTaskController {
     private TextArea descriptionTextArea;
 
     private ArrayList<User> employees;
+
+
+    @FXML
+    private ImageView viewTaskImage;
+
+
+    @FXML
+    void viewTaskIconClicked(MouseEvent event) {
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Task/ViewTaskManager.fxml");
+    }
     @FXML
     public void initialize() {
 
@@ -66,5 +81,8 @@ public class AssignTaskController {
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
+    }
+
+    public void viewTaskImageClicked(javafx.scene.input.MouseEvent mouseEvent) {
     }
 }
