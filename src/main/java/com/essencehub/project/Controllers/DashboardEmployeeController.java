@@ -1,5 +1,6 @@
 package com.essencehub.project.Controllers;
 
+import com.essencehub.project.Controllers.Menu.LoginPageController;
 import com.essencehub.project.User.AdminOperations;
 import com.essencehub.project.User.Message;
 import com.essencehub.project.User.Task;
@@ -15,10 +16,8 @@ import javafx.scene.layout.VBox;
 
 import java.util.Collections;
 
-public class DashboardController {
+public class DashboardEmployeeController {
 
-    @FXML
-    private TableColumn<Task, String> employeeNameColumn;
 
     @FXML
     private TableColumn<Task, String > employeeNameColumn1;
@@ -41,12 +40,11 @@ public class DashboardController {
 
     public void initialize(){
 
-        employeeNameColumn.setCellValueFactory(new PropertyValueFactory<>("receiver"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("taskDone"));
         taskColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         employeeNameColumn1.setCellValueFactory(new PropertyValueFactory<>("sender"));
 
-        ObservableList<Task> allTasks = FXCollections.observableArrayList(AdminOperations.getAllTasks());
+        ObservableList<Task> allTasks = FXCollections.observableArrayList(AdminOperations.getUserTasks(LoginPageController.getUser().getId()));
 
         ObservableList<Task> lastFiveTasks = FXCollections.observableArrayList(
                 allTasks.subList(0, Math.min(allTasks.size(), 5))

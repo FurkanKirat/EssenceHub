@@ -22,7 +22,7 @@
                           <TableColumn fx:id="employeeNameColumn" prefWidth="154.39997518062592" text="Employee Name" />
       
                                 <!-- Task title -->
-                          <TableColumn fx:id="taskColumn" prefWidth="131.20000457763672" text="Assign Title" />
+                          <TableColumn fx:id="taskColumn" prefWidth="131.20000457763672" text="Task" />
       
                           <!-- Task is done or not done -->
                           <TableColumn fx:id="statusColumn" prefWidth="172.800048828125" text="Completed" />

@@ -55,7 +55,7 @@ public class MessageAppController {
     public void refresh(){
 
         user = LoginPageController.getUser();
-        messages = Message.getMessagesBetweenUsers(user,new User(1));
+        messages = Message.getMessagesBetweenUsers(user,new User(2));
         messageBox.getChildren().clear();
         for (Message message : messages) {
             addMessage(message.getMessage(), message.getSender().getId() == user.getId());
@@ -67,7 +67,7 @@ public class MessageAppController {
     private void handleSendButtonClick(MouseEvent event) {
         String message = text.getText();
         if (!message.trim().isEmpty()) {
-            AdminOperations.sendMessageMain(user,new User(1),message, LocalDateTime.now());
+            AdminOperations.sendMessageMain(user,new User(2),message, LocalDateTime.now());
             addMessage(message, true); // Add user message
             //addMessage("Hi! How are you?", false); // Add a reply message (simulated)
             text.clear();

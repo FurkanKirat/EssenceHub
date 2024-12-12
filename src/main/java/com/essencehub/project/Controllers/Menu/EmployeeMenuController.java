@@ -55,7 +55,7 @@ public class EmployeeMenuController {
     @FXML
     void dashboardPanelClicked(MouseEvent event) {
         currentNode.getStyleClass().remove("selected-border");
-        loadFXMLContent("/com/essencehub/project/fxml/dashboard.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/DashboardEmployee.fxml");
         dashboardPanel.getStyleClass().add("selected-border");
         currentNode=dashboardPanel;
 
@@ -69,7 +69,7 @@ public class EmployeeMenuController {
     @FXML
     void performancePanelClicked(MouseEvent event) {
         currentNode.getStyleClass().remove("selected-border");
-        //loadFXMLContent("/com/essencehub/project/fxml/dashboard.fxml");       //adding fxml
+        loadFXMLContent("/com/essencehub/project/fxml/DashboardEmployee.fxml");       //adding fxml
         dashboardPanel.getStyleClass().add("selected-border");
         currentNode=dashboardPanel;
 
@@ -100,6 +100,7 @@ public class EmployeeMenuController {
             String surname = LoginPageController.getUser().getSurname();
             profilePicturePanel.setImage(LoginPageController.getUser().getImage());
             nameLabel.setText(name + " " + surname);
+            loadFXMLContent("/com/essencehub/project/fxml/DashboardEmployee.fxml");
         }
         catch (Exception e){
             e.printStackTrace();

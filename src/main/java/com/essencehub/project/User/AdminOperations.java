@@ -410,7 +410,7 @@ public class AdminOperations {
 
     public static List<Task> getAllTasks() {
         List<Task> taskList = new ArrayList<>();
-        String query = "SELECT id, sender_id, receiver_id, task, title, send_date_time, is_task_done FROM Task";
+        String query = "SELECT id, sender_id, receiver_id, task, title, send_date_time, is_task_done FROM Task ORDER BY send_date_time DESC";
 
         try (Connection connection = DatabaseConnection.getConnection();
              Statement statement = connection.createStatement();
@@ -423,10 +423,10 @@ public class AdminOperations {
                 String task = resultSet.getString("task");
                 String title = resultSet.getString("title");
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-                LocalDateTime sendDateTime = LocalDateTime.parse(resultSet.getString("send_date_time"),formatter);
+                LocalDateTime sendDateTime = LocalDateTime.parse(resultSet.getString("send_date_time"), formatter);
                 boolean isTaskDone = resultSet.getBoolean("is_task_done");
 
-                Task taskObj = new Task(getUserById(senderId),getUserById(receiverId),task, title,sendDateTime,isTaskDone);
+                Task taskObj = new Task(getUserById(senderId), getUserById(receiverId), task, title, sendDateTime, isTaskDone);
                 taskObj.setId(id);
                 taskList.add(taskObj);
             }
@@ -486,12 +486,14 @@ public class AdminOperations {
 
     public static List<Task> getUserTasks(int userID) {
         List<Task> taskList = new ArrayList<>();
-        String query = "SELECT id, sender_id, receiver_id, task, title, send_date_time, is_task_done FROM Task WHERE receiver_id = " + userID ;
+        String query = "SELECT id, sender_id, receiver_id, task, title, send_date_time, is_task_done FROM Task WHERE receiver_id = ? ORDER BY send_date_time DESC";
 
-        try (Connection connection = DatabaseConnection.getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(query)) {
 
+
+        try {
+            PreparedStatement statement = DatabaseConnection.getConnection().prepareStatement(query);
+            statement.setInt(1, userID);
+            ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 int senderId = resultSet.getInt("sender_id");
@@ -506,9 +508,10 @@ public class AdminOperations {
                 taskObj.setId(id);
                 taskList.add(taskObj);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
         }
+
 
         return taskList;
     }

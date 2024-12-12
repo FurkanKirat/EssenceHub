@@ -268,7 +268,7 @@
 
 /* ScrollPane Styles - Green Theme */
 .scroll-pane {
-    -fx-background: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
+
     -fx-background-color: transparent; /* Arka planı şeffaf */
     -fx-border-color: #a8df65; /* Kenar çizgisi rengi */
     -fx-border-width: 2; /* Kenar kalınlığı */

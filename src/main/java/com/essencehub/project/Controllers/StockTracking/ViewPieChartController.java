@@ -24,7 +24,7 @@ public class ViewPieChartController {
         try {
             Connection connection = DatabaseConnection.getConnection();
             Statement statement = connection.createStatement();
-            resultset = statement.executeQuery("SELECT * FROM stock");
+            resultset = statement.executeQuery("SELECT * FROM Stock");
             //XYChart.Series<String, Number> series1 = new XYChart.Series<>();
 
             // series1.setName("Products");

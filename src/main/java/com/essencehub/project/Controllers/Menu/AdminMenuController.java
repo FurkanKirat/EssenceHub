@@ -1,7 +1,6 @@
 package com.essencehub.project.Controllers.Menu;
 
 import com.essencehub.project.Controllers.Settings.ThemeController;
-import com.essencehub.project.MyApplication;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +14,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class AdminMenuController {
     private double savedWidth;
@@ -84,7 +82,7 @@ public class AdminMenuController {
         catch (Exception e){
             e.printStackTrace();
         }
-        loadFXMLContent("/com/essencehub/project/fxml/dashboard.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/DashboardAdmin.fxml");
         dashboardPanel.getStyleClass().add("selected-border");
 
         currentNode = dashboardPanel;
@@ -103,7 +101,7 @@ public class AdminMenuController {
     @FXML
     void dashboradClicked(MouseEvent event) {
         currentNode.getStyleClass().remove("selected-border");
-        loadFXMLContent("/com/essencehub/project/fxml/dashboard.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/DashboardAdmin.fxml");
         dashboardPanel.getStyleClass().add("selected-border");
         currentNode=dashboardPanel;
     }
