@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
@@ -27,6 +28,12 @@ public class MessageAppController {
     private VBox messageBox;
 
     @FXML
+    private HBox sendHBox;
+
+    @FXML
+    private ListView<User> usersListView;
+
+    @FXML
     private ScrollPane scrollPane;
     private ArrayList<Message> messages;
     private User user;
@@ -39,9 +46,13 @@ public class MessageAppController {
         messageBox.setSpacing(10);
         scrollPane.setContent(messageBox);
         scrollPane.setFitToWidth(true);
+        sendHBox.setVisible(false);
+
+        for(User otheruser : AdminOperations.getUsers()){
+            usersListView.getItems().add(otheruser);
+        }
 
         text.setPromptText("Type a message...");
-        refresh();
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -55,19 +66,26 @@ public class MessageAppController {
     public void refresh(){
 
         user = LoginPageController.getUser();
-        messages = Message.getMessagesBetweenUsers(user,new User(2));
-        messageBox.getChildren().clear();
-        for (Message message : messages) {
-            addMessage(message.getMessage(), message.getSender().getId() == user.getId());
+        if(usersListView.getSelectionModel().getSelectedItem()!=null){
+            sendHBox.setVisible(true);
+            messages = Message.getMessagesBetweenUsers(user,usersListView.getSelectionModel().getSelectedItem());
+            messageBox.getChildren().clear();
+            for (Message message : messages) {
+                addMessage(message.getMessage(), message.getSender().getId() == user.getId());
 
+            }
         }
+        else{
+            sendHBox.setVisible(true);
+        }
+
     }
 
     @FXML
     private void handleSendButtonClick(MouseEvent event) {
         String message = text.getText();
         if (!message.trim().isEmpty()) {
-            AdminOperations.sendMessageMain(user,new User(2),message, LocalDateTime.now());
+            AdminOperations.sendMessageMain(user,usersListView.getSelectionModel().getSelectedItem(),message, LocalDateTime.now());
             addMessage(message, true); // Add user message
             //addMessage("Hi! How are you?", false); // Add a reply message (simulated)
             text.clear();

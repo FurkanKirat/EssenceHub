@@ -40,6 +40,10 @@ public class ViewTaskEmployeeController {
 
     private static Task task;
 
+    public static void setTask(Task task) {
+        ViewTaskEmployeeController.task = task;
+    }
+
     @FXML
     void openTask(ActionEvent event) {
         if(!taskTable.getSelectionModel().isEmpty()){
