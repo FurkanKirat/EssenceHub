@@ -23,12 +23,17 @@ public class OpenTaskEmployeeController {
 
     @FXML
     private Button markAsUndoneBtn;
+
+    @FXML
+    private Label senderNameLabel;
+
     private Task task;
 
     public void initialize(){
         task = ViewTaskEmployeeController.getSelectedTask();
         titleLabel.setText(task.getTitle());
         descriptionArea.setText(task.getTask());
+        senderNameLabel.setText(task.getSender().toString());
     }
 
 

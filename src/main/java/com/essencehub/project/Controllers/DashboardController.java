@@ -54,7 +54,7 @@ public class DashboardController {
         ObservableList<Task> allTasks = FXCollections.observableArrayList(AdminOperations.getAllTasks());
 
         ObservableList<Task> lastFiveTasks = FXCollections.observableArrayList(
-                allTasks.subList(0, Math.min(allTasks.size(), 5))
+                allTasks.subList(0, Math.min(allTasks.size(), 8))
         );
 
         taskTable.setItems(lastFiveTasks);

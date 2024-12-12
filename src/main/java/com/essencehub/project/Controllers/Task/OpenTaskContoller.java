@@ -22,6 +22,8 @@ public class OpenTaskContoller {
     private Label receiverNameLabel;
     private Task task;
     @FXML
+    private Label senderNameLabel;
+    @FXML
     void updateTaskClicked(ActionEvent event) {
         task.setTask(descriptionTextArea.getText());
         task.setTitle(titleTextField.getText());
@@ -30,6 +32,7 @@ public class OpenTaskContoller {
     public void initialize(){
         task = ViewTaskManagerController.getSelectedTask();
         receiverNameLabel.setText(task.getReceiver().toString());
+        senderNameLabel.setText(task.getSender().toString());
         titleTextField.setText(task.getTitle());
         descriptionTextArea.setText(task.getTask());
     }

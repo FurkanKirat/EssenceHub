@@ -3,6 +3,7 @@ package com.essencehub.project.Controllers;
 import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.Controllers.Menu.EmployeeMenuController;
 import com.essencehub.project.Controllers.Menu.LoginPageController;
+import com.essencehub.project.Controllers.Task.ViewTaskEmployeeController;
 import com.essencehub.project.Controllers.Task.ViewTaskManagerController;
 import com.essencehub.project.User.AdminOperations;
 import com.essencehub.project.User.Message;
@@ -59,10 +60,10 @@ public class DashboardEmployeeController {
     @FXML
     void taskClicked(MouseEvent event) {
         if(!taskTable.getSelectionModel().isEmpty()){
-            ViewTaskManagerController.setTask(taskTable.getSelectionModel().getSelectedItem());
+            ViewTaskEmployeeController.setTask(taskTable.getSelectionModel().getSelectedItem());
 
             EmployeeMenuController employeeMenuController = EmployeeMenuController.getInstance();
-            employeeMenuController.loadFXMLContent("/com/essencehub/project/fxml/Task/OpenTask.fxml");
+            employeeMenuController.loadFXMLContent("/com/essencehub/project/fxml/Task/OpenTaskEmployee.fxml");
         }
     }
 }

@@ -12,16 +12,30 @@
 
     <!-- Title Label -->
     <Label alignment="CENTER" style="-fx-font-size: 36px; -fx-font-weight: bold;" styleClass="TaskLabel" text="Update Task" />
-
-    <!-- Receiver Selection -->
-    <HBox spacing="10.0">
-        <Label alignment="CENTER" prefHeight="35.0" prefWidth="150.0" style="-fx-font-size: 24px;" styleClass="TaskLabel" text="Receiver" />
-      <Label fx:id="receiverNameLabel" prefHeight="46.0" prefWidth="403.0" styleClass="TaskLabel" text="Name">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-    </HBox>
+   <HBox prefHeight="100.0" prefWidth="200.0">
+      <children>
+      
+                <!-- Receiver Selection -->
+          <HBox spacing="10.0">
+              <Label alignment="CENTER" prefHeight="35.0" prefWidth="150.0" style="-fx-font-size: 24px;" styleClass="TaskLabel" text="Receiver" />
+            <Label fx:id="receiverNameLabel" prefHeight="35.0" prefWidth="158.0" styleClass="TaskLabel" text="Name">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="35.0" prefWidth="262.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="159.0" style="-fx-font-size: 24px;" styleClass="TaskLabel" text="Sender" />
+                  <Label fx:id="senderNameLabel" prefHeight="35.0" prefWidth="64.0" styleClass="TaskLabel" text="Name">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+          </HBox>
+      </children>
+   </HBox>
 
     <!-- Task Title Input -->
     <HBox spacing="10.0">
