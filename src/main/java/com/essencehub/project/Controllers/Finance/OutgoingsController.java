@@ -1,6 +1,6 @@
 package com.essencehub.project.Controllers.Finance;
 
-import com.essencehub.project.Finance.Outcome;
+import com.essencehub.project.Finance.Outgoings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.time.LocalDate;
 
-public class OutcomeController {
+public class OutgoingsController {
 
     @FXML
     private TextField outcomeField;
@@ -20,13 +20,13 @@ public class OutcomeController {
     private RadioButton theMostButton;
 
     @FXML
-    private TableColumn<Outcome, String> costColumn;
+    private TableColumn<Outgoings, String> costColumn;
 
     @FXML
-    private TableColumn<Outcome, LocalDate> dateColumn;
+    private TableColumn<Outgoings, LocalDate> dateColumn;
 
     @FXML
-    private TableColumn<Outcome, String> titleColumn;
+    private TableColumn<Outgoings, String> titleColumn;
 
     @FXML
     private AnchorPane outcomeAnchorPage;
@@ -35,28 +35,28 @@ public class OutcomeController {
     private ComboBox<String> outcomeComboBox;
 
     @FXML
-    private TableView<Outcome> outcomeTableView;
+    private TableView<Outgoings> outcomeTableView;
 
-    public ObservableList<Outcome> getOutcomeList() {
+    public ObservableList<Outgoings> getOutcomeList() {
         return FXCollections.observableArrayList(
-                new Outcome(LocalDate.of(2024, 1, 15), "January Salay", "5000"),
-                new Outcome(LocalDate.of(2024, 2, 10), "Freelance Project", "1500"),
-                new Outcome(LocalDate.of(2024, 3, 20), "Bonus", "2000"),
-                new Outcome(LocalDate.of(2024, 4, 18), "Investment Return", "300"),
-                new Outcome(LocalDate.of(2024, 5, 25), "May Salary", "5000"),
-                new Outcome(LocalDate.of(2024, 6, 10), "Freelance Project", "1200"),
-                new Outcome(LocalDate.of(2024, 7, 12), "July Dividend", "800"),
-                new Outcome(LocalDate.of(2024, 8, 15), "August Salary", "5000"),
-                new Outcome(LocalDate.of(2024, 9, 5), "Consulting Fee", "2500"),
-                new Outcome(LocalDate.of(2024, 10, 20), "October Bonus", "1500"),
-                new Outcome(LocalDate.of(2024, 11, 10), "Freelance Work", "1700"),
-                new Outcome(LocalDate.of(2024, 12, 25), "December Gift", "500")
+                new Outgoings(LocalDate.of(2024, 1, 15), "January Salay", "5000"),
+                new Outgoings(LocalDate.of(2024, 2, 10), "Freelance Project", "1500"),
+                new Outgoings(LocalDate.of(2024, 3, 20), "Bonus", "2000"),
+                new Outgoings(LocalDate.of(2024, 4, 18), "Investment Return", "300"),
+                new Outgoings(LocalDate.of(2024, 5, 25), "May Salary", "5000"),
+                new Outgoings(LocalDate.of(2024, 6, 10), "Freelance Project", "1200"),
+                new Outgoings(LocalDate.of(2024, 7, 12), "July Dividend", "800"),
+                new Outgoings(LocalDate.of(2024, 8, 15), "August Salary", "5000"),
+                new Outgoings(LocalDate.of(2024, 9, 5), "Consulting Fee", "2500"),
+                new Outgoings(LocalDate.of(2024, 10, 20), "October Bonus", "1500"),
+                new Outgoings(LocalDate.of(2024, 11, 10), "Freelance Work", "1700"),
+                new Outgoings(LocalDate.of(2024, 12, 25), "December Gift", "500")
         );
     }
 
-    public ObservableList<Outcome> outcomes;
-    public ObservableList<Outcome> outcomesFromMost = FXCollections.observableArrayList();
-    private String[] timePeriods = {"Last Month", "Last 6 Months", "Last 1 Year", "All Incomes"};
+    public ObservableList<Outgoings> outcomes;
+    public ObservableList<Outgoings> outcomesFromMost = FXCollections.observableArrayList();
+    private String[] timePeriods = {"Last Month", "Last 6 Months", "Last 1 Year", "All Outgoings"};
     private double totalOutcome = 0;
     private LocalDate ourDay;
     private LocalDate startProcessWhere;
@@ -84,7 +84,7 @@ public class OutcomeController {
             delay = 12;
             startProcessWhere = ourDay.minusMonths(delay);
             fillTable();
-        } else if (outcomeComboBox.getValue().equals("All Incomes")) {
+        } else if (outcomeComboBox.getValue().equals("All Outgoings")) {
             startProcessWhere = ourDay;
             fillTable();
         }
@@ -115,19 +115,19 @@ public class OutcomeController {
     private void fillTable(){
         outcomeTableView.getItems().clear();
         totalOutcome = 0;
-        ObservableList<Outcome> tableItems = outcomeTableView.getItems();
+        ObservableList<Outgoings> tableItems = outcomeTableView.getItems();
 
         if(ourDay.equals(startProcessWhere)){
             if(listFromMost){
 
                 tableItems.addAll(outcomesFromMost);
-                for (Outcome outcome : outcomesFromMost) {
-                    totalOutcome += Double.parseDouble(outcome.getAmount());
+                for (Outgoings outgoings : outcomesFromMost) {
+                    totalOutcome += Double.parseDouble(outgoings.getAmount());
                 }
                 findTotalOutcome();
             }else{
                 tableItems.addAll(outcomes);
-                for (Outcome outcomes : outcomes) {
+                for (Outgoings outcomes : outcomes) {
                     totalOutcome += Double.parseDouble(outcomes.getAmount());
                 }
                 findTotalOutcome();
@@ -136,7 +136,7 @@ public class OutcomeController {
         }else{
             totalOutcome = 0;// don't give permission to repeat
             if(listFromMost){
-                for (Outcome outcomes : outcomesFromMost) {
+                for (Outgoings outcomes : outcomesFromMost) {
                     if(outcomes.getDate().isAfter(startProcessWhere) ||outcomes.getDate().equals(startProcessWhere)){
                         tableItems.add(outcomes);
                         totalOutcome += Double.parseDouble(outcomes.getAmount());
@@ -144,10 +144,10 @@ public class OutcomeController {
                 }
             }else{
 
-                for (Outcome outcome : outcomes) {
-                    if(outcome.getDate().isAfter(startProcessWhere) || outcome.getDate().equals(startProcessWhere)){
-                        tableItems.add(outcome);
-                        totalOutcome += Double.parseDouble(outcome.getAmount());
+                for (Outgoings outgoings : outcomes) {
+                    if(outgoings.getDate().isAfter(startProcessWhere) || outgoings.getDate().equals(startProcessWhere)){
+                        tableItems.add(outgoings);
+                        totalOutcome += Double.parseDouble(outgoings.getAmount());
                     }
                 }
             }

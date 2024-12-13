@@ -10,7 +10,6 @@ import java.util.List;
 public class User {
 
     private int id;
-    private static int idCounter = 2000; // static variable idCounter
     private String name;
     private String surname;
     private String password;
@@ -31,7 +30,7 @@ public class User {
     private static ArrayList<Task> taskA;
 
     public User() {
-        this.id = idCounter++;
+
     }
 
     public User(int id) {
@@ -202,25 +201,7 @@ public class User {
         updatePasswordInDatabase();
     }
 
-    private void updatePasswordInDatabase() {
-        String updateSQL = "UPDATE User SET password = ? WHERE id = ?";
-        try (Connection connection = DatabaseConnection.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(updateSQL)) {
 
-            preparedStatement.setString(1, this.password);
-            preparedStatement.setInt(2, this.id);
-
-            int rowsAffected = preparedStatement.executeUpdate();
-            if (rowsAffected > 0) {
-                System.out.println("Password updated successfully. User ID: " + this.id);
-            } else {
-                System.out.println("Failed to update password. User not found.");
-            }
-        } catch (SQLException e) {
-            System.out.println("Database update error: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
 
     public void changeImage(String imageLocation) {
         this.imageLocation = imageLocation;
@@ -251,6 +232,26 @@ public class User {
 
 
     // Database user methods
+    private void updatePasswordInDatabase() {
+        String updateSQL = "UPDATE User SET password = ? WHERE id = ?";
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(updateSQL)) {
+
+            preparedStatement.setString(1, this.password);
+            preparedStatement.setInt(2, this.id);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Password updated successfully. User ID: " + this.id);
+            } else {
+                System.out.println("Failed to update password. User not found.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Database update error: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
     public static User getUserById(int userId) {
         User user = null;
         String query = "SELECT id, name, surname, phoneNumber, salary, isAdmin, birth, department, email, "
@@ -260,25 +261,54 @@ public class User {
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             preparedStatement.setInt(1, userId);
+            ResultSet resultSet = preparedStatement.executeQuery();
 
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    user = new User();
-                    user.setId(resultSet.getInt("id"));
-                    user.setName(resultSet.getString("name"));
-                    user.setSurname(resultSet.getString("surname"));
-                    user.setPhoneNumber(resultSet.getString("phoneNumber"));
-                    user.setSalary(resultSet.getDouble("salary"));
-                    user.setAdmin(resultSet.getBoolean("isAdmin"));
-                    user.setBirth(resultSet.getString("birth"));
-                    user.setDepartment(resultSet.getString("department"));
-                    user.setEmail(resultSet.getString("email"));
-                    user.setRemainingLeaveDays(resultSet.getInt("remainingLeaveDays"));
-                    user.setActive(resultSet.getBoolean("isActive"));
-                    user.setPassword(resultSet.getString("password"));
-                    user.setImageLocation(resultSet.getString("imageLocation"));
-                }
+            if (resultSet.next()) {
+
+                user = new User();
+                user.setId(resultSet.getInt("id"));
+
+                user.setName(resultSet.getString("name"));
+                user.setSurname(resultSet.getString("surname"));
+                user.setPhoneNumber(resultSet.getString("phoneNumber"));
+                user.setSalary(resultSet.getDouble("salary"));
+                user.setAdmin(resultSet.getBoolean("isAdmin"));
+                user.setBirth(resultSet.getString("birth"));
+                user.setDepartment(resultSet.getString("department"));
+                user.setEmail(resultSet.getString("email"));
+                user.setRemainingLeaveDays(resultSet.getInt("remainingLeaveDays"));
+                user.setActive(resultSet.getBoolean("isActive"));
+                user.setPassword(resultSet.getString("password"));
+                user.setImageLocation(resultSet.getString("imageLocation"));
             }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+
+    public static User getUsername(int userId) {
+        User user = null;
+        String query = "SELECT id, name, surname FROM User WHERE id = ?";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setInt(1, userId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+
+                user = new User();
+                user.setId(resultSet.getInt("id"));
+                user.setName(resultSet.getString("name"));
+                user.setSurname(resultSet.getString("surname"));
+            }
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -6,8 +6,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
-import java.io.IOException;
-
 public class FinanceController {
 
     @FXML
@@ -28,6 +26,6 @@ public class FinanceController {
     @FXML
     void outgoingsClicked(MouseEvent event) {
         AdminMenuController adminMenuController = AdminMenuController.getInstance();
-        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/Outcome.fxml");
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/Outgoings.fxml");
     }
 }

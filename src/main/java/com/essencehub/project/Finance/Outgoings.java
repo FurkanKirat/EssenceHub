@@ -2,12 +2,12 @@ package com.essencehub.project.Finance;
 
 import java.time.LocalDate;
 
-public class Outcome {
+public class Outgoings {
     private LocalDate date;
     private String title;
     private String cost;
 
-    public Outcome(LocalDate date, String title, String cost){
+    public Outgoings(LocalDate date, String title, String cost){
         this.date = date;
         this.title = title;
         this.cost = cost;

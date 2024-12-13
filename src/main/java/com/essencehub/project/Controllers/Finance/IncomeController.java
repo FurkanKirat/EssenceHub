@@ -72,21 +72,26 @@ public class IncomeController {
 
     @FXML
     void incomeComboBoxIsSelected(ActionEvent event) {
-        if (incomeComboBox.getValue().equals("Last Month")) {
-            delay = 1;
-            startProcessWhere = ourDay.minusMonths(delay);
-            fillTable();
-        } else if (incomeComboBox.getValue().equals("Last 6 Months")) {
-            delay = 6;
-            startProcessWhere = ourDay.minusMonths(delay);
-            fillTable();
-        } else if (incomeComboBox.getValue().equals("Last 1 Year")) {
-            delay = 12;
-            startProcessWhere = ourDay.minusMonths(delay);
-            fillTable();
-        } else if (incomeComboBox.getValue().equals("All Incomes")) {
-            startProcessWhere = ourDay;
-            fillTable();
+        switch (incomeComboBox.getValue()){
+            case "Last Month":
+                delay = 1;
+                startProcessWhere = ourDay.minusMonths(delay);
+                fillTable();
+                break;
+            case "Last 6 Months":
+                delay = 6;
+                startProcessWhere = ourDay.minusMonths(delay);
+                fillTable();
+                break;
+            case "Last 1 Year":
+                delay = 12;
+                startProcessWhere = ourDay.minusMonths(delay);
+                fillTable();
+                break;
+            case "All Incomes":
+                startProcessWhere = ourDay;
+                fillTable();
+                break;
         }
     }
 

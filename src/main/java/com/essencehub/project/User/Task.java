@@ -126,7 +126,16 @@ public class Task {
 
     public static List<Task> getAllTasks() {
         List<Task> taskList = new ArrayList<>();
-        String query = "SELECT id, sender_id, receiver_id, task, title, send_date_time, is_task_done FROM Task ORDER BY send_date_time DESC";
+        String query = """
+        SELECT 
+            t.id, t.sender_id, t.receiver_id, t.task, t.title, t.send_date_time, t.is_task_done,
+            s.name AS sender_name, s.surname AS sender_surname,
+            r.name AS receiver_name, r.surname AS receiver_surname
+        FROM Task t
+        JOIN User s ON t.sender_id = s.id
+        JOIN User r ON t.receiver_id = r.id
+        ORDER BY t.send_date_time DESC
+    """;
 
         try (Connection connection = DatabaseConnection.getConnection();
              Statement statement = connection.createStatement();
@@ -141,9 +150,17 @@ public class Task {
                 LocalDateTime sendDateTime = resultSet.getTimestamp("send_date_time").toLocalDateTime();
                 boolean isTaskDone = resultSet.getBoolean("is_task_done");
 
+                // Gönderici bilgileri
                 User sender = new User(senderId);
-                User receiver = new User(receiverId);
+                sender.setName(resultSet.getString("sender_name"));
+                sender.setSurname(resultSet.getString("sender_surname"));
 
+                // Alıcı bilgileri
+                User receiver = new User(receiverId);
+                receiver.setName(resultSet.getString("receiver_name"));
+                receiver.setSurname(resultSet.getString("receiver_surname"));
+
+                // Görevi oluştur ve listeye ekle
                 Task taskObj = new Task(sender, receiver, task, title, sendDateTime, isTaskDone);
                 taskObj.setId(id);
                 taskList.add(taskObj);

@@ -1,6 +1,7 @@
 package com.essencehub.project;
 
 import com.essencehub.project.Controllers.Settings.ThemeController;
+import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +14,6 @@ public class MyApplication extends Application {
     public void start(Stage stage) {
 
         try{
-
             Parent root = FXMLLoader.load(getClass().getResource("/com/essencehub/project/fxml/Menu/LoginPage.fxml"));
 
             Scene scene = new Scene(root);
