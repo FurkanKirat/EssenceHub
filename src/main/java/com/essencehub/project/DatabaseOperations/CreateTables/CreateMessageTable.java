@@ -1,4 +1,6 @@
-package com.essencehub.project.DatabaseOperations;
+package com.essencehub.project.DatabaseOperations.CreateTables;
+
+import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.Statement;
@@ -19,10 +21,10 @@ public class CreateMessageTable {
                         + ");";
                 try (Statement statement = connection.createStatement()) {
                     statement.execute(createTableSQL);
-                    System.out.println("Message tablosu başarıyla oluşturuldu.");
+                    System.out.println("Message table created successfully.");
                 }
             } else {
-                System.out.println("Veritabanı bağlantısı başarısız.");
+                System.out.println("Database connection failed.");
             }
         } catch (Exception e) {
             e.printStackTrace();

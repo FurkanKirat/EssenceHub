@@ -25,7 +25,7 @@ public class Message {
         this.sendDateTime = time;
     }
 
-    // Getter ve Setter metotları
+    // Getter and Setter Methods
 
     public User getSender() {
         return sender;

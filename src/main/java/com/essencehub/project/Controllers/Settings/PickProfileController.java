@@ -172,11 +172,10 @@ public class PickProfileController {
         File selectedFile = fileChooser.showOpenDialog(stage);
 
         if (selectedFile == null || !selectedFile.exists()) {
-            //System.err.println("Geçersiz dosya seçildi.");
+            //System.err.println("Invalid file selected.");
             return;
         }
 
-        // Kullanıcı ana dizini altında hedef yol
         String absolutePath = System.getProperty("user.home") + "/essencehub/ProfilePictures/" + user.getId() + ".png";
 
         selectedImageLocation = "file:" + System.getProperty("user.home") + "\\essencehub\\ProfilePictures\\" + user.getId() + ".png";
@@ -184,27 +183,24 @@ public class PickProfileController {
         System.out.println(selectedImageLocation);
         File profilePicture = new File(absolutePath);
 
-        // Klasörü kontrol et ve oluştur
         if (!profilePicture.getParentFile().exists()) {
             boolean created = profilePicture.getParentFile().mkdirs();
             if (!created) {
-                System.err.println("Hedef klasör oluşturulamadı: " + profilePicture.getParentFile().getAbsolutePath());
+                System.err.println("Failed to create target folder: " + profilePicture.getParentFile().getAbsolutePath());
                 return;
             }
         }
 
         try {
-            // Dosyayı kopyala
             Files.copy(selectedFile.toPath(), profilePicture.toPath(), StandardCopyOption.REPLACE_EXISTING);
 
-            System.out.println("Dosya başarıyla kopyalandı: " + profilePicture.getAbsolutePath());
+            System.out.println("The file was copied successfully: " + profilePicture.getAbsolutePath());
 
-            // Kullanıcı profil resmini güncelle
             String imageUrl = profilePicture.toURI().toString();
 
-            System.out.println("Profil resmi güncellendi: " + imageUrl);
+            System.out.println("Profile picture updated: " + imageUrl);
         } catch (IOException e) {
-            System.err.println("Dosya kopyalanırken hata oluştu: " + e.getMessage());
+            System.err.println("Error copying file: " + e.getMessage());
             e.printStackTrace();
         }
     }

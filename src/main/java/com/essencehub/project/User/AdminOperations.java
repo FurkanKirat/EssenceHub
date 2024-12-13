@@ -17,7 +17,7 @@ public class AdminOperations {
     public static List<User> users = new ArrayList<>();
     public static ArrayList<User> employees = new ArrayList<>();
 
-    // KULLANICI İŞE AL
+    // Hire employee
     public static void addUser(User user) {
         String sql = "INSERT INTO User (name, surname, phoneNumber, salary, isAdmin, birth, department, email, remainingLeaveDays, monthlyPerformance, bonusSalary, isActive, password,imageLocation) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -25,7 +25,7 @@ public class AdminOperations {
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            // Parametreleri set ediyoruz
+            // We set the parameters
             statement.setString(1, user.getName());
             statement.setString(2, user.getSurname());
             statement.setString(3, user.getPhoneNumber());
@@ -42,16 +42,16 @@ public class AdminOperations {
             statement.setString(13, user.getPassword()); // Şifreyi ekliyoruz
             statement.setString(14,user.getImageLocation());
 
-            // Veritabanına ekliyoruz
+            // We add it to the database
             statement.executeUpdate();
-            System.out.println("Kullanıcı başarıyla eklendi.");
+            System.out.println("User added successfully.");
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    // KULLANICI GÜNCELLE
+    //UPDATE USER
     public static void updateUser(User user) {
         String sql = "UPDATE User SET name = ?, surname = ?, phoneNumber = ?, salary = ?, isAdmin = ?, birth = ?, department = ?, email = ?, remainingLeaveDays = ?, monthlyPerformance = ?, bonusSalary = ?, isActive = ?, imageLocation = ? WHERE id = ?";
 
@@ -77,9 +77,9 @@ public class AdminOperations {
 
             int rowsAffected = statement.executeUpdate();
             if (rowsAffected > 0) {
-                System.out.println("Kullanıcı başarıyla güncellendi.");
+                System.out.println("User updated successfully.");
             } else {
-                System.out.println("Kullanıcı bulunamadı.");
+                System.out.println("User not found.");
             }
 
         } catch (SQLException e) {
@@ -113,9 +113,9 @@ public class AdminOperations {
 
             int rowsAffected = statement.executeUpdate();
             if (rowsAffected > 0) {
-                System.out.println("Kullanıcı başarıyla güncellendi.");
+                System.out.println("User updated successfully.");
             } else {
-                System.out.println("Kullanıcı bulunamadı.");
+                System.out.println("User not found.");
             }
 
         } catch (SQLException e) {
@@ -123,8 +123,7 @@ public class AdminOperations {
         }
     }
 
-
-    //MESAJ GÖNDER
+    //SEND MESSAGE
     public static void sendMessageMain(User sender, User receiver, String message, LocalDateTime sendDateTime) {
         Message messageTemp = new Message(sender, receiver, message, sendDateTime);
         sendMessage(messageTemp);
@@ -136,24 +135,24 @@ public class AdminOperations {
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
-            // Veritabanına ekliyoruz
+            // Adding to the database
             preparedStatement.setInt(1, message.getSender().getId());
             preparedStatement.setInt(2, message.getReceiver().getId());
             preparedStatement.setString(3, message.getMessage());
 
-            // LocalDateTime'ı doğrudan set edebiliriz, MySQL'de DATETIME tipi ile uyumludur
+            // We can set LocalDateTime directly, it is compatible with DATETIME type in MySQL
             preparedStatement.setObject(4, message.getSendDateTime());
 
-            // SQL komutunu çalıştır
+            //run SQL command
             preparedStatement.executeUpdate();
-            System.out.println("Mesaj başarıyla gönderildi.");
+            System.out.println("Message sent successfully.");
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    // TASK GÖNDER
+    // SEND TASK
     public static void sendTaskMain(User sender, User receiver, String task, String title, LocalDateTime sendDateTime, boolean isTaskDone) {
         Task taskTemp = new Task(sender, receiver, task, title, sendDateTime, isTaskDone);
         sendTask(taskTemp);
@@ -168,20 +167,20 @@ public class AdminOperations {
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(insertTaskSQL)) {
 
-            // SQL sorgusunda ? yerlerine parametreleri yerleştiriyoruz
-            preparedStatement.setInt(1, task.getSender().getId()); // Gönderenin ID'si
-            preparedStatement.setInt(2, task.getReceiver().getId()); // Alıcının ID'si
-            preparedStatement.setString(3, task.getTask()); // Görev açıklaması
-            preparedStatement.setString(4, task.getTitle()); // Görev başlığı
-            preparedStatement.setObject(5, task.getSendDateTime()); // Gönderilme tarihi
-            preparedStatement.setBoolean(6, task.isTaskDone()); // Görev tamamlanma durumu
+            // In the SQL query ? We replace the parameters
+            preparedStatement.setInt(1, task.getSender().getId()); // Sender ID
+            preparedStatement.setInt(2, task.getReceiver().getId()); // Receiver ID
+            preparedStatement.setString(3, task.getTask()); // Task description
+            preparedStatement.setString(4, task.getTitle()); // Task title
+            preparedStatement.setObject(5, task.getSendDateTime()); // Sent date
+            preparedStatement.setBoolean(6, task.isTaskDone()); // Task completion status
 
-            // SQL sorgusunu çalıştır
+            //Run SQL query
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
-                System.out.println("Görev başarıyla gönderildi.");
+                System.out.println("Task sent successfully.");
             } else {
-                System.out.println("Görev gönderilirken bir hata oluştu.");
+                System.out.println("An error occurred while submitting the task.");
             }
 
         } catch (SQLException e) {
@@ -191,7 +190,7 @@ public class AdminOperations {
         }
     }
 
-    // TASK GÜNCELLE
+    //UPDATE TASK
     public static void updateTask(Task task) {
         String updateTaskSQL = "UPDATE Task SET "
                 + "task = ?, "
@@ -202,18 +201,18 @@ public class AdminOperations {
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(updateTaskSQL)) {
 
-            // SQL sorgusundaki ? yerlerine parametreleri yerleştiriyoruz
-            preparedStatement.setString(1, task.getTask()); // Görev açıklaması
-            preparedStatement.setString(2, task.getTitle()); // Görev başlığı
-            preparedStatement.setBoolean(3, task.isTaskDone()); // Görev tamamlanma durumu
-            preparedStatement.setInt(4, task.getId()); // Görev ID'si (güncellenmek istenen görev)
+            // in SQL query We place parameters in (?) places
+            preparedStatement.setString(1, task.getTask()); // Task description
+            preparedStatement.setString(2, task.getTitle()); // Task title
+            preparedStatement.setBoolean(3, task.isTaskDone()); // Task completion status
+            preparedStatement.setInt(4, task.getId()); // Task ID (task to be updated)
 
-            // SQL sorgusunu çalıştır
+            //Run SQL query
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
-                System.out.println("Görev başarıyla güncellendi.");
+                System.out.println("Task updated successfully.");
             } else {
-                System.out.println("Görev güncellenirken bir hata oluştu veya görev bulunamadı.");
+                System.out.println("An error occurred while updating the task or the task was not found.");
             }
 
         } catch (SQLException e) {
@@ -262,14 +261,13 @@ public class AdminOperations {
                 users.add(user);
             }
         } catch (SQLException e) {
-            System.out.println("Veritabanı sorgulama hatası: " + e.getMessage());
+            System.out.println("Database query error: " + e.getMessage());
             e.printStackTrace();
         }
         return users;
     }
 
-    //Stock table'ına yeni bir product ekler.*p
-
+    // Adds a new product to the stock table.
     public static void addProduct(Product product) {
         String insertProductSQL = "INSERT INTO Stock (name, count, month_and_year) VALUES (?, ?, ?)";
 
@@ -283,52 +281,55 @@ public class AdminOperations {
                     int affectedRows = preparedStatement.executeUpdate();
 
                     if (affectedRows > 0) {
-                        System.out.println("Ürün başarıyla eklendi.");
+                        System.out.println("The product was added successfully.");
                     } else {
-                        System.out.println("Ürün ekleme başarısız oldu.");
+                        System.out.println("Adding product failed.");
                     }
                 }
             } else {
-                System.out.println("Veritabanı bağlantısı başarısız.");
+                System.out.println("Database connection failed.");
             }
         } catch (SQLException e) {
-            System.out.println("Ürün ekleme hatası: " + e.getMessage());
+            System.out.println("Error adding product: " + e.getMessage());
             e.printStackTrace();
         }}
 
-    // Seçilen nesnenin count'ını increaseAmount kadar arttırır.
+    // Increases the count of the selected object by increaseAmount.
     public static void addStock(Product product, int increaseAmount) {
-        // SQL UPDATE sorgusu
+
+        //SQL UPDATE query
         String updateStockSQL = "UPDATE Stock SET count = count + ? WHERE name = ? AND month_and_year = ?";
 
         try (Connection connection = DatabaseConnection.getConnection()) {
             if (connection != null) {
-                // PreparedStatement ile sorguyu hazırlayın
+
+                // Prepare the query with PreparedStatement
                 try (PreparedStatement preparedStatement = connection.prepareStatement(updateStockSQL)) {
-                    // Sorgu parametrelerini ayarlayın
+
+                    // Set query parameters
                     preparedStatement.setInt(1, increaseAmount); // count + increaseAmount
                     preparedStatement.setString(2, product.getName()); // name
                     preparedStatement.setString(3, product.getMonthAndYear()); // month_and_year
 
-                    // Sorguyu çalıştırın
+                    // Run the query
                     int affectedRows = preparedStatement.executeUpdate();
 
                     if (affectedRows > 0) {
-                        System.out.println("Stok başarıyla güncellendi.");
+                        System.out.println("Stock updated successfully.");
                     } else {
-                        System.out.println("Ürün bulunamadı. Stok güncellenemedi.");
+                        System.out.println("Product not found. Stock could not be updated.");
                     }
                 }
             } else {
-                System.out.println("Veritabanı bağlantısı başarısız.");
+                System.out.println("Database connection failed.");
             }
         } catch (SQLException e) {
-            System.out.println("Stok güncelleme hatası: " + e.getMessage());
+            System.out.println("Stock update error: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
-    // Seçilen nesnenin count'ını decreaseAmount kadar eksiltir.
+    // Decreases the count of the selected object by decreaseAmount.
     public static void removeStock(Product product, int decreaseAmount) {
         String selectStockSQL = "SELECT count FROM Stock WHERE name = ? AND month_and_year = ?";
         String updateStockSQL = "UPDATE Stock SET count = count - ? WHERE name = ? AND month_and_year = ?";
@@ -350,24 +351,24 @@ public class AdminOperations {
 
                                     int affectedRows = updateStatement.executeUpdate();
                                     if (affectedRows > 0) {
-                                        System.out.println("Stok başarıyla güncellendi.");
+                                        System.out.println("Inventory updated successfully.");
                                     } else {
-                                        System.out.println("Ürün bulunamadı. Stok güncellenemedi.");
+                                        System.out.println("Product not found. Stock could not be updated.");
                                     }
                                 }
                             } else {
-                                System.out.println("Yetersiz stok! Mevcut miktar: " + currentCount);
+                                System.out.println("Insufficient stock! Available quantity: " + currentCount);
                             }
                         } else {
-                            System.out.println("Ürün bulunamadı.");
+                            System.out.println("Product not found.");
                         }
                     }
                 }
             } else {
-                System.out.println("Veritabanı bağlantısı başarısız.");
+                System.out.println("Database connection failed.");
             }
         } catch (SQLException e) {
-            System.out.println("Stok güncelleme hatası: " + e.getMessage());
+            System.out.println("Stock update error: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -478,7 +479,7 @@ public class AdminOperations {
                 employees.add(employee);
             }
         } catch (SQLException e) {
-            System.out.println("Veritabanı sorgulama hatası: " + e.getMessage());
+            System.out.println("Database query error: " + e.getMessage());
             e.printStackTrace();
         }
         return employees;
@@ -487,8 +488,6 @@ public class AdminOperations {
     public static List<Task> getUserTasks(int userID) {
         List<Task> taskList = new ArrayList<>();
         String query = "SELECT id, sender_id, receiver_id, task, title, send_date_time, is_task_done FROM Task WHERE receiver_id = ? ORDER BY send_date_time DESC";
-
-
 
         try {
             PreparedStatement statement = DatabaseConnection.getConnection().prepareStatement(query);

@@ -1,4 +1,6 @@
-package com.essencehub.project.DatabaseOperations;
+package com.essencehub.project.DatabaseOperations.CreateTables;
+
+import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.Statement;
@@ -6,7 +8,7 @@ import java.sql.SQLException;
 
     public class CreateStockTable {
 
-        //Stock Table'ı oluşturmak için bu classı runlıyoruz beyler.
+        // We run this class to create the Stock Table
         public static void main(String[] args) {
 
         try (Connection connection = DatabaseConnection.getConnection()) {
@@ -20,14 +22,14 @@ import java.sql.SQLException;
 
                 try (Statement statement = connection.createStatement()) {
                     statement.execute(createTableSQL);
-                    System.out.println("Stock tablosu oluşru.");
+                    System.out.println("Stock table created.");
                 } catch (SQLException e) {
-                    System.out.println("Tablo oluşturma hatası: " + e.getMessage());
+                    System.out.println("Error creating table: " + e.getMessage());
                     e.printStackTrace();
                 }
             }
         } catch (SQLException e) {
-            System.out.println("Veritabanı bağlantı hatası: " + e.getMessage());
+            System.out.println("Database connection error: " + e.getMessage());
             e.printStackTrace();
         }
     }

@@ -10,10 +10,10 @@ import java.util.List;
 public class User {
 
     private int id;
-    private static int idCounter = 2000; // static değişken idCounter
+    private static int idCounter = 2000; // static variable idCounter
     private String name;
     private String surname;
-    private String password;  // Password özelliği eklendi
+    private String password;
     private String phoneNumber;
     private double salary;
     private boolean isAdmin;  
@@ -38,7 +38,6 @@ public class User {
         this.id = id;
     }
 
-    // Constructor, password parametresi eklendi
     public User(String name, String surname, String phoneNumber, double baseSalary, boolean isAdmin, String birth,
                 String department, String email, int remainingLeaveDays, boolean isActive, String password, Performance monthlyPerformance, double bonusSalary, String imageLocation) {
         this();
@@ -57,11 +56,11 @@ public class User {
         this.monthlyPerformance = monthlyPerformance;
         this.bonusSalary = bonusSalary;
         this.imageLocation = imageLocation;
-        this.image = new Image(imageLocation);
+        //this.image = new Image(imageLocation);
 
     }
 
-    // Getter ve Setter Metotları
+    // Getter and Setters
     public int getId() {
         return id;
     }
@@ -70,7 +69,6 @@ public class User {
         this.id = id;
     }
 
-    // Diğer getter ve setter metotları
     public String getName() {
         return name;
     }
@@ -168,7 +166,6 @@ public class User {
         this.isActive = isActive;
     }
 
-    // Getter ve Setter metotları password için
     public String getPassword() {
         return password;
     }
@@ -215,12 +212,12 @@ public class User {
 
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
-                System.out.println("Şifre başarıyla güncellendi. Kullanıcı ID: " + this.id);
+                System.out.println("Password updated successfully. User ID: " + this.id);
             } else {
-                System.out.println("Şifre güncellenemedi. Kullanıcı bulunamadı.");
+                System.out.println("Failed to update password. User not found.");
             }
         } catch (SQLException e) {
-            System.out.println("Veritabanı güncelleme hatası: " + e.getMessage());
+            System.out.println("Database update error: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -237,17 +234,17 @@ public class User {
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(updateSQL)) {
 
-            preparedStatement.setString(1, this.imageLocation); // String türü için setString kullanıldı
+            preparedStatement.setString(1, this.imageLocation);
             preparedStatement.setInt(2, this.id);
 
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
-                System.out.println("Image değeri başarıyla güncellendi. Kullanıcı ID: " + this.id);
+                System.out.println("Image value updated successfully. User ID: " + this.id);
             } else {
-                System.out.println("Image değeri güncellenemedi. Kullanıcı bulunamadı.");
+                System.out.println("Failed to update image. User not found.");
             }
         } catch (SQLException e) {
-            System.out.println("Veritabanı güncelleme hatası: " + e.getMessage());
+            System.out.println("Database update error: " + e.getMessage());
             e.printStackTrace();
         }
     }

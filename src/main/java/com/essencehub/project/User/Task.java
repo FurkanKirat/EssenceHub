@@ -13,9 +13,9 @@ public class Task {
     private User sender;
     private User receiver;
     private String task;
-    private String title; // Yeni eklenen title alanı
+    private String title; // Newly added title field
     private LocalDateTime sendDateTime;
-    private boolean isTaskDone; // Görev tamamlanma durumu
+    private boolean isTaskDone; // Task completion status
 
     // Constructor
 
@@ -23,14 +23,14 @@ public class Task {
         this.sender = sender;
         this.receiver = receiver;
         this.task = task;
-        // Eğer title null ise veya boş verilirse task'ten türetilir
+        // If title is null or given empty, it is derived from task
         this.title = title != null && !title.isEmpty() ? title : task.length() > 50 ? task.substring(0, 50) : task;
         this.sendDateTime = Objects.requireNonNullElseGet(sendDateTime, LocalDateTime::now);
         this.isTaskDone = isTaskDone;
 
     }
 
-    // Getter ve Setter Metotları
+    // Getter and Setters
     public void setId(int id) {
         this.id = id;
     }
@@ -80,7 +80,7 @@ public class Task {
         this.sendDateTime = sendDateTime;
     }
 
-    // isTaskDone Getter ve Setter
+    // isTaskDone Getter and Setter
     public boolean isTaskDone() {
         return isTaskDone;
     }
@@ -89,12 +89,12 @@ public class Task {
         this.isTaskDone = isTaskDone;
     }
 
-    // Görev tamamlandığında durumu değiştiren metod
+    // Method that changes the state when the task is completed
     public void markTaskAsDone() {
         this.isTaskDone = true;
     }
 
-    // Görev tamamlanmamış olduğunda durumu değiştiren metod
+    // Method that changes state when the task is not completed
     public void markTaskAsPending() {
         this.isTaskDone = false;
     }
@@ -109,13 +109,13 @@ public class Task {
                     int rowsAffected = preparedStatement.executeUpdate();
 
                     if (rowsAffected > 0) {
-                        System.out.println("Görev başarıyla silindi: " + task.getId());
+                        System.out.println("Task deleted successfully: " + task.getId());
                     } else {
-                        System.out.println("Silinmek istenen görev bulunamadı: " + task.getId());
+                        System.out.println("The task to be deleted could not be found: " + task.getId());
                     }
                 }
             } else {
-                System.out.println("Veritabanı bağlantısı başarısız.");
+                System.out.println("Database connection failed.");
             }
         } catch (Exception e) {
             e.printStackTrace();

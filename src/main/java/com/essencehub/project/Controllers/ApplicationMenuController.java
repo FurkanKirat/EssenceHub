@@ -442,7 +442,6 @@ public class ApplicationMenuController {
         if(rowsUpdated == 0){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Update Failed");
-            System.out.println("v");
             alert.setHeaderText("No Changes Made");
             alert.setContentText("No rows were updated. Please check the input.");
             alert.showAndWait();

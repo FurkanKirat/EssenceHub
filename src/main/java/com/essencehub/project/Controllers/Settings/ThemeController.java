@@ -32,7 +32,7 @@ public class ThemeController {
     public static String theme = "/com/essencehub/project/css/style.css";
     @FXML
     void changeButtonClicked(MouseEvent event) {
-        // Tema seçimine göre kaynak CSS dosyasını belirleyin
+
         if (themePicker.getValue().equals("Gray Theme")) {
             theme = "/com/essencehub/project/css/GrayStyle.css";
 
@@ -57,21 +57,19 @@ public class ThemeController {
         String destinationCssFile = "src/main/resources/com/essencehub/project/css/style.css";
 
         try {
-            // Kaynak dosyayı ClassLoader kullanarak okuyun
+
             URL sourceUrl = getClass().getResource(theme);
             if (sourceUrl == null) {
                 throw new IOException("Kaynak dosya bulunamadı: " + theme);
             }
             Path sourcePath = Paths.get(sourceUrl.toURI());
 
-            // Kaynak dosyayı okuyun
             String cssContent = Files.readString(sourcePath);
 
-            // İçeriği hedef CSS dosyasına yazın
             Path destinationPath = Paths.get(destinationCssFile);
             Files.writeString(destinationPath, cssContent);
 
-            System.out.println("CSS dosyası başarıyla kopyalandı ve tema değiştirildi.");
+            System.out.println("CSS file copied successfully and theme changed.");
             sceneLoader(event);
             FXMLoader("/com/essencehub/project/fxml/Settings/theme.fxml");
         } catch (Exception e) {

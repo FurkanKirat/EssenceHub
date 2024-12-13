@@ -1,10 +1,13 @@
 package com.essencehub.project.Controllers.Message;
 
+import com.essencehub.project.Controllers.Menu.AdminMenuController;
+import com.essencehub.project.Controllers.Menu.EmployeeMenuController;
 import com.essencehub.project.Controllers.Menu.LoginPageController;
 import com.essencehub.project.User.AdminOperations;
 import com.essencehub.project.User.Message;
 import com.essencehub.project.User.User;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -61,7 +64,7 @@ public class MessageAppController {
                     refresh();
                 });
             }
-        }, 0, 1);
+        }, 0, 2500);
     }
     public void refresh(){
 
@@ -74,9 +77,10 @@ public class MessageAppController {
                 addMessage(message.getMessage(), message.getSender().getId() == user.getId());
 
             }
+            scrollPane.vvalueProperty().bind(messageBox.heightProperty());
         }
         else{
-            sendHBox.setVisible(true);
+            sendHBox.setVisible(false);
         }
 
     }
@@ -87,9 +91,7 @@ public class MessageAppController {
         if (!message.trim().isEmpty()) {
             AdminOperations.sendMessageMain(user,usersListView.getSelectionModel().getSelectedItem(),message, LocalDateTime.now());
             addMessage(message, true); // Add user message
-            //addMessage("Hi! How are you?", false); // Add a reply message (simulated)
             text.clear();
-            scrollPane.setVvalue(1.0); // Scroll to the bottom
         }
     }
 
@@ -110,6 +112,27 @@ public class MessageAppController {
 
         messageBalloon.getChildren().add(label);
         messageBox.getChildren().add(messageBalloon);
+    }
+
+    @FXML
+    void homepageClicked(MouseEvent event) {
+        try {
+            if(LoginPageController.getUser().isAdmin()){
+                AdminMenuController adminMenuController = AdminMenuController.getInstance();
+                adminMenuController.settings("/com/essencehub/project/fxml/Menu/AdminMenu.fxml",event);
+            }
+            else{
+                EmployeeMenuController employeeMenuController = EmployeeMenuController.getInstance();
+                employeeMenuController.settings("/com/essencehub/project/fxml/Menu/EmployeeMenu.fxml",event);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void userSelected(ActionEvent event) {
+        refresh();
     }
 
 }

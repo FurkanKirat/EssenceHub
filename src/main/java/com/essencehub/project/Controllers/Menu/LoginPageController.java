@@ -125,14 +125,14 @@ public class LoginPageController {
 
             if (resultset.next()) {
                 loggedUser = new User();
-                logUser(resultset); // Pass the ResultSet to logUser()
+                logUser(resultset);
 
                 boolean isPasswordTrue = id == resultset.getInt("id") && password.equals(resultset.getString("password"));
 
                 if (isPasswordTrue) {
                     if (resultset.getInt("isActive") == 1) {
                         warning.setVisible(false);
-                        loadAppropriateMenu(event); // Extracted menu-loading logic to a separate method.
+                        loadAppropriateMenu(event);
                     } else {
                         warning.setVisible(true);
                         warning.setText("This user is not active");
@@ -159,11 +159,6 @@ public class LoginPageController {
             warning.setVisible(true);
         }
     }
-
-//    public static ResultSet getResultSet(){
-//        return resultset;
-//    }
-
 
     public static User getUser(){
         return loggedUser;

@@ -5,15 +5,12 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
     public static Connection getConnection() {
-        String url = "jdbc:mysql://localhost:3306/BusinessProject?user=root&password=ruhi1234"; // URL'de kullanıcı adı ve şifreyi belirtmek yeterli
+        String url = "jdbc:mysql://34.65.64.126:3306/BusinessProject?user=fatihpehlivan&password=ruhi1234";
         try {
-            // JDBC sürücüsünü yükleme (bu, genellikle MySQL 8+ için gereksizdir çünkü JDBC 8.0 sürücüleri otomatik yüklenir)
-            // Class.forName("com.mysql.cj.jdbc.Driver"); // Bu satır MySQL 8 ve sonrasında genellikle gerekmez.
 
-            // Bağlantıyı oluşturma
             return DriverManager.getConnection(url);
         } catch (SQLException e) {
-            System.out.println("Veritabanı bağlantı hatası: " + e.getMessage());
+            System.out.println("Database connection error: " + e.getMessage());
             e.printStackTrace();
         }
 
