@@ -119,32 +119,38 @@ public class LoginPageController {
             String password = passwordField.isVisible() ? passwordField.getText() : passwordText.getText();
 
             Connection connection = DatabaseConnection.getConnection();
-            Statement statement = connection.createStatement();
-
-            ResultSet resultset = statement.executeQuery("SELECT * FROM User WHERE id = " + id + " AND password = '" + password + "'");
-
-            if (resultset.next()) {
-                loggedUser = new User();
-                logUser(resultset);
-
-                boolean isPasswordTrue = id == resultset.getInt("id") && password.equals(resultset.getString("password"));
-
-                if (isPasswordTrue) {
-                    if (resultset.getInt("isActive") == 1) {
-                        warning.setVisible(false);
-                        loadAppropriateMenu(event);
-                    } else {
-                        warning.setVisible(true);
-                        warning.setText("This user is not active");
-                    }
-                } else {
-                    warning.setText("ID or password is wrong");
-                    warning.setVisible(true);
-                }
-            } else {
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "SELECT * FROM User WHERE id = ? AND password = ?"
+            );
+            preparedStatement.setInt(1, id);
+            preparedStatement.setString(2, password);
+            ResultSet resultset = preparedStatement.executeQuery();
+            
+            if (!resultset.next()) {
                 warning.setText("ID or password is wrong");
                 warning.setVisible(true);
+                return;
+
             }
+            loggedUser = new User();
+            logUser(resultset);
+
+            boolean isPasswordTrue = id == resultset.getInt("id") && password.equals(resultset.getString("password"));
+            if(!isPasswordTrue){
+                warning.setText("ID or password is wrong");
+                warning.setVisible(true);
+                return;
+            }
+
+            if (resultset.getInt("isActive") == 0) {
+                warning.setVisible(true);
+                warning.setText("This user is not active");
+                return;
+
+            }
+            warning.setVisible(false);
+            loadAppropriateMenu(event);
+
         } catch (SQLException e) {
             warning.setText("SQL Exception has occurred!");
             e.printStackTrace();
@@ -172,28 +178,23 @@ public class LoginPageController {
             loggedUser.setSalary(resultset.getDouble("salary"));
             loggedUser.setAdmin(resultset.getBoolean("isAdmin"));
 
-            String dateTimeString = resultset.getString("birth");
-            if (dateTimeString != null) {
-                loggedUser.setBirth(dateTimeString);
-            }
+            loggedUser.setBirth(getStringOrNull(resultset, "birth"));
 
             loggedUser.setDepartment(resultset.getString("department"));
             loggedUser.setEmail(resultset.getString("email"));
             loggedUser.setRemainingLeaveDays(resultset.getInt("remainingLeaveDays"));
 
-            String performanceValue = resultset.getString("monthlyPerformance");
-            if (performanceValue != null) {
-                Performance performance = Performance.valueOf(performanceValue.toUpperCase());
-                loggedUser.setMonthlyPerformance(performance);
-            }
+            loggedUser.setMonthlyPerformance(getPerformance(resultset,"monthlyPerformance"));
 
             loggedUser.setBonusSalary(resultset.getDouble("bonusSalary"));
             loggedUser.setActive(resultset.getBoolean("isActive"));
             loggedUser.setPassword(resultset.getString("password"));
-            loggedUser.setImage(new Image(resultset.getString("imageLocation")));
-            loggedUser.setImageLocation(resultset.getString("imageLocation"));
+
+            String imageLocation = resultset.getString("imageLocation");
+            loggedUser.setImage(new Image(imageLocation));
+            loggedUser.setImageLocation(imageLocation);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Failed to login",e);
         }
     }
     private void loadAppropriateMenu(Event event) throws IOException {
@@ -219,6 +220,15 @@ public class LoginPageController {
         stage.setScene(scene);
         stage.show();
         stage.centerOnScreen();
+    }
+
+    private String getStringOrNull(ResultSet resultSet, String columnLabel) throws SQLException {
+        return resultSet.getString(columnLabel);
+    }
+
+    private Performance getPerformance(ResultSet resultSet, String columnLabel) throws SQLException {
+        String value = resultSet.getString(columnLabel);
+        return (value != null) ? Performance.valueOf(value.toUpperCase()) : null;
     }
 
 
