@@ -3,7 +3,6 @@ package com.essencehub.project.Controllers.Message;
 import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.Controllers.Menu.EmployeeMenuController;
 import com.essencehub.project.Controllers.Menu.LoginPageController;
-import com.essencehub.project.User.AdminOperations;
 import com.essencehub.project.User.Message;
 import com.essencehub.project.User.User;
 import javafx.application.Platform;
@@ -51,7 +50,7 @@ public class MessageAppController {
         scrollPane.setFitToWidth(true);
         sendHBox.setVisible(false);
 
-        for(User otheruser : AdminOperations.getUsers()){
+        for(User otheruser : User.getUsers()){
             usersListView.getItems().add(otheruser);
         }
 
@@ -89,7 +88,7 @@ public class MessageAppController {
     private void handleSendButtonClick(MouseEvent event) {
         String message = text.getText();
         if (!message.trim().isEmpty()) {
-            AdminOperations.sendMessageMain(user,usersListView.getSelectionModel().getSelectedItem(),message, LocalDateTime.now());
+            Message.sendMessageMain(user,usersListView.getSelectionModel().getSelectedItem(),message, LocalDateTime.now());
             addMessage(message, true); // Add user message
             text.clear();
         }

@@ -2,7 +2,6 @@ package com.essencehub.project.Controllers;
 
 import com.essencehub.project.Controllers.Menu.LoginPageController;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
-import com.essencehub.project.User.AdminOperations;
 import com.essencehub.project.User.Performance;
 import com.essencehub.project.User.User;
 import javafx.event.ActionEvent;
@@ -324,10 +323,9 @@ public class ApplicationMenuController {
             return;
         }
 
-        double salary = 0;
-        double bonus = 0;
-        boolean isAdmin = false;
-        int remainingDays = 0;
+        double salary;
+        boolean isAdmin;
+        int remainingDays;
 
         try {
             salary = Double.parseDouble(salaryText);
@@ -346,7 +344,7 @@ public class ApplicationMenuController {
 
 
         User user = new User(name, surname, phone, salary, isAdmin, birthDate, department, email, remainingDays, true,password, Performance.F,0, "/com/essencehub/project/images/ProfilePictures/defaultpicture1.png");
-        AdminOperations.addUser(user);
+        User.addUser(user);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Success");

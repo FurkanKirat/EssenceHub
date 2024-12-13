@@ -1,14 +1,9 @@
 package com.essencehub.project.Controllers;
 
-import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.Controllers.Menu.EmployeeMenuController;
 import com.essencehub.project.Controllers.Menu.LoginPageController;
 import com.essencehub.project.Controllers.Task.ViewTaskEmployeeController;
-import com.essencehub.project.Controllers.Task.ViewTaskManagerController;
-import com.essencehub.project.User.AdminOperations;
-import com.essencehub.project.User.Message;
 import com.essencehub.project.User.Task;
-import com.essencehub.project.User.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,8 +13,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
-import java.util.Collections;
 
 public class DashboardEmployeeController {
 
@@ -49,7 +42,7 @@ public class DashboardEmployeeController {
         taskColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         employeeNameColumn1.setCellValueFactory(new PropertyValueFactory<>("sender"));
 
-        ObservableList<Task> allTasks = FXCollections.observableArrayList(AdminOperations.getUserTasks(LoginPageController.getUser().getId()));
+        ObservableList<Task> allTasks = FXCollections.observableArrayList(Task.getUserTasks(LoginPageController.getUser().getId()));
 
         ObservableList<Task> lastFiveTasks = FXCollections.observableArrayList(
                 allTasks.subList(0, Math.min(allTasks.size(), 5))

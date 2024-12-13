@@ -2,7 +2,6 @@ package com.essencehub.project.DatabaseOperations.InsertData;
 
 import java.util.Random;
 
-import com.essencehub.project.User.AdminOperations;
 import com.essencehub.project.User.User;
 import static com.essencehub.project.User.Performance.F;
 import static com.essencehub.project.User.Performance.A;
@@ -139,8 +138,8 @@ public class CreateUsers {
                 createUsers.getRandomDepartment(), createUsers.generateEmail(nameAdmin, surnameAdmin), 40, true, createUsers.getRandomPassword(),
                 A, 370, "/com/essencehub/project/images/ProfilePictures/defaultpicture1.png");
 
-        AdminOperations.addUser(employee); //ADDS EMPLOYEE
-        AdminOperations.addUser(admin); //REMOVE FROM COMENT ADMIN ADMIN WITH RUN
+        User.addUser(employee); //ADDS EMPLOYEE
+        User.addUser(admin); //ADDS ADMIN
         System.out.println("The code worked");
     }
 }

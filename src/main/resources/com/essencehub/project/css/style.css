@@ -1,15 +1,15 @@
-/* General Styles - Green Theme */
+/* General Styles - Dark Blue Theme */
 .gradient-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1b2838, #2a394d);
 }
 .first-color {
-    -fx-background-color: #134e5e;
+    -fx-background-color: #1b2838;
 }
 .second-color {
-    -fx-background-color: #0c7764;
+    -fx-background-color: #1d3a53;
 }
 .line-color {
-    -fx-background-color: #a8df65;
+    -fx-background-color: #5a8aa5;
 }
 .container {
     -fx-background-color: rgba(255, 255, 255, 0.1);
@@ -19,75 +19,70 @@
     -fx-cursor: hand;
 }
 .selected-border {
-    -fx-border-color: #a8df65;
+    -fx-border-color: #5a8aa5;
     -fx-border-width: 0 3 0 0;
 }
 .selected:hover {
-    -fx-background-color: #168f5e;
+    -fx-background-color: #254b64;
 }
 .selected:clicked {
-    -fx-background-color: #168f5e;
+    -fx-background-color: #254b64;
 }
 .buttonClicked {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(64, 128, 64, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(50, 90, 120, 0.5), 10, 0.5, 0, 0);
 }
 .settingsProfile:hover {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(64, 128, 64, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(50, 90, 120, 0.5), 10, 0.5, 0, 0);
 }
 .menuButton {
     -fx-background-color: rgba(255, 255, 255, 0.1);
     -fx-background-radius: 30;
-    -fx-text-fill : white;
+    -fx-text-fill: white;
 }
 .text-input {
     -fx-background-color: rgba(0, 0, 0, 0);
     -fx-border-width: 0 0 1 0;
-    -fx-border-color: #a8df65;
+    -fx-border-color: #5a8aa5;
 }
 .menuTextField {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #d0d0d0;
     -fx-font-size: 15px;
 }
 /* combo box */
 .combo-box {
-    -fx-background-color: #134e5e;
-    -fx-border-color: #a8df65;
+    -fx-background-color: #1b2838;
+    -fx-border-color: #5a8aa5;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
     -fx-font-size: 14px;
-
 }
-
 .combo-box .arrow {
-    -fx-background-color: #a8df65;
-    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Ok işareti */
+    -fx-background-color: #5a8aa5;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
 }
-
 .combo-box:hover {
-    -fx-background-color: #168f5e;
-    -list-cell-background-color: #168f5e;
+    -fx-background-color: #254b64;
+    -list-cell-background-color: #254b64;
 }
-
 .list-cell {
-    -fx-background-color: #134e5e;
-    -fx-text-fill: #e0e0e0;
+    -fx-background-color: #1b2838;
+    -fx-text-fill: #d0d0d0;
     -fx-font-size: 14px;
 }
-
 .list-cell:hover {
-    -fx-background-color: #168f5e;
+    -fx-background-color: #254b64;
     -fx-text-fill: #ffffff;
 }
 .combo-box .text-input {
     -fx-background-color: transparent;
 }
 
-/* Login Page - Green Theme */
+/* Login Page - Dark Blue Theme */
 .loginTextField {
     -fx-border-width: 2px;
-    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #1b2838, #2a394d);
     -fx-background-color: transparent;
     -fx-text-fill: black;
     -fx-font-weight: bold;
@@ -98,205 +93,111 @@
     -fx-font-weight: bold;
 }
 #anchor1 {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1b2838, #2a394d);
 }
 #loginbtn {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
-    -fx-text-fill: #e0e0e0;
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1b2838, #2a394d);
+    -fx-text-fill: #d0d0d0;
     -fx-background-radius: 15;
     -fx-cursor: hand;
     -fx-font-weight: bold;
 }
 #logo {
-    -fx-fill: linear-gradient(#134e5e, #71b280);
+    -fx-fill: linear-gradient(#1b2838, #2a394d);
 }
 #appLabel {
-    -fx-text-fill: #e0e0e0;
-    -fx-back-color: #71b280;
+    -fx-text-fill: #d0d0d0;
+    -fx-back-color: #2a394d;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-family: "sans-serif";
 }
 #profile {
-    -fx-fill: #6abf69;
+    -fx-fill: #4a7895;
 }
 
-.loginImage{
-     -fx-effect: innershadow(gaussian, #134e5e, 5, 1, 0, 0);
+.loginImage {
+    -fx-effect: innershadow(gaussian, #1b2838, 5, 1, 0, 0);
 }
 
-/* Tasks - Green Theme */
+/* Tasks - Dark Blue Theme */
 .TaskLabel {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #d0d0d0;
 }
 
-/* Employee Option - Green Theme */
+/* Employee Option - Dark Blue Theme */
 .employeeLabel {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #d0d0d0;
 }
 
-/* Stock - Green Theme */
+/* Stock - Dark Blue Theme */
 .chart-legend-item {
-    -fx-text-fill: black;
+    -fx-text-fill: #5a8aa5;
 }
 .chart-pie-label-line {
-    -fx-stroke: #a8df65;
-    -fx-fill: #a8df65;
+    -fx-stroke: #5a8aa5;
+    -fx-fill: #5a8aa5;
 }
 .chart-pie-label {
-    -fx-fill: #a8df65;
+    -fx-fill: #5a8aa5;
 }
 .chart-legend {
-    -fx-background-color: white;
-    -fx-stroke: #0c7764;
+    -fx-background-color: #1d3a53;
+    -fx-stroke: #1d3a53;
 }
 .axis-label {
-    -fx-text-fill: white;
+    -fx-text-fill: #5a8aa5;
 }
 .chart-pie-label {
-    -fx-fill: white;
-}
-/* BarChart Y-Axis Label Color - White */
-.chart-legend-item {
-    -fx-text-fill: #a8df65;
+    -fx-fill: #d0d0d0;
 }
 
-.chart .x-axis .axis-label,
-.chart .y-axis .axis-label {
-    -fx-text-fill: white; /* Y eksenindeki etiketlerin rengi beyaz */
-}
-
-.chart .x-axis .tick-label,
-.chart .y-axis .tick-label {
-    -fx-text-fill: white; /* Y eksenindeki sayı etiketlerinin rengi beyaz */
-}
-
-
-/* TableView Styles - Green Theme */
+/* TableView Styles - Dark Blue Theme */
 .table-view {
     -fx-background-color: rgba(255, 255, 255, 0.1);
     -fx-background-radius: 10;
-    -fx-border-color: #a8df65;
+    -fx-border-color: #5a8aa5;
     -fx-border-width: 1;
 }
 
 .table-view .column-header {
-    -fx-background-color:  #134e5e;
+    -fx-background-color: #1b2838;
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
 
-.table-view .table-row-cell {
-    -fx-background-color: transparent;
-    -fx-text-fill: white;
-}
-
-.table-view .table-row-cell:focused {
-    -fx-background-color: #168f5e;
-    -fx-text-fill: white;
-}
-
-.table-view .table-row-cell:hover {
-    -fx-background-color: #168f5e;
-    -fx-text-fill: white;
-}
-
-.table-view .table-row-cell:pressed {
-    -fx-background-color: #134e5e;
-    -fx-text-fill: white;
-}
-
-.table-view .column-header:pressed {
-    -fx-background-color: #0c7764;
-}
-
-.table-view .column-header:focused {
-    -fx-background-color: #168f5e;
-}
-
-.table-view .column-header {
-    -fx-background-color: #134e5e;
-    -fx-text-fill: #e0e0e0;  /* Light gray text for better contrast */
-    -fx-font-weight: bold;
-    -fx-font-size: 14px;  /* Optional: Adjust font size */
-    -fx-alignment: center;
-}
-
-.table-view .column-header .text {
-    -fx-fill: #e0e0e0;  /* Light gray text for header */
-}
-/* Radio Button - Green Theme */
+/* Radio Button - Dark Blue Theme */
 .radio-button {
-    -fx-background-color: transparent; /* Şeffaf arka plan */
-    -fx-text-fill: #e0e0e0; /* Yazı rengi */
-    -fx-font-size: 14px; /* Yazı boyutu */
+    -fx-background-color: transparent;
+    -fx-text-fill: #d0d0d0;
+    -fx-font-size: 14px;
 }
-
 .radio-button .box {
-    -fx-border-color: #a8df65; /* Kenar rengi */
+    -fx-border-color: #5a8aa5;
     -fx-border-width: 2px;
-    -fx-border-radius: 50%; /* Yuvarlak görünüm */
+    -fx-border-radius: 50%;
     -fx-background-radius: 50%;
-    -fx-background-color: transparent; /* İç kısmı şeffaf */
-    -fx-min-width: 16px; /* Çember boyutları */
+    -fx-background-color: transparent;
+    -fx-min-width: 16px;
     -fx-min-height: 16px;
     -fx-max-width: 16px;
     -fx-max-height: 16px;
 }
-
 .radio-button:selected .box {
-    -fx-background-color: #a8df65; /* Seçildiğinde dolgu rengi */
-    -fx-border-color: #134e5e; /* Kenar rengi */
+    -fx-background-color: #5a8aa5;
+    -fx-border-color: #1b2838;
 }
-
 .radio-button .box:hover {
-    -fx-border-color: #168f5e; /* Hover durumunda kenar rengi */
+    -fx-border-color: #254b64;
 }
-
 .radio-button:selected .box:hover {
-    -fx-background-color: #168f5e; /* Seçili ve hover durumunda dolgu rengi */
+    -fx-background-color: #254b64;
 }
 .radio-button:selected .radio .dot {
-    -fx-background-color: #0c7764;
+    -fx-background-color: #1d3a53;
     -fx-background-insets: 0;
 }
-
 .radio-button .label {
-    -fx-text-fill: #e0e0e0; /* Metin rengi */
+    -fx-text-fill: #d0d0d0;
 }
-
-/* ScrollPane Styles - Green Theme */
-.scroll-pane {
-<<<<<<< Updated upstream
-    
-=======
->>>>>>> Stashed changes
-    -fx-background-color: transparent; /* Arka planı şeffaf */
-    -fx-border-color: #a8df65; /* Kenar çizgisi rengi */
-    -fx-border-width: 2; /* Kenar kalınlığı */
-    -fx-border-radius: 10; /* Kenar yuvarlaklığı */
-    -fx-background-radius: 10; /* Arka plan yuvarlaklığı */
-}
-
-.scroll-pane .viewport {
-    -fx-background-color: transparent; /* İçerik bölgesi şeffaf */
-}
-
-.scroll-bar:vertical {
-    -fx-background-color: transparent; /* Dikey kaydırma çubuğu şeffaf */
-    -fx-border-color: #134e5e; /* Çubuk kenar rengi */
-    -fx-border-width: 1; /* Kenar kalınlığı */
-}
-
-.scroll-bar .thumb {
-    -fx-background-color:#0c7764; /* Kaydırma tutacağı rengi */
-    -fx-background-radius: 5; /* Yuvarlak tutacak */
-}
-
-.scroll-bar .track {
-    -fx-background-color: transparent; /* Track arka planı */
-}
-
-
-

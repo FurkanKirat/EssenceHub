@@ -1,9 +1,7 @@
 package com.essencehub.project.Controllers.Message;
 
 import com.essencehub.project.Controllers.Menu.LoginPageController;
-import com.essencehub.project.User.AdminOperations;
 import com.essencehub.project.User.Message;
-import com.essencehub.project.User.Task;
 import com.essencehub.project.User.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,7 +32,7 @@ public class MessageController {
         fromColumn.setCellValueFactory(new PropertyValueFactory<>("receiver"));
         messageColumn.setCellValueFactory(new PropertyValueFactory<>("message"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
-        for(User user: AdminOperations.getUsers()){
+        for(User user: User.getUsers()){
             messages = FXCollections.observableArrayList(Message.getMessagesBetweenUsers(LoginPageController.getUser(), user));
             for(Message message: messages){
                 tableView.getItems().add(message);

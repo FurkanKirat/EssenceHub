@@ -1,7 +1,6 @@
 package com.essencehub.project.Controllers.Settings;
 
 import com.essencehub.project.Controllers.Menu.LoginPageController;
-import com.essencehub.project.User.AdminOperations;
 import com.essencehub.project.User.User;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -27,7 +26,7 @@ public class UpdateContactInfo {
     void SaveInfoButtonClicked(MouseEvent event) {
         user.setEmail(emailField.getText());
         user.setPhoneNumber(phoneNumberField.getText());
-        AdminOperations.updateUser(user);
+        User.updateUser(user);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
         SettingsController settingsController = SettingsController.getInstance();

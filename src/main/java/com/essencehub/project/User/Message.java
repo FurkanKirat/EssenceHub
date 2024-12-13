@@ -5,6 +5,7 @@ import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -59,6 +60,8 @@ public class Message {
         this.sendDateTime = sendDateTime;
     }
 
+
+    // Message database methods
     public static ArrayList<Message> getMessagesBetweenUsers(User sender, User receiver) {
         ArrayList<Message> messages = new ArrayList<>();
         String query = "SELECT sender_id, receiver_id, message, send_date_time " +
@@ -91,5 +94,34 @@ public class Message {
         }
 
         return messages;
+    }
+
+    //SEND MESSAGE
+    public static void sendMessageMain(User sender, User receiver, String message, LocalDateTime sendDateTime) {
+        Message messageTemp = new Message(sender, receiver, message, sendDateTime);
+        sendMessage(messageTemp);
+    }
+
+    private static void sendMessage(Message message) {
+        String sql = "INSERT INTO Message (sender_id, receiver_id, message, send_date_time) VALUES (?, ?, ?, ?)";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            // Adding to the database
+            preparedStatement.setInt(1, message.getSender().getId());
+            preparedStatement.setInt(2, message.getReceiver().getId());
+            preparedStatement.setString(3, message.getMessage());
+
+            // We can set LocalDateTime directly, it is compatible with DATETIME type in MySQL
+            preparedStatement.setObject(4, message.getSendDateTime());
+
+            //run SQL command
+            preparedStatement.executeUpdate();
+            System.out.println("Message sent successfully.");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

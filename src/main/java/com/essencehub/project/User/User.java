@@ -248,4 +248,240 @@ public class User {
             e.printStackTrace();
         }
     }
+
+
+    // Database user methods
+    public static User getUserById(int userId) {
+        User user = null;
+        String query = "SELECT id, name, surname, phoneNumber, salary, isAdmin, birth, department, email, "
+                + "remainingLeaveDays, isActive, password, imageLocation FROM User WHERE id = ?";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setInt(1, userId);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    user = new User();
+                    user.setId(resultSet.getInt("id"));
+                    user.setName(resultSet.getString("name"));
+                    user.setSurname(resultSet.getString("surname"));
+                    user.setPhoneNumber(resultSet.getString("phoneNumber"));
+                    user.setSalary(resultSet.getDouble("salary"));
+                    user.setAdmin(resultSet.getBoolean("isAdmin"));
+                    user.setBirth(resultSet.getString("birth"));
+                    user.setDepartment(resultSet.getString("department"));
+                    user.setEmail(resultSet.getString("email"));
+                    user.setRemainingLeaveDays(resultSet.getInt("remainingLeaveDays"));
+                    user.setActive(resultSet.getBoolean("isActive"));
+                    user.setPassword(resultSet.getString("password"));
+                    user.setImageLocation(resultSet.getString("imageLocation"));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+
+    // Hire employee
+    public static void addUser(User user) {
+        String sql = "INSERT INTO User (name, surname, phoneNumber, salary, isAdmin, birth, department, email, remainingLeaveDays, monthlyPerformance, bonusSalary, isActive, password,imageLocation) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            // We set the parameters
+            statement.setString(1, user.getName());
+            statement.setString(2, user.getSurname());
+            statement.setString(3, user.getPhoneNumber());
+            statement.setDouble(4, user.getSalary());
+            statement.setBoolean(5, user.isAdmin());
+            statement.setString(6, user.getBirth());
+            statement.setString(7, user.getDepartment());
+            statement.setString(8, user.getEmail());
+            statement.setInt(9, user.getRemainingLeaveDays());
+            statement.setString(10,
+                    user.getMonthlyPerformance() != null ? user.getMonthlyPerformance().toString() : null);
+            statement.setDouble(11, user.getBonusSalary());
+            statement.setBoolean(12, user.isActive());
+            statement.setString(13, user.getPassword()); // Şifreyi ekliyoruz
+            statement.setString(14,user.getImageLocation());
+
+            // We add it to the database
+            statement.executeUpdate();
+            System.out.println("User added successfully.");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //UPDATE USER
+    public static void updateUser(User user) {
+        String sql = "UPDATE User SET name = ?, surname = ?, phoneNumber = ?, salary = ?, isAdmin = ?, birth = ?, department = ?, email = ?, remainingLeaveDays = ?, monthlyPerformance = ?, bonusSalary = ?, isActive = ?, imageLocation = ? WHERE id = ?";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, user.getName());
+            statement.setString(2, user.getSurname());
+            statement.setString(3, user.getPhoneNumber());
+            statement.setDouble(4, user.getSalary());
+            statement.setBoolean(5, user.isAdmin());
+            statement.setString(6, user.getBirth());
+            statement.setString(7, user.getDepartment());
+            statement.setString(8, user.getEmail());
+            statement.setInt(9, user.getRemainingLeaveDays());
+            statement.setString(10,
+                    user.getMonthlyPerformance() != null ? user.getMonthlyPerformance().toString() : null);
+            statement.setDouble(11, user.getBonusSalary());
+            statement.setBoolean(12, user.isActive());
+            statement.setString(13, user.getImageLocation());
+            statement.setInt(14, user.getId());
+
+
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("User updated successfully.");
+            } else {
+                System.out.println("User not found.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void updateUser(String name, String surname, String phoneNumber, double baseSalary, boolean isAdmin, String birth,String department,
+                                  String email, int remainingLeaveDays, boolean isActive, String password, Performance monthlyPerformance, int bonusSalary, String imageLocation) {
+        User user = new User(name,surname,phoneNumber,baseSalary,isAdmin,birth,department,email,remainingLeaveDays,isActive,password,monthlyPerformance,bonusSalary, imageLocation);
+        String sql = "UPDATE User SET name = ?, surname = ?, phoneNumber = ?, salary = ?, isAdmin = ?, birth = ?, department = ?, email = ?, remainingLeaveDays = ?, monthlyPerformance = ?, bonusSalary = ?, isActive = ?, imageLocation WHERE id = ?";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+
+            statement.setString(1, user.getName());
+            statement.setString(2, user.getSurname());
+            statement.setString(3, user.getPhoneNumber());
+            statement.setDouble(4, user.getSalary());
+            statement.setBoolean(5, user.isAdmin());
+            statement.setString(6, user.getBirth());
+            statement.setString(7, user.getDepartment());
+            statement.setString(8, user.getEmail());
+            statement.setInt(9, user.getRemainingLeaveDays());
+            statement.setString(10,
+                    user.getMonthlyPerformance() != null ? user.getMonthlyPerformance().toString() : null);
+            statement.setDouble(11, user.getBonusSalary());
+            statement.setBoolean(12, user.isActive());
+            statement.setString(13, user.getImageLocation());
+            statement.setInt(14, user.getId());
+
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("User updated successfully.");
+            } else {
+                System.out.println("User not found.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<User> getUsers() {
+        List<User> users = new ArrayList<>();
+        String query = "SELECT * FROM User";
+        try (Connection connection = DatabaseConnection.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
+
+            while (resultSet.next()) {
+                User user = new User();
+
+                user.setId(resultSet.getInt("id"));
+                user.setName(resultSet.getString("name"));
+                user.setSurname(resultSet.getString("surname"));
+                user.setPhoneNumber(resultSet.getString("phoneNumber"));
+                user.setSalary(resultSet.getDouble("salary"));
+                user.setAdmin(resultSet.getBoolean("isAdmin"));
+
+                String dateTimeString = resultSet.getString("birth");
+                if (dateTimeString != null) {
+                    user.setBirth(dateTimeString);
+                }
+
+                user.setDepartment(resultSet.getString("department"));
+                user.setEmail(resultSet.getString("email"));
+                user.setRemainingLeaveDays(resultSet.getInt("remainingLeaveDays"));
+
+                String performanceValue = resultSet.getString("monthlyPerformance");
+                if (performanceValue != null) {
+                    Performance performance = Performance.valueOf(performanceValue.toUpperCase());
+                    user.setMonthlyPerformance(performance);
+                }
+
+                user.setBonusSalary(resultSet.getDouble("bonusSalary"));
+                user.setActive(resultSet.getBoolean("isActive"));
+                user.setPassword(resultSet.getString("password"));
+                user.setImageLocation(resultSet.getString("imageLocation"));
+
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            System.out.println("Database query error: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return users;
+    }
+
+    public static ArrayList<User> getEmployees() {
+        ArrayList<User> employees = new ArrayList<>();
+        String query = "SELECT * FROM User WHERE isAdmin = 0 AND isActive = 1";
+        try (Connection connection = DatabaseConnection.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
+
+            while (resultSet.next()) {
+                User employee = new User();
+
+                employee.setId(resultSet.getInt("id"));
+                employee.setName(resultSet.getString("name"));
+                employee.setSurname(resultSet.getString("surname"));
+                employee.setPhoneNumber(resultSet.getString("phoneNumber"));
+                employee.setSalary(resultSet.getDouble("salary"));
+                employee.setAdmin(false);
+
+                String dateTimeString = resultSet.getString("birth");
+                if (dateTimeString != null) {
+                    employee.setBirth(dateTimeString);
+                }
+
+                employee.setDepartment(resultSet.getString("department"));
+                employee.setEmail(resultSet.getString("email"));
+                employee.setRemainingLeaveDays(resultSet.getInt("remainingLeaveDays"));
+
+                String performanceValue = resultSet.getString("monthlyPerformance");
+                if (performanceValue != null) {
+                    Performance performance = Performance.valueOf(performanceValue.toUpperCase());
+                    employee.setMonthlyPerformance(performance);
+                }
+
+                employee.setBonusSalary(resultSet.getDouble("bonusSalary"));
+                employee.setActive(true);
+                employee.setPassword(resultSet.getString("password"));
+                employee.setImageLocation(resultSet.getString("imageLocation"));
+
+                employees.add(employee);
+            }
+        } catch (SQLException e) {
+            System.out.println("Database query error: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return employees;
+    }
+
 }

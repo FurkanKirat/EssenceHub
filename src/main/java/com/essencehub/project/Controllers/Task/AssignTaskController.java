@@ -2,7 +2,6 @@ package com.essencehub.project.Controllers.Task;
 
 import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.Controllers.Menu.LoginPageController;
-import com.essencehub.project.User.AdminOperations;
 import com.essencehub.project.User.Task;
 import com.essencehub.project.User.User;
 import javafx.collections.FXCollections;
@@ -46,7 +45,7 @@ public class AssignTaskController {
     @FXML
     public void initialize() {
 
-        employees = AdminOperations.getEmployees();
+        employees = User.getEmployees();
         checkBoxes = new CheckBox[employees.size()];
         ObservableList<HBox> list = FXCollections.observableArrayList();
 
@@ -73,7 +72,7 @@ public class AssignTaskController {
             for(int i=0;i<checkBoxes.length;i++){
                 if(checkBoxes[i].isSelected()){
                     Task task = new Task(user, employees.get(i), descriptionTextArea.getText(), titleTextField.getText(), LocalDateTime.now(),false);
-                    AdminOperations.sendTask(task);
+                    Task.sendTask(task);
 
                 }
             }

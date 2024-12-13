@@ -1,6 +1,5 @@
 package com.essencehub.project.Controllers.Task;
 
-import com.essencehub.project.User.AdminOperations;
 import com.essencehub.project.User.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,7 +40,7 @@ public class OpenTaskEmployeeController {
     void markDoneClicked(ActionEvent event) {
         if(!task.isTaskDone()){
             task.setTaskDone(true);
-            AdminOperations.updateTask(task);
+            Task.updateTask(task);
         }
 
     }
@@ -50,7 +49,7 @@ public class OpenTaskEmployeeController {
     void markUndoneCLicked(ActionEvent event) {
         if(task.isTaskDone()){
             task.setTaskDone(false);
-            AdminOperations.updateTask(task);
+            Task.updateTask(task);
         }
 
     }

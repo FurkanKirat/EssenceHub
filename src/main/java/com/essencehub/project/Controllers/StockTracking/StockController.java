@@ -2,15 +2,10 @@ package com.essencehub.project.Controllers.StockTracking;
 
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import com.essencehub.project.Stock.Product;
-import com.essencehub.project.User.AdminOperations;
-import com.essencehub.project.User.Task;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;

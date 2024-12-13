@@ -1,9 +1,7 @@
 package com.essencehub.project.Controllers.Task;
 
-import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.Controllers.Menu.EmployeeMenuController;
 import com.essencehub.project.Controllers.Menu.LoginPageController;
-import com.essencehub.project.User.AdminOperations;
 import com.essencehub.project.User.Task;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,9 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
-import java.io.IOException;
-import java.sql.SQLException;
 
 public class ViewTaskEmployeeController {
 
@@ -61,7 +56,7 @@ public class ViewTaskEmployeeController {
         senderColumn.setCellValueFactory(new PropertyValueFactory<>("sender"));
         ObservableList<Task> tasks = null;
         try {
-            tasks = FXCollections.observableArrayList(AdminOperations.getUserTasks(LoginPageController.getUser().getId()));
+            tasks = FXCollections.observableArrayList(Task.getUserTasks(LoginPageController.getUser().getId()));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
