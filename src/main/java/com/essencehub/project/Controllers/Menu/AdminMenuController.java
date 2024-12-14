@@ -117,7 +117,7 @@ public class AdminMenuController {
     @FXML
     void financeClicked(MouseEvent event) {
         currentNode.getStyleClass().remove("selected-border");
-        loadFXMLContent("/com/essencehub/project/fxml/Finance/Finance.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/Finance/Income.fxml");
         financePanel.getStyleClass().add("selected-border");
         currentNode=financePanel;
     }

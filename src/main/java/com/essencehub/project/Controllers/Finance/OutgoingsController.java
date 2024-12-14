@@ -1,5 +1,6 @@
 package com.essencehub.project.Controllers.Finance;
 
+import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.Finance.Outgoings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,11 +8,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 import java.time.LocalDate;
 
 public class OutgoingsController {
+
+    @FXML
+    private VBox expensesIconVBox;
+
+    @FXML
+    private VBox incomeIconVBox;
 
     @FXML
     private TextField outcomeField;
@@ -63,6 +72,18 @@ public class OutgoingsController {
     private int delay;
     private boolean listFromMost = false;
 
+
+    @FXML
+    void expensesIconVBoxClicked(MouseEvent event) {
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/Outgoings.fxml");
+    }
+
+    @FXML
+    void incomeIconVBoxClicked(MouseEvent event) {
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/Income.fxml");
+    }
 
     @FXML
     void isTheMostButtonClicked(ActionEvent event) {
@@ -165,6 +186,7 @@ public class OutgoingsController {
             return Double.compare(amount2, amount1);
         });
     }
+
 
 
 }
