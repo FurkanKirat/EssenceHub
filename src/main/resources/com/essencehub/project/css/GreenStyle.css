@@ -136,6 +136,10 @@
     -fx-text-fill: #e0e0e0;
 }
 
+.messageLabel {
+    -fx-text-fill: #e0e0e0;
+}
+
 /* Stock - Green Theme */
 .chart-legend-item {
     -fx-text-fill: black;

@@ -174,34 +174,59 @@ public class Task {
 
 
 
-    public static List<Task> getUserTasks(int userID) {
+    public static List<Task> getUserTasks(int currentUserId) {
         List<Task> taskList = new ArrayList<>();
-        String query = "SELECT id, sender_id, receiver_id, task, title, send_date_time, is_task_done FROM Task WHERE receiver_id = ? ORDER BY send_date_time DESC";
+        String query = """
+        SELECT 
+            t.id, t.sender_id, t.receiver_id, t.task, t.title, t.send_date_time, t.is_task_done,
+            s.name AS sender_name, s.surname AS sender_surname,
+            r.name AS receiver_name, r.surname AS receiver_surname
+        FROM Task t
+        JOIN User s ON t.sender_id = s.id
+        JOIN User r ON t.receiver_id = r.id
+        WHERE t.receiver_id = ?
+        ORDER BY t.send_date_time DESC
+    """;
 
-        try {
-            PreparedStatement statement = DatabaseConnection.getConnection().prepareStatement(query);
-            statement.setInt(1, userID);
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                int senderId = resultSet.getInt("sender_id");
-                int receiverId = resultSet.getInt("receiver_id");
-                String task = resultSet.getString("task");
-                String title = resultSet.getString("title");
-                LocalDateTime sendDateTime = resultSet.getTimestamp("send_date_time").toLocalDateTime();
-                boolean isTaskDone = resultSet.getBoolean("is_task_done");
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-                Task taskObj = new Task(User.getUserById(senderId),User.getUserById(receiverId),task, title,sendDateTime,isTaskDone);
-                taskObj.setId(id);
-                taskList.add(taskObj);
+            // Receiver ID parametresini ayarla
+            preparedStatement.setInt(1, currentUserId);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    int id = resultSet.getInt("id");
+                    int senderId = resultSet.getInt("sender_id");
+                    int receiverId = resultSet.getInt("receiver_id");
+                    String task = resultSet.getString("task");
+                    String title = resultSet.getString("title");
+                    LocalDateTime sendDateTime = resultSet.getTimestamp("send_date_time").toLocalDateTime();
+                    boolean isTaskDone = resultSet.getBoolean("is_task_done");
+
+                    // Gönderici bilgileri
+                    User sender = new User(senderId);
+                    sender.setName(resultSet.getString("sender_name"));
+                    sender.setSurname(resultSet.getString("sender_surname"));
+
+                    // Alıcı bilgileri
+                    User receiver = new User(receiverId);
+                    receiver.setName(resultSet.getString("receiver_name"));
+                    receiver.setSurname(resultSet.getString("receiver_surname"));
+
+                    // Görevi oluştur ve listeye ekle
+                    Task taskObj = new Task(sender, receiver, task, title, sendDateTime, isTaskDone);
+                    taskObj.setId(id);
+                    taskList.add(taskObj);
+                }
             }
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
 
         return taskList;
     }
+
 
     // SEND TASK
     public static void sendTaskMain(User sender, User receiver, String task, String title, LocalDateTime sendDateTime, boolean isTaskDone) {

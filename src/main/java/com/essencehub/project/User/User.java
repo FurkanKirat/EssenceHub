@@ -25,9 +25,7 @@ public class User {
     private boolean isActive;
     private Image image;
     private String imageLocation;
-
-    private ArrayList<Task> taskE;
-    private static ArrayList<Task> taskA;
+    private String fullName;
 
     public User() {
 
@@ -56,6 +54,7 @@ public class User {
         this.bonusSalary = bonusSalary;
         this.imageLocation = imageLocation;
         //this.image = new Image(imageLocation);
+        this.fullName =  name + " " + surname;
 
     }
 
@@ -74,6 +73,7 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+        this.fullName = name + " " + surname;
     }
 
     public String getSurname() {
@@ -82,6 +82,7 @@ public class User {
 
     public void setSurname(String surname) {
         this.surname = surname;
+        this.fullName = name + " " + surname;
     }
 
     public String getPhoneNumber() {
@@ -193,6 +194,10 @@ public class User {
 
     public void setImageLocation(String imageLocation) {
         this.imageLocation = imageLocation;
+    }
+
+    public String getFullName() {
+        return fullName;
     }
 
     public void changePassword(String password) {

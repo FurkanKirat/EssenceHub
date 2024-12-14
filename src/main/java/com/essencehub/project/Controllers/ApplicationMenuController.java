@@ -206,7 +206,6 @@ public class ApplicationMenuController {
         selectUpdateComboBox.getItems().clear();
         int currentUserId = LoginPageController.getUser().getId();
 
-
         List<User> activeWorkers = getActiveWorkers();
 
         List<User> filteredWorkers = activeWorkers.stream()
@@ -305,10 +304,7 @@ public class ApplicationMenuController {
         String department = departmantField.getText();
         String salaryText = salaryField.getText();
 
-        String isAdminText = switch (isAdminCombobox.getValue()){
-            case "Admin" -> "true";
-            default -> "false";
-        };
+        String isAdminText = isAdminCombobox.getValue().equals("Admin") ? "true" : "false";
 
         String password = passwordField.getText();
         String remainingDaysText = remainingDaysField.getText();
@@ -375,17 +371,11 @@ public class ApplicationMenuController {
 
         String newValue;
         switch(whichStatus){
-            case 1 -> {
-                newValue = propertyComboBox.getValue();
-                if(newValue.equals("Admin")){
-                    newValue = "1";
-                }else if(newValue.equals("Employee")){
-                    newValue = "0";
-                }
-            }
+            case 1 -> newValue = propertyComboBox.getValue().equals("Admin") ? "1": "0";
             case 2 -> newValue = birthPicker.getValue().toString();
             default -> newValue = statusTextField.getText();
         };
+
         int rowsUpdated = 0;
 
         try (Connection conn = DatabaseConnection.getConnection()) {

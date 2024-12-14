@@ -69,13 +69,42 @@ public class AssignTaskController {
 
         try {
 
+            StringBuilder headerText = new StringBuilder("You have successfully sent the task to ");
+            int selectedEmployee = 0;
+
             for(int i=0;i<checkBoxes.length;i++){
                 if(checkBoxes[i].isSelected()){
-                    Task task = new Task(user, employees.get(i), descriptionTextArea.getText(), titleTextField.getText(), LocalDateTime.now(),false);
-                    Task.sendTask(task);
+                    selectedEmployee++;
+                    if(selectedEmployee<=3){
+                        headerText.append(employees.get(i)).append(", ");
+                    }
 
                 }
             }
+            if(selectedEmployee>3){
+                headerText.append("... and (").append(selectedEmployee-3).append(") more");
+            }
+            else {
+                if (!headerText.isEmpty() && headerText.charAt(headerText.length() - 2) == ',') {
+                    headerText.setLength(headerText.length() - 2);
+                }
+            }
+            for(int i=0;i<checkBoxes.length;i++){
+                if(checkBoxes[i].isSelected()){
+
+                    Task task = new Task(user, employees.get(i), descriptionTextArea.getText(), titleTextField.getText(), LocalDateTime.now(),false);
+                    Task.sendTask(task);
+
+
+                }
+            }
+
+
+            Alert logOutAlert = new Alert(Alert.AlertType.INFORMATION);
+            logOutAlert.setTitle("Task Sent");
+
+            logOutAlert.setHeaderText(headerText +" ");
+            logOutAlert.showAndWait();
 
         } catch (Exception ex) {
             throw new RuntimeException(ex);

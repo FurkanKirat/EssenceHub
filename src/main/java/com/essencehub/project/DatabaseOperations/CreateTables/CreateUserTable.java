@@ -14,7 +14,7 @@ public class CreateUserTable {
                         + "id INT AUTO_INCREMENT PRIMARY KEY, "
                         + "name VARCHAR(50) NOT NULL, "
                         + "surname VARCHAR(50) NOT NULL, "
-                        + "phoneNumber VARCHAR(15), "
+                        + "phoneNumber VARCHAR(50), "
                         + "salary DOUBLE, "
                         + "isAdmin BOOLEAN, "
                         + "birth VARCHAR(50), "

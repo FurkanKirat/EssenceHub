@@ -38,7 +38,6 @@ public class DashboardController {
 
 
     public void initialize(){
-
         employeeNameColumn.setCellValueFactory(new PropertyValueFactory<>("receiver"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("taskDone"));
         taskColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -51,6 +50,8 @@ public class DashboardController {
         );
 
         taskTable.setItems(lastFiveTasks);
+
+        double y = System.nanoTime();
     }
     @FXML
     void taskClicked(MouseEvent event) {

@@ -3,6 +3,7 @@ package com.essencehub.project.Controllers.Task;
 import com.essencehub.project.User.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -24,7 +25,14 @@ public class OpenTaskContoller {
     void updateTaskClicked(ActionEvent event) {
         task.setTask(descriptionTextArea.getText());
         task.setTitle(titleTextField.getText());
+
+        Alert logOutAlert = new Alert(Alert.AlertType.INFORMATION);
+        logOutAlert.setTitle("Task Updated");
+        logOutAlert.setHeaderText("Task has updated successfully ");
+        logOutAlert.showAndWait();
         Task.updateTask(task);
+
+
     }
     public void initialize(){
         task = ViewTaskManagerController.getSelectedTask();

@@ -33,29 +33,32 @@ public class MessageAppController {
     private HBox sendHBox;
 
     @FXML
-    private ListView<User> usersListView;
+    private ListView<UserBox> usersListView;
 
     @FXML
     private ScrollPane scrollPane;
     private ArrayList<Message> messages;
     private User user;
 
+    @FXML
+    private Label userLabel;
+    Timer timer;
 
     @FXML
     private void initialize() {
         text.setWrapText(true);
-        
+        userLabel.setVisible(false);
         messageBox.setSpacing(10);
         scrollPane.setContent(messageBox);
         scrollPane.setFitToWidth(true);
         sendHBox.setVisible(false);
 
         for(User otheruser : User.getUsers()){
-            usersListView.getItems().add(otheruser);
+            usersListView.getItems().add(new UserBox(otheruser));
         }
-
+        usersListView.getSelectionModel().select(0);
         text.setPromptText("Type a message...");
-        Timer timer = new Timer();
+        timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -70,7 +73,7 @@ public class MessageAppController {
         user = LoginPageController.getUser();
         if(usersListView.getSelectionModel().getSelectedItem()!=null){
             sendHBox.setVisible(true);
-            messages = Message.getMessagesBetweenUsers(user,usersListView.getSelectionModel().getSelectedItem());
+            messages = Message.getMessagesBetweenUsers(user,usersListView.getSelectionModel().getSelectedItem().getUser());
             messageBox.getChildren().clear();
             for (Message message : messages) {
                 addMessage(message.getMessage(), message.getSender().getId() == user.getId());
@@ -88,7 +91,7 @@ public class MessageAppController {
     private void handleSendButtonClick(MouseEvent event) {
         String message = text.getText();
         if (!message.trim().isEmpty()) {
-            Message.sendMessageMain(user,usersListView.getSelectionModel().getSelectedItem(),message, LocalDateTime.now());
+            Message.sendMessageMain(user,usersListView.getSelectionModel().getSelectedItem().getUser(),message, LocalDateTime.now());
             addMessage(message, true); // Add user message
             text.clear();
         }
@@ -115,6 +118,7 @@ public class MessageAppController {
 
     @FXML
     void homepageClicked(MouseEvent event) {
+        timer.cancel();
         try {
             if(LoginPageController.getUser().isAdmin()){
                 AdminMenuController adminMenuController = AdminMenuController.getInstance();
@@ -127,11 +131,15 @@ public class MessageAppController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     @FXML
-    void userSelected(ActionEvent event) {
+    void userSelected(MouseEvent event) {
+
+        userLabel.setText(usersListView.getSelectionModel().getSelectedItem().getUser().getFullName());
         refresh();
+        userLabel.setVisible(true);
     }
 
 }

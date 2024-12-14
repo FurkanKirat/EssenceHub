@@ -3,6 +3,7 @@ package com.essencehub.project.Controllers.Task;
 import com.essencehub.project.User.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -41,6 +42,11 @@ public class OpenTaskEmployeeController {
         if(!task.isTaskDone()){
             task.setTaskDone(true);
             Task.updateTask(task);
+
+            Alert logOutAlert = new Alert(Alert.AlertType.INFORMATION);
+            logOutAlert.setTitle("Task Updated");
+            logOutAlert.setHeaderText("Task has marked as done successfully ");
+            logOutAlert.showAndWait();
         }
 
     }
@@ -50,6 +56,10 @@ public class OpenTaskEmployeeController {
         if(task.isTaskDone()){
             task.setTaskDone(false);
             Task.updateTask(task);
+            Alert logOutAlert = new Alert(Alert.AlertType.INFORMATION);
+            logOutAlert.setTitle("Task Updated");
+            logOutAlert.setHeaderText("Task has marked as undone successfully ");
+            logOutAlert.showAndWait();
         }
 
     }
