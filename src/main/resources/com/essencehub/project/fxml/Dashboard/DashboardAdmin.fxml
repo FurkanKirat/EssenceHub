@@ -23,7 +23,7 @@
          <children>
             <VBox prefHeight="306.0" prefWidth="978.0" HBox.hgrow="ALWAYS">
                <children>
-                  <TableView fx:id="taskTable" onMouseClicked="#taskClicked" prefHeight="264.0" prefWidth="954.0">
+                  <TableView fx:id="taskTable" onMouseClicked="#taskClicked" prefHeight="255.0" prefWidth="954.0">
                      <columns>
                         <TableColumn fx:id="employeeNameColumn" prefWidth="154.39997518062592" text="Employee " />
                         <TableColumn fx:id="taskColumn" prefWidth="131.20000457763672" text="Title" />
