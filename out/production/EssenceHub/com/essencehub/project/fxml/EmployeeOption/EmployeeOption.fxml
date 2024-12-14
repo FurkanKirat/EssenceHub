@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="generalAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.ApplicationMenuController">
+<AnchorPane fx:id="generalAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.EmployeeOperations.EmployeeOperationsController">
    <children>
       <TabPane fx:id="TabPane" layoutX="87.0" layoutY="50.0" prefHeight="617.0" prefWidth="608.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
@@ -90,7 +90,7 @@
                         <ComboBox fx:id="selectUpdateComboBox" layoutX="104.0" layoutY="63.0" prefHeight="26.0" prefWidth="454.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="57.0" />
                         <Button fx:id="updateButton" layoutX="207.0" layoutY="247.0" mnemonicParsing="false" onAction="#isUpdateButtonClicked" prefHeight="36.0" prefWidth="112.0" text="Update" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="207.0" />
                         <ComboBox fx:id="workerStatusComboBox" layoutX="159.0" layoutY="125.0" onAction="#statusSelected" prefHeight="26.0" prefWidth="307.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
-                        <TextField fx:id="statusTextField" layoutX="211.0" layoutY="189.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
+                        <TextField fx:id="statusTextField" layoutX="211.0" layoutY="189.0" styleClass="menuTextField" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
                         <ComboBox fx:id="propertyComboBox" layoutX="60.0" layoutY="189.0" prefHeight="26.0" prefWidth="780.0" visible="false" />
                         <DatePicker fx:id="birthPicker" editable="false" layoutX="61.0" layoutY="189.0" prefHeight="26.0" prefWidth="780.0" promptText="Birth" visible="false" />
                      </children>

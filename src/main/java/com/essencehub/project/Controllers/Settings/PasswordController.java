@@ -73,7 +73,7 @@ public class PasswordController {
     void editPasswordButtonClicked(MouseEvent event) {
         try{
             Stage stage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/essencehub/project/fxml/Settings/passwordUpdate.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/essencehub/project/fxml/Settings/PasswordUpdate.fxml"));
             stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
             Scene scene = new Scene(root);
             ThemeController.changeTheme(scene);

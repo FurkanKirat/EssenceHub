@@ -6,7 +6,6 @@ import javafx.scene.Node;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -80,7 +79,7 @@ public class ViewStockController {
 
     @FXML
     void pieChartRadioClicked(MouseEvent event) {
-        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/viewPieChart.fxml",chartVBox);
+        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/ViewPieChart.fxml",chartVBox);
     }
 
     @FXML

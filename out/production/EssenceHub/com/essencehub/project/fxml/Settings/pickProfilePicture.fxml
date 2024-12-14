@@ -138,6 +138,7 @@
                   </ImageView>
                </children>
             </VBox>
+            <VBox fx:id="vBox11" alignment="CENTER" prefHeight="65.0" prefWidth="65.0" />
          </children>
          <padding>
             <Insets left="20.0" />

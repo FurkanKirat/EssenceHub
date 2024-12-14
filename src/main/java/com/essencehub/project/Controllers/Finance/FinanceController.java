@@ -20,7 +20,7 @@ public class FinanceController {
     @FXML
     void incomeClicked(MouseEvent event) {
         AdminMenuController adminMenuController = AdminMenuController.getInstance();
-        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/IncomeX.fxml");
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/Income.fxml");
     }
 
     @FXML

@@ -27,7 +27,7 @@
             <Pane maxHeight="-Infinity" opacity="0.5" prefHeight="1.0" prefWidth="200.0" styleClass="line-color" HBox.hgrow="ALWAYS" />
             <ImageView fx:id="msgIcon" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#msgIconCLicked" pickOnBounds="true" preserveRatio="true" styleClass="hide">
                <image>
-                  <Image url="@../../images/adminpanel/inbox.png" />
+                  <Image url="@../../images/AdminPanel/inbox.png" />
                </image>
                <effect>
                   <DropShadow />
@@ -35,7 +35,7 @@
             </ImageView>
             <ImageView fx:id="settingIcon" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#settingsIconClicked" pickOnBounds="true" preserveRatio="true" styleClass="hide">
                <image>
-                  <Image url="@../../images/adminpanel/settings.png" />
+                  <Image url="@../../images/AdminPanel/settings.png" />
                </image>
                <effect>
                   <DropShadow />
@@ -57,7 +57,7 @@
                <children>
                   <ImageView fx:id="profilePicturePanel" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#profilePicturePanelClicked" pickOnBounds="true" preserveRatio="true" styleClass="hide">
                      <image>
-                        <Image url="@../../images/adminpanel/profile.png" />
+                        <Image url="@../../images/AdminPanel/profile.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="5.0" />
@@ -99,7 +99,7 @@
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../images/adminpanel/dashboard.png" />
+                              <Image url="@../../images/AdminPanel/dashboard.png" />
                            </image>
                            <effect>
                               <DropShadow />
@@ -129,7 +129,7 @@
                      <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../images/adminpanel/clipboard.png" />
+                              <Image url="@../../images/AdminPanel/clipboard.png" />
                            </image>
                            <effect>
                               <DropShadow />

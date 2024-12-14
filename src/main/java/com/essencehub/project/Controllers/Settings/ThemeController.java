@@ -29,32 +29,32 @@ public class ThemeController {
 
     @FXML
     private ComboBox<String> themePicker;
-    public static String theme = "/com/essencehub/project/css/style.css";
+    public static String theme = "/com/essencehub/project/css/CurrentTheme.css";
     @FXML
     void changeButtonClicked(MouseEvent event) {
 
         if (themePicker.getValue().equals("Gray Theme")) {
-            theme = "/com/essencehub/project/css/GrayStyle.css";
+            theme = "/com/essencehub/project/css/GrayTheme.css";
 
         }
         else if(themePicker.getValue().equals("Blue Theme")){
-            theme = "/com/essencehub/project/css/BlueStyle.css";
+            theme = "/com/essencehub/project/css/BlueTheme.css";
 
         }
         else if(themePicker.getValue().equals("Light Blue Theme")){
-            theme = "/com/essencehub/project/css/LightBlue.css";
+            theme = "/com/essencehub/project/css/LightBlueTheme.css";
         }
         else if(themePicker.getValue().equals("Green Theme")){
-            theme = "/com/essencehub/project/css/GreenStyle.css";
+            theme = "/com/essencehub/project/css/GreenTheme.css";
         }
         else if(themePicker.getValue().equals("Purple Theme")){
             theme = "/com/essencehub/project/css/PurpleTheme.css";
         }
         else if(themePicker.getValue().equals("Red Theme")){
-            theme = "/com/essencehub/project/css/RedStyle.css";
+            theme = "/com/essencehub/project/css/RedStyleTheme.css";
         }
 
-        String destinationCssFile = "src/main/resources/com/essencehub/project/css/style.css";
+        String destinationCssFile = "src/main/resources/com/essencehub/project/css/CurrentTheme.css";
 
         try {
 
@@ -71,7 +71,7 @@ public class ThemeController {
 
             System.out.println("CSS file copied successfully and theme changed.");
             sceneLoader(event);
-            FXMLoader("/com/essencehub/project/fxml/Settings/theme.fxml");
+            FXMLoader("/com/essencehub/project/fxml/Settings/Theme.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -105,7 +105,7 @@ public class ThemeController {
     }
     void sceneLoader(MouseEvent event){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/fxml/Settings/settings.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/fxml/Settings/Settings.fxml"));
             Parent newContent = loader.load();
             Scene scene = new Scene(newContent);
             ThemeController.changeTheme(scene);

@@ -82,7 +82,7 @@ public class AdminMenuController {
         catch (Exception e){
             e.printStackTrace();
         }
-        loadFXMLContent("/com/essencehub/project/fxml/DashboardAdmin.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/Dashboard/DashboardAdmin.fxml");
         dashboardPanel.getStyleClass().add("selected-border");
 
         currentNode = dashboardPanel;
@@ -93,7 +93,7 @@ public class AdminMenuController {
     @FXML
     void assignTaskPanelClicked(MouseEvent event) {
         currentNode.getStyleClass().remove("selected-border");
-        loadFXMLContent("/com/essencehub/project/fxml/Task/ViewTaskManager.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/Task/AdminViewTasks.fxml");
         assignTaskPanel.getStyleClass().add("selected-border");
         currentNode=assignTaskPanel;
     }
@@ -101,7 +101,7 @@ public class AdminMenuController {
     @FXML
     void dashboradClicked(MouseEvent event) {
         currentNode.getStyleClass().remove("selected-border");
-        loadFXMLContent("/com/essencehub/project/fxml/DashboardAdmin.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/Dashboard/DashboardAdmin.fxml");
         dashboardPanel.getStyleClass().add("selected-border");
         currentNode=dashboardPanel;
     }
@@ -117,7 +117,7 @@ public class AdminMenuController {
     @FXML
     void financeClicked(MouseEvent event) {
         currentNode.getStyleClass().remove("selected-border");
-        loadFXMLContent("/com/essencehub/project/fxml/Finance/finance.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/Finance/Finance.fxml");
         financePanel.getStyleClass().add("selected-border");
         currentNode=financePanel;
     }
@@ -129,12 +129,12 @@ public class AdminMenuController {
 
     @FXML
     void profilePicturePanelClicked(MouseEvent event) {
-        settings("/com/essencehub/project/fxml/Settings/settings.fxml",event);
+        settings("/com/essencehub/project/fxml/Settings/Settings.fxml",event);
     }
 
     @FXML
     void settingIconClicked(MouseEvent event) {
-        settings("/com/essencehub/project/fxml/Settings/settings.fxml",event);
+        settings("/com/essencehub/project/fxml/Settings/Settings.fxml",event);
     }
 
     @FXML

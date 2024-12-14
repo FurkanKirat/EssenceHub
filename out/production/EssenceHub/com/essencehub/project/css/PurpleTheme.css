@@ -1,15 +1,15 @@
 /* General Styles - Purple Theme */
 .gradient-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #4b0082, #8a2be2);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2e1a47, #5a3d7a);
 }
 .first-color {
-    -fx-background-color: #4b0082;
+    -fx-background-color: #2e1a47;
 }
 .second-color {
-    -fx-background-color: #6a0dad;
+    -fx-background-color: #3f2659;
 }
 .line-color {
-    -fx-background-color: #dda0dd;
+    -fx-background-color: #9b7dbb;
 }
 .container {
     -fx-background-color: rgba(255, 255, 255, 0.1);
@@ -19,22 +19,22 @@
     -fx-cursor: hand;
 }
 .selected-border {
-    -fx-border-color: #dda0dd;
+    -fx-border-color: #9b7dbb;
     -fx-border-width: 0 3 0 0;
 }
 .selected:hover {
-    -fx-background-color: #7e3fbf;
+    -fx-background-color: #6a4d8c;
 }
 .selected:clicked {
-    -fx-background-color: #7e3fbf;
+    -fx-background-color: #6a4d8c;
 }
 .buttonClicked {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(128, 0, 128, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(155, 125, 187, 0.5), 10, 0.5, 0, 0);
 }
 .settingsProfile:hover {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(128, 0, 128, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(155, 125, 187, 0.5), 10, 0.5, 0, 0);
 }
 .menuButton {
     -fx-background-color: rgba(255, 255, 255, 0.1);
@@ -44,40 +44,39 @@
 .text-input {
     -fx-background-color: rgba(0, 0, 0, 0);
     -fx-border-width: 0 0 1 0;
-    -fx-border-color: #dda0dd;
+    -fx-border-color: #9b7dbb;
 }
 .menuTextField {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #d8d0e8;
     -fx-font-size: 15px;
 }
 /* combo box */
 .combo-box {
-    -fx-background-color: #134e5e;
-    -fx-border-color: #a8df65;
+    -fx-background-color: #2e1a47;
+    -fx-border-color: #9b7dbb;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
     -fx-font-size: 14px;
-
 }
 
 .combo-box .arrow {
-    -fx-background-color: #a8df65;
-    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Ok işareti */
+    -fx-background-color: #9b7dbb;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
 }
 
 .combo-box:hover {
-    -fx-background-color: #168f5e;
-    -list-cell-background-color: #168f5e;
+    -fx-background-color: #6a4d8c;
+    -list-cell-background-color: #6a4d8c;
 }
 
 .list-cell {
-    -fx-background-color: #134e5e;
-    -fx-text-fill: #e0e0e0;
+    -fx-background-color: #2e1a47;
+    -fx-text-fill: #d8d0e8;
     -fx-font-size: 14px;
 }
 
 .list-cell:hover {
-    -fx-background-color: #168f5e;
+    -fx-background-color: #6a4d8c;
     -fx-text-fill: #ffffff;
 }
 .combo-box .text-input {
@@ -87,7 +86,7 @@
 /* Login Page - Purple Theme */
 .loginTextField {
     -fx-border-width: 2px;
-    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #4b0082, #8a2be2);
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #2e1a47, #5a3d7a);
     -fx-background-color: transparent;
     -fx-text-fill: black;
     -fx-font-weight: bold;
@@ -98,63 +97,153 @@
     -fx-font-weight: bold;
 }
 #anchor1 {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #4b0082, #8a2be2);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2e1a47, #5a3d7a);
 }
 #loginbtn {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #4b0082, #8a2be2);
-    -fx-text-fill: #e0e0e0;
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2e1a47, #5a3d7a);
+    -fx-text-fill: #d8d0e8;
     -fx-background-radius: 15;
     -fx-cursor: hand;
     -fx-font-weight: bold;
 }
 #logo {
-    -fx-fill: linear-gradient(#4b0082, #8a2be2);
+    -fx-fill: linear-gradient(#2e1a47, #5a3d7a);
 }
 #appLabel {
-    -fx-text-fill: #e0e0e0;
-    -fx-back-color: #8a2be2;
+    -fx-text-fill: #d8d0e8;
+    -fx-back-color: #5a3d7a;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-family: "sans-serif";
 }
 #profile {
-    -fx-fill: #b666d2;
+    -fx-fill: #835da6;
 }
 
-.loginImage{
-     -fx-effect: innershadow(gaussian,#4b0082, 5, 1, 0, 0);
+.loginImage {
+    -fx-effect: innershadow(gaussian, #2e1a47, 5, 1, 0, 0);
 }
-
 
 /* Tasks - Purple Theme */
 .TaskLabel {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #d8d0e8;
 }
 
 /* Employee Option - Purple Theme */
 .employeeLabel {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #d8d0e8;
 }
 
 /* Stock - Purple Theme */
 .chart-legend-item {
-    -fx-text-fill: #dda0dd;
+    -fx-text-fill: #9b7dbb;
 }
 .chart-pie-label-line {
-    -fx-stroke: #dda0dd;
-    -fx-fill: #dda0dd;
+    -fx-stroke: #9b7dbb;
+    -fx-fill: #9b7dbb;
 }
 .chart-pie-label {
-    -fx-fill: #dda0dd;
+    -fx-fill: #9b7dbb;
 }
 .chart-legend {
-    -fx-background-color: #6a0dad;
-    -fx-stroke: #6a0dad;
+    -fx-background-color: #3f2659;
+    -fx-stroke: #3f2659;
 }
 .axis-label {
-    -fx-text-fill: #dda0dd;
+    -fx-text-fill: #9b7dbb;
 }
 .chart-pie-label {
-    -fx-fill: #e0e0e0;
+    -fx-fill: #d8d0e8;
+}
+
+/* TableView Styles - Purple Theme */
+.table-view {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 10;
+    -fx-border-color: #9b7dbb;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header {
+    -fx-background-color:  #2e1a47;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #d8d0e8;
+}
+
+.table-view .table-row-cell:focused {
+    -fx-background-color: #6a4d8c;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #6a4d8c;
+}
+
+.table-view .table-row-cell:pressed {
+    -fx-background-color: #2e1a47;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header:pressed {
+    -fx-background-color: #3f2659;
+}
+
+.table-view .column-header:focused {
+    -fx-background-color: #6a4d8c;
+}
+
+.table-view .column-header {
+    -fx-background-color: #2e1a47;
+    -fx-text-fill: #d8d0e8;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+
+.table-view .column-header .text {
+    -fx-fill: #d8d0e8;
+}
+/* Radio Button - Purple Theme */
+.radio-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #d8d0e8;
+    -fx-font-size: 14px;
+}
+
+.radio-button .box {
+    -fx-border-color: #9b7dbb;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+    -fx-background-color: transparent;
+    -fx-min-width: 16px;
+    -fx-min-height: 16px;
+    -fx-max-width: 16px;
+    -fx-max-height: 16px;
+}
+
+.radio-button:selected .box {
+    -fx-background-color: #9b7dbb;
+    -fx-border-color: #2e1a47;
+}
+
+.radio-button .box:hover {
+    -fx-border-color: #6a4d8c;
+}
+
+.radio-button:selected .box:hover {
+    -fx-background-color: #6a4d8c;
+}
+.radio-button:selected .radio .dot {
+    -fx-background-color: #3f2659;
+    -fx-background-insets: 0;
+}
+
+.radio-button .label {
+    -fx-text-fill: #d8d0e8;
 }

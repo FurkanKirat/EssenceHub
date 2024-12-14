@@ -15,7 +15,6 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class EmployeeMenuController {
     private double savedWidth;
@@ -52,7 +51,7 @@ public class EmployeeMenuController {
     @FXML
     void dashboardPanelClicked(MouseEvent event) {
         currentNode.getStyleClass().remove("selected-border");
-        loadFXMLContent("/com/essencehub/project/fxml/DashboardEmployee.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/Dashboard/DashboardEmployee.fxml");
         dashboardPanel.getStyleClass().add("selected-border");
         currentNode=dashboardPanel;
 
@@ -66,18 +65,18 @@ public class EmployeeMenuController {
 
     @FXML
     void profilePicturePanelClicked(MouseEvent event) {
-        settings("/com/essencehub/project/fxml/Settings/settings.fxml",event);
+        settings("/com/essencehub/project/fxml/Settings/Settings.fxml",event);
     }
 
     @FXML
     void settingsIconClicked(MouseEvent event) {
-        settings("/com/essencehub/project/fxml/Settings/settings.fxml",event);
+        settings("/com/essencehub/project/fxml/Settings/Settings.fxml",event);
     }
 
     @FXML
     void tasksPanelClicked(MouseEvent event) {
         currentNode.getStyleClass().remove("selected-border");
-        loadFXMLContent("/com/essencehub/project/fxml/Task/ViewTaskEmployee.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/Task/EmployeeViewTask.fxml");
         tasksPanel.getStyleClass().add("selected-border");
         currentNode=tasksPanel;
     }
@@ -89,7 +88,7 @@ public class EmployeeMenuController {
             String surname = LoginPageController.getUser().getSurname();
             profilePicturePanel.setImage(LoginPageController.getUser().getImage());
             nameLabel.setText(name + " " + surname);
-            loadFXMLContent("/com/essencehub/project/fxml/DashboardEmployee.fxml");
+            loadFXMLContent("/com/essencehub/project/fxml/Dashboard/DashboardEmployee.fxml");
         }
         catch (Exception e){
             e.printStackTrace();

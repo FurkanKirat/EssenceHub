@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Finance.OutgoingsController">
+   <children>
+      <AnchorPane fx:id="outcomeAnchorPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <ComboBox fx:id="outcomeComboBox" layoutX="225.0" layoutY="28.0" onAction="#outcomeComboBoxIsSelected" prefWidth="150.0" AnchorPane.leftAnchor="202.0" AnchorPane.rightAnchor="201.0" />
+            <TableView fx:id="outcomeTableView" layoutX="200.0" layoutY="109.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="91.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <columns>
+                  <TableColumn fx:id="titleColumn" prefWidth="202.0" resizable="false" text="Title" />
+                  <TableColumn fx:id="dateColumn" minWidth="0.0" prefWidth="198.0" resizable="false" text="Date" />
+                  <TableColumn fx:id="costColumn" prefWidth="199.0" resizable="false" text="Cost" />
+               </columns>
+            </TableView>
+            <Label layoutX="53.0" layoutY="354.0" prefHeight="17.0" prefWidth="137.0" text="Total Outgoings:" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="410.0" AnchorPane.topAnchor="354.0" />
+            <TextField fx:id="outcomeField" editable="false" layoutX="221.0" layoutY="350.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="202.0" AnchorPane.rightAnchor="201.0" AnchorPane.topAnchor="350.0" />
+            <RadioButton fx:id="theMostButton" layoutX="461.0" layoutY="32.0" mnemonicParsing="false" onAction="#isTheMostButtonClicked" prefHeight="18.0" prefWidth="107.0" text="From Most" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

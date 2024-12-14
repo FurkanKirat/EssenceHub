@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="func" prefHeight="807.2" prefWidth="973.6" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.StockTracking.ViewStockTimeController">
+   <children>
+      <HBox prefHeight="35.0" prefWidth="974.0" spacing="10.0">
+         <children>
+            <ComboBox fx:id="yearCombobox" prefWidth="150.0" />
+            <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="462.0" spacing="10.0" />
+            <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="313.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fx:id="changeMenuIcon" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#changeMenuIconClicked" pickOnBounds="true" preserveRatio="true" styleClass="hide">
+                     <image>
+                        <Image url="@../../images/StockTracking/processing-time.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </HBox>
+      <VBox fx:id="chartVBox" prefHeight="804.0" prefWidth="974.0">
+         <children>
+            <LineChart fx:id="lineChart" prefHeight="685.0" prefWidth="974.0">
+               <xAxis>
+                  <CategoryAxis fx:id="productDateAxis" side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis fx:id="numberAxis" side="LEFT" tickLabelFill="WHITE" />
+               </yAxis>
+            </LineChart>
+         </children>
+      </VBox>
+      <HBox prefHeight="47.0" prefWidth="974.0" spacing="10.0" />
+   </children>
+</VBox>

@@ -20,7 +20,6 @@ import com.essencehub.project.Controllers.Menu.EmployeeMenuController;
 import com.essencehub.project.Controllers.Menu.LoginPageController;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class SettingsController {
 
@@ -98,7 +97,7 @@ public class SettingsController {
     @FXML
     void EditInfoButtonClicked(MouseEvent event) throws IOException {
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/essencehub/project/fxml/Settings/contactInfoUpdate.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/essencehub/project/fxml/Settings/ContactInfoUpdate.fxml"));
         stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
         Scene scene = new Scene(root);
         ThemeController.changeTheme(scene);
@@ -184,7 +183,7 @@ public class SettingsController {
 
     @FXML
     void PasswordMenuPanelClicked(MouseEvent event) {
-        changeScene("/com/essencehub/project/fxml/Settings/password.fxml");
+        changeScene("/com/essencehub/project/fxml/Settings/Password.fxml");
         PasswordMenuPanelClicked.getStyleClass().add("selected-border");
         currentNode=PasswordMenuPanelClicked;
 
@@ -195,7 +194,7 @@ public class SettingsController {
         currentNode.getStyleClass().remove("selected-border");
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/fxml/Settings/settings.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/essencehub/project/fxml/Settings/Settings.fxml"));
             Parent newContent = loader.load();
             Scene scene = new Scene(newContent);
             ThemeController.changeTheme(scene);
@@ -211,7 +210,7 @@ public class SettingsController {
 
     @FXML
     void ThemeMenuPanelClicked(MouseEvent event) {
-        changeScene("/com/essencehub/project/fxml/Settings/theme.fxml");
+        changeScene("/com/essencehub/project/fxml/Settings/Theme.fxml");
         ThemeMenuPanel.getStyleClass().add("selected-border");
         currentNode=ThemeMenuPanel;
     }
@@ -255,7 +254,7 @@ public class SettingsController {
     @FXML
     void editProfileButtonClicked(MouseEvent event) throws IOException {
 
-        createNewScene("/com/essencehub/project/fxml/Settings/pickProfilePicture.fxml","Edit Profile",event);
+        createNewScene("/com/essencehub/project/fxml/Settings/PickProfilePicture.fxml","Edit Profile",event);
 
 
     }
