@@ -13,6 +13,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class AdminViewTaskController {
 
     @FXML
@@ -35,6 +38,12 @@ public class AdminViewTaskController {
 
     @FXML
     private TableColumn<Task, String> employeeNameColumn1;
+
+    @FXML
+    private TableColumn<Task, LocalDateTime> taskDueColumn;
+
+    @FXML
+    private TableColumn<Task, LocalDateTime> sentDateColumn;
 
     @FXML
     void assignTaskIconClicked(MouseEvent event) {
@@ -69,9 +78,12 @@ public class AdminViewTaskController {
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("taskDone"));
         taskColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         employeeNameColumn1.setCellValueFactory(new PropertyValueFactory<>("sender"));
+        sentDateColumn.setCellValueFactory(new PropertyValueFactory<>("sendDateTime"));
         ObservableList<Task> tasks = FXCollections.observableArrayList(Task.getAllTasks());
         taskTable.setItems(tasks);
     }
+
+
     public static Task getSelectedTask(){
         return task;
     }

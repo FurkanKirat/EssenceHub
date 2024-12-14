@@ -19,22 +19,25 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class AssignTaskController {
-    private User user;
+
     @FXML
     private ListView <HBox> receiverListView; // Employees names + checkbox
 
-    private CheckBox[] checkBoxes;
     @FXML
     private TextField titleTextField;
 
     @FXML
     private TextArea descriptionTextArea;
 
-    private ArrayList<User> employees;
-
+    @FXML
+    private DatePicker datePicker;
 
     @FXML
     private ImageView viewTaskImage;
+
+    private ArrayList<User> employees;
+    private CheckBox[] checkBoxes;
+    private User user;
 
 
     @FXML

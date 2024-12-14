@@ -13,6 +13,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.time.LocalDateTime;
+
 public class EmployeeViewTaskController {
 
     @FXML
@@ -32,6 +34,12 @@ public class EmployeeViewTaskController {
 
     @FXML
     private TableColumn<Task, String> senderColumn;
+
+    @FXML
+    private TableColumn<Task, LocalDateTime> taskDueColumn;
+
+    @FXML
+    private TableColumn<Task, LocalDateTime> sentDateColumn;
 
     private static Task task;
 
@@ -54,6 +62,7 @@ public class EmployeeViewTaskController {
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("taskDone"));
         taskColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         senderColumn.setCellValueFactory(new PropertyValueFactory<>("sender"));
+        sentDateColumn.setCellValueFactory(new PropertyValueFactory<>("sendDateTime"));
         ObservableList<Task> tasks = null;
         try {
             tasks = FXCollections.observableArrayList(Task.getUserTasks(LoginPageController.getUser().getId()));

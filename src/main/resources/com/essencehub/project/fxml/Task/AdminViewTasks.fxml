@@ -54,6 +54,8 @@
                   <TableColumn fx:id="taskColumn" prefWidth="334.3999786376953" text="Task" />
                   <TableColumn fx:id="statusColumn" prefWidth="140.800048828125" text="Completed" />
                   <TableColumn fx:id="employeeNameColumn1" prefWidth="160.79989624023438" text="Sender" />
+                  <TableColumn fx:id="sentDateColumn" prefWidth="160.79989624023438" text="Sent Date" />
+                  <TableColumn fx:id="taskDueColumn" prefWidth="160.79989624023438" text="Task Due" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

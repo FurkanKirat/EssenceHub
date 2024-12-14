@@ -24,6 +24,9 @@ public class EmployeeOpenTaskController {
     @FXML
     private TextField titleTextField;
 
+    @FXML
+    private DatePicker datePicker;
+
     private Task task;
 
     @FXML

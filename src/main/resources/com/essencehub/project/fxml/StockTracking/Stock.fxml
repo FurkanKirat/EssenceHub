@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<VBox fx:id="func" prefHeight="807.2" prefWidth="973.6" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.StockTracking.StockController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <bottom>
+            <TableView fx:id="stockView" prefHeight="365.0" prefWidth="974.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="productNameColumn" prefWidth="124.79998475313187" text="Product Name" />
+                <TableColumn fx:id="stockColumn" minWidth="0.0" prefWidth="229.6000213623047" text="Stock Quantity" />
+                  <TableColumn fx:id="dateColumn" minWidth="0.0" prefWidth="229.6000213623047" text="Date" />
+              </columns>
+            </TableView>
+         </bottom>
+         <top>
+            <ComboBox fx:id="yearCombobox" prefWidth="150.0" BorderPane.alignment="CENTER" />
+         </top>
+         <center>
+            <LineChart fx:id="lineChart" prefHeight="237.0" prefWidth="974.0" BorderPane.alignment="CENTER">
+              <xAxis>
+                <CategoryAxis fx:id="productDateAxis" prefHeight="27.0" prefWidth="917.0" side="BOTTOM" tickLabelFill="WHITE" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="numberAxis" side="LEFT">
+                     <tickLabelFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </tickLabelFill></NumberAxis>
+              </yAxis>
+            </LineChart>
+         </center>
+      </BorderPane>
+   </children>
+</VBox>

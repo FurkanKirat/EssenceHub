@@ -14,6 +14,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.time.LocalDateTime;
+
 public class EmployeeDashboardController {
 
 
@@ -35,12 +37,19 @@ public class EmployeeDashboardController {
     @FXML
     private TableView<Task> taskTable;
 
+    @FXML
+    private TableColumn<Task, LocalDateTime> taskDueColumn;
+
+    @FXML
+    private TableColumn<Task, LocalDateTime> sentDateColumn;
+
 
     public void initialize(){
 
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("taskDone"));
         taskColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         employeeNameColumn1.setCellValueFactory(new PropertyValueFactory<>("sender"));
+        sentDateColumn.setCellValueFactory(new PropertyValueFactory<>("sendDateTime"));
 
         ObservableList<Task> allTasks = FXCollections.observableArrayList(Task.getUserTasks(LoginPageController.getUser().getId()));
 
