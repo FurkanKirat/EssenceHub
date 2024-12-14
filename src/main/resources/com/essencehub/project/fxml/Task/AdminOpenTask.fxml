@@ -21,9 +21,9 @@
                     <Label alignment="CENTER" style="-fx-font-size: 25px; -fx-font-weight: bold;" styleClass="TaskLabel" text="Update Task" />
                 </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="482.0">
+            <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="482.0" HBox.hgrow="ALWAYS">
                 <children>
-                    <ImageView fx:id="goBackIcon" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#goBackIconClicked" pickOnBounds="true" preserveRatio="true">
+                    <ImageView fx:id="goBackIcon" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#goBackIconClicked" pickOnBounds="true" preserveRatio="true" styleClass="hide">
                         <image>
                             <Image url="@../../images/General/goBack.png" />
                         </image>
@@ -32,6 +32,9 @@
                         </effect>
                     </ImageView>
                 </children>
+            <HBox.margin>
+               <Insets right="10.0" />
+            </HBox.margin>
             </HBox>
         </children>
     </HBox>
@@ -55,7 +58,7 @@
     <!-- Task Title Input -->
     <HBox spacing="10.0">
         <Label alignment="CENTER" prefWidth="150.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" styleClass="TaskLabel" text="Task Title:" />
-        <TextField fx:id="titleTextField" prefHeight="35.0" prefWidth="774.0" promptText="Enter the task title" styleClass="menuTextField" />
+        <TextField fx:id="titleTextField" prefHeight="35.0" prefWidth="300.0" promptText="Enter the task title" styleClass="menuTextField" />
     </HBox>
 
     <!-- Task Description Label -->
