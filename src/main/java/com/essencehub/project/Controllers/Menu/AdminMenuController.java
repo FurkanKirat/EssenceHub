@@ -109,7 +109,7 @@ public class AdminMenuController {
     @FXML
     void employeePanelClicked(MouseEvent event) {
         currentNode.getStyleClass().remove("selected-border");
-        loadFXMLContent("/com/essencehub/project/fxml/EmployeeOption/EmployeeOption.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/EmployeeOption/hireEmployee.fxml");
         employeePanel.getStyleClass().add("selected-border");
         currentNode=employeePanel;
     }

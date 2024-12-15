@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="807.2" prefWidth="973.6" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Finance.OutgoingsController">
+<VBox prefHeight="807.2" prefWidth="973.6" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Finance.OutgoingsController">
    <children>
       <HBox prefHeight="60.0" prefWidth="200.0">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="668.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="398.0">
                <children>
                   <Label text="Expenses" textFill="WHITE">
                      <font>
@@ -27,9 +27,9 @@
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="754.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="478.0" HBox.hgrow="ALWAYS">
                <children>
-                  <VBox fx:id="incomeIconVBox" alignment="CENTER" onMouseClicked="#incomeIconVBoxClicked" prefHeight="60.0" prefWidth="60.0">
+                  <VBox fx:id="incomeIconVBox" alignment="CENTER" onMouseClicked="#incomeIconVBoxClicked" prefHeight="60.0" prefWidth="60.0" styleClass="settingsProfile">
                      <children>
                         <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" smooth="false" styleClass="hide">
                            <image>
@@ -41,7 +41,7 @@
                         </ImageView>
                      </children>
                   </VBox>
-                  <VBox fx:id="expensesIconVBox" alignment="CENTER" onMouseClicked="#expensesIconVBoxClicked" prefHeight="60.0" prefWidth="60.0">
+                  <VBox fx:id="expensesIconVBox" alignment="CENTER" onMouseClicked="#expensesIconVBoxClicked" prefHeight="60.0" prefWidth="60.0" styleClass="settingsProfile">
                      <children>
                         <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" styleClass="hide">
                            <image>
