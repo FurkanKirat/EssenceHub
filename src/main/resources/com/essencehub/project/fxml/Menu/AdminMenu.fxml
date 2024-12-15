@@ -248,6 +248,33 @@
                         <Insets left="35.0" />
                      </padding>
                   </HBox>
+                  <HBox fx:id="leaveDaysPanel" alignment="CENTER_LEFT" onMouseClicked="#leaveDaysPanelClicked" prefHeight="60.0" prefWidth="200.0" spacing="15.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/AdminPanel/calendar.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <Label text="Leave Days" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                     <styleClass>
+                        <String fx:value="hide" />
+                        <String fx:value="selected" />
+                     </styleClass>
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding>
+                  </HBox>
                </children>
             </VBox>
          </children>

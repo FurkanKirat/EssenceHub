@@ -55,7 +55,7 @@ public class AdminMenuController {
     private HBox functions;
 
     @FXML
-    private BarChart<?, ?> barChart;
+    private HBox leaveDaysPanel;
 
     @FXML
     private VBox func;
@@ -120,6 +120,14 @@ public class AdminMenuController {
         loadFXMLContent("/com/essencehub/project/fxml/Finance/Income.fxml");
         financePanel.getStyleClass().add("selected-border");
         currentNode=financePanel;
+    }
+
+    @FXML
+    void leaveDaysPanelClicked(MouseEvent event) {
+        currentNode.getStyleClass().remove("selected-border");
+        loadFXMLContent("/com/essencehub/project/fxml/Finance/Income.fxml");
+        leaveDaysPanel.getStyleClass().add("selected-border");
+        currentNode=leaveDaysPanel;
     }
 
     @FXML

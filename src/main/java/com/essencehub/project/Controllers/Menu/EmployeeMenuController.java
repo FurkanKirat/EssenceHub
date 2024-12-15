@@ -33,6 +33,9 @@ public class EmployeeMenuController {
     private ImageView settingIcon;
 
     @FXML
+    private HBox requestLeavePanel;
+
+    @FXML
     private HBox tasksPanel;
 
     @FXML
@@ -64,7 +67,10 @@ public class EmployeeMenuController {
 
     @FXML
     void requestLeaveClicked(MouseEvent event) {
-
+        currentNode.getStyleClass().remove("selected-border");
+        loadFXMLContent("/com/essencehub/project/fxml/RequestLeave/EmployeeViewRequests.fxml");
+        requestLeavePanel.getStyleClass().add("selected-border");
+        currentNode=requestLeavePanel;
     }
 
 
