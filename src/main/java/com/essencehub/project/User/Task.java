@@ -142,7 +142,7 @@ public class Task {
         String query = """
     SELECT 
         t.id, t.sender_id, t.receiver_id, t.task, t.title, t.send_date_time, t.is_task_done,
-        t.progress, t.finish_date,
+        t.progress, t.finish_time,
         s.name AS sender_name, s.surname AS sender_surname,
         r.name AS receiver_name, r.surname AS receiver_surname
     FROM Task t
@@ -166,8 +166,8 @@ public class Task {
 
                 // Yeni alanlar: progress ve finish_date
                 int progress = resultSet.getInt("progress");
-                LocalDateTime finishDate = resultSet.getTimestamp("finish_date") != null ?
-                        resultSet.getTimestamp("finish_date").toLocalDateTime() : null;
+                LocalDateTime finishDate = resultSet.getTimestamp("finish_time") != null ?
+                        resultSet.getTimestamp("finish_time").toLocalDateTime() : null;
 
                 // Gönderici bilgileri
                 User sender = new User(senderId);

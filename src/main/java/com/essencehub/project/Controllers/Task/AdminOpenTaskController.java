@@ -43,6 +43,7 @@ public class AdminOpenTaskController {
     void updateTaskClicked(ActionEvent event) {
         task.setTask(descriptionTextArea.getText());
         task.setTitle(titleTextField.getText());
+        task.setFinishTime(datePicker.getValue().atStartOfDay());
 
         Alert logOutAlert = new Alert(Alert.AlertType.INFORMATION);
         logOutAlert.setTitle("Task Updated");
@@ -61,6 +62,7 @@ public class AdminOpenTaskController {
 
         titleTextField.setText(task.getTitle());
         descriptionTextArea.setText(task.getTask());
+        datePicker.setValue(task.getFinishTime().toLocalDate());
     }
 
 }

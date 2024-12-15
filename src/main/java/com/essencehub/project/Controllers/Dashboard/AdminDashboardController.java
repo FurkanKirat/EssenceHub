@@ -44,6 +44,9 @@ public class AdminDashboardController {
     @FXML
     private TableColumn<Task, LocalDateTime> sentDateColumn;
 
+    @FXML
+    private TableColumn<Task, Integer> progressColumn;
+
 
     public void initialize(){
         employeeNameColumn.setCellValueFactory(new PropertyValueFactory<>("receiver"));
@@ -51,6 +54,9 @@ public class AdminDashboardController {
         taskColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         employeeNameColumn1.setCellValueFactory(new PropertyValueFactory<>("sender"));
         sentDateColumn.setCellValueFactory(new PropertyValueFactory<>("sendDateTime"));
+        taskDueColumn.setCellValueFactory(new PropertyValueFactory<>("finishTime"));
+        progressColumn.setCellValueFactory(new PropertyValueFactory<>("progress"));
+
 
         ObservableList<Task> allTasks = FXCollections.observableArrayList(Task.getAllTasks());
 

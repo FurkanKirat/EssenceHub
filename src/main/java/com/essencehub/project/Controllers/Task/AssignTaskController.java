@@ -14,7 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
 
-
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -65,6 +65,7 @@ public class AssignTaskController {
 
         receiverListView.setItems(list);
         user = LoginPageController.getUser();
+        datePicker.setValue(LocalDate.now().plusDays(10));
     }
 
     @FXML
@@ -97,7 +98,6 @@ public class AssignTaskController {
 
                     Task task = new Task(user, employees.get(i), descriptionTextArea.getText(), titleTextField.getText(), LocalDateTime.now(),false,0, datePicker.getValue().atStartOfDay());
                     Task.sendTask(task);
-
 
                 }
             }

@@ -46,6 +46,9 @@ public class AdminViewTaskController {
     private TableColumn<Task, LocalDateTime> sentDateColumn;
 
     @FXML
+    private TableColumn<Task, Integer> progressColumn;
+
+    @FXML
     void assignTaskIconClicked(MouseEvent event) {
         AdminMenuController adminMenuController = AdminMenuController.getInstance();
         adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Task/AssignTask.fxml");
@@ -79,6 +82,8 @@ public class AdminViewTaskController {
         taskColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         employeeNameColumn1.setCellValueFactory(new PropertyValueFactory<>("sender"));
         sentDateColumn.setCellValueFactory(new PropertyValueFactory<>("sendDateTime"));
+        taskDueColumn.setCellValueFactory(new PropertyValueFactory<>("finishTime"));
+        progressColumn.setCellValueFactory(new PropertyValueFactory<>("progress"));
         ObservableList<Task> tasks = FXCollections.observableArrayList(Task.getAllTasks());
         taskTable.setItems(tasks);
     }

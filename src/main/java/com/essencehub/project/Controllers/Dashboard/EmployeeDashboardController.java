@@ -43,6 +43,9 @@ public class EmployeeDashboardController {
     @FXML
     private TableColumn<Task, LocalDateTime> sentDateColumn;
 
+    @FXML
+    private TableColumn<Task, Integer> progressColumn;
+
 
     public void initialize(){
 
@@ -50,6 +53,8 @@ public class EmployeeDashboardController {
         taskColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         employeeNameColumn1.setCellValueFactory(new PropertyValueFactory<>("sender"));
         sentDateColumn.setCellValueFactory(new PropertyValueFactory<>("sendDateTime"));
+        taskDueColumn.setCellValueFactory(new PropertyValueFactory<>("finishTime"));
+        progressColumn.setCellValueFactory(new PropertyValueFactory<>("progress"));
 
         ObservableList<Task> allTasks = FXCollections.observableArrayList(Task.getUserTasks(LoginPageController.getUser().getId()));
 

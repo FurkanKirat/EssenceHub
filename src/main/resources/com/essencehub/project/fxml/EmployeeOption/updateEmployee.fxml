@@ -89,7 +89,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <ComboBox fx:id="workerStatusComboBox" onAction="#statusSelected" prefHeight="26.0" prefWidth="450.0" />
+            <ComboBox fx:id="selectUpdateComboBox" prefHeight="26.0" prefWidth="450.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
@@ -99,7 +99,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <ComboBox fx:id="selectUpdateComboBox" prefHeight="26.0" prefWidth="450.0" />
+            <ComboBox fx:id="workerStatusComboBox" onAction="#statusSelected" prefHeight="26.0" prefWidth="450.0" />
          </children>
       </HBox>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="734.0">
