@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="centerVBox" prefHeight="807.2" prefWidth="973.6" spacing="30.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.EmployeeOperations.InfoEmployeeController">
+<VBox fx:id="centerVBox" prefHeight="807.2" prefWidth="973.6" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.EmployeeOperations.InfoEmployeeController">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="974.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="943.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="406.0">
                <children>
@@ -28,7 +28,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="577.0" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
-                  <ComboBox fx:id="userCombobox" onAction="#userChanged" prefWidth="150.0" />
+                  <ComboBox fx:id="userCombobox" onAction="#userChanged" prefHeight="26.0" prefWidth="259.0" />
                   <VBox alignment="CENTER" prefHeight="60.0" prefWidth="60.0">
                      <children>
                         <ImageView fx:id="infoIcon" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#infoIconClicked" pickOnBounds="true" preserveRatio="true">
@@ -43,6 +43,14 @@
                               <String fx:value="selected" />
                            </styleClass>
                         </ImageView>
+                        <Label text="Info" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="60.0" prefWidth="60.0">
@@ -59,6 +67,14 @@
                               <String fx:value="selected" />
                            </styleClass>
                         </ImageView>
+                        <Label text="Fire" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="60.0" prefWidth="60.0">
@@ -75,6 +91,14 @@
                               <String fx:value="selected" />
                            </styleClass>
                         </ImageView>
+                        <Label text="Hire" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="60.0" prefWidth="60.0">
@@ -91,6 +115,14 @@
                               <String fx:value="selected" />
                            </styleClass>
                         </ImageView>
+                        <Label text="Update" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
                      </children>
                   </VBox>
                </children>
@@ -236,9 +268,8 @@
             </HBox>
          </children>
       </VBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0" />
    </children>
    <padding>
-      <Insets bottom="30.0" left="50.0" right="30.0" top="30.0" />
+      <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
    </padding>
 </VBox>
