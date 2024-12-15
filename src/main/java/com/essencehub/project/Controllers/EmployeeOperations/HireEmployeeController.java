@@ -9,6 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.time.LocalDate;
+
 public class HireEmployeeController {
 
     @FXML
@@ -122,6 +124,7 @@ public class HireEmployeeController {
         alert.setContentText("The user " + name + " " + surname + " has been added successfully.");
         alert.showAndWait();
 
+
     }
 
     @FXML
@@ -149,6 +152,7 @@ public class HireEmployeeController {
     }
 
     public void initialize(){
+        birthPickerHire.setValue(LocalDate.now().minusYears(25));
         isAdminCombobox.setValue("Employee");
         isAdminCombobox.getItems().addAll("Admin","Employee");
     }

@@ -7,12 +7,16 @@ import com.essencehub.project.User.Message;
 import com.essencehub.project.User.User;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -23,6 +27,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MessageAppController {
+
     @FXML
     private TextArea text;
 
@@ -30,28 +35,32 @@ public class MessageAppController {
     private VBox messageBox;
 
     @FXML
-    private HBox sendHBox;
-
-    @FXML
     private ListView<UserBox> usersListView;
 
     @FXML
     private ScrollPane scrollPane;
-    private ArrayList<Message> messages;
-    private User user;
 
     @FXML
-    private Label userLabel;
-    Timer timer;
+    private ImageView profilePicture;
+
+    @FXML
+    private Label name;
+
+    private User user;
+    private Timer timer;
 
     @FXML
     private void initialize() {
         text.setWrapText(true);
-        userLabel.setVisible(false);
+        name.setVisible(false);
+        profilePicture.setVisible(false);
+        scrollPane.setVisible(false);
+        messageBox.setVisible(false);
+        text.setVisible(false);
+
         messageBox.setSpacing(10);
         scrollPane.setContent(messageBox);
         scrollPane.setFitToWidth(true);
-        sendHBox.setVisible(false);
 
         for(User otheruser : User.getUsers()){
             usersListView.getItems().add(new UserBox(otheruser));
@@ -68,36 +77,22 @@ public class MessageAppController {
             }
         }, 0, 2500);
     }
+
     public void refresh(){
 
         user = LoginPageController.getUser();
-        if(usersListView.getSelectionModel().getSelectedItem()!=null){
-            sendHBox.setVisible(true);
-            messages = Message.getMessagesBetweenUsers(user,usersListView.getSelectionModel().getSelectedItem().getUser());
-            messageBox.getChildren().clear();
-            for (Message message : messages) {
-                addMessage(message.getMessage(), message.getSender().getId() == user.getId());
 
-            }
-            scrollPane.vvalueProperty().bind(messageBox.heightProperty());
+        ArrayList<Message> messages = Message.getMessagesBetweenUsers(user, usersListView.getSelectionModel().getSelectedItem().getUser());
+        messageBox.getChildren().clear();
+        for (Message message : messages) {
+            addMessage(message.getMessage(), message.getSender().getId() == user.getId());
+
         }
-        else{
-            sendHBox.setVisible(false);
-        }
+        scrollPane.vvalueProperty().bind(messageBox.heightProperty());
 
     }
 
-    @FXML
-    private void handleSendButtonClick(MouseEvent event) {
-        String message = text.getText();
-        if (!message.trim().isEmpty()) {
-            Message.sendMessageMain(user,usersListView.getSelectionModel().getSelectedItem().getUser(),message, LocalDateTime.now());
-            addMessage(message, true); // Add user message
-            text.clear();
-        }
-    }
-
-    private void addMessage(String message, boolean isUserMessage) {
+        private void addMessage(String message, boolean isUserMessage) {
         HBox messageBalloon = new HBox();
         Label label = new Label();
         label.setText(message);
@@ -105,10 +100,10 @@ public class MessageAppController {
         label.setMaxWidth(250); // Set max width for wrapping
 
         if (isUserMessage) {
-            label.setStyle("-fx-background-color: white; -fx-padding: 10px; -fx-border-radius: 10px; -fx-background-radius: 10px;");
+            label.getStyleClass().add("messageSenderLabel");
             messageBalloon.setAlignment(Pos.CENTER_RIGHT); // Align user message to the right
         } else {
-            label.setStyle("-fx-background-color: lightgray; -fx-padding: 10px; -fx-border-radius: 10px; -fx-background-radius: 10px;");
+            label.getStyleClass().add("messageReceiverLabel");
             messageBalloon.setAlignment(Pos.CENTER_LEFT); // Align other messages to the left
         }
 
@@ -135,11 +130,31 @@ public class MessageAppController {
     }
 
     @FXML
-    void userSelected(MouseEvent event) {
+    void userSelected(Event event) {
 
-        userLabel.setText(usersListView.getSelectionModel().getSelectedItem().getUser().getFullName());
+        name.setText(usersListView.getSelectionModel().getSelectedItem().getUser().getFullName());
+        profilePicture.setImage(usersListView.getSelectionModel().getSelectedItem().getImage().getImage());
         refresh();
-        userLabel.setVisible(true);
+
+        name.setVisible(true);
+        profilePicture.setVisible(true);
+        scrollPane.setVisible(true);
+        messageBox.setVisible(true);
+        text.setVisible(true);
+    }
+
+
+    @FXML
+    void enterPressed(KeyEvent event) {
+        if(event.getCode() != KeyCode.ENTER){
+           return;
+        }
+        String message = text.getText();
+        if (!message.trim().isEmpty()) {
+            Message.sendMessageMain(user,usersListView.getSelectionModel().getSelectedItem().getUser(),message, LocalDateTime.now());
+            addMessage(message, true); // Add user message
+            text.clear();
+        }
     }
 
 }

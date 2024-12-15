@@ -74,7 +74,7 @@ public class ViewStockController {
 
     @FXML
     void changeMenuIconClicked(MouseEvent event) {
-        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/ViewStockTime.fxml",func);
+        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/Stock.fxml",func);
     }
 
     @FXML
