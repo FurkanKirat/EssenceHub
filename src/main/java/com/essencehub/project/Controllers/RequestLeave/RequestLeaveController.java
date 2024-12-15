@@ -19,7 +19,7 @@ public class RequestLeaveController {
 
     @FXML
     void sendRequestClicked(MouseEvent event) {
-
+        // Send new request to the database
     }
 
     @FXML

@@ -1,6 +1,6 @@
 package com.essencehub.project.Controllers.RequestLeave;
 
-import com.essencehub.project.Controllers.Menu.EmployeeMenuController;
+import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.User.LeaveRequest;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -9,10 +9,13 @@ import javafx.scene.input.MouseEvent;
 
 import java.time.LocalDate;
 
-public class EmployeeViewRequestController {
+public class AdminViewRequests {
 
     @FXML
     private TableColumn<LeaveRequest, LocalDate> endDateColumn;
+
+    @FXML
+    private TableColumn<LeaveRequest, String> nameColumn;
 
     @FXML
     private TableColumn<LeaveRequest, LocalDate> startDateColumn;
@@ -23,20 +26,21 @@ public class EmployeeViewRequestController {
     @FXML
     private TableView<LeaveRequest> tableView;
 
-    @FXML
-    void sendRequestIcon(MouseEvent event) {
-        EmployeeMenuController employeeMenuController = EmployeeMenuController.getInstance();
-        employeeMenuController.loadFXMLContent("/com/essencehub/project/fxml/RequestLeave/EmployeeRequest.fxml");
-    }
+    private static LeaveRequest leaveRequest;
 
     @FXML
-    void viewRequestsIcon(MouseEvent event) {
-        EmployeeMenuController employeeMenuController = EmployeeMenuController.getInstance();
-        employeeMenuController.loadFXMLContent("/com/essencehub/project/fxml/RequestLeave/EmployeeViewRequests.fxml");
+    void tableViewClicked(MouseEvent event) {
+        leaveRequest = tableView.getSelectionModel().getSelectedItem();
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/RequestLeave/AdminAcceptRequest.fxml");
     }
 
     public void initialize(){
         //Get requests from database
+    }
+
+    public static LeaveRequest getLeaveRequest() {
+        return leaveRequest;
     }
 
 }

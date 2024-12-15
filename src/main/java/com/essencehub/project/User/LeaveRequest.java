@@ -6,13 +6,13 @@ import java.time.LocalDateTime;
 public class LeaveRequest {
     private LocalDate startDate;
     private LocalDate endDate;
-    private int employeeID;
+    private User employee;
     private String status;
 
-    public LeaveRequest(LocalDate startDate, LocalDate endDate, int employeeID, String status) {
+    public LeaveRequest(LocalDate startDate, LocalDate endDate, User employee, String status) {
         this.startDate = startDate;
         this.endDate = endDate;
-        this.employeeID = employeeID;
+        this.employee = employee;
         this.status = status;
     }
 
@@ -32,12 +32,12 @@ public class LeaveRequest {
         this.endDate = endDate;
     }
 
-    public int getEmployeeID() {
-        return employeeID;
+    public User getEmployee() {
+        return employee;
     }
 
-    public void setEmployeeID(int employeeID) {
-        this.employeeID = employeeID;
+    public void setEmployee(User employee) {
+        this.employee = employee;
     }
 
     public String getStatus() {

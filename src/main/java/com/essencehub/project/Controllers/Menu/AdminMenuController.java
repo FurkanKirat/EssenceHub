@@ -125,7 +125,7 @@ public class AdminMenuController {
     @FXML
     void leaveDaysPanelClicked(MouseEvent event) {
         currentNode.getStyleClass().remove("selected-border");
-        loadFXMLContent("/com/essencehub/project/fxml/Finance/Income.fxml");
+        loadFXMLContent("/com/essencehub/project/fxml/RequestLeave/AdminViewRequests.fxml");
         leaveDaysPanel.getStyleClass().add("selected-border");
         currentNode=leaveDaysPanel;
     }

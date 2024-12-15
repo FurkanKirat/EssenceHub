@@ -24,6 +24,9 @@ public class EmployeeMenuController {
     private HBox dashboardPanel;
 
     @FXML
+    private HBox suggestionsPanel;
+
+    @FXML
     private ImageView msgIcon;
 
     @FXML
@@ -90,6 +93,14 @@ public class EmployeeMenuController {
         loadFXMLContent("/com/essencehub/project/fxml/Task/EmployeeViewTask.fxml");
         tasksPanel.getStyleClass().add("selected-border");
         currentNode=tasksPanel;
+    }
+
+    @FXML
+    void suggestionsPanelClicked(MouseEvent event) {
+        currentNode.getStyleClass().remove("selected-border");
+        loadFXMLContent("/com/essencehub/project/fxml/Suggestions/sendSuggestions.fxml");
+        suggestionsPanel.getStyleClass().add("selected-border");
+        currentNode=suggestionsPanel;
     }
 
     @FXML
