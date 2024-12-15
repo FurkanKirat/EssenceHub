@@ -62,6 +62,11 @@ public class EmployeeMenuController {
         settings("/com/essencehub/project/fxml/Message/MessageApp.fxml",event);
     }
 
+    @FXML
+    void requestLeaveClicked(MouseEvent event) {
+
+    }
+
 
     @FXML
     void profilePicturePanelClicked(MouseEvent event) {

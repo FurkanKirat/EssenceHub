@@ -95,7 +95,7 @@ public class AssignTaskController {
             for(int i=0;i<checkBoxes.length;i++){
                 if(checkBoxes[i].isSelected()){
 
-                    Task task = new Task(user, employees.get(i), descriptionTextArea.getText(), titleTextField.getText(), LocalDateTime.now(),false);
+                    Task task = new Task(user, employees.get(i), descriptionTextArea.getText(), titleTextField.getText(), LocalDateTime.now(),false,0, datePicker.getValue().atStartOfDay());
                     Task.sendTask(task);
 
 

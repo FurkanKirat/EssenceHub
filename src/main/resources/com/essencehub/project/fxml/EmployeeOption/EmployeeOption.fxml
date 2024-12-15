@@ -12,7 +12,7 @@
 
 <AnchorPane fx:id="generalAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.EmployeeOperations.EmployeeOperationsController">
    <children>
-      <TabPane fx:id="TabPane" layoutX="87.0" layoutY="50.0" prefHeight="617.0" prefWidth="608.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TabPane fx:id="TabPane" layoutX="87.0" layoutY="50.0" prefHeight="617.0" prefWidth="608.0" style="-fx-background-color: transparent; -fx-background-color: transparent;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
           <Tab fx:id="hireTab" text="Hire">
             <content>

@@ -15,30 +15,29 @@ public class Task {
     private User sender;
     private User receiver;
     private String task;
-    private String title; // Newly added title field
+    private String title;
     private LocalDateTime sendDateTime;
-    private boolean isTaskDone; // Task completion status
+    private boolean isTaskDone;
+    private int progress;
+    private LocalDateTime finishTime;
 
-    // Constructor
-
-    public Task(User sender, User receiver, String task, String title, LocalDateTime sendDateTime, boolean isTaskDone) {
+    public Task(User sender, User receiver, String task, String title, LocalDateTime sendDateTime, boolean isTaskDone, int progress, LocalDateTime finishTime) {
         this.sender = sender;
         this.receiver = receiver;
         this.task = task;
-        // If title is null or given empty, it is derived from task
         this.title = title != null && !title.isEmpty() ? title : task.length() > 50 ? task.substring(0, 50) : task;
         this.sendDateTime = Objects.requireNonNullElseGet(sendDateTime, LocalDateTime::now);
         this.isTaskDone = isTaskDone;
-
-    }
-
-    // Getter and Setters
-    public void setId(int id) {
-        this.id = id;
+        this.progress = Math.max(0, Math.min(progress, 100));
+        this.finishTime = finishTime;
     }
 
     public int getId() {
-        return this.id;
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public User getSender() {
@@ -63,7 +62,7 @@ public class Task {
 
     public void setTask(String task) {
         this.task = task;
-        this.title = task.length() > 50 ? task.substring(0, 50) : task; // Task değişirse title da güncellenir
+        this.title = task.length() > 50 ? task.substring(0, 50) : task;
     }
 
     public String getTitle() {
@@ -82,7 +81,6 @@ public class Task {
         this.sendDateTime = sendDateTime;
     }
 
-    // isTaskDone Getter and Setter
     public boolean isTaskDone() {
         return isTaskDone;
     }
@@ -91,33 +89,48 @@ public class Task {
         this.isTaskDone = isTaskDone;
     }
 
-    // Method that changes the state when the task is completed
+    public int getProgress() {
+        return progress;
+    }
+
+    public void setProgress(int progress) {
+        this.progress = Math.max(0, Math.min(progress, 100));
+    }
+
+    public LocalDateTime getFinishTime() {
+        return finishTime;
+    }
+
+    public void setFinishTime(LocalDateTime finishTime) {
+        this.finishTime = finishTime;
+    }
+
     public void markTaskAsDone() {
         this.isTaskDone = true;
+        this.progress = 100;
+        this.finishTime = LocalDateTime.now();
     }
 
-    // Method that changes state when the task is not completed
     public void markTaskAsPending() {
         this.isTaskDone = false;
+        this.progress = 0;
+        this.finishTime = null;
     }
-
     public static void deleteTask(Task task) {
         String deleteSQL = "DELETE FROM Task WHERE id = ?";
         try (Connection connection = DatabaseConnection.getConnection()) {
-
             if (connection != null) {
                 try (PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL)) {
                     preparedStatement.setInt(1, task.getId());
                     int rowsAffected = preparedStatement.executeUpdate();
-
                     if (rowsAffected > 0) {
-                        System.out.println("Task deleted successfully: " + task.getId());
+                        System.out.println("Görev başarıyla silindi: " + task.getId());
                     } else {
-                        System.out.println("The task to be deleted could not be found: " + task.getId());
+                        System.out.println("Silinmek istenen görev bulunamadı: " + task.getId());
                     }
                 }
             } else {
-                System.out.println("Database connection failed.");
+                System.out.println("Veritabanı bağlantısı başarısız.");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -127,14 +140,15 @@ public class Task {
     public static List<Task> getAllTasks() {
         List<Task> taskList = new ArrayList<>();
         String query = """
-        SELECT 
-            t.id, t.sender_id, t.receiver_id, t.task, t.title, t.send_date_time, t.is_task_done,
-            s.name AS sender_name, s.surname AS sender_surname,
-            r.name AS receiver_name, r.surname AS receiver_surname
-        FROM Task t
-        JOIN User s ON t.sender_id = s.id
-        JOIN User r ON t.receiver_id = r.id
-        ORDER BY t.send_date_time DESC
+    SELECT 
+        t.id, t.sender_id, t.receiver_id, t.task, t.title, t.send_date_time, t.is_task_done,
+        t.progress, t.finish_date,
+        s.name AS sender_name, s.surname AS sender_surname,
+        r.name AS receiver_name, r.surname AS receiver_surname
+    FROM Task t
+    JOIN User s ON t.sender_id = s.id
+    JOIN User r ON t.receiver_id = r.id
+    ORDER BY t.send_date_time DESC
     """;
 
         try (Connection connection = DatabaseConnection.getConnection();
@@ -150,6 +164,11 @@ public class Task {
                 LocalDateTime sendDateTime = resultSet.getTimestamp("send_date_time").toLocalDateTime();
                 boolean isTaskDone = resultSet.getBoolean("is_task_done");
 
+                // Yeni alanlar: progress ve finish_date
+                int progress = resultSet.getInt("progress");
+                LocalDateTime finishDate = resultSet.getTimestamp("finish_date") != null ?
+                        resultSet.getTimestamp("finish_date").toLocalDateTime() : null;
+
                 // Gönderici bilgileri
                 User sender = new User(senderId);
                 sender.setName(resultSet.getString("sender_name"));
@@ -161,7 +180,7 @@ public class Task {
                 receiver.setSurname(resultSet.getString("receiver_surname"));
 
                 // Görevi oluştur ve listeye ekle
-                Task taskObj = new Task(sender, receiver, task, title, sendDateTime, isTaskDone);
+                Task taskObj = new Task(sender, receiver, task, title, sendDateTime, isTaskDone, progress, finishDate);
                 taskObj.setId(id);
                 taskList.add(taskObj);
             }
@@ -174,11 +193,13 @@ public class Task {
 
 
 
+
     public static List<Task> getUserTasks(int currentUserId) {
         List<Task> taskList = new ArrayList<>();
         String query = """
         SELECT 
-            t.id, t.sender_id, t.receiver_id, t.task, t.title, t.send_date_time, t.is_task_done,
+            t.id, t.sender_id, t.receiver_id, t.task, t.title, t.send_date_time, t.is_task_done, 
+            t.finish_time, t.progress,
             s.name AS sender_name, s.surname AS sender_surname,
             r.name AS receiver_name, r.surname AS receiver_surname
         FROM Task t
@@ -204,6 +225,12 @@ public class Task {
                     LocalDateTime sendDateTime = resultSet.getTimestamp("send_date_time").toLocalDateTime();
                     boolean isTaskDone = resultSet.getBoolean("is_task_done");
 
+                    // Yeni alanlar
+                    LocalDateTime finishTime = resultSet.getTimestamp("finish_time") != null
+                            ? resultSet.getTimestamp("finish_time").toLocalDateTime()
+                            : null; // Eğer finish_time NULL ise
+                    int progress = resultSet.getInt("progress");
+
                     // Gönderici bilgileri
                     User sender = new User(senderId);
                     sender.setName(resultSet.getString("sender_name"));
@@ -215,7 +242,7 @@ public class Task {
                     receiver.setSurname(resultSet.getString("receiver_surname"));
 
                     // Görevi oluştur ve listeye ekle
-                    Task taskObj = new Task(sender, receiver, task, title, sendDateTime, isTaskDone);
+                    Task taskObj = new Task(sender, receiver, task, title, sendDateTime, isTaskDone, progress, finishTime);
                     taskObj.setId(id);
                     taskList.add(taskObj);
                 }
@@ -229,34 +256,32 @@ public class Task {
 
 
     // SEND TASK
-    public static void sendTaskMain(User sender, User receiver, String task, String title, LocalDateTime sendDateTime, boolean isTaskDone) {
-        Task taskTemp = new Task(sender, receiver, task, title, sendDateTime, isTaskDone);
+    public static void sendTaskMain(User sender, User receiver, String task, String title, LocalDateTime sendDateTime, boolean isTaskDone, int progress, LocalDateTime finishTime) {
+        Task taskTemp = new Task(sender, receiver, task, title, sendDateTime, isTaskDone, progress, finishTime);
         sendTask(taskTemp);
     }
 
-
-
     public static void sendTask(Task task) {
-        String insertTaskSQL = "INSERT INTO Task (sender_id, receiver_id, task, title, send_date_time, is_task_done) "
-                + "VALUES (?, ?, ?, ?, ?, ?)";
+        String insertTaskSQL = "INSERT INTO Task (sender_id, receiver_id, task, title, send_date_time, is_task_done, progress, finish_time) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(insertTaskSQL)) {
 
-            // In the SQL query ? We replace the parameters
-            preparedStatement.setInt(1, task.getSender().getId()); // Sender ID
-            preparedStatement.setInt(2, task.getReceiver().getId()); // Receiver ID
-            preparedStatement.setString(3, task.getTask()); // Task description
-            preparedStatement.setString(4, task.getTitle()); // Task title
-            preparedStatement.setObject(5, task.getSendDateTime()); // Sent date
-            preparedStatement.setBoolean(6, task.isTaskDone()); // Task completion status
+            preparedStatement.setInt(1, task.getSender().getId());
+            preparedStatement.setInt(2, task.getReceiver().getId());
+            preparedStatement.setString(3, task.getTask());
+            preparedStatement.setString(4, task.getTitle());
+            preparedStatement.setObject(5, task.getSendDateTime());
+            preparedStatement.setBoolean(6, task.isTaskDone());
+            preparedStatement.setInt(7, task.getProgress());
+            preparedStatement.setObject(8, task.getFinishTime());
 
-            //Run SQL query
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
-                System.out.println("Task sent successfully.");
+                System.out.println("Görev başarıyla gönderildi.");
             } else {
-                System.out.println("An error occurred while submitting the task.");
+                System.out.println("Görev gönderilirken bir hata oluştu.");
             }
 
         } catch (SQLException e) {
@@ -271,24 +296,26 @@ public class Task {
         String updateTaskSQL = "UPDATE Task SET "
                 + "task = ?, "
                 + "title = ?, "
-                + "is_task_done = ? "
+                + "is_task_done = ?, "
+                + "progress = ?, "
+                + "finish_time = ? "
                 + "WHERE id = ?";
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(updateTaskSQL)) {
 
-            // in SQL query We place parameters in (?) places
-            preparedStatement.setString(1, task.getTask()); // Task description
-            preparedStatement.setString(2, task.getTitle()); // Task title
-            preparedStatement.setBoolean(3, task.isTaskDone()); // Task completion status
-            preparedStatement.setInt(4, task.getId()); // Task ID (task to be updated)
+            preparedStatement.setString(1, task.getTask());
+            preparedStatement.setString(2, task.getTitle());
+            preparedStatement.setBoolean(3, task.isTaskDone());
+            preparedStatement.setInt(4, task.getProgress());
+            preparedStatement.setObject(5, task.getFinishTime());
+            preparedStatement.setInt(6, task.getId());
 
-            //Run SQL query
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
-                System.out.println("Task updated successfully.");
+                System.out.println("Görev başarıyla güncellendi.");
             } else {
-                System.out.println("An error occurred while updating the task or the task was not found.");
+                System.out.println("Görev güncellenirken bir hata oluştu veya görev bulunamadı.");
             }
 
         } catch (SQLException e) {

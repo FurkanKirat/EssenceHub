@@ -155,6 +155,33 @@
                         <String fx:value="selected" />
                      </styleClass>
                   </HBox>
+                  <HBox fx:id="requestLeavePanel" alignment="CENTER_LEFT" onMouseClicked="#requestLeaveClicked" prefHeight="60.0" prefWidth="200.0" spacing="15.0">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/RequestLeave/leave.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <Label text="Requesting leave" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding>
+                     <styleClass>
+                        <String fx:value="hide" />
+                        <String fx:value="selected" />
+                     </styleClass>
+                  </HBox>
                </children>
             </VBox>
          </children>

@@ -201,3 +201,16 @@
 .radio-button .label {
     -fx-text-fill: #d0d0d0;
 }
+
+.tab-pane {
+    -fx-background-color: transparent; /* Tüm arka planı şeffaf yapar */
+    -fx-border-color: transparent;    /* Kenarlıkları kaldırır */
+}
+
+.tab-header-area {
+    -fx-background-color: transparent; /* Sekme çubuğunun arka planı */
+}
+
+.tab-content-area {
+    -fx-background-color: transparent; /* Sekme içerik alanının arka planı */
+}

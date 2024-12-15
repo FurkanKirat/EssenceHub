@@ -16,7 +16,7 @@
 
 <VBox prefHeight="807.2" prefWidth="973.6" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Finance.OutgoingsController">
    <children>
-      <HBox prefHeight="60.0" prefWidth="200.0">
+      <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="200.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="398.0">
                <children>
@@ -60,7 +60,7 @@
             </HBox>
          </children>
       </HBox>
-      <HBox prefHeight="57.0" prefWidth="943.0" spacing="10.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="943.0" spacing="10.0">
          <children>
             <ComboBox fx:id="outcomeComboBox" onAction="#outcomeComboBoxIsSelected" prefWidth="150.0" />
             <RadioButton fx:id="theMostButton" mnemonicParsing="false" onAction="#isTheMostButtonClicked" prefHeight="18.0" prefWidth="107.0" text="From Most" />
@@ -74,9 +74,9 @@
       </HBox>
       <TableView fx:id="outcomeTableView" prefHeight="228.0" prefWidth="943.0">
          <columns>
-            <TableColumn fx:id="titleColumn" prefWidth="202.0" resizable="false" text="Title" />
-            <TableColumn fx:id="dateColumn" minWidth="0.0" prefWidth="198.0" resizable="false" text="Date" />
-            <TableColumn fx:id="costColumn" prefWidth="199.0" resizable="false" text="Cost" />
+            <TableColumn fx:id="titleColumn" prefWidth="356.80002439022064" resizable="false" text="Title" />
+            <TableColumn fx:id="dateColumn" minWidth="0.0" prefWidth="331.99993896484375" resizable="false" text="Date" />
+            <TableColumn fx:id="costColumn" prefWidth="253.5999755859375" resizable="false" text="Cost" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
