@@ -67,7 +67,7 @@ public class EmployeeOpenTaskController {
             logOutAlert.showAndWait();
         }
     }
-    
+
     private void initializeCombobox(){
         taskStatusCombobox.setValue(task.getProgress());
         taskStatusCombobox.getItems().addAll(0,10,20,30,40,50,60,70,80,90,100);

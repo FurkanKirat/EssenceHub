@@ -167,6 +167,12 @@ public class UpdateEmployeeController {
         adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/EmployeeOption/updateEmployee.fxml");
     }
 
+    @FXML
+    void infoIconClicked(MouseEvent event) {
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/EmployeeOption/InfoEmployee.fxml");
+    }
+
     private void initializeCombobox(){
         switch (workerStatusComboBox.getValue()){
             case "Name":

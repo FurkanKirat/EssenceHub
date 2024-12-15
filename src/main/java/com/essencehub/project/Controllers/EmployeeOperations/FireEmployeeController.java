@@ -55,9 +55,16 @@ public class FireEmployeeController {
         adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/EmployeeOption/updateEmployee.fxml");
     }
 
+    @FXML
+    void infoIconClicked(MouseEvent event) {
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/EmployeeOption/InfoEmployee.fxml");
+    }
+
     public void initialize(){
         populateComboBox();
     }
+
 
     @FXML
     void isFireButtonClicked(ActionEvent event) {

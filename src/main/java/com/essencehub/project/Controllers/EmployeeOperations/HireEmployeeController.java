@@ -142,6 +142,12 @@ public class HireEmployeeController {
         adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/EmployeeOption/updateEmployee.fxml");
     }
 
+    @FXML
+    void infoIconClicked(MouseEvent event) {
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/EmployeeOption/InfoEmployee.fxml");
+    }
+
     public void initialize(){
         isAdminCombobox.setValue("Employee");
         isAdminCombobox.getItems().addAll("Admin","Employee");

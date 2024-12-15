@@ -29,6 +29,18 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="577.0" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
+                  <ImageView fx:id="infoIcon" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#infoIconClicked" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/EmployeeOperation/info.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <styleClass>
+                        <String fx:value="hide" />
+                        <String fx:value="selected" />
+                     </styleClass>
+                  </ImageView>
                   <VBox alignment="CENTER" prefHeight="60.0" prefWidth="60.0">
                      <children>
                         <ImageView fx:id="fireIcon" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#fireIconClicked" pickOnBounds="true" preserveRatio="true">
