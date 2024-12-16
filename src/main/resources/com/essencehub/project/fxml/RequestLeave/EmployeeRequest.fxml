@@ -90,7 +90,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="remainingLeavesTextField" editable="false" prefWidth="382.0" />
+            <TextField fx:id="remainingLeavesTextField" editable="false" prefWidth="382.0" styleClass="menuTextField" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
@@ -115,10 +115,14 @@
       </HBox>
       <HBox prefHeight="60.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onMouseClicked="#sendRequestClicked" styleClass="menuButton" text="Send Request" textFill="WHITE">
+            <Button mnemonicParsing="false" onMouseClicked="#sendRequestClicked" text="Send Request" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
+               <styleClass>
+                  <String fx:value="menuButton" />
+                  <String fx:value="hide" />
+               </styleClass>
             </Button>
          </children>
       </HBox>

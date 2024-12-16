@@ -58,7 +58,7 @@ public class AdminViewTaskController {
 
     @FXML
     void deleteTask(ActionEvent event) {
-        if(!taskTable.getSelectionModel().isEmpty()){
+        if(taskTable.getSelectionModel().getSelectedItem()!=null){
             task = taskTable.getSelectionModel().getSelectedItem();
             Task.deleteTask(task);
             AdminMenuController adminMenuController = AdminMenuController.getInstance();
@@ -86,6 +86,7 @@ public class AdminViewTaskController {
         progressColumn.setCellValueFactory(new PropertyValueFactory<>("progress"));
         ObservableList<Task> tasks = FXCollections.observableArrayList(Task.getAllTasks());
         taskTable.setItems(tasks);
+        taskTable.getSelectionModel().select(0);
     }
 
 

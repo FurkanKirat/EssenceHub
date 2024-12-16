@@ -14,7 +14,7 @@ public class CreateUserTable {
                         + "id INT AUTO_INCREMENT PRIMARY KEY, "
                         + "name VARCHAR(50) NOT NULL, "
                         + "surname VARCHAR(50) NOT NULL, "
-                        + "phoneNumber VARCHAR(50), "
+                        + "phoneNumber VARCHAR(15), "
                         + "salary DOUBLE, "
                         + "isAdmin BOOLEAN, "
                         + "birth VARCHAR(50), "
@@ -24,15 +24,16 @@ public class CreateUserTable {
                         + "monthlyPerformance VARCHAR(50), "
                         + "bonusSalary DOUBLE, "
                         + "isActive BOOLEAN, "
-                        + "password VARCHAR(255) NOT NULL"
-                        + "imageLocation VARCHAR(255)"
+                        + "password VARCHAR(255) NOT NULL, "
+                        + "imageLocation VARCHAR(255), "
+                        + "workingHour VARCHAR(50)"
                         + ");";
                 try (Statement statement = connection.createStatement()) {
                     statement.execute(createTableSQL);
-                    System.out.println("User table created successfully.");
+                    System.out.println("User tablosu başarıyla oluşturuldu.");
                 }
             } else {
-                System.out.println("Database connection failed.");
+                System.out.println("Veritabanı bağlantısı başarısız.");
             }
         } catch (Exception e) {
             e.printStackTrace();

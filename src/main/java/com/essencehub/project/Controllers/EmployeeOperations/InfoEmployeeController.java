@@ -64,6 +64,12 @@ public class InfoEmployeeController {
     @FXML
     private ComboBox<User> userCombobox;
 
+    @FXML
+    private TextField workHoursEndTextField;
+
+    @FXML
+    private TextField workHoursStartTextField;
+
 
     @FXML
     void fireIconClicked(MouseEvent event) {
@@ -112,6 +118,9 @@ public class InfoEmployeeController {
         performanceTextField.setText(user.getMonthlyPerformance().toString());
         bonusSalaryTextField.setText(user.getBonusSalary()+"");
         vacationDaysTextField.setText(user.getRemainingLeaveDays()+"");
+
+        workHoursStartTextField.setText(user.getWorkingHour().substring(0,user.getWorkingHour().indexOf("-")));
+        workHoursEndTextField.setText(user.getWorkingHour().substring(user.getWorkingHour().indexOf("-")+1));
     }
 
 

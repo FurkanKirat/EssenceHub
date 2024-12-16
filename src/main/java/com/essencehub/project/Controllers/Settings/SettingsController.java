@@ -89,7 +89,15 @@ public class SettingsController {
     @FXML
     private ImageView profilePicture;
 
+    @FXML
+    private TextField workHoursEndField;
+
+    @FXML
+    private TextField workHoursStartTextField;
+
+
     private static SettingsController instance;
+
 
     public SettingsController(){
         instance=this;
@@ -247,6 +255,8 @@ public class SettingsController {
             performanceTextField.setText(LoginPageController.getUser().getMonthlyPerformance().toString());
             bonusSalaryTextField.setText(LoginPageController.getUser().getBonusSalary()+"");
             vacationDaysTextField.setText(LoginPageController.getUser().getRemainingLeaveDays()+"");
+            workHoursStartTextField.setText(LoginPageController.getUser().getWorkingHour().substring(0,LoginPageController.getUser().getWorkingHour().indexOf("-")));
+            workHoursEndField.setText(LoginPageController.getUser().getWorkingHour().substring(LoginPageController.getUser().getWorkingHour().indexOf("-")+1));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -45,12 +45,35 @@ public class Test {
 
         return user;
     }
+    public static void getUsers(){
+        String query = "SELECT id, password, workingHour FROM User";
 
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String password = resultSet.getString("password");
+                String workingHour = resultSet.getString("workingHour");
+                System.out.println("id: " + id + " password: " + password+ " working hour: " +workingHour) ;
+
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
     public static void main(String[] args) {
-        double timeB = System.nanoTime();
-        User.getUserById(5);
-        double timeA = System.nanoTime();
-        System.out.println(((timeA-timeB)/1000000000));
+//        double timeB = System.nanoTime();
+//        User.getUserById(5);
+//        double timeA = System.nanoTime();
+//        System.out.println(((timeA-timeB)/1000000000));
+        getUsers();
     }
 
 }

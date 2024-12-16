@@ -69,7 +69,7 @@ public class ViewStockController {
 
     @FXML
     void barChartRadioClicked(MouseEvent event) {
-        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/viewStock.fxml",func);
+        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/viewBarChart.fxml",chartVBox);
     }
 
     @FXML
@@ -91,6 +91,7 @@ public class ViewStockController {
         pieChartRadio.setToggleGroup(group);
         barChartRadio.setToggleGroup(group);
         barChartRadio.setSelected(true);
+        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/viewBarChart.fxml",chartVBox);
     }
     public void loadFXMLContent(String fxmlFile,VBox func) {
         try {

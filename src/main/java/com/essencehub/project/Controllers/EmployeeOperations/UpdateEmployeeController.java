@@ -9,12 +9,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +48,23 @@ public class UpdateEmployeeController {
     private ImageView updateIcon;
 
     @FXML
+    private HBox hourHbox;
+
+    @FXML
     private ComboBox<String> workerStatusComboBox;
+
+    @FXML
+    private ComboBox<String> workHoursStartComboBox;
+
+    @FXML
+    private ComboBox<String> workHoursEndComboBox;
+
+    @FXML
+    private Label endLabel;
+
+    @FXML
+    private Label startLabel;
+
 
     private int whichStatus = 0;
 
@@ -78,6 +96,7 @@ public class UpdateEmployeeController {
                 }
             }
             case 2 -> newValue = birthPicker.getValue().toString();
+            case 3 -> newValue = workHoursStartComboBox.getValue() + "-" + workHoursEndComboBox.getValue();
             default -> newValue = statusTextField.getText();
         };
 
@@ -97,6 +116,7 @@ public class UpdateEmployeeController {
                 case "RemainingLeaveDays" -> "UPDATE User SET remainingLeaveDays = ? WHERE id = ?";
                 case "Performance" -> "UPDATE User SET monthlyPerformance = ? WHERE id = ?";
                 case "Password" -> "UPDATE User SET password = ? WHERE id = ?";
+                case "Working Hour" -> "UPDATE User SET workingHour = ? WHERE id = ?";
                 default -> null;
             };
 
@@ -107,11 +127,11 @@ public class UpdateEmployeeController {
                     pstmt.setString(1, newValue);
                     pstmt.setInt(2, workerId);
 
-                    if((whichStatus==0&&!statusTextField.getText().isEmpty())||(whichStatus==1&&!propertyComboBox.getValue().isEmpty())||(whichStatus==2)){
+                    if((whichStatus==0&&!statusTextField.getText().isEmpty())||(whichStatus==1&&!propertyComboBox.getValue().isEmpty())||(whichStatus==2)||whichStatus==3){
                         rowsUpdated = pstmt.executeUpdate();
                     }
                     if (rowsUpdated > 0) {
-                        if((whichStatus==0&&!statusTextField.getText().isEmpty())||(whichStatus==1&&!propertyComboBox.getValue().isEmpty())||(whichStatus==2)){
+                        if((whichStatus==0&&!statusTextField.getText().isEmpty())||(whichStatus==1&&!propertyComboBox.getValue().isEmpty())||(whichStatus==2)||whichStatus==3){
                             Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
                             alert.setTitle("Update Successful");
@@ -183,14 +203,21 @@ public class UpdateEmployeeController {
             case "Email":
             case "RemainingLeaveDays":
             case "password":
+                hourHbox.setVisible(false);
+                startLabel.setVisible(false);
+                endLabel.setVisible(false);
                 propertyComboBox.setVisible(false);
                 birthPicker.setVisible(false);
+                workHoursEndComboBox.setVisible(false);
+                workHoursStartComboBox.setVisible(false);
                 statusTextField.setVisible(true);
                 whichStatus=0;
                 break;
             case "Status":
+                hourHbox.setVisible(false);
                 statusTextField.setVisible(false);
                 birthPicker.setVisible(false);
+
                 propertyComboBox.setVisible(true);
                 propertyComboBox.setValue("Employee");
                 propertyComboBox.getItems().setAll("Admin","Employee");
@@ -200,6 +227,7 @@ public class UpdateEmployeeController {
                 whichStatus=1;
                 statusTextField.setVisible(false);
                 birthPicker.setVisible(false);
+                hourHbox.setVisible(false);
                 propertyComboBox.setValue("F");
                 propertyComboBox.getItems().setAll("A_PLUS","A","A_MINUS","B_PLUS","B","B_MINUS","C_PLUS","C","C_MINUS","D","F");
                 propertyComboBox.setVisible(true);
@@ -209,7 +237,27 @@ public class UpdateEmployeeController {
                 birthPicker.setValue(LocalDate.of(2000, Month.JANUARY,1));
                 statusTextField.setVisible(false);
                 propertyComboBox.setVisible(false);
+                hourHbox.setVisible(false);
                 birthPicker.setVisible(true);
+                break;
+            case "Working Hour":
+                whichStatus=3;
+                statusTextField.setVisible(false);
+                birthPicker.setVisible(false);
+                propertyComboBox.setVisible(false);
+                workHoursStartComboBox.getItems().setAll("00:00","00:30","01:00","01:30","02:00","02:30","03:00","03:30","04:00","04:30","05:00","05:30","06:00","06:30","07:00","07:30","08:00","08:30","09:00","09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30","19:00","19:30","20:00","20:30","21:00","21:30","22:00","22:30","23:00","23:30"
+                );
+                workHoursStartComboBox.setValue("08:30");
+                workHoursEndComboBox.getItems().setAll("00:00","00:30","01:00","01:30","02:00","02:30","03:00","03:30","04:00","04:30","05:00","05:30","06:00","06:30","07:00","07:30","08:00","08:30","09:00","09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30","19:00","19:30","20:00","20:30","21:00","21:30","22:00","22:30","23:00","23:30"
+                );
+                workHoursEndComboBox.setValue("17:30");
+
+                hourHbox.setVisible(true);
+                startLabel.setVisible(true);
+                endLabel.setVisible(true);
+                workHoursStartComboBox.setVisible(true);
+                workHoursEndComboBox.setVisible(true);
+                break;
 
         }
     }
@@ -279,7 +327,7 @@ public class UpdateEmployeeController {
 
     public void initialize(){
         populateComboBox();
-        workerStatusComboBox.getItems().addAll("Name", "Surname","Phone Number","Salary", "Status", "Birth", "Department", "Email", "RemainingLeaveDays","Performance","Password");
+        workerStatusComboBox.getItems().addAll("Name", "Surname","Phone Number","Salary", "Status", "Birth", "Department", "Email", "RemainingLeaveDays","Performance","Password","Working Hour");
     }
 
 

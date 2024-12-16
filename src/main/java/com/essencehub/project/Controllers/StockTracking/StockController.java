@@ -57,7 +57,6 @@ public class StockController {
     private ObservableList<Product> productList = FXCollections.observableArrayList();
 
     public void initialize() {
-
         productNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         stockColumn.setCellValueFactory(new PropertyValueFactory<>("count"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("buyingDate"));
@@ -66,6 +65,9 @@ public class StockController {
 
         initializeProductComboBox();
         initializeTimeRangeComboBox();
+
+        updateTableView("All", "All");
+        updateLineChart("All", "All");
 
         productCombobox.valueProperty().addListener((observable, oldValue, newValue) -> {
             updateLineChart(newValue, timeRangeCombobox.getValue());

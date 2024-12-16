@@ -215,7 +215,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox prefHeight="281.0" prefWidth="864.0" spacing="10.0">
+      <VBox prefHeight="310.0" prefWidth="864.0" spacing="10.0">
          <children>
             <Label text="Salary &amp; Performance" textFill="WHITE">
                <font>
@@ -264,6 +264,26 @@
                   </Label>
                   <Pane prefHeight="45.0" prefWidth="138.0" />
                   <TextField fx:id="vacationDaysTextField" editable="false" prefHeight="26.0" prefWidth="460.0" styleClass="menuTextField" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="Work Hours Start:" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="38.0" prefWidth="86.0" />
+                  <TextField fx:id="workHoursStartTextField" editable="false" prefWidth="256.0" styleClass="menuTextField" />
+                  <Label text="End:" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="workHoursEndTextField" editable="false" prefWidth="256.0" styleClass="menuTextField" />
                </children>
             </HBox>
          </children>

@@ -95,7 +95,7 @@ public class LeaveRequest {
         SELECT lr.id AS leaveRequestId, lr.startDate, lr.endDate, lr.status, lr.employeeId,
                u.id, u.name, u.surname, u.phoneNumber, u.salary, u.isAdmin, u.birth,
                u.department, u.email, u.remainingLeaveDays, u.isActive, u.password,
-               u.monthlyPerformance, u.bonusSalary, u.imageLocation
+               u.monthlyPerformance, u.bonusSalary, u.imageLocation, u.workingHour
         FROM LeaveRequest lr
         JOIN User u ON lr.employeeId = u.id;
     """;
@@ -128,10 +128,11 @@ public class LeaveRequest {
                 Performance performance = Performance.valueOf(resultSet.getString("monthlyPerformance").toUpperCase());
                 double bonusSalary = resultSet.getDouble("bonusSalary");
                 String imageLocation = resultSet.getString("imageLocation");
+                String workingHour = resultSet.getString("workingHour");
 
                 User employee = new User(
                         name, surname, phoneNumber, baseSalary, isAdmin, birth, department, email,
-                        remainingLeaveDays, isActive, password, performance, bonusSalary, imageLocation
+                        remainingLeaveDays, isActive, password, performance, bonusSalary, imageLocation,workingHour
                 );
                 employee.setId(employeeID);
 

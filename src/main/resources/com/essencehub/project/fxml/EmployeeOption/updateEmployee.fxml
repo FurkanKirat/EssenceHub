@@ -150,11 +150,30 @@
             <ComboBox fx:id="workerStatusComboBox" onAction="#statusSelected" prefHeight="26.0" prefWidth="450.0" />
          </children>
       </HBox>
-      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="734.0">
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="585.0">
          <children>
             <DatePicker fx:id="birthPicker" editable="false" prefHeight="26.0" prefWidth="815.0" promptText="Birth" visible="false" />
             <ComboBox fx:id="propertyComboBox" prefHeight="26.0" prefWidth="780.0" visible="false" />
-            <TextField fx:id="statusTextField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="790.0" />
+            <TextField fx:id="statusTextField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="790.0" styleClass="menuTextField" />
+            <HBox fx:id="hourHbox" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0" visible="false">
+               <children>
+                  <Label fx:id="startLabel" prefHeight="30.0" prefWidth="125.0" text="Start:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="workHoursStartComboBox" prefWidth="168.0" />
+                  <Label fx:id="endLabel" prefWidth="80.0" text="End:" textFill="WHITE">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="workHoursEndComboBox" prefWidth="168.0" />
+               </children>
+            </HBox>
          </children>
       </StackPane>
       <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0">

@@ -15,7 +15,7 @@ public class User {
     private String password;
     private String phoneNumber;
     private double salary;
-    private boolean isAdmin;  
+    private boolean isAdmin;
     private String birth;
     private String department;
     private String email;
@@ -26,6 +26,7 @@ public class User {
     private Image image;
     private String imageLocation;
     private String fullName;
+    private String workingHour;
 
     public User() {
 
@@ -36,7 +37,7 @@ public class User {
     }
 
     public User(String name, String surname, String phoneNumber, double baseSalary, boolean isAdmin, String birth,
-                String department, String email, int remainingLeaveDays, boolean isActive, String password, Performance monthlyPerformance, double bonusSalary, String imageLocation) {
+                String department, String email, int remainingLeaveDays, boolean isActive, String password, Performance monthlyPerformance, double bonusSalary, String imageLocation,String workingHour) {
         this();
         this.name = name;
         this.surname = surname;
@@ -55,10 +56,20 @@ public class User {
         this.imageLocation = imageLocation;
         //this.image = new Image(imageLocation);
         this.fullName =  name + " " + surname;
+        this.workingHour = workingHour;
 
     }
 
     // Getter and Setters
+
+
+    public void setWorkingHour(String workingHour) {
+        this.workingHour = workingHour;
+    }
+    public String getWorkingHour() {
+        return workingHour;
+    }
+
     public int getId() {
         return id;
     }
@@ -206,8 +217,6 @@ public class User {
         updatePasswordInDatabase();
     }
 
-
-
     public void changeImage(String imageLocation) {
         this.imageLocation = imageLocation;
         this.image = new Image(imageLocation);
@@ -260,7 +269,7 @@ public class User {
     public static User getUserById(int userId) {
         User user = null;
         String query = "SELECT id, name, surname, phoneNumber, salary, isAdmin, birth, department, email, "
-                + "remainingLeaveDays, isActive, password, imageLocation FROM User WHERE id = ?";
+                + "remainingLeaveDays, isActive, password, imageLocation, workingHour FROM User WHERE id = ?";
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -272,7 +281,6 @@ public class User {
 
                 user = new User();
                 user.setId(resultSet.getInt("id"));
-
                 user.setName(resultSet.getString("name"));
                 user.setSurname(resultSet.getString("surname"));
                 user.setPhoneNumber(resultSet.getString("phoneNumber"));
@@ -285,8 +293,9 @@ public class User {
                 user.setActive(resultSet.getBoolean("isActive"));
                 user.setPassword(resultSet.getString("password"));
                 user.setImageLocation(resultSet.getString("imageLocation"));
-            }
+                user.setWorkingHour(resultSet.getString("workingHour")); // Setting workingHour
 
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -294,6 +303,7 @@ public class User {
 
         return user;
     }
+
 
     public static User getUsername(int userId) {
         User user = null;
@@ -323,8 +333,8 @@ public class User {
 
     // Hire employee
     public static void addUser(User user) {
-        String sql = "INSERT INTO User (name, surname, phoneNumber, salary, isAdmin, birth, department, email, remainingLeaveDays, monthlyPerformance, bonusSalary, isActive, password,imageLocation) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO User (name, surname, phoneNumber, salary, isAdmin, birth, department, email, remainingLeaveDays, monthlyPerformance, bonusSalary, isActive, password, imageLocation, workingHour) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -344,7 +354,8 @@ public class User {
             statement.setDouble(11, user.getBonusSalary());
             statement.setBoolean(12, user.isActive());
             statement.setString(13, user.getPassword()); // Şifreyi ekliyoruz
-            statement.setString(14,user.getImageLocation());
+            statement.setString(14, user.getImageLocation());
+            statement.setString(15, user.getWorkingHour()); // Adding workingHour field
 
             // We add it to the database
             statement.executeUpdate();
@@ -355,9 +366,10 @@ public class User {
         }
     }
 
+
     //UPDATE USER
     public static void updateUser(User user) {
-        String sql = "UPDATE User SET name = ?, surname = ?, phoneNumber = ?, salary = ?, isAdmin = ?, birth = ?, department = ?, email = ?, remainingLeaveDays = ?, monthlyPerformance = ?, bonusSalary = ?, isActive = ?, imageLocation = ? WHERE id = ?";
+        String sql = "UPDATE User SET name = ?, surname = ?, phoneNumber = ?, salary = ?, isAdmin = ?, birth = ?, department = ?, email = ?, remainingLeaveDays = ?, monthlyPerformance = ?, bonusSalary = ?, isActive = ?, imageLocation = ?, workingHour = ? WHERE id = ?";
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -376,8 +388,8 @@ public class User {
             statement.setDouble(11, user.getBonusSalary());
             statement.setBoolean(12, user.isActive());
             statement.setString(13, user.getImageLocation());
-            statement.setInt(14, user.getId());
-
+            statement.setString(14, user.getWorkingHour()); // Adding workingHour field
+            statement.setInt(15, user.getId());
 
             int rowsAffected = statement.executeUpdate();
             if (rowsAffected > 0) {
@@ -390,7 +402,8 @@ public class User {
             e.printStackTrace();
         }
     }
-    public static void updateUser(String name, String surname, String phoneNumber, double baseSalary, boolean isAdmin, String birth,String department,
+
+    /*public static void updateUser(String name, String surname, String phoneNumber, double baseSalary, boolean isAdmin, String birth,String department,
                                   String email, int remainingLeaveDays, boolean isActive, String password, Performance monthlyPerformance, int bonusSalary, String imageLocation) {
         User user = new User(name,surname,phoneNumber,baseSalary,isAdmin,birth,department,email,remainingLeaveDays,isActive,password,monthlyPerformance,bonusSalary, imageLocation);
         String sql = "UPDATE User SET name = ?, surname = ?, phoneNumber = ?, salary = ?, isAdmin = ?, birth = ?, department = ?, email = ?, remainingLeaveDays = ?, monthlyPerformance = ?, bonusSalary = ?, isActive = ?, imageLocation WHERE id = ?";
@@ -425,11 +438,11 @@ public class User {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     public static List<User> getUsers() {
         List<User> users = new ArrayList<>();
-        String query = "SELECT * FROM User";
+        String query = "SELECT * FROM User WHERE isActive = 1";
         try (Connection connection = DatabaseConnection.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
@@ -443,12 +456,7 @@ public class User {
                 user.setPhoneNumber(resultSet.getString("phoneNumber"));
                 user.setSalary(resultSet.getDouble("salary"));
                 user.setAdmin(resultSet.getBoolean("isAdmin"));
-
-                String dateTimeString = resultSet.getString("birth");
-                if (dateTimeString != null) {
-                    user.setBirth(dateTimeString);
-                }
-
+                user.setBirth(resultSet.getString("birth"));
                 user.setDepartment(resultSet.getString("department"));
                 user.setEmail(resultSet.getString("email"));
                 user.setRemainingLeaveDays(resultSet.getInt("remainingLeaveDays"));
@@ -463,6 +471,7 @@ public class User {
                 user.setActive(resultSet.getBoolean("isActive"));
                 user.setPassword(resultSet.getString("password"));
                 user.setImageLocation(resultSet.getString("imageLocation"));
+                user.setWorkingHour(resultSet.getString("workingHour")); // Setting workingHour
 
                 users.add(user);
             }
@@ -472,6 +481,7 @@ public class User {
         }
         return users;
     }
+
 
     public static ArrayList<User> getEmployees() {
         ArrayList<User> employees = new ArrayList<>();
@@ -489,12 +499,7 @@ public class User {
                 employee.setPhoneNumber(resultSet.getString("phoneNumber"));
                 employee.setSalary(resultSet.getDouble("salary"));
                 employee.setAdmin(false);
-
-                String dateTimeString = resultSet.getString("birth");
-                if (dateTimeString != null) {
-                    employee.setBirth(dateTimeString);
-                }
-
+                employee.setBirth(resultSet.getString("birth"));
                 employee.setDepartment(resultSet.getString("department"));
                 employee.setEmail(resultSet.getString("email"));
                 employee.setRemainingLeaveDays(resultSet.getInt("remainingLeaveDays"));
@@ -509,6 +514,7 @@ public class User {
                 employee.setActive(true);
                 employee.setPassword(resultSet.getString("password"));
                 employee.setImageLocation(resultSet.getString("imageLocation"));
+                employee.setWorkingHour(resultSet.getString("workingHour")); // Setting workingHour
 
                 employees.add(employee);
             }
@@ -518,5 +524,6 @@ public class User {
         }
         return employees;
     }
+
 
 }

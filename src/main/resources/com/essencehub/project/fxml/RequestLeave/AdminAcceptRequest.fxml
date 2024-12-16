@@ -63,7 +63,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="senderTextField" editable="false" prefHeight="26.0" prefWidth="290.0" />
+            <TextField fx:id="senderTextField" editable="false" prefHeight="26.0" prefWidth="290.0" styleClass="menuTextField" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
@@ -73,7 +73,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="startDateTextField" editable="false" prefHeight="26.0" prefWidth="290.0">
+            <TextField fx:id="startDateTextField" editable="false" prefHeight="26.0" prefWidth="290.0" styleClass="menuTextField">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
@@ -83,7 +83,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="endDateTextField" editable="false" prefHeight="26.0" prefWidth="290.0" />
+            <TextField fx:id="endDateTextField" editable="false" prefHeight="26.0" prefWidth="290.0" styleClass="menuTextField" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
@@ -93,7 +93,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="remainingLeaveDaysTextField" editable="false" prefHeight="26.0" prefWidth="290.0">
+            <TextField fx:id="remainingLeaveDaysTextField" editable="false" prefHeight="26.0" prefWidth="290.0" styleClass="menuTextField">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
@@ -107,7 +107,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="requestedLeaveDaysTextField" editable="false" prefHeight="26.0" prefWidth="290.0" />
+            <TextField fx:id="requestedLeaveDaysTextField" editable="false" prefHeight="26.0" prefWidth="290.0" styleClass="menuTextField" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
@@ -120,10 +120,14 @@
             <ComboBox fx:id="setPermissionComboBox" prefWidth="290.0" />
          </children>
       </HBox>
-      <Button mnemonicParsing="false" onAction="#setClicked" styleClass="menuButton" text="Set" textFill="WHITE">
+      <Button mnemonicParsing="false" onAction="#setClicked" text="Set" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
+         <styleClass>
+            <String fx:value="menuButton" />
+            <String fx:value="hide" />
+         </styleClass>
       </Button>
    </children>
    <padding>

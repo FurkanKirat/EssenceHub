@@ -130,13 +130,13 @@ public class CreateUsers {
         String surnameEmployee = createUsers.getRandomSurname();
         User employee = new User(nameEmployee, surnameEmployee, createUsers.getRandomPhoneNumber(), createUsers.getRandomSalary(), false, createUsers.getRandomBirthDate(),
                 createUsers.getRandomDepartment(), createUsers.generateEmail(nameEmployee, surnameEmployee), 40, true, createUsers.getRandomPassword(),
-                F, 0, "/com/essencehub/project/images/ProfilePictures/defaultpicture1.png");
+                F, 0, "/com/essencehub/project/images/ProfilePictures/defaultpicture1.png","08.30-17.30");
 
         String nameAdmin = createUsers.getRandomName();
         String surnameAdmin = createUsers.getRandomSurname();
         User admin = new User(nameAdmin, surnameAdmin, createUsers.getRandomPhoneNumber(), createUsers.getRandomSalary(), true, createUsers.getRandomBirthDate(),
                 createUsers.getRandomDepartment(), createUsers.generateEmail(nameAdmin, surnameAdmin), 40, true, createUsers.getRandomPassword(),
-                A, 370, "/com/essencehub/project/images/ProfilePictures/defaultpicture1.png");
+                A, 370, "/com/essencehub/project/images/ProfilePictures/defaultpicture1.png","08.30-17.30");
 
         User.addUser(employee); //ADDS EMPLOYEE
         User.addUser(admin); //ADDS ADMIN

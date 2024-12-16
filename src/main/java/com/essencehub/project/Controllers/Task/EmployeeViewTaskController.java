@@ -75,6 +75,7 @@ public class EmployeeViewTaskController {
             throw new RuntimeException(e);
         }
         taskTable.setItems(tasks);
+        taskTable.getSelectionModel().select(0);
     }
     public static Task getSelectedTask(){
         return task;

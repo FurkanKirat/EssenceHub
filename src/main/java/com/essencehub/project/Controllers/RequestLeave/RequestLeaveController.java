@@ -35,7 +35,7 @@ public class RequestLeaveController {
             alert.showAndWait();
             return;
         }
-        System.out.println(ChronoUnit.DAYS.between(startPicker.getValue(), endPicker.getValue()));
+
         if(LoginPageController.getUser().getRemainingLeaveDays() < 1+ChronoUnit.DAYS.between(startPicker.getValue(), endPicker.getValue())) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Leave Request Failed");
@@ -66,6 +66,8 @@ public class RequestLeaveController {
     }
     public void initialize(){
         remainingLeavesTextField.setText(LoginPageController.getUser().getRemainingLeaveDays()+"");
+        startPicker.setValue(LocalDate.now());
+        endPicker.setValue(LocalDate.now().plusDays(3));
     }
 
 }

@@ -207,6 +207,7 @@ public class LoginPageController {
             String imageLocation = resultset.getString("imageLocation");
             loggedUser.setImage(new Image(imageLocation));
             loggedUser.setImageLocation(imageLocation);
+            loggedUser.setWorkingHour(resultset.getString("workingHour"));
         } catch (SQLException e) {
             throw new RuntimeException("Failed to login",e);
         }
