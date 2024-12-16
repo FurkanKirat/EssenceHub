@@ -28,6 +28,7 @@ public class AddIncomeController {
     @FXML
     private TextField titleField;
 
+
     private String amount;
     private LocalDate date;
     private String title;

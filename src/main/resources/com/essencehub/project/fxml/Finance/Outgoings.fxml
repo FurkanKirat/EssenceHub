@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -14,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="807.2" prefWidth="973.6" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Finance.OutgoingsController">
+<VBox prefHeight="807.2" prefWidth="973.6" spacing="10.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Finance.OutgoingsController">
    <children>
       <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="200.0">
          <children>
@@ -82,6 +86,41 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="pieChartButton" mnemonicParsing="false" onAction="#isPieChartButtonSelected" text="pieChart" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="lineChartButton" mnemonicParsing="false" onAction="#isLineChartButtonSelected" text="lineChart" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="224.0" prefWidth="968.0">
+         <children>
+            <VBox prefHeight="195.0" prefWidth="682.0">
+               <children>
+                  <LineChart fx:id="lineChart" prefHeight="181.0" prefWidth="433.0">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" fx:id="x" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis fx:id="y" side="LEFT" />
+                     </yAxis>
+                  </LineChart>
+               </children>
+            </VBox>
+            <VBox prefHeight="207.0" prefWidth="760.0">
+               <children>
+                  <PieChart fx:id="pieChart" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />

@@ -1,6 +1,10 @@
 package com.essencehub.project.Stock;
 
+import com.essencehub.project.Controllers.Finance.AddIncomeController;
+import com.essencehub.project.Controllers.Finance.AddOutcomeController;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
+import com.essencehub.project.Finance.Income;
+import com.essencehub.project.Finance.Outgoings;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -22,10 +26,10 @@ public class Product {
         this.buyingDate = buyingDate;
     }
 
-
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -42,27 +46,49 @@ public class Product {
         return count;
     }
 
-
     public void setCount(int count) {
         this.count = count;
     }
 
+    public int getBuyingPrice() {
+        return buyingPrice;
+    }
+
+    public void setBuyingPrice(int buyingPrice) {
+        this.buyingPrice = buyingPrice;
+    }
+
+    public int getSellingPrice() {
+        return sellingPrice;
+    }
+
+    public void setSellingPrice(int sellingPrice) {
+        this.sellingPrice = sellingPrice;
+    }
+
 
     public static void addProduct(Product product) {
-        String insertProductSQL = "INSERT INTO Stock (name, count, buyingDate, sellingDate) VALUES (?, ?, ?, ?)";
+        String insertProductSQL = "INSERT INTO Stock (name, count, buyingDate, sellingDate, buyingPrice, sellingPrice) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DatabaseConnection.getConnection()) {
             if (connection != null) {
                 try (PreparedStatement preparedStatement = connection.prepareStatement(insertProductSQL)) {
                     preparedStatement.setString(1, product.getName());
                     preparedStatement.setInt(2, product.getCount());
-                    preparedStatement.setDate(3, Date.valueOf(product.getBuyingDate())); // LocalDate -> SQL Date Çağkan kardeşim şuna göre table oluştur
-                    preparedStatement.setDate(4, Date.valueOf(product.getSellingDate())); // LocalDate -> SQL Date Çağkan kardeşim şuna göre table oluştur
+                    preparedStatement.setDate(3, Date.valueOf(product.getBuyingDate()));
+                    preparedStatement.setDate(4, product.getSellingDate() != null ? Date.valueOf(product.getSellingDate()) : null);
+                    preparedStatement.setInt(5, product.getBuyingPrice());
+                    preparedStatement.setInt(6, product.getSellingPrice());
 
                     int affectedRows = preparedStatement.executeUpdate();
 
                     if (affectedRows > 0) {
                         System.out.println("The product was added successfully.");
+
+
+                        double totalCost = product.getCount() * product.getBuyingPrice();
+                        Outgoings outgoing = new Outgoings(product.getBuyingDate(), "Purchase of " + product.getName(), String.valueOf(totalCost));
+                        AddOutcomeController.addOutgoings(outgoing);
                     } else {
                         System.out.println("Adding product failed.");
                     }
@@ -75,22 +101,23 @@ public class Product {
             e.printStackTrace();
         }
     }
+
+    // Remove product from stock and record the income
     public static void removeProduct(String productName, int quantityToRemove) {
-        String selectStockSQL = "SELECT count FROM Stock WHERE name = ?";
+        String selectStockSQL = "SELECT count, sellingPrice FROM Stock WHERE name = ?";
         String updateStockSQL = "UPDATE Stock SET count = count - ? WHERE name = ? AND count >= ?";
 
         try (Connection connection = DatabaseConnection.getConnection()) {
             if (connection != null) {
-
                 try (PreparedStatement selectStatement = connection.prepareStatement(selectStockSQL)) {
                     selectStatement.setString(1, productName);
 
                     try (ResultSet resultSet = selectStatement.executeQuery()) {
                         if (resultSet.next()) {
                             int currentCount = resultSet.getInt("count");
+                            int sellingPrice = resultSet.getInt("sellingPrice");
 
                             if (currentCount >= quantityToRemove) {
-
                                 try (PreparedStatement updateStatement = connection.prepareStatement(updateStockSQL)) {
                                     updateStatement.setInt(1, quantityToRemove);
                                     updateStatement.setString(2, productName);
@@ -99,16 +126,20 @@ public class Product {
                                     int affectedRows = updateStatement.executeUpdate();
                                     if (affectedRows > 0) {
                                         System.out.println("Product removed successfully.");
+
+                                        // Record income
+                                        LocalDate currentDate = LocalDate.now();
+                                        double totalIncome = quantityToRemove * sellingPrice;
+                                        Income income = new Income(currentDate, "Sale of " + productName, String.valueOf(totalIncome));
+                                        AddIncomeController.addIncome(income);
                                     } else {
                                         System.out.println("Error removing product.");
                                     }
                                 }
                             } else {
-
                                 System.out.println("Insufficient stock! Available quantity: " + currentCount);
                             }
                         } else {
-
                             System.out.println("Product not found in the stock.");
                         }
                     }
@@ -121,4 +152,8 @@ public class Product {
             e.printStackTrace();
         }
     }
+
+
+
+
 }

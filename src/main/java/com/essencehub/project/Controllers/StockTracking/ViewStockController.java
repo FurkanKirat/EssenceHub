@@ -1,66 +1,96 @@
 package com.essencehub.project.Controllers.StockTracking;
 
+import com.essencehub.project.Stock.Product;
+import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
 
-import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDate;
 
 public class ViewStockController {
 
     @FXML
-    private Button addProductButton;
+    private ComboBox<String> tableViewCombo;
 
     @FXML
-    private RadioButton barChartRadio;
+    private TableColumn<Product, String> productNameColumn;
 
     @FXML
-    private ImageView changeMenuIcon;
+    private TableColumn<Product, Integer> stockColumn;
 
     @FXML
-    private VBox chartVBox;
+    private TableColumn<Product, LocalDate> buyingDateColumn;
 
     @FXML
-    private TableColumn<?, ?> dateColumn;
+    private TableColumn<Product, LocalDate> sellingDateColumn;
 
     @FXML
-    private VBox func;
+    private TableView<Product> stockView;
 
-    @FXML
-    private LineChart<?, ?> lineChart;
+    public void initialize() {
+        initializeTableViewCombo();
+        initializeTableColumns();
 
-    @FXML
-    private NumberAxis numberAxis;
+        tableViewCombo.valueProperty().addListener((observable, oldValue, newValue) -> updateTableView(newValue));
+        updateTableView("All");
+    }
 
-    @FXML
-    private RadioButton pieChartRadio;
+    private void initializeTableViewCombo() {
+        tableViewCombo.getItems().addAll("Last 6 Months", "Last 1 Year", "Last 5 Years", "All");
+        tableViewCombo.setValue("All");
+    }
 
-    @FXML
-    private CategoryAxis categoryAxis;;
+    private void initializeTableColumns() {
+        productNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        stockColumn.setCellValueFactory(new PropertyValueFactory<>("count"));
+        buyingDateColumn.setCellValueFactory(new PropertyValueFactory<>("buyingDate"));
+        sellingDateColumn.setCellValueFactory(new PropertyValueFactory<>("sellingDate"));
+    }
 
-    @FXML
-    private TableColumn<?, ?> productNameColumn;
+    private void updateTableView(String selectedTimeRange) {
+        stockView.getItems().clear();
 
-    @FXML
-    private TableColumn<?, ?> stockColumn;
+        try {
+            Connection connection = DatabaseConnection.getConnection();
+            Statement statement = connection.createStatement();
 
-    @FXML
-    private TableView<?> stockView;
+            String query = "SELECT name, count, buyingDate, sellingDate FROM Stock WHERE 1=1";
 
-    @FXML
-    private Button updateProductButton;
+            LocalDate currentDate = LocalDate.now();
+            if (selectedTimeRange.equals("Last 6 Months")) {
+                query += " AND buyingDate > '" + currentDate.minusMonths(6) + "'";
+            } else if (selectedTimeRange.equals("Last 1 Year")) {
+                query += " AND buyingDate > '" + currentDate.minusYears(1) + "'";
+            } else if (selectedTimeRange.equals("Last 5 Years")) {
+                query += " AND buyingDate > '" + currentDate.minusYears(5) + "'";
+            }
 
-    @FXML
-    private ComboBox<?> yearCombobox;
+            ResultSet resultSet = statement.executeQuery(query);
 
+            while (resultSet.next()) {
+                String name = resultSet.getString("name");
+                int count = resultSet.getInt("count");
+                LocalDate buyingDate = resultSet.getDate("buyingDate").toLocalDate();
+                LocalDate sellingDate = resultSet.getDate("sellingDate") != null
+                        ? resultSet.getDate("sellingDate").toLocalDate()
+                        : null;
+
+                stockView.getItems().add(new Product(name, count, buyingDate, sellingDate, 0, 0));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Error fetching data: " + e.getMessage());
+        }
+    }
 
     @FXML
     void addProductButtonClicked(MouseEvent event) {
@@ -69,42 +99,21 @@ public class ViewStockController {
 
     @FXML
     void barChartRadioClicked(MouseEvent event) {
-        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/viewBarChart.fxml",chartVBox);
+
     }
 
     @FXML
     void changeMenuIconClicked(MouseEvent event) {
-        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/Stock.fxml",func);
+
     }
 
     @FXML
     void pieChartRadioClicked(MouseEvent event) {
-        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/ViewPieChart.fxml",chartVBox);
+
     }
 
     @FXML
     void updateProductButtonClicked(MouseEvent event) {
 
     }
-    public void initialize(){
-        ToggleGroup group = new ToggleGroup();
-        pieChartRadio.setToggleGroup(group);
-        barChartRadio.setToggleGroup(group);
-        barChartRadio.setSelected(true);
-        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/viewBarChart.fxml",chartVBox);
-    }
-    public void loadFXMLContent(String fxmlFile,VBox func) {
-        try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Node newContent = loader.load();
-
-            func.getChildren().clear();
-            func.getChildren().add(newContent);
-            VBox.setVgrow(newContent, Priority.ALWAYS);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 }

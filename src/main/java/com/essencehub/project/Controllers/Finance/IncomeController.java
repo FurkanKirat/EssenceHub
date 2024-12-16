@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
@@ -45,6 +46,82 @@ public class IncomeController {
     }
     @FXML
     private Button addIncomeButton;
+
+    @FXML
+    private RadioButton lineChartButton;
+
+    @FXML
+    private RadioButton pieChartButton;
+
+    @FXML
+    private Button updateIncomeButton;
+
+    @FXML
+    private Button updateOutcomeButton;
+
+    @FXML
+    private CategoryAxis x;
+
+    @FXML
+    private NumberAxis y;
+
+
+    @FXML
+    void isLineChartButtonSelected(ActionEvent event) {
+        lineChart.setVisible(lineChart.isVisible());
+
+        boolean isVisible = lineChart.isVisible();
+        lineChart.setVisible(!isVisible);
+
+        if(lineChart.isVisible()){
+            XYChart.Series series = new XYChart.Series();
+            for (Income income : incomes) {
+                series.getData().add(new XYChart.Data(income.getDate().toString(), Double.parseDouble(income.getAmount())));
+            }
+
+            lineChart.getData().addAll(series);
+        }
+    }
+
+    @FXML
+    void isPieChartButtonSelected(ActionEvent event) {
+        pieChart.setVisible(pieChart.isVisible());
+
+        boolean isVisible = pieChart.isVisible();
+        pieChart.setVisible(!isVisible);
+        if(pieChart.isVisible()){
+            ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+
+            // Calculate total income
+            double totalIncome = incomes.stream()
+                    .mapToDouble(income -> Double.parseDouble(income.getAmount()))
+                    .sum();
+
+            // Populate PieChart data
+            for (Income income : incomes) {
+                double amount = Double.parseDouble(income.getAmount());
+                double percentage = (amount / totalIncome) * 100;
+
+                pieChartData.add(new PieChart.Data(income.getTitle() + " (" + String.format("%.1f", percentage) + "%)", amount));
+            }
+
+            // Update the PieChart
+            pieChart.setData(pieChartData);
+
+        }
+    }
+
+    @FXML
+    void isUpdateIncomeButtonClicked(ActionEvent event) {
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/UpdateIncome.fxml");
+    }
+
+    @FXML
+    void isUpdateOutcomeButtonClicked(ActionEvent event) {
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/UpdateOutcome.fxml");
+    }
 
     @FXML
     private Button addOutcomeButton;
@@ -94,6 +171,13 @@ public class IncomeController {
 
     @FXML
     private TableView<Income> incomeTableView;
+
+    @FXML
+    private LineChart<?, ?> lineChart;
+
+    @FXML
+    private PieChart pieChart;
+
 
     @FXML
     private AnchorPane mainAnchorPane;
@@ -160,6 +244,9 @@ public class IncomeController {
         sortIncomesByAmount();// sorting alg
 
         findTotalIncome();
+        lineChart.setVisible(false);
+        pieChart.setVisible(false);
+
     }
 
     private void findTotalIncome(){

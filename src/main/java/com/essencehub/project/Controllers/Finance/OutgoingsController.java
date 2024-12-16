@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
@@ -28,6 +29,18 @@ public class OutgoingsController {
     private VBox incomeIconVBox;
 
     @FXML
+    private PieChart pieChart;
+
+    @FXML
+    private CategoryAxis x;
+
+    @FXML
+    private NumberAxis y;
+
+    @FXML
+    private RadioButton pieChartButton;
+
+    @FXML
     private TextField outcomeField;
 
     @FXML
@@ -46,14 +59,63 @@ public class OutgoingsController {
     private AnchorPane outcomeAnchorPage;
 
     @FXML
+    private LineChart lineChart;
+
+    @FXML
     private ComboBox<String> outcomeComboBox;
 
     @FXML
     private TableView<Outgoings> outcomeTableView;
 
+    @FXML
+    void isLineChartButtonSelected(ActionEvent event) {
+        lineChart.setVisible(lineChart.isVisible());
+
+        boolean isVisible = lineChart.isVisible();
+        lineChart.setVisible(!isVisible);
+
+        if(lineChart.isVisible()){
+            XYChart.Series series = new XYChart.Series();
+            for (Outgoings outcome : outcomes) {
+                series.getData().add(new XYChart.Data(outcome.getDate().toString(), Double.parseDouble(outcome.getCost())));
+            }
+
+            lineChart.getData().addAll(series);
+        }
+    }
+
+    @FXML
+    void isPieChartButtonSelected(ActionEvent event) {
+        pieChart.setVisible(pieChart.isVisible());
+
+        boolean isVisible = pieChart.isVisible();
+        pieChart.setVisible(!isVisible);
+        if(pieChart.isVisible()){
+            ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+
+            // Calculate total income
+            double totalIncome = outcomes.stream()
+                    .mapToDouble(income -> Double.parseDouble(income.getCost()))
+                    .sum();
+
+            // Populate PieChart data
+            for (Outgoings outgoing : outcomes) {
+                double cost = Double.parseDouble(outgoing.getCost());
+                double percentage = (cost / totalIncome) * 100;
+
+                pieChartData.add(new PieChart.Data(outgoing.getTitle() + " (" + String.format("%.1f", percentage) + "%)", cost));
+            }
+
+            // Update the PieChart
+            pieChart.setData(pieChartData);
+
+        }
+
+    }
+
     public ObservableList<Outgoings> getOutcomeList() {
         ObservableList<Outgoings> outgoings = FXCollections.observableArrayList();
-        String sql = "SELECT date, title, cost FROM Income";
+        String sql = "SELECT date, title, cost FROM Outcome";
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql);
@@ -133,10 +195,13 @@ public class OutgoingsController {
 
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-        costColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        costColumn.setCellValueFactory(new PropertyValueFactory<>("cost"));
         outcomes = getOutcomeList();
-        sortOutcomesByAmount();// sorting alg
+        sortOutcomesByCost();// sorting alg
         findTotalOutcome();
+
+        lineChart.setVisible(false);
+        pieChart.setVisible(false);
     }
 
     private void findTotalOutcome(){
@@ -188,13 +253,13 @@ public class OutgoingsController {
         }
     }
 
-    public void sortOutcomesByAmount() {
+    public void sortOutcomesByCost() {
         outcomesFromMost.clear();
         outcomesFromMost.addAll(outcomes);
         outcomesFromMost.sort((i1, i2) -> {
-            double amount1 = Double.parseDouble(i1.getCost());
-            double amount2 = Double.parseDouble(i2.getCost());
-            return Double.compare(amount2, amount1);
+            double cost1 = Double.parseDouble(i1.getCost());
+            double cost2 = Double.parseDouble(i2.getCost());
+            return Double.compare(cost2, cost1);
         });
     }
 

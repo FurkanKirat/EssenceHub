@@ -80,7 +80,7 @@ public class AddOutcomeController {
         alert.showAndWait();
     }
     public static void addOutgoings(Outgoings outgoings) {
-        String sql = "INSERT INTO Income (date, title, amount)"
+        String sql = "INSERT INTO Outcome (date, title, cost)"
                 + "VALUES (?, ?, ?)";
 
         try (Connection connection = DatabaseConnection.getConnection();
