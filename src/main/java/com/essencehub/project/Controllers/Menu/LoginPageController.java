@@ -113,6 +113,7 @@ public class LoginPageController {
         }
     }
     public void login(Event event) {
+
         try {
             warning.setVisible(false);
             int id = Integer.parseInt(idField.getText());
@@ -151,15 +152,28 @@ public class LoginPageController {
             warning.setVisible(false);
             loadAppropriateMenu(event);
 
-        } catch (SQLException e) {
-            warning.setText("SQL Exception has occurred!");
+        } catch (NullPointerException e) {
+            warning.setText("A required component is missing!");
+            e.printStackTrace();
+            warning.setVisible(true);
+        } catch (IllegalArgumentException e) {
+            warning.setText("Invalid argument provided!");
+            e.printStackTrace();
+            warning.setVisible(true);
+        } catch (SQLTimeoutException e) {
+            warning.setText("Database operation timed out!");
+            e.printStackTrace();
+            warning.setVisible(true);
+        } catch (ClassCastException e) {
+            warning.setText("Data type mismatch error!");
             e.printStackTrace();
             warning.setVisible(true);
         } catch (IOException e) {
-            warning.setText("FXML File Could not Load!");
+            warning.setText("FXML Loading error!");
             e.printStackTrace();
             warning.setVisible(true);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             warning.setText("Something went wrong!");
             e.printStackTrace();
             warning.setVisible(true);

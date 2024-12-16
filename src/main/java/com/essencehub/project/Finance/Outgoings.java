@@ -38,4 +38,12 @@ public class Outgoings {
     public void setAmount(String Amount) {
         this.cost = Amount;
     }
+
+    public String getCost() {
+        return cost;
+    }
+
+    public void setCost(String cost) {
+        this.cost = cost;
+    }
 }

@@ -49,7 +49,7 @@ public class StockController {
     private ComboBox<String> productCombobox;
 
     @FXML
-    private ComboBox<String> timeRangeCombobox; // New ComboBox for time range
+    private ComboBox<String> timeRangeCombobox;
 
     @FXML
     private VBox func;
@@ -77,21 +77,23 @@ public class StockController {
             updateTableView(productCombobox.getValue(), newValue);
         });
     }
-
     private void loadStockData() {
         try (Connection connection = DatabaseConnection.getConnection();
              Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT * FROM stock")) {
+             ResultSet resultSet = statement.executeQuery("SELECT name, SUM(count) as total_count, MAX(buyingDate) as latest_date, MAX(sellingDate) as latest_selling_date FROM stock GROUP BY name")) {
+
+            productList.clear(); // Clear previous data
 
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
-                int count = resultSet.getInt("count");
-                LocalDate buyingDate = resultSet.getDate("buyingDate").toLocalDate();
+                int totalCount = resultSet.getInt("total_count");
+                LocalDate latestDate = resultSet.getDate("latest_date").toLocalDate();
+                LocalDate latestSellingDate = resultSet.getDate("latest_selling_date") != null ? resultSet.getDate("latest_selling_date").toLocalDate() : null; // Latest selling date
 
-                productList.add(new Product(name, count, buyingDate, null, 0, 0)); // Placeholder for sellingDate, prices
+                productList.add(new Product(name, totalCount, latestDate, latestSellingDate, 0, 0));
             }
 
-            stockView.setItems(productList);
+            stockView.setItems(productList); // Update the TableView with the aggregated data
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -99,22 +101,18 @@ public class StockController {
         }
     }
 
+
     private void initializeProductComboBox() {
         ObservableList<String> uniqueProducts = FXCollections.observableArrayList();
 
         uniqueProducts.add("All");
 
-        int index = 0;
-
-        while (index < productList.size()) {
-            Product product = productList.get(index);
+        // Add unique product names to ComboBox
+        for (Product product : productList) {
             String productName = product.getName();
-
             if (!uniqueProducts.contains(productName)) {
                 uniqueProducts.add(productName);
             }
-
-            index++;
         }
 
         productCombobox.setItems(uniqueProducts);
@@ -136,24 +134,22 @@ public class StockController {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName(selectedProduct.equals("All") ? "All Products" : "Stock for " + selectedProduct);
 
-        int index = 0;
         LocalDate currentDate = LocalDate.now();
 
-        while (index < productList.size()) {
-            Product product = productList.get(index);
 
+        for (Product product : productList) {
             if (selectedProduct.equals("All") || product.getName().equals(selectedProduct)) {
 
                 boolean withinTimeRange = false;
                 switch (selectedTimeRange) {
                     case "Last 6 Months":
-                        withinTimeRange = product.getBuyingDate().isAfter(currentDate.minusMonths(6));
+                        withinTimeRange = product.getBuyingDate().isAfter(currentDate.minusMonths(6)) && (product.getSellingDate() == null || product.getSellingDate().isAfter(currentDate.minusMonths(6)));
                         break;
                     case "Last 1 Year":
-                        withinTimeRange = product.getBuyingDate().isAfter(currentDate.minusYears(1));
+                        withinTimeRange = product.getBuyingDate().isAfter(currentDate.minusYears(1)) && (product.getSellingDate() == null || product.getSellingDate().isAfter(currentDate.minusYears(1)));
                         break;
                     case "Last 5 Years":
-                        withinTimeRange = product.getBuyingDate().isAfter(currentDate.minusYears(5));
+                        withinTimeRange = product.getBuyingDate().isAfter(currentDate.minusYears(5)) && (product.getSellingDate() == null || product.getSellingDate().isAfter(currentDate.minusYears(5)));
                         break;
                     case "All":
                         withinTimeRange = true;
@@ -161,39 +157,34 @@ public class StockController {
                 }
 
                 if (withinTimeRange) {
-                    String productName = product.getName();
-                    int stockCount = product.getCount();
-                    series.getData().add(new XYChart.Data<>(productName, stockCount));
+                    series.getData().add(new XYChart.Data<>(product.getName(), product.getCount()));
                 }
             }
-
-            index++;
         }
 
         lineChart.getData().add(series);
     }
 
+
     private void updateTableView(String selectedProduct, String selectedTimeRange) {
         ObservableList<Product> filteredProducts = FXCollections.observableArrayList();
 
-        int index = 0;
         LocalDate currentDate = LocalDate.now();
 
-        while (index < productList.size()) {
-            Product product = productList.get(index);
 
+        for (Product product : productList) {
             if (selectedProduct.equals("All") || product.getName().equals(selectedProduct)) {
 
                 boolean withinTimeRange = false;
                 switch (selectedTimeRange) {
                     case "Last 6 Months":
-                        withinTimeRange = product.getBuyingDate().isAfter(currentDate.minusMonths(6));
+                        withinTimeRange = product.getBuyingDate().isAfter(currentDate.minusMonths(6)) && (product.getSellingDate() == null || product.getSellingDate().isAfter(currentDate.minusMonths(6)));
                         break;
                     case "Last 1 Year":
-                        withinTimeRange = product.getBuyingDate().isAfter(currentDate.minusYears(1));
+                        withinTimeRange = product.getBuyingDate().isAfter(currentDate.minusYears(1)) && (product.getSellingDate() == null || product.getSellingDate().isAfter(currentDate.minusYears(1)));
                         break;
                     case "Last 5 Years":
-                        withinTimeRange = product.getBuyingDate().isAfter(currentDate.minusYears(5));
+                        withinTimeRange = product.getBuyingDate().isAfter(currentDate.minusYears(5)) && (product.getSellingDate() == null || product.getSellingDate().isAfter(currentDate.minusYears(5)));
                         break;
                     case "All":
                         withinTimeRange = true;
@@ -204,8 +195,6 @@ public class StockController {
                     filteredProducts.add(product);
                 }
             }
-
-            index++;
         }
 
         stockView.setItems(filteredProducts);

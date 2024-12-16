@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class UserBox extends VBox {
     User user;
@@ -15,6 +16,7 @@ public class UserBox extends VBox {
         this.user = user;
         nameLabel = new Label(user.getFullName());
         nameLabel.getStyleClass().add("messageLabel");
+        nameLabel.setTextFill(Color.WHITE);
         image = new ImageView();
         image.setFitHeight(50);
         image.setFitWidth(50);

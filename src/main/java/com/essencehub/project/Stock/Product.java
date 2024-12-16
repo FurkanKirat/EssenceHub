@@ -2,10 +2,7 @@ package com.essencehub.project.Stock;
 
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 
 public class Product {
@@ -28,6 +25,9 @@ public class Product {
 
     public String getName() {
         return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 
     public LocalDate getBuyingDate() {
@@ -72,6 +72,52 @@ public class Product {
             }
         } catch (SQLException e) {
             System.out.println("Error adding product: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    public static void removeProduct(String productName, int quantityToRemove) {
+        String selectStockSQL = "SELECT count FROM Stock WHERE name = ?";
+        String updateStockSQL = "UPDATE Stock SET count = count - ? WHERE name = ? AND count >= ?";
+
+        try (Connection connection = DatabaseConnection.getConnection()) {
+            if (connection != null) {
+
+                try (PreparedStatement selectStatement = connection.prepareStatement(selectStockSQL)) {
+                    selectStatement.setString(1, productName);
+
+                    try (ResultSet resultSet = selectStatement.executeQuery()) {
+                        if (resultSet.next()) {
+                            int currentCount = resultSet.getInt("count");
+
+                            if (currentCount >= quantityToRemove) {
+
+                                try (PreparedStatement updateStatement = connection.prepareStatement(updateStockSQL)) {
+                                    updateStatement.setInt(1, quantityToRemove);
+                                    updateStatement.setString(2, productName);
+                                    updateStatement.setInt(3, quantityToRemove);
+
+                                    int affectedRows = updateStatement.executeUpdate();
+                                    if (affectedRows > 0) {
+                                        System.out.println("Product removed successfully.");
+                                    } else {
+                                        System.out.println("Error removing product.");
+                                    }
+                                }
+                            } else {
+
+                                System.out.println("Insufficient stock! Available quantity: " + currentCount);
+                            }
+                        } else {
+
+                            System.out.println("Product not found in the stock.");
+                        }
+                    }
+                }
+            } else {
+                System.out.println("Database connection failed.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error removing product: " + e.getMessage());
             e.printStackTrace();
         }
     }

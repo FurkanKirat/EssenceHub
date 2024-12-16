@@ -1,6 +1,7 @@
 package com.essencehub.project.Controllers.Menu;
 
 import com.essencehub.project.Controllers.Settings.ThemeController;
+import com.essencehub.project.User.NotificationSender;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,6 +60,9 @@ public class AdminMenuController {
     @FXML
     private VBox func;
 
+    @FXML
+    private HBox suggestionsPanel;
+
     private static AdminMenuController instance;
 
 
@@ -76,7 +80,6 @@ public class AdminMenuController {
 
             profilPicturePanel.setImage(LoginPageController.getUser().getImage());
 
-
         }
         catch (Exception e){
             e.printStackTrace();
@@ -85,7 +88,6 @@ public class AdminMenuController {
         dashboardPanel.getStyleClass().add("selected-border");
 
         currentNode = dashboardPanel;
-
 
     }
 
@@ -127,6 +129,14 @@ public class AdminMenuController {
         loadFXMLContent("/com/essencehub/project/fxml/RequestLeave/AdminViewRequests.fxml");
         leaveDaysPanel.getStyleClass().add("selected-border");
         currentNode=leaveDaysPanel;
+    }
+
+    @FXML
+    void suggestionsPanelClicked(MouseEvent event) {
+        currentNode.getStyleClass().remove("selected-border");
+        loadFXMLContent("/com/essencehub/project/fxml/Suggestions/viewSuggestionsTitle.fxml");
+        suggestionsPanel.getStyleClass().add("selected-border");
+        currentNode=suggestionsPanel;
     }
 
     @FXML

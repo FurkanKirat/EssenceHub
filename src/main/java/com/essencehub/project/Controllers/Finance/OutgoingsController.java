@@ -1,6 +1,7 @@
 package com.essencehub.project.Controllers.Finance;
 
 import com.essencehub.project.Controllers.Menu.AdminMenuController;
+import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import com.essencehub.project.Finance.Outgoings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class OutgoingsController {
@@ -47,20 +52,26 @@ public class OutgoingsController {
     private TableView<Outgoings> outcomeTableView;
 
     public ObservableList<Outgoings> getOutcomeList() {
-        return FXCollections.observableArrayList(
-                new Outgoings(LocalDate.of(2024, 1, 15), "January Salay", "5000"),
-                new Outgoings(LocalDate.of(2024, 2, 10), "Freelance Project", "1500"),
-                new Outgoings(LocalDate.of(2024, 3, 20), "Bonus", "2000"),
-                new Outgoings(LocalDate.of(2024, 4, 18), "Investment Return", "300"),
-                new Outgoings(LocalDate.of(2024, 5, 25), "May Salary", "5000"),
-                new Outgoings(LocalDate.of(2024, 6, 10), "Freelance Project", "1200"),
-                new Outgoings(LocalDate.of(2024, 7, 12), "July Dividend", "800"),
-                new Outgoings(LocalDate.of(2024, 8, 15), "August Salary", "5000"),
-                new Outgoings(LocalDate.of(2024, 9, 5), "Consulting Fee", "2500"),
-                new Outgoings(LocalDate.of(2024, 10, 20), "October Bonus", "1500"),
-                new Outgoings(LocalDate.of(2024, 11, 10), "Freelance Work", "1700"),
-                new Outgoings(LocalDate.of(2024, 12, 25), "December Gift", "500")
-        );
+        ObservableList<Outgoings> outgoings = FXCollections.observableArrayList();
+        String sql = "SELECT date, title, cost FROM Income";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql);
+             ResultSet resultSet = statement.executeQuery()) {
+
+            while (resultSet.next()) {
+                LocalDate date = resultSet.getDate("date").toLocalDate();
+                String title = resultSet.getString("title");
+                String cost = resultSet.getString("cost");
+
+                Outgoings outgoing = new Outgoings(date, title, cost);
+
+                outgoings.add(outgoing); // Add the user to the ObservableList
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return outgoings;
     }
 
     public ObservableList<Outgoings> outcomes;
@@ -143,13 +154,13 @@ public class OutgoingsController {
 
                 tableItems.addAll(outcomesFromMost);
                 for (Outgoings outgoings : outcomesFromMost) {
-                    totalOutcome += Double.parseDouble(outgoings.getAmount());
+                    totalOutcome += Double.parseDouble(outgoings.getCost());
                 }
                 findTotalOutcome();
             }else{
                 tableItems.addAll(outcomes);
                 for (Outgoings outcomes : outcomes) {
-                    totalOutcome += Double.parseDouble(outcomes.getAmount());
+                    totalOutcome += Double.parseDouble(outcomes.getCost());
                 }
                 findTotalOutcome();
             }
@@ -160,7 +171,7 @@ public class OutgoingsController {
                 for (Outgoings outcomes : outcomesFromMost) {
                     if(outcomes.getDate().isAfter(startProcessWhere) ||outcomes.getDate().equals(startProcessWhere)){
                         tableItems.add(outcomes);
-                        totalOutcome += Double.parseDouble(outcomes.getAmount());
+                        totalOutcome += Double.parseDouble(outcomes.getCost());
                     }
                 }
             }else{
@@ -168,7 +179,7 @@ public class OutgoingsController {
                 for (Outgoings outgoings : outcomes) {
                     if(outgoings.getDate().isAfter(startProcessWhere) || outgoings.getDate().equals(startProcessWhere)){
                         tableItems.add(outgoings);
-                        totalOutcome += Double.parseDouble(outgoings.getAmount());
+                        totalOutcome += Double.parseDouble(outgoings.getCost());
                     }
                 }
             }
@@ -181,8 +192,8 @@ public class OutgoingsController {
         outcomesFromMost.clear();
         outcomesFromMost.addAll(outcomes);
         outcomesFromMost.sort((i1, i2) -> {
-            double amount1 = Double.parseDouble(i1.getAmount());
-            double amount2 = Double.parseDouble(i2.getAmount());
+            double amount1 = Double.parseDouble(i1.getCost());
+            double amount2 = Double.parseDouble(i2.getCost());
             return Double.compare(amount2, amount1);
         });
     }

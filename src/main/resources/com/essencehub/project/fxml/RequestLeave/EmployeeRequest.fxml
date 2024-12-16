@@ -100,7 +100,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <DatePicker fx:id="startPicker" prefHeight="26.0" prefWidth="382.0" />
+            <DatePicker fx:id="startPicker" editable="false" prefHeight="26.0" prefWidth="382.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
@@ -110,7 +110,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <DatePicker fx:id="endPicker" prefHeight="26.0" prefWidth="382.0" />
+            <DatePicker fx:id="endPicker" editable="false" prefHeight="26.0" prefWidth="382.0" />
          </children>
       </HBox>
       <HBox prefHeight="60.0" prefWidth="200.0">

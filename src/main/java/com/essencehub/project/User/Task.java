@@ -191,9 +191,6 @@ public class Task {
         return taskList;
     }
 
-
-
-
     public static List<Task> getUserTasks(int currentUserId) {
         List<Task> taskList = new ArrayList<>();
         String query = """

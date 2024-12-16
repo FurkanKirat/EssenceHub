@@ -1,10 +1,14 @@
 package com.essencehub.project.Controllers.RequestLeave;
 
 import com.essencehub.project.Controllers.Menu.EmployeeMenuController;
+import com.essencehub.project.Controllers.Menu.LoginPageController;
 import com.essencehub.project.User.LeaveRequest;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 import java.time.LocalDate;
@@ -37,6 +41,11 @@ public class EmployeeViewRequestController {
 
     public void initialize(){
         //Get requests from database
+        endDateColumn.setCellValueFactory(new PropertyValueFactory<>("endDate"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+        startDateColumn.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+        ObservableList<LeaveRequest> leaveRequests = FXCollections.observableArrayList(LeaveRequest.getLeaveRequestByEmployeeId(LoginPageController.getUser().getId()));
+        tableView.setItems(leaveRequests);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.essencehub.project;
 
 import com.essencehub.project.Controllers.Settings.ThemeController;
+import com.essencehub.project.User.NotificationSender;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

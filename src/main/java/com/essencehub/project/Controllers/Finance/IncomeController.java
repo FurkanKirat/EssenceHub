@@ -1,6 +1,7 @@
 package com.essencehub.project.Controllers.Finance;
 
 import com.essencehub.project.Controllers.Menu.AdminMenuController;
+import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import com.essencehub.project.Finance.Income;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,26 +13,53 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class IncomeController {
     // will be deleted, for debug purposes
     public ObservableList<Income> getIncomeList() {
-        return FXCollections.observableArrayList(
-                new Income(LocalDate.of(2024, 1, 15), "January Salary", "5000"),
-                new Income(LocalDate.of(2024, 2, 10), "Freelance Project", "1500"),
-                new Income(LocalDate.of(2024, 3, 20), "Bonus", "2000"),
-                new Income(LocalDate.of(2024, 4, 18), "Investment Return", "300"),
-                new Income(LocalDate.of(2024, 5, 25), "May Salary", "5000"),
-                new Income(LocalDate.of(2024, 6, 10), "Freelance Project", "1200"),
-                new Income(LocalDate.of(2024, 7, 12), "July Dividend", "800"),
-                new Income(LocalDate.of(2024, 8, 15), "August Salary", "5000"),
-                new Income(LocalDate.of(2024, 9, 5), "Consulting Fee", "2500"),
-                new Income(LocalDate.of(2024, 10, 20), "October Bonus", "1500"),
-                new Income(LocalDate.of(2024, 11, 10), "Freelance Work", "1700"),
-                new Income(LocalDate.of(2024, 12, 25), "December Gift", "500")
-        );
+        ObservableList<Income> incomes = FXCollections.observableArrayList();
+        String sql = "SELECT date, title, amount FROM Income";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql);
+             ResultSet resultSet = statement.executeQuery()) {
+
+            while (resultSet.next()) {
+                LocalDate date = resultSet.getDate("date").toLocalDate();
+                String title = resultSet.getString("title");
+                String amount = resultSet.getString("amount");
+
+                Income income = new Income(date, title, amount);
+
+                incomes.add(income); // Add the user to the ObservableList
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return incomes;
     }
+    @FXML
+    private Button addIncomeButton;
+
+    @FXML
+    private Button addOutcomeButton;
+    @FXML
+    void isAddButtonClicked(ActionEvent event) {
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/AddIncome.fxml");
+    }
+
+    @FXML
+    void isAddOutcomeButtonClicked(ActionEvent event) {
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/AddOutcome.fxml");
+    }
+
     public ObservableList<Income> incomes;
     public ObservableList<Income> incomesFromMost = FXCollections.observableArrayList();
     private String[] timePeriods = {"Last Month", "Last 6 Months", "Last 1 Year", "All Incomes"};
@@ -128,6 +156,7 @@ public class IncomeController {
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
         amountColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
         incomes = getIncomeList();
+        sortIncomesByDate();
         sortIncomesByAmount();// sorting alg
 
         findTotalIncome();
@@ -191,4 +220,12 @@ public class IncomeController {
             return Double.compare(amount2, amount1);
         });
     }
+    public void sortIncomesByDate() {
+        incomes.sort((i1, i2) -> {
+            LocalDate date1 = i1.getDate();
+            LocalDate date2 = i2.getDate();
+            return date2.compareTo(date1);
+        });
+    }
+
 }

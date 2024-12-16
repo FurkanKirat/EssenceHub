@@ -58,42 +58,66 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="943.0" spacing="10.0">
          <children>
-            <Label prefWidth="130.0" text="Sender:" textFill="WHITE">
+            <Label prefWidth="200.0" text="Sender:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="senderTextField" editable="false" prefHeight="26.0" prefWidth="320.0" />
+            <TextField fx:id="senderTextField" editable="false" prefHeight="26.0" prefWidth="290.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <Label prefWidth="130.0" text="Start Date:" textFill="WHITE">
+            <Label prefWidth="200.0" text="Start Date:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="startDateTextField" editable="false" prefHeight="26.0" prefWidth="320.0">
+            <TextField fx:id="startDateTextField" editable="false" prefHeight="26.0" prefWidth="290.0">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
             </TextField>
-            <Label prefWidth="130.0" text="End Date:" textFill="WHITE">
+            <Label prefWidth="125.0" text="End Date:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="endDateTextField" editable="false" prefHeight="26.0" prefWidth="320.0" />
+            <TextField fx:id="endDateTextField" editable="false" prefHeight="26.0" prefWidth="290.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <Label prefWidth="130.0" text="Set Permission:" textFill="WHITE">
+            <Label prefWidth="200.0" text="Remaining Leave Days: " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="setPermissionComboBox" prefWidth="320.0" />
+            <TextField fx:id="remainingLeaveDaysTextField" editable="false" prefHeight="26.0" prefWidth="290.0">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Label prefWidth="200.0" text="Requested Leave Days:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="requestedLeaveDaysTextField" editable="false" prefHeight="26.0" prefWidth="290.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Label prefWidth="200.0" text="Set Permission:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="setPermissionComboBox" prefWidth="290.0" />
          </children>
       </HBox>
       <Button mnemonicParsing="false" onAction="#setClicked" styleClass="menuButton" text="Set" textFill="WHITE">

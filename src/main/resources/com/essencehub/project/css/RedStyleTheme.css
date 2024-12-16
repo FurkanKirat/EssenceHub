@@ -1,92 +1,103 @@
-/* General Styles - Vibrant Red Theme */
+/* General Styles - Red Theme */
 .gradient-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #7d1a1a, #c23d3d);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #8B0000, #FF6347);
 }
 .first-color {
-    -fx-background-color: #7d1a1a;
+    -fx-background-color: #8B0000;
 }
 .second-color {
-    -fx-background-color: #a12e2e;
+    -fx-background-color: #B22222;
 }
 .line-color {
-    -fx-background-color: #f05d5d;
+    -fx-background-color: #FF4500;
 }
 .container {
-    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-background-color: rgba(255, 255, 255, 0.1);
     -fx-background-radius: 10;
 }
 .hide {
     -fx-cursor: hand;
 }
 .selected-border {
-    -fx-border-color: #f05d5d;
+    -fx-border-color: #FF4500;
     -fx-border-width: 0 3 0 0;
 }
 .selected:hover {
-    -fx-background-color: #d84343;
+    -fx-background-color: #A52A2A;
 }
 .selected:clicked {
-    -fx-background-color: #d84343;
+    -fx-background-color: #A52A2A;
+}
+.selectedVBoxx:hover{
+     -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 10;
 }
 .buttonClicked {
-    -fx-opacity: 0.9;
-    -fx-effect: dropshadow(gaussian, rgba(240, 93, 93, 0.5), 10, 0.5, 0, 0);
+    -fx-opacity: 0.8;
+    -fx-effect: dropshadow(gaussian, rgba(139, 0, 0, 0.5), 10, 0.5, 0, 0);
 }
 .settingsProfile:hover {
-    -fx-opacity: 0.9;
-    -fx-effect: dropshadow(gaussian, rgba(240, 93, 93, 0.5), 10, 0.5, 0, 0);
+    -fx-opacity: 0.8;
+    -fx-effect: dropshadow(gaussian, rgba(139, 0, 0, 0.5), 10, 0.5, 0, 0);
 }
 .menuButton {
-    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-background-color: rgba(255, 255, 255, 0.1);
     -fx-background-radius: 30;
-    -fx-text-fill: white;
+    -fx-text-fill : white;
 }
 .text-input {
     -fx-background-color: rgba(0, 0, 0, 0);
     -fx-border-width: 0 0 1 0;
-    -fx-border-color: #f05d5d;
+    -fx-border-color: #FF4500;
 }
 .menuTextField {
-    -fx-text-fill: #ffe6e6;
+    -fx-text-fill: #e0e0e0;
     -fx-font-size: 15px;
 }
+
 /* combo box */
 .combo-box {
-    -fx-background-color: #7d1a1a;
-    -fx-border-color: #f05d5d;
+    -fx-background-color: #8B0000;
+    -fx-border-color: #FF4500;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
     -fx-font-size: 14px;
+
 }
 
 .combo-box .arrow {
-    -fx-background-color: #f05d5d;
-    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
+    -fx-background-color: #FF4500;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Ok işareti */
 }
 
 .combo-box:hover {
-    -fx-background-color: #d84343;
-    -list-cell-background-color: #d84343;
-}
-
-.list-cell {
-    -fx-background-color: #7d1a1a;
-    -fx-text-fill: #ffe6e6;
-    -fx-font-size: 14px;
-}
-
-.list-cell:hover {
-    -fx-background-color: #d84343;
-    -fx-text-fill: #ffffff;
+    -fx-background-color: #A52A2A;
+    -list-cell-background-color: #A52A2A;
 }
 .combo-box .text-input {
     -fx-background-color: transparent;
 }
 
-/* Login Page - Vibrant Red Theme */
+.list-cell {
+    -fx-background-color: #8B0000;
+    -fx-text-fill: #e0e0e0;
+    -fx-font-size: 14px;
+}
+
+.list-cell:hover {
+    -fx-background-color: #A52A2A;
+    -fx-text-fill: #ffffff;
+}
+.list-cell:selected {
+    -fx-background-color:#8B0000;
+    -fx-text-fill: #ffffff;
+}
+
+
+/* Login Page - Red Theme */
 .loginTextField {
     -fx-border-width: 2px;
-    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #7d1a1a, #c23d3d);
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #8B0000, #FF6347);
     -fx-background-color: transparent;
     -fx-text-fill: black;
     -fx-font-weight: bold;
@@ -97,153 +108,352 @@
     -fx-font-weight: bold;
 }
 #anchor1 {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #7d1a1a, #c23d3d);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #8B0000, #FF6347);
 }
 #loginbtn {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #7d1a1a, #c23d3d);
-    -fx-text-fill: #ffe6e6;
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #8B0000, #FF6347);
+    -fx-text-fill: #e0e0e0;
     -fx-background-radius: 15;
     -fx-cursor: hand;
     -fx-font-weight: bold;
 }
 #logo {
-    -fx-fill: linear-gradient(#7d1a1a, #c23d3d);
+    -fx-fill: linear-gradient(#8B0000, #FF6347);
 }
 #appLabel {
-    -fx-text-fill: #ffe6e6;
-    -fx-back-color: #c23d3d;
+    -fx-text-fill: #e0e0e0;
+    -fx-back-color: #FF6347;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-family: "sans-serif";
 }
 #profile {
-    -fx-fill: #f05d5d;
+    -fx-fill: #FF7F50;
 }
 
-.loginImage {
-    -fx-effect: innershadow(gaussian, #7d1a1a, 5, 1, 0, 0);
+.loginImage{
+     -fx-effect: innershadow(gaussian, #8B0000, 5, 1, 0, 0);
 }
 
-/* Tasks - Vibrant Red Theme */
+/* Tasks - Red Theme */
 .TaskLabel {
-    -fx-text-fill: #ffe6e6;
+    -fx-text-fill: #e0e0e0;
 }
 
-/* Employee Option - Vibrant Red Theme */
+/* Employee Option - Red Theme */
 .employeeLabel {
-    -fx-text-fill: #ffe6e6;
+    -fx-text-fill: #e0e0e0;
 }
 
-/* Stock - Vibrant Red Theme */
+.messageLabel {
+    -fx-text-fill: #e0e0e0;
+}
+
+/* Stock - Red Theme */
 .chart-legend-item {
-    -fx-text-fill: #f05d5d;
+    -fx-text-fill: black;
 }
 .chart-pie-label-line {
-    -fx-stroke: #f05d5d;
-    -fx-fill: #f05d5d;
+    -fx-stroke: #FF4500;
+    -fx-fill: #FF4500;
 }
 .chart-pie-label {
-    -fx-fill: #f05d5d;
+    -fx-fill: #FF4500;
 }
 .chart-legend {
-    -fx-background-color: #a12e2e;
-    -fx-stroke: #a12e2e;
+    -fx-background-color: white;
+    -fx-stroke: #B22222;
 }
 .axis-label {
-    -fx-text-fill: #f05d5d;
+    -fx-text-fill: white;
 }
 .chart-pie-label {
-    -fx-fill: #ffe6e6;
+    -fx-fill: white;
+}
+/* BarChart Y-Axis Label Color - White */
+.chart-legend-item {
+    -fx-text-fill: #FF4500;
 }
 
-/* TableView Styles - Vibrant Red Theme */
+.chart .x-axis .axis-label,
+.chart .y-axis .axis-label {
+    -fx-text-fill: white; /* Y eksenindeki etiketlerin rengi beyaz */
+}
+
+.chart .x-axis .tick-label,
+.chart .y-axis .tick-label {
+    -fx-text-fill: white; /* Y eksenindeki sayı etiketlerinin rengi beyaz */
+}
+
+/* TableView Styles - Red Theme */
 .table-view {
-    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-background-color: rgba(255, 255, 255, 0.1); /* Şeffaf ve yuvarlak köşeli */
     -fx-background-radius: 10;
-    -fx-border-color: #f05d5d;
+    -fx-border-color: #FF4500;
     -fx-border-width: 1;
-}
-
-.table-view .column-header {
-    -fx-background-color:  #7d1a1a;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-}
-
-.table-view .table-row-cell {
-    -fx-background-color: transparent;
-    -fx-text-fill: #ffe6e6;
-}
-
-.table-view .table-row-cell:focused {
-    -fx-background-color: #d84343;
-}
-
-.table-view .table-row-cell:hover {
-    -fx-background-color: #d84343;
-}
-
-.table-view .table-row-cell:pressed {
-    -fx-background-color: #7d1a1a;
-    -fx-text-fill: white;
-}
-
-.table-view .column-header:pressed {
-    -fx-background-color: #a12e2e;
-}
-
-.table-view .column-header:focused {
-    -fx-background-color: #d84343;
-}
-
-.table-view .column-header {
-    -fx-background-color: #7d1a1a;
-    -fx-text-fill: #ffe6e6;
-    -fx-font-weight: bold;
+    -fx-border-radius: 10;
+    -fx-font-family: "Segoe UI";
     -fx-font-size: 14px;
+    -fx-text-fill: white;
+}
+
+/* Column Header Styles */
+.table-view .column-header {
+    -fx-background-color: linear-gradient(to bottom, #8B0000, #B22222);
+    -fx-text-fill: #e0e0e0; /* Light gray text for better contrast */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px; /* Optional: Adjust font size */
     -fx-alignment: center;
+    -fx-border-color: #FF4500;
+    -fx-border-width: 0 0 1 0; /* Border only at the bottom */
+    -fx-padding: 5 0 5 0; /* Top and bottom padding for better spacing */
+}
+/* Text inside column headers */
+.table-view .column-header .text {
+    -fx-fill: #ffffff;  /* White text for header */
 }
 
-.table-view .column-header .text {
-    -fx-fill: #ffe6e6;
-}
-/* Radio Button - Vibrant Red Theme */
-.radio-button {
-    -fx-background-color: transparent;
-    -fx-text-fill: #ffe6e6;
+/* Row Cell Styles */
+.table-view .table-row-cell {
+    -fx-background-color: transparent; /* Transparent background by default */
+    -fx-text-fill: #ffffff; /* Black text */
     -fx-font-size: 14px;
+}
+
+/* Hover Effect for Rows */
+.table-view .table-row-cell:hover {
+    -fx-background-color: #a83232; /* Dark red background */
+    -fx-text-fill: #ffffff; /* White text */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0.5, 0, 0);
+}
+
+/* Focused Row Effect */
+.table-view .table-row-cell:focused {
+    -fx-background-color: #800000; /* Maroon background */
+    -fx-text-fill: #ff6347; /* Tomato text color */
+    -fx-border-color: #ff6347;
+    -fx-border-width: 0 0 2 0; /* Underline effect */
+}
+
+/* Selected Row Styles */
+.table-view .table-row-cell:selected {
+    -fx-background-color: #ff7f7f; /* Light red background */
+    -fx-text-fill: #800000; /* Maroon text color */
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.5, 0, 0);
+}
+
+/* Pressed Row Styles */
+.table-view .table-row-cell:pressed {
+    -fx-background-color: #a83232; /* Dark red background */
+    -fx-text-fill: #ffffff; /* White text */
+}
+
+/* Scroll Bar Styling */
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: #ff6347; /* Tomato color */
+    -fx-background-radius: 5;
+}
+
+.table-view .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+.table-view .scroll-bar:horizontal .thumb {
+    -fx-background-color: #ff6347; /* Tomato color */
+    -fx-background-radius: 5;
+}
+
+/* Selection Bar within Columns */
+.table-view .column-header:focused {
+    -fx-background-color: #a83232; /* Dark red background */
+}
+
+/* Focused Column Header */
+.table-view .column-header:focused {
+    -fx-border-color: #ff7f7f; /* Light red border */
+    -fx-border-width: 0 0 2 0;
+}
+
+/* Separator between columns */
+.table-view .column-header:pressed {
+    -fx-background-color: #800000; /* Maroon background */
+}
+.table-view .table-row-cell,
+.table-view .column-header,
+.table-view .table-cell {
+    -fx-text-fill: #ffffff; /* Beyaz metin rengi */
+}
+.table-view .column-header:first-of-type {
+    -fx-background-radius: 10 0 0 0; /* Sol üst köşe yuvarlatma */
+    -fx-border-radius: 10 0 0 0;
+}
+
+.table-view .column-header:last-of-type {
+    -fx-background-radius: 0 10 0 0; /* Sağ üst köşe yuvarlatma */
+    -fx-border-radius: 0 10 0 0;
+}
+
+/* Radio Button - Red Theme */
+.radio-button {
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-text-fill: #ffffff; /* Black text */
+    -fx-font-size: 14px; /* Text size */
 }
 
 .radio-button .box {
-    -fx-border-color: #f05d5d;
+    -fx-border-color: #ff6347; /* Tomato border */
     -fx-border-width: 2px;
-    -fx-border-radius: 50%;
+    -fx-border-radius: 50%; /* Round shape */
     -fx-background-radius: 50%;
-    -fx-background-color: transparent;
-    -fx-min-width: 16px;
+    -fx-background-color: transparent; /* Transparent inside */
+    -fx-min-width: 16px; /* Circle size */
     -fx-min-height: 16px;
     -fx-max-width: 16px;
     -fx-max-height: 16px;
 }
 
 .radio-button:selected .box {
-    -fx-background-color: #f05d5d;
-    -fx-border-color: #7d1a1a;
+    -fx-background-color: #ff6347; /* Tomato fill */
+    -fx-border-color: #800000; /* Maroon border */
 }
 
 .radio-button .box:hover {
-    -fx-border-color: #d84343;
+    -fx-border-color: #a83232; /* Dark red border on hover */
 }
 
 .radio-button:selected .box:hover {
-    -fx-background-color: #d84343;
+    -fx-background-color: #a83232; /* Dark red fill on hover */
 }
 .radio-button:selected .radio .dot {
-    -fx-background-color: #a12e2e;
+    -fx-background-color: #800000;
     -fx-background-insets: 0;
 }
 
 .radio-button .label {
-    -fx-text-fill: #ffe6e6;
+    -fx-text-fill: #ffffff; /* Black text */
+}
+
+/* ScrollPane Styles - Red Theme */
+.scroll-pane {
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-background-radius: 10; /* Rounded background */
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent; /* Transparent content area */
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: transparent; /* Transparent vertical scrollbar */
+    -fx-border-color: #800000; /* Maroon border */
+    -fx-border-width: 1; /* Border thickness */
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #800000; /* Maroon color */
+}
+
+.scroll-bar .track {
+    -fx-background-color: transparent; /* Transparent track */
+}
+
+/* DatePicker Styles - Red Theme */
+.date-picker {
+    -fx-background-color: #800000; /* Maroon background */
+    -fx-text-fill: #ffffff; /* Black text */
+    -fx-border-color: #ff6347; /* Tomato border */
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.date-picker:hover {
+    -fx-background-color: #a83232; /* Dark red background */
+}
+
+.date-picker:focused {
+    -fx-border-color: #ff7f7f; /* Light red border */
+    -fx-background-color: #800000; /* Maroon background */
+}
+
+/* Popup styles */
+.date-picker-popup {
+    -fx-background-color: #800000; /* Maroon background */
+    -fx-border-color: #ff6347; /* Tomato border */
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.calendar-pane {
+    -fx-background-color: #800000; /* Maroon background */
+    -fx-border-color: #ff6347; /* Tomato border */
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.calendar-pane .day-cell {
+    -fx-text-fill: #000000; /* Black text */
+    -fx-background-color: transparent;
+}
+
+.calendar-pane .day-cell:hover {
+    -fx-background-color: #a83232; /* Dark red background */
+    -fx-text-fill: #ffffff; /* White text */
+}
+
+.calendar-pane .day-cell:filled {
+    -fx-text-fill: #ffffff; /* Black text */
+}
+
+.calendar-pane .day-cell:selected {
+    -fx-background-color: #ff6347; /* Tomato background */
+    -fx-text-fill: #800000; /* Maroon text */
+}
+
+/* Arrows in DatePicker */
+.date-picker .arrow {
+    -fx-background-color: #ff6347; /* Tomato color */
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
+}
+
+.date-picker .arrow:hover {
+    -fx-background-color: #a83232; /* Dark red color */
+}
+
+/* TextField inside DatePicker */
+.date-picker .text-input {
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #ff6347; /* Tomato border */
+    -fx-text-fill: #e0e0e0; /* Black text */
+    -fx-font-size: 14px;
+}
+
+/* Whatsapp */
+.rightBorderForVBox {
+    -fx-border-color: #800000; /* Maroon border */
+    -fx-border-width: 0 6 0 0;
+}
+.lightGrayBackground{
+    -fx-background-color: #ffe4e4; /* Light red background */
+}
+.tranparentBackground{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.messageSenderLabel{
+    -fx-background-color: #a83232; /* Dark red background */
+    -fx-padding: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-text-fill: #ffffff; /* White text */
+}
+
+.messageReceiverLabel{
+    -fx-background-color: #800000; /* Maroon background */
+    -fx-padding: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-text-fill: #ffffff; /* White text */
 }
