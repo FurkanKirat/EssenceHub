@@ -24,9 +24,9 @@
             <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="608.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <HBox prefHeight="429.0" prefWidth="943.0">
+      <VBox prefHeight="605.0" prefWidth="943.0">
          <children>
-            <TableView fx:id="tableView" onMouseClicked="#tableViewClicked" prefHeight="408.0" prefWidth="944.0">
+            <TableView fx:id="tableView" onMouseClicked="#tableViewClicked" prefHeight="586.0" prefWidth="943.0">
                <columns>
                   <TableColumn fx:id="nameColumn" prefWidth="200.79999387264252" text="Name" />
                   <TableColumn fx:id="startDateColumn" prefWidth="273.60003662109375" text="Start Date" />
@@ -39,9 +39,9 @@
             </TableView>
          </children>
          <padding>
-            <Insets top="10.0" />
+            <Insets top="20.0" />
          </padding>
-      </HBox>
+      </VBox>
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />

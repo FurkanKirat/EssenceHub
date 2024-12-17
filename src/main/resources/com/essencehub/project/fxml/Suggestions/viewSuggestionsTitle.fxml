@@ -21,10 +21,13 @@
             </Label>
          </children>
       </HBox>
-      <HBox prefHeight="673.0" prefWidth="943.0">
+      <VBox prefHeight="620.0" prefWidth="943.0">
          <children>
-            <ListView fx:id="suggestionsList" onMouseClicked="#suggestionClicked" prefHeight="625.0" prefWidth="944.0" />
+            <ListView fx:id="suggestionsList" onMouseClicked="#suggestionClicked" prefHeight="635.0" prefWidth="944.0" />
          </children>
-      </HBox>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </VBox>
    </children>
 </VBox>

@@ -19,7 +19,7 @@
         <children>
             <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="474.0">
             <children>
-               <Label prefWidth="200.0" text="Update Task" textFill="WHITE">
+               <Label text="Update Task" textFill="WHITE">
                   <font>
                      <Font name="System Bold" size="25.0" />
                   </font>
@@ -28,9 +28,9 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="482.0" HBox.hgrow="ALWAYS">
                 <children>
-               <VBox alignment="CENTER" onMouseClicked="#goBackIconClicked" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
+               <VBox alignment="CENTER" onMouseClicked="#goBackIconClicked" prefHeight="60.0" prefWidth="60.0" styleClass="hide">
                   <children>
-                          <ImageView fx:id="goBackIcon" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" styleClass="hide">
+                          <ImageView fx:id="goBackIcon" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                               <image>
                                   <Image url="@../../images/General/goBack.png" />
                               </image>
@@ -55,23 +55,23 @@
             </HBox>
         </children>
     </HBox>
-    <HBox prefHeight="60.0" prefWidth="200.0">
+    <HBox prefHeight="60.0" prefWidth="200.0" spacing="10.0">
         <children>
 
             <!-- Receiver Selection -->
-            <HBox prefHeight="100.0" prefWidth="460.0" spacing="10.0">
-            <Label prefWidth="100.0" text="Receiver:" textFill="WHITE">
+            <HBox prefHeight="100.0" prefWidth="480.0" spacing="10.0">
+            <Label prefWidth="130.0" text="Receiver:" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
                 <TextField fx:id="receiverTextField" editable="false" prefHeight="26.0" prefWidth="300.0" styleClass="menuTextField" />
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="475.0" spacing="10.0">
+            <HBox prefHeight="60.0" prefWidth="440.0" spacing="10.0">
                 <children>
-               <Label prefWidth="100.0" text="Sender:" textFill="WHITE">
+               <Label prefWidth="130.0" text="Sender:" textFill="WHITE">
                   <font>
-                     <Font name="System Bold" size="20.0" />
+                     <Font name="System Bold" size="18.0" />
                   </font>
                </Label>
                     <TextField fx:id="senderTextField" editable="false" prefHeight="26.0" prefWidth="300.0" styleClass="menuTextField" />
@@ -81,31 +81,31 @@
     </HBox>
 
     <!-- Task Title Input -->
-    <HBox prefHeight="60.0">
-      <HBox prefHeight="60.0" prefWidth="460.0" spacing="10.0">
+    <HBox prefHeight="60.0" spacing="10.0">
+      <HBox prefHeight="100.0" prefWidth="480.0" spacing="10.0">
          <children>
-            <Label prefWidth="100.0" text="Title:" textFill="WHITE">
+            <Label prefWidth="130.0" text="Task Title:" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
               <TextField fx:id="titleTextField" prefHeight="35.0" prefWidth="300.0" promptText="Enter the task title" styleClass="menuTextField" />
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="464.0" spacing="10.0">
+      <HBox prefHeight="60.0" prefWidth="440.0" spacing="10.0">
          <children>
-            <Label prefWidth="100.0" text="Due Date:" textFill="WHITE">
+            <Label prefWidth="130.0" text="Due Date:" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <DatePicker fx:id="datePicker" editable="false" prefWidth="300.0" />
          </children>
       </HBox>
     </HBox>
-   <Label prefWidth="200.0" text="Task Description:" textFill="WHITE">
+   <Label text="Task Description:" textFill="WHITE">
       <font>
-         <Font name="System Bold" size="20.0" />
+         <Font name="System Bold" size="18.0" />
       </font>
    </Label>
 
@@ -113,7 +113,7 @@
     <TextArea fx:id="descriptionTextArea" prefHeight="248.0" prefWidth="560.0" promptText="Enter task details..." styleClass="tranparentBackground" wrapText="true" />
     <HBox prefHeight="100.0" prefWidth="200.0">
         <children>
-            <Button mnemonicParsing="false" onAction="#updateTaskClicked" prefHeight="40.0" prefWidth="169.0" text="Update The Task" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#updateTaskClicked" prefHeight="40.0" prefWidth="179.0" text="Update the Task" textFill="WHITE">
             <styleClass>
                <String fx:value="menuButton" />
                <String fx:value="hide" />
