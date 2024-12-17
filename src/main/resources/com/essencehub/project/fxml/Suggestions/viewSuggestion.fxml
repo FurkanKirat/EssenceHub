@@ -39,7 +39,7 @@
                               <DropShadow />
                            </effect>
                         </ImageView>
-                        <Label text="Label" textFill="WHITE">
+                        <Label text="Back" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>

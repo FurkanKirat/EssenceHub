@@ -255,6 +255,12 @@
 .table-view .column-header:pressed {
     -fx-background-color: #3f2659;
 }
+.table-view .table-row-cell,
+.table-view .column-header,
+.table-view .table-cell {
+    -fx-text-fill: white; /* Açık mavi metin */
+}
+
 .table-view .column-header:first-of-type {
     -fx-background-radius: 10 0 0 0; /* Sol üst köşe yuvarlatma */
     -fx-border-radius: 10 0 0 0;
@@ -305,7 +311,7 @@
 .radio-button .label {
     -fx-text-fill: #d8d0e8; /* Metin rengi */
 }
-* ScrollPane Styles - Purple Theme */
+/* ScrollPane Styles - Purple Theme */
 .scroll-pane {
     -fx-background-color: transparent; /* Arka planı şeffaf */
     -fx-background-radius: 10; /* Arka plan yuvarlaklığı */

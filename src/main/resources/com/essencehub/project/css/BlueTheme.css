@@ -251,7 +251,11 @@
 .table-view .column-header:pressed {
     -fx-background-color: #1d3a53; /* Basılı sütun başlığı rengi */
 }
-
+.table-view .table-row-cell,
+.table-view .column-header,
+.table-view .table-cell {
+    -fx-text-fill: white; /* Açık mavi metin */
+}
 .table-view .column-header:first-of-type {
     -fx-background-radius: 10 0 0 0; /* Sol üst köşe yuvarlatma */
     -fx-border-radius: 10 0 0 0;

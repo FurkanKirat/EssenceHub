@@ -1,19 +1,26 @@
 package com.essencehub.project.Controllers.StockTracking;
 
+import com.essencehub.project.Controllers.Settings.ThemeController;
 import com.essencehub.project.Stock.Product;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -146,7 +153,7 @@ public class ViewStockController {
 
     @FXML
     void addProductButtonClicked(MouseEvent event) {
-
+        createNewScene("/com/essencehub/project/fxml/StockTracking/addProduct.fxml","Add Product",event);
     }
 
     @FXML
@@ -166,7 +173,7 @@ public class ViewStockController {
 
     @FXML
     void updateProductButtonClicked(MouseEvent event) {
-
+        createNewScene("/com/essencehub/project/fxml/StockTracking/updateProduct.fxml","Update Product", event);
     }
 
     private void loadFXMLContent(String fxmlFile, VBox targetVBox) {
@@ -181,4 +188,27 @@ public class ViewStockController {
             e.printStackTrace();
         }
     }
-}
+
+    void createNewScene(String FXMLFile,String title, Event event){
+        try{
+            Stage stage = new Stage();
+            stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
+            Parent root = FXMLLoader.load(getClass().getResource(FXMLFile));
+
+            Scene scene = new Scene(root);
+            Stage parentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.initOwner(parentStage);
+            stage.initModality(Modality.WINDOW_MODAL);
+
+            ThemeController.changeTheme(scene);
+            stage.setScene(scene);
+            stage.setTitle(title);
+            stage.setResizable(false);
+            stage.show();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    }

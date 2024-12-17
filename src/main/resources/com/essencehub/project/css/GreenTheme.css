@@ -186,7 +186,7 @@
     -fx-border-radius: 10;
     -fx-font-family: "Segoe UI";
     -fx-font-size: 14px;
-    -fx-text-fill: white;
+    -fx-text-fill: #e6f2ff;
 }
 
 /* Column Header Styles */
@@ -209,14 +209,14 @@
 /* Row Cell Styles */
 .table-view .table-row-cell {
     -fx-background-color: transparent; /* Transparent background by default */
-    -fx-text-fill: white;
+    -fx-text-fill: #e6f2ff;
     -fx-font-size: 14px;
 }
 
 /* Hover Effect for Rows */
 .table-view .table-row-cell:hover {
     -fx-background-color: #168f5e;
-    -fx-text-fill: white;
+    -fx-text-fill: #e6f2ff;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0.5, 0, 0);
 }
 
@@ -271,6 +271,12 @@
 /* Separator between columns */
 .table-view .column-header:pressed {
     -fx-background-color:#0c7764;
+}
+
+.table-view .table-row-cell,
+.table-view .column-header,
+.table-view .table-cell {
+    -fx-text-fill: white; /* Açık mavi metin */
 }
 .table-view .column-header:first-of-type {
     -fx-background-radius: 10 0 0 0; /* Sol üst köşe yuvarlatma */

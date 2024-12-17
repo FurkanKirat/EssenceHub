@@ -263,6 +263,11 @@
     -fx-background-color: #3a3a3a; /* Darker gray when column header is pressed */
 }
 
+.table-view .table-row-cell,
+.table-view .column-header,
+.table-view .table-cell {
+    -fx-text-fill: white; /* Açık mavi metin */
+}
 .table-view .column-header:first-of-type {
     -fx-background-radius: 10 0 0 0; /* Rounded top-left corner */
     -fx-border-radius: 10 0 0 0;
