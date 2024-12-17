@@ -95,7 +95,7 @@ public class UpdateProductController {
             System.out.println("Please enter a valid numeric value for sale price.");
         }
     }
-    
+
     private void clearForm() {
         salePriceTextField.clear();
         selectProductComboBox.setValue(null);

@@ -202,7 +202,7 @@ public class UpdateEmployeeController {
             case "Department":
             case "Email":
             case "RemainingLeaveDays":
-            case "password":
+            case "Password":
                 hourHbox.setVisible(false);
                 startLabel.setVisible(false);
                 endLabel.setVisible(false);

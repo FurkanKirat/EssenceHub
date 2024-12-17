@@ -80,10 +80,8 @@ public class ViewStockController {
         initializeTableColumns();
         initializeChartToggles();
 
-
         tableViewCombo.valueProperty().addListener((observable, oldValue, newValue) -> updateTableView(newValue));
         updateTableView("All");
-        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/viewBarChart.fxml", chartVBox);
     }
 
     private void initializeTableViewCombo() {
@@ -112,7 +110,8 @@ public class ViewStockController {
             Connection connection = DatabaseConnection.getConnection();
             Statement statement = connection.createStatement();
 
-            String query = "SELECT name, count, buyingDate, sellingDate FROM Stock WHERE 1=1";
+            String query = "SELECT name, SUM(count) as totalCount, MIN(buyingDate) as earliestBuyingDate, " +
+                    "MAX(sellingDate) as latestSellingDate FROM Stock WHERE 1=1";
 
             LocalDate currentDate = LocalDate.now();
             if (selectedTimeRange.equals("Last 6 Months")) {
@@ -123,17 +122,19 @@ public class ViewStockController {
                 query += " AND buyingDate > '" + currentDate.minusYears(5) + "'";
             }
 
+            query += " GROUP BY name"; // Ürün adına göre gruplama
+
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
-                int count = resultSet.getInt("count");
-                LocalDate buyingDate = resultSet.getDate("buyingDate").toLocalDate();
-                LocalDate sellingDate = resultSet.getDate("sellingDate") != null
-                        ? resultSet.getDate("sellingDate").toLocalDate()
+                int totalCount = resultSet.getInt("totalCount");
+                LocalDate buyingDate = resultSet.getDate("earliestBuyingDate").toLocalDate();
+                LocalDate sellingDate = resultSet.getDate("latestSellingDate") != null
+                        ? resultSet.getDate("latestSellingDate").toLocalDate()
                         : null;
 
-                stockView.getItems().add(new Product(name, count, buyingDate, sellingDate, 0, 0));
+                stockView.getItems().add(new Product(name, totalCount, buyingDate, sellingDate, 0, 0));
             }
 
         } catch (SQLException e) {
@@ -141,6 +142,7 @@ public class ViewStockController {
             throw new RuntimeException("Error fetching data: " + e.getMessage());
         }
     }
+
 
     @FXML
     void addProductButtonClicked(MouseEvent event) {
