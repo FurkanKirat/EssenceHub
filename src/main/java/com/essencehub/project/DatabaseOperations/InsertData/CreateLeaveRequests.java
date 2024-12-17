@@ -15,7 +15,7 @@ public class CreateLeaveRequests {
     public static void main(String[] args) {
         Random random = new Random();
 
-        String[] statuses = {"approved", "pending", "rejected"};
+        String[] statuses = {"Approved", "Pending", "Rejected"};
 
         String insertSQL = "INSERT INTO LeaveRequest (startDate, endDate, employeeId, status) " +
                 "VALUES (?, ?, ?, ?)";
@@ -28,7 +28,7 @@ public class CreateLeaveRequests {
                         LocalDate endDate = startDate.plusDays(random.nextInt(7) + 1);
 
 
-                        int employeeId = random.nextInt(10) + 1;
+                        int employeeId = random.nextInt(12) + 20;
 
 
                         String status = statuses[random.nextInt(statuses.length)];

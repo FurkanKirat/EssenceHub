@@ -28,9 +28,15 @@
             <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="608.0" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                   <VBox alignment="CENTER" prefHeight="60.0" prefWidth="80.0">
                      <children>
                         <ImageView fitHeight="45.0" fitWidth="45.0" onMouseClicked="#sendRequestIcon" pickOnBounds="true" preserveRatio="true">
+=======
+                  <VBox alignment="CENTER" onMouseClicked="#sendRequestIcon" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
+                     <children>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+>>>>>>> Stashed changes
 =======
                   <VBox alignment="CENTER" onMouseClicked="#sendRequestIcon" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
                      <children>
@@ -58,9 +64,15 @@
                      </children>
                   </VBox>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                   <VBox alignment="CENTER" prefHeight="60.0" prefWidth="80.0">
                      <children>
                         <ImageView fitHeight="45.0" fitWidth="45.0" onMouseClicked="#viewRequestsIcon" pickOnBounds="true" preserveRatio="true">
+=======
+                  <VBox alignment="CENTER" onMouseClicked="#viewRequestsIcon" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
+                     <children>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+>>>>>>> Stashed changes
 =======
                   <VBox alignment="CENTER" onMouseClicked="#viewRequestsIcon" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
                      <children>
@@ -92,9 +104,15 @@
          </children>
       </HBox>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <HBox prefHeight="429.0" prefWidth="943.0">
          <children>
             <TableView fx:id="tableView" prefHeight="408.0" prefWidth="944.0">
+=======
+      <VBox prefHeight="639.0" prefWidth="943.0">
+         <children>
+            <TableView fx:id="tableView" prefHeight="639.0" prefWidth="943.0">
+>>>>>>> Stashed changes
 =======
       <VBox prefHeight="639.0" prefWidth="943.0">
          <children>
@@ -111,10 +129,17 @@
             </TableView>
          </children>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
          <padding>
             <Insets top="10.0" />
          </padding>
       </HBox>
+=======
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </VBox>
+>>>>>>> Stashed changes
 =======
          <VBox.margin>
             <Insets top="10.0" />

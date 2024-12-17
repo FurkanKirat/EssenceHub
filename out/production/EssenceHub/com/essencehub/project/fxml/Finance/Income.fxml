@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="807.2" prefWidth="973.6" spacing="10.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Finance.IncomeController">
+<VBox prefHeight="807.2" prefWidth="973.6" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Finance.IncomeController">
    <children>
       <HBox fx:id="first" alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0">
          <children>
@@ -33,9 +33,15 @@
                </children>
             </HBox>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="422.0" HBox.hgrow="ALWAYS">
                <children>
                   <VBox fx:id="incomeIconVBox" alignment="CENTER" onMouseClicked="#incomeIconVBoxClicked" prefHeight="60.0" prefWidth="60.0" styleClass="settingsProfile">
+=======
+            <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="422.0" spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox fx:id="incomeIconVBox" alignment="CENTER" onMouseClicked="#incomeIconVBoxClicked" prefHeight="60.0" prefWidth="80.0" styleClass="settingsProfile">
+>>>>>>> Stashed changes
 =======
             <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="422.0" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
@@ -61,7 +67,11 @@
                      </children>
                   </VBox>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                   <VBox fx:id="expensesIconVBox" alignment="CENTER" onMouseClicked="#expensesIconVBoxClicked" prefHeight="60.0" prefWidth="60.0" styleClass="selectedProfile">
+=======
+                  <VBox fx:id="expensesIconVBox" alignment="CENTER" onMouseClicked="#expensesIconVBoxClicked" prefHeight="60.0" prefWidth="80.0" styleClass="selectedProfile">
+>>>>>>> Stashed changes
 =======
                   <VBox fx:id="expensesIconVBox" alignment="CENTER" onMouseClicked="#expensesIconVBoxClicked" prefHeight="60.0" prefWidth="80.0" styleClass="selectedProfile">
 >>>>>>> Stashed changes
@@ -96,6 +106,7 @@
             <ComboBox fx:id="incomeComboBox" onAction="#incomeComboBoxIsSelected" prefHeight="26.0" prefWidth="197.0" />
             <RadioButton fx:id="theMostButton" mnemonicParsing="false" onAction="#isTheMostClicked" prefHeight="18.0" prefWidth="116.0" text="From Most" textFill="WHITE" />
             <HBox prefHeight="100.0" prefWidth="565.0">
+<<<<<<< Updated upstream
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
@@ -141,15 +152,27 @@
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0">
+=======
+>>>>>>> Stashed changes
                <children>
-                  <RadioButton fx:id="pieChartButton" mnemonicParsing="false" onAction="#isPieChartButtonSelected" text="pieChart" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <RadioButton fx:id="pieChartButton" mnemonicParsing="false" onAction="#isPieChartButtonSelected" text="Pie Chart" textFill="WHITE" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <RadioButton fx:id="lineChartButton" mnemonicParsing="false" onAction="#isLineChartButtonSelected" text="Line Chart" textFill="WHITE" />
+                     </children>
+                  </VBox>
+                  <Label text="Total Income" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="incomeField" editable="false" styleClass="menuTextField" />
                </children>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <RadioButton fx:id="lineChartButton" mnemonicParsing="false" onAction="#isLineChartButtonSelected" text="lineChart" />
-               </children>
-            </VBox>
+            </HBox>
          </children>
       </HBox>
       <HBox prefHeight="224.0" prefWidth="968.0">
@@ -173,6 +196,7 @@
             </VBox>
          </children>
       </HBox>
+<<<<<<< Updated upstream
 =======
             <VBox prefHeight="195.0" prefWidth="682.0">
                <children>
@@ -193,6 +217,8 @@
             </VBox>
          </children>
       </HBox>
+=======
+>>>>>>> Stashed changes
       <VBox prefHeight="332.0" prefWidth="943.0">
          <children>
             <TableView fx:id="incomeTableView" prefHeight="332.0" prefWidth="943.0">
@@ -219,6 +245,9 @@
                </font></Button>
          </children>
       </HBox>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
    </children>
    <padding>

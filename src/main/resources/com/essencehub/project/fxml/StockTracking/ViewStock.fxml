@@ -63,7 +63,6 @@
          <columns>
             <TableColumn fx:id="productNameColumn" prefWidth="362.40001821517944" text="Product Name" />
             <TableColumn fx:id="stockColumn" minWidth="0.0" prefWidth="240.80001831054688" text="Stock Quantity" />
-            <TableColumn fx:id="dateColumn" minWidth="0.0" prefWidth="348.0" text="Date" />
             <TableColumn fx:id="buyingDateColumn" minWidth="0.0" prefWidth="348.0" text="Buying Date" />
             <TableColumn fx:id="sellingDateColumn" minWidth="0.0" prefWidth="348.0" text="Selling Date" />
          </columns>
@@ -83,6 +82,15 @@
                </styleClass>
             </Button>
             <Button fx:id="updateProductButton" mnemonicParsing="false" onMouseClicked="#updateProductButtonClicked" text="Update Product" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="hide" />
+                  <String fx:value="menuButton" />
+               </styleClass>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#removeClicked" text="Remove Product" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>

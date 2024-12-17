@@ -32,9 +32,15 @@
             <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="549.0" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                   <VBox alignment="CENTER" prefHeight="60.0" prefWidth="80.0">
                      <children>
                         <ImageView fitHeight="45.0" fitWidth="45.0" onMouseClicked="#sendRequestIcon" pickOnBounds="true" preserveRatio="true">
+=======
+                  <VBox alignment="CENTER" onMouseClicked="#sendRequestIcon" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
+                     <children>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" styleClass="selected">
+>>>>>>> Stashed changes
 =======
                   <VBox alignment="CENTER" onMouseClicked="#sendRequestIcon" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
                      <children>
@@ -47,10 +53,13 @@
                               <DropShadow />
                            </effect>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                            <styleClass>
                               <String fx:value="hide" />
                               <String fx:value="selected" />
                            </styleClass>
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
                         </ImageView>
@@ -65,9 +74,15 @@
                      </children>
                   </VBox>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                   <VBox alignment="CENTER" prefHeight="60.0" prefWidth="80.0">
                      <children>
                         <ImageView fitHeight="45.0" fitWidth="45.0" onMouseClicked="#viewRequestsIcon" pickOnBounds="true" preserveRatio="true">
+=======
+                  <VBox alignment="CENTER" onMouseClicked="#viewRequestsIcon" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
+                     <children>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" styleClass="selected">
+>>>>>>> Stashed changes
 =======
                   <VBox alignment="CENTER" onMouseClicked="#viewRequestsIcon" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
                      <children>
@@ -80,10 +95,13 @@
                               <DropShadow />
                            </effect>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                            <styleClass>
                               <String fx:value="hide" />
                               <String fx:value="selected" />
                            </styleClass>
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
                         </ImageView>

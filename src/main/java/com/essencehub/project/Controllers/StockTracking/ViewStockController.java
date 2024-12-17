@@ -177,6 +177,11 @@ public class ViewStockController {
         createNewScene("/com/essencehub/project/fxml/StockTracking/updateProduct.fxml","Update Product", event);
     }
 
+    @FXML
+    void removeClicked(MouseEvent event) {
+        createNewScene("/com/essencehub/project/fxml/StockTracking/setTransaction.fxml","Remove Product", event);
+    }
+
     private void loadFXMLContent(String fxmlFile, VBox targetVBox) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
