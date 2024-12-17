@@ -9,6 +9,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -83,23 +84,25 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="943.0" spacing="10.0">
          <children>
-            <ComboBox fx:id="outcomeComboBox" onAction="#outcomeComboBoxIsSelected" prefWidth="150.0" />
+            <ComboBox fx:id="outcomeComboBox" onAction="#outcomeComboBoxIsSelected" prefWidth="170.0" />
             <RadioButton fx:id="theMostButton" mnemonicParsing="false" onAction="#isTheMostButtonClicked" prefHeight="18.0" prefWidth="107.0" text="From Most" textFill="WHITE" />
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <RadioButton fx:id="lineChartButton" mnemonicParsing="false" onAction="#isLineChartButtonSelected" text="lineChart" textFill="WHITE" />
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <RadioButton fx:id="pieChartButton" mnemonicParsing="false" onAction="#isPieChartButtonSelected" text="pieChart" textFill="WHITE" />
                </children>
             </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
             <Label prefHeight="27.0" prefWidth="193.0" text="Total Outgoings:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Label>
-            <TextField fx:id="outcomeField" editable="false" prefHeight="26.0" prefWidth="400.0" />
+            <TextField fx:id="outcomeField" editable="false" prefHeight="26.0" prefWidth="300.0" />
          </children>
       </HBox>
       <HBox prefHeight="34.0" prefWidth="943.0" />
