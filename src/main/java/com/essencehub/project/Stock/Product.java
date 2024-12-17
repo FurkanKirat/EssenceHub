@@ -8,6 +8,8 @@ import com.essencehub.project.Finance.Outgoings;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Product {
     private String name;
@@ -152,8 +154,38 @@ public class Product {
             e.printStackTrace();
         }
     }
+    public static List<Product> getAllProducts() {
+        String query = "SELECT id, name, count, buyingDate, sellingDate, buyingPrice, sellingPrice FROM Stock";
+        List<Product> productList = new ArrayList<>();
 
+        try (Connection connection = DatabaseConnection.getConnection()) {
+            if (connection != null) {
+                try (PreparedStatement preparedStatement = connection.prepareStatement(query);
+                     ResultSet resultSet = preparedStatement.executeQuery()) {
 
+                    while (resultSet.next()) {
+                        String name = resultSet.getString("name");
+                        int count = resultSet.getInt("count");
+                        LocalDate buyingDate = resultSet.getDate("buyingDate").toLocalDate();
+                        LocalDate sellingDate = resultSet.getDate("sellingDate") != null
+                                ? resultSet.getDate("sellingDate").toLocalDate()
+                                : null;
+                        int buyingPrice = resultSet.getInt("buyingPrice");
+                        int sellingPrice = resultSet.getInt("sellingPrice");
 
+                        Product product = new Product(name, count, buyingDate, sellingDate, buyingPrice, sellingPrice);
+                        productList.add(product);
+                    }
+                }
+            } else {
+                System.out.println("Database connection failed.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error fetching products: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return productList;
+    }
 
 }

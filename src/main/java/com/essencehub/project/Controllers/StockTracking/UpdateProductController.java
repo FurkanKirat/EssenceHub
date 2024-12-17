@@ -1,5 +1,6 @@
 package com.essencehub.project.Controllers.StockTracking;
 
+import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -76,6 +77,8 @@ public class UpdateProductController {
                     int rowsAffected = updateStatement.executeUpdate();
 
                     if (rowsAffected > 0) {
+                        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+                        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/StockTracking/ViewStock.fxml");
                         System.out.println("Sale price updated successfully for product: " + selectedProduct);
                     } else {
                         System.out.println("No matching products found to update.");

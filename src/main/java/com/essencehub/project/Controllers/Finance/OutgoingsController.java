@@ -1,18 +1,26 @@
 package com.essencehub.project.Controllers.Finance;
 
 import com.essencehub.project.Controllers.Menu.AdminMenuController;
+import com.essencehub.project.Controllers.Settings.ThemeController;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import com.essencehub.project.Finance.Outgoings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -87,19 +95,17 @@ public class OutgoingsController {
 
     @FXML
     void isAddOutcomeButtonClicked(ActionEvent event) {
-        AdminMenuController adminMenuController = AdminMenuController.getInstance();
-        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/AddOutcome.fxml");
+        createNewScene("/com/essencehub/project/fxml/Finance/AddOutcome.fxml","Add Outgoings",event);
     }
 
     @FXML
     void isUpdateOutcomeButtonClicked(ActionEvent event) {
-        AdminMenuController adminMenuController = AdminMenuController.getInstance();
-        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/UpdateOutcome.fxml");
+        createNewScene("/com/essencehub/project/fxml/Finance/UpdateOutcome.fxml","Update Outgoings",event);
     }
 
     @FXML
     void isLineChartButtonSelected(ActionEvent event) {
-        outcomesForLineChart = getRidOfRepeatDate(outcomesForLineChart);
+
 
         if(outcomeComboBox.getValue() == null){
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -110,7 +116,7 @@ public class OutgoingsController {
             lineChartButton.setSelected(false);
             return;
         }
-
+        outcomesForLineChart = getRidOfRepeatDate(outcomesForLineChart);
         lineChart.setVisible(lineChart.isVisible());
 
         boolean isVisible = lineChart.isVisible();
@@ -150,7 +156,6 @@ public class OutgoingsController {
 
     @FXML
     void isPieChartButtonSelected(ActionEvent event) {
-        outcomesForPieChart = getRidOfRepeatTitle(outcomesForPieChart);
         if(outcomeComboBox.getValue() == null){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Empty");
@@ -160,7 +165,7 @@ public class OutgoingsController {
             pieChartButton.setSelected(false);
             return;
         }
-
+        outcomesForPieChart = getRidOfRepeatTitle(outcomesForPieChart);
         pieChart.setVisible(pieChart.isVisible());
 
         boolean isVisible = pieChart.isVisible();
@@ -168,15 +173,10 @@ public class OutgoingsController {
         if(pieChart.isVisible()){
             ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
 
-            // Calculate total income
-            double totalIncome = outcomes.stream()
-                    .mapToDouble(income -> Double.parseDouble(income.getCost()))
-                    .sum();
-
             // Populate PieChart data
             for (Outgoings outgoing : outcomesForPieChart) {
                 double cost = Double.parseDouble(outgoing.getCost());
-                double percentage = (cost / totalIncome) * 100;
+                double percentage = (cost / totalOutcome) * 100;
 
                 pieChartData.add(new PieChart.Data(outgoing.getTitle() + " (" + String.format("%.1f", percentage) + "%)", cost));
             }
@@ -253,6 +253,15 @@ public class OutgoingsController {
 
     @FXML
     void isTheMostButtonClicked(ActionEvent event) {
+        if(outcomeComboBox.getValue() == null){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Empty");
+            alert.setHeaderText("Operation Failed");
+            alert.setContentText("Choose a category first");
+            alert.showAndWait();
+            theMostButton.setSelected(false);
+            return;
+        }
         listFromMost = theMostButton.isSelected();
         fillTable();
     }
@@ -367,6 +376,27 @@ public class OutgoingsController {
             double cost2 = Double.parseDouble(i2.getCost());
             return Double.compare(cost2, cost1);
         });
+    }
+
+    void createNewScene(String FXMLFile,String title, Event event){
+        try{
+            Stage stage = new Stage();
+            stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
+            Parent root = FXMLLoader.load(getClass().getResource(FXMLFile));
+
+            Scene scene = new Scene(root);
+            Stage parentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.initOwner(parentStage);
+            stage.initModality(Modality.WINDOW_MODAL);
+
+            ThemeController.changeTheme(scene);
+            stage.setScene(scene);
+            stage.setTitle(title);
+            stage.setResizable(false);
+            stage.show();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

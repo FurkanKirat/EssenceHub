@@ -1,18 +1,26 @@
 package com.essencehub.project.Controllers.Finance;
 
 import com.essencehub.project.Controllers.Menu.AdminMenuController;
+import com.essencehub.project.Controllers.Settings.ThemeController;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import com.essencehub.project.Finance.Income;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -183,11 +191,6 @@ public class IncomeController {
         if(pieChart.isVisible()){
             ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
 
-            // Calculate total income
-            double totalIncome = incomes.stream()
-                    .mapToDouble(income -> Double.parseDouble(income.getAmount()))
-                    .sum();
-
             // Populate PieChart data
             for (Income income : incomesForPieChart) {
                 double amount = Double.parseDouble(income.getAmount());
@@ -234,14 +237,12 @@ public class IncomeController {
 
     @FXML
     void isUpdateIncomeButtonClicked(ActionEvent event) {
-        AdminMenuController adminMenuController = AdminMenuController.getInstance();
-        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/UpdateIncome.fxml");
+        createNewScene("/com/essencehub/project/fxml/Finance/UpdateIncome.fxml","Update Income",event);
     }
 
     @FXML
     void isAddButtonClicked(ActionEvent event) {
-        AdminMenuController adminMenuController = AdminMenuController.getInstance();
-        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/AddIncome.fxml");
+        createNewScene("/com/essencehub/project/fxml/Finance/AddIncome.fxml","Add Income",event);
     }
 
     @FXML
@@ -258,6 +259,15 @@ public class IncomeController {
 
     @FXML
     void isTheMostClicked(ActionEvent event) {
+        if(incomeComboBox.getValue() == null){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Empty");
+            alert.setHeaderText("Operation Failed");
+            alert.setContentText("Choose a category first");
+            alert.showAndWait();
+            theMostButton.setSelected(false);
+            return;
+        }
         listFromMost = theMostButton.isSelected();
         fillTable();
     }
@@ -383,6 +393,27 @@ public class IncomeController {
             LocalDate date2 = i2.getDate();
             return date2.compareTo(date1);
         });
+    }
+
+    void createNewScene(String FXMLFile,String title, Event event){
+        try{
+            Stage stage = new Stage();
+            stage.getIcons().add(new Image( getClass().getResourceAsStream( "/com/essencehub/project/images/logo.jpg" )));
+            Parent root = FXMLLoader.load(getClass().getResource(FXMLFile));
+
+            Scene scene = new Scene(root);
+            Stage parentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.initOwner(parentStage);
+            stage.initModality(Modality.WINDOW_MODAL);
+
+            ThemeController.changeTheme(scene);
+            stage.setScene(scene);
+            stage.setTitle(title);
+            stage.setResizable(false);
+            stage.show();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

@@ -5,16 +5,75 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
 <VBox fx:id="func" prefHeight="807.2" prefWidth="973.6" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.StockTracking.StockController">
     <children>
+      <HBox prefHeight="60.0" prefWidth="200.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="490.0">
+               <children>
+                  <Label text="Line Chart" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="452.0" spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox alignment="CENTER" onMouseClicked="#changeMenuIconClicked" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
+                     <children>
+                        <ImageView fx:id="changeMenuIcon" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/StockTracking/stock.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <Label text="Stock" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" onMouseClicked="#lineChartIconClicked" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
+                     <children>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" onMouseClicked="#changeMenuIconClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/StockTracking/lineChart.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <Label text="Line Chart" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
          <children>
               <!-- Product ComboBox -->
@@ -29,24 +88,7 @@
                 <CategoryAxis fx:id="productDateAxis" prefHeight="27.0" prefWidth="917.0" side="BOTTOM" tickLabelFill="WHITE" />
             </xAxis>
             <yAxis>
-                <NumberAxis fx:id="numberAxis" side="LEFT">
-                    <tickLabelFill>
-                        <LinearGradient endX="1.0" endY="1.0">
-                            <stops>
-                                <Stop>
-                                    <color>
-                                        <Color />
-                                    </color>
-                                </Stop>
-                                <Stop offset="1.0">
-                                    <color>
-                                        <Color red="1.0" green="1.0" blue="1.0" />
-                                    </color>
-                                </Stop>
-                            </stops>
-                        </LinearGradient>
-                    </tickLabelFill>
-                </NumberAxis>
+                <NumberAxis fx:id="numberAxis" side="LEFT" tickLabelFill="WHITE" />
             </yAxis>
         </LineChart>
 
@@ -56,6 +98,9 @@
                 <TableColumn fx:id="stockColumn" minWidth="0.0" prefWidth="349.5999755859375" text="Stock Quantity" />
                 <TableColumn fx:id="dateColumn" minWidth="0.0" prefWidth="329.60003662109375" text="Date" />
             </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
         </TableView>
     </children>
    <padding>

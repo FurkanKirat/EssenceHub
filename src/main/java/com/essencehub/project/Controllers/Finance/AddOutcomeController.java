@@ -1,5 +1,6 @@
 package com.essencehub.project.Controllers.Finance;
 
+import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import com.essencehub.project.Finance.Outgoings;
 import javafx.event.ActionEvent;
@@ -78,6 +79,8 @@ public class AddOutcomeController {
         alert.setHeaderText("Operation Successful");
         alert.setContentText("successfully added");
         alert.showAndWait();
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/Outgoings.fxml");
     }
     public static void addOutgoings(Outgoings outgoings) {
         String sql = "INSERT INTO Outcome (date, title, cost)"

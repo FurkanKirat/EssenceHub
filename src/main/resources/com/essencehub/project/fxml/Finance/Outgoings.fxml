@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
@@ -93,8 +94,8 @@
             <Pane maxHeight="50.0" prefHeight="50.0" prefWidth="4.0" styleClass="container" />
             <HBox alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="230.0" spacing="10.0">
                <children>
-                  <RadioButton fx:id="lineChartButton" mnemonicParsing="false" onAction="#isLineChartButtonSelected" prefWidth="80.0" text="Line Chart" textFill="WHITE" />
-                  <RadioButton fx:id="pieChartButton" mnemonicParsing="false" onAction="#isPieChartButtonSelected" prefWidth="80.0" text="Pie Chart" textFill="WHITE" />
+                  <RadioButton fx:id="pieChartButton" mnemonicParsing="false" onAction="#isPieChartButtonSelected" prefWidth="100.0" text="Pie Chart" textFill="WHITE" />
+                  <RadioButton fx:id="lineChartButton" mnemonicParsing="false" onAction="#isLineChartButtonSelected" prefWidth="100.0" text="Line Chart" textFill="WHITE" />
                </children>
                <HBox.margin>
                   <Insets />
@@ -111,7 +112,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="outcomeField" editable="false" prefHeight="26.0" prefWidth="230.0" />
+                  <TextField fx:id="outcomeField" editable="false" prefHeight="26.0" prefWidth="230.0" styleClass="menuTextField" />
                </children>
                <HBox.margin>
                   <Insets />
@@ -159,15 +160,23 @@
       </VBox>
       <HBox prefHeight="60.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <Button fx:id="addOutcomeButton" mnemonicParsing="false" onAction="#isAddOutcomeButtonClicked" styleClass="menuButton" text="Add Outcome" textFill="WHITE">
+            <Button fx:id="addOutcomeButton" mnemonicParsing="false" onAction="#isAddOutcomeButtonClicked" text="Add Outcome" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
+               <styleClass>
+                  <String fx:value="menuButton" />
+                  <String fx:value="hide" />
+               </styleClass>
             </Button>
-            <Button fx:id="updateOutcomeButton" mnemonicParsing="false" onAction="#isUpdateOutcomeButtonClicked" styleClass="menuButton" text="Update Outcome" textFill="WHITE">
+            <Button fx:id="updateOutcomeButton" mnemonicParsing="false" onAction="#isUpdateOutcomeButtonClicked" text="Update Outcome" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
+               <styleClass>
+                  <String fx:value="menuButton" />
+                  <String fx:value="hide" />
+               </styleClass>
             </Button>
          </children>
       </HBox>

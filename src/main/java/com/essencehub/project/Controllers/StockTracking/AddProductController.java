@@ -1,5 +1,6 @@
 package com.essencehub.project.Controllers.StockTracking;
 
+import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.Stock.Product;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -48,6 +49,8 @@ public class AddProductController {
             Product.addProduct(newProduct);
 
             clearForm();
+            AdminMenuController adminMenuController = AdminMenuController.getInstance();
+            adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/StockTracking/ViewStock.fxml");
 
         } catch (NumberFormatException e) {
             System.out.println("Please enter valid numeric values for cost, sale price, and count.");

@@ -3,6 +3,7 @@ package com.essencehub.project.Controllers.Menu;
 
 import com.essencehub.project.Controllers.Settings.ThemeController;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
+import com.essencehub.project.Stock.Product;
 import com.essencehub.project.User.NotificationSender;
 import com.essencehub.project.User.Performance;
 import com.essencehub.project.User.Task;
@@ -260,6 +261,19 @@ public class LoginPageController {
             for(Task task: tasks){
                 if(!task.isTaskDone()&& LocalDateTime.now().isAfter(task.getFinishTime())){
                     NotificationSender.send("Task not finished","Someone did not finished their task before the deadline!");
+                    break;
+                }
+            }
+            List<Product> products = Product.getAllProducts();
+            for(Product product: products){
+                if(product.getCount()>=100){
+                    NotificationSender.send("Overstock","There is an overstock situation on a product!");
+                    break;
+                }
+            }
+            for(Product product: products){
+                if(product.getCount()<=5){
+                    NotificationSender.send("Understock","There is an understock situation on a product");
                     break;
                 }
             }

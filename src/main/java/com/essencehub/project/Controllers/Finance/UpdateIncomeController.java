@@ -1,5 +1,6 @@
 package com.essencehub.project.Controllers.Finance;
 
+import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import com.essencehub.project.Finance.Income;
 import javafx.collections.FXCollections;
@@ -140,6 +141,8 @@ public class UpdateIncomeController {
                     int rowsUpdated = pstmt.executeUpdate();
                     if (rowsUpdated > 0) {
                         showAlert(Alert.AlertType.INFORMATION, "Update Successful", "Update Completed", "Record updated successfully!");
+                        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+                        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/Income.fxml");
                     } else {
                         showAlert(Alert.AlertType.WARNING, "Update Failed", "No Changes Made", "No rows were updated.");
                     }

@@ -28,7 +28,7 @@ public class CreateLeaveRequests {
                         LocalDate endDate = startDate.plusDays(random.nextInt(7) + 1);
 
 
-                        int employeeId = random.nextInt(12) + 20;
+                        int employeeId = random.nextInt(10) + 1;
 
 
                         String status = statuses[random.nextInt(statuses.length)];

@@ -1,5 +1,6 @@
 package com.essencehub.project.Controllers.StockTracking;
 
+import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.Controllers.Settings.ThemeController;
 import com.essencehub.project.Stock.Product;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
@@ -164,7 +165,7 @@ public class ViewStockController {
 
     @FXML
     void changeMenuIconClicked(MouseEvent event) {
-        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/Stock.fxml", func);
+
     }
 
     @FXML
@@ -175,11 +176,6 @@ public class ViewStockController {
     @FXML
     void updateProductButtonClicked(MouseEvent event) {
         createNewScene("/com/essencehub/project/fxml/StockTracking/updateProduct.fxml","Update Product", event);
-    }
-
-    @FXML
-    void removeClicked(MouseEvent event) {
-        createNewScene("/com/essencehub/project/fxml/StockTracking/setTransaction.fxml","Remove Product", event);
     }
 
     private void loadFXMLContent(String fxmlFile, VBox targetVBox) {
@@ -214,6 +210,11 @@ public class ViewStockController {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    @FXML
+    void lineChartIconClicked(MouseEvent event) {
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/StockTracking/Stock.fxml");
     }
 
 

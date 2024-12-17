@@ -17,10 +17,13 @@ public class CreateTaskTable {
                         + "task TEXT NOT NULL, "
                         + "title VARCHAR(50), "
                         + "send_date_time DATETIME NOT NULL, "
-                        + "is_task_done BOOLEAN DEFAULT FALSE, "  
+                        + "is_task_done BOOLEAN DEFAULT FALSE, "
+                        + "progress BOOLEAN DEFAULT FALSE, "  // progress sütunu eklendi
+                        + "finish_time DATETIME, "  // finish_time DATETIME olarak güncellendi
                         + "FOREIGN KEY (sender_id) REFERENCES User(id), "
                         + "FOREIGN KEY (receiver_id) REFERENCES User(id)"
                         + ");";
+
                 try (Statement statement = connection.createStatement()) {
                     statement.execute(createTableSQL);
                     System.out.println("Task table created successfully.");

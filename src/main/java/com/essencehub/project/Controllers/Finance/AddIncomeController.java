@@ -1,5 +1,6 @@
 package com.essencehub.project.Controllers.Finance;
 
+import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import com.essencehub.project.Finance.Income;
 import javafx.event.ActionEvent;
@@ -79,6 +80,8 @@ public class AddIncomeController {
         alert.setHeaderText("Operation Successful");
         alert.setContentText("successfully added");
         alert.showAndWait();
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/Income.fxml");
     }
 
     public static void addIncome(Income income) {

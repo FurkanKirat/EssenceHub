@@ -1,5 +1,6 @@
 package com.essencehub.project.Controllers.StockTracking;
 
+import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import com.essencehub.project.Stock.Product;
 import javafx.collections.FXCollections;
@@ -13,6 +14,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import java.sql.Connection;
@@ -20,7 +22,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 public class StockController {
 
@@ -82,7 +83,7 @@ public class StockController {
     private void loadStockData() {
         try (Connection connection = DatabaseConnection.getConnection();
              Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT name, SUM(count) as total_count, MAX(buyingDate) as latest_date, MAX(sellingDate) as latest_selling_date FROM stock GROUP BY name")) {
+             ResultSet resultSet = statement.executeQuery("SELECT name, SUM(count) as total_count, MAX(buyingDate) as latest_date, MAX(sellingDate) as latest_selling_date FROM Stock GROUP BY name")) {
 
             productList.clear(); // Clear previous data
 
@@ -200,5 +201,14 @@ public class StockController {
         }
 
         stockView.setItems(filteredProducts);
+    }
+    @FXML
+    void lineChartIconClicked(MouseEvent event) {
+
+    }
+    @FXML
+    void changeMenuIconClicked(MouseEvent event) {
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/StockTracking/ViewStock.fxml");
     }
 }

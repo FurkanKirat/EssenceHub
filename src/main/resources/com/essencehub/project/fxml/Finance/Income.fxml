@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
@@ -93,8 +94,8 @@
             <Pane maxHeight="50.0" prefHeight="50.0" prefWidth="4.0" styleClass="container" />
             <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="230.0" spacing="10.0">
                <children>
-                  <RadioButton fx:id="pieChartButton" mnemonicParsing="false" onAction="#isPieChartButtonSelected" prefWidth="80.0" text="Pie Chart" textFill="WHITE" />
-                  <RadioButton fx:id="lineChartButton" mnemonicParsing="false" onAction="#isLineChartButtonSelected" prefHeight="0.0" prefWidth="80.0" text="Line Chart" textFill="WHITE" />
+                  <RadioButton fx:id="pieChartButton" mnemonicParsing="false" onAction="#isPieChartButtonSelected" prefWidth="100.0" text="Pie Chart" textFill="WHITE" />
+                  <RadioButton fx:id="lineChartButton" mnemonicParsing="false" onAction="#isLineChartButtonSelected" prefHeight="0.0" prefWidth="100.0" text="Line Chart" textFill="WHITE" />
                </children>
                <padding>
                   <Insets left="10.0" />
@@ -153,14 +154,22 @@
       </VBox>
       <HBox fx:id="sixth" alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="943.0" spacing="10.0">
          <children>
-            <Button fx:id="addIncomeButton" mnemonicParsing="false" onAction="#isAddButtonClicked" styleClass="menuButton" text="Add Income" textFill="WHITE">
+            <Button fx:id="addIncomeButton" mnemonicParsing="false" onAction="#isAddButtonClicked" text="Add Income" textFill="WHITE">
                <font>
                   <Font size="18.0" />
-               </font></Button>
-            <Button fx:id="updateIncomeButton" mnemonicParsing="false" onAction="#isUpdateIncomeButtonClicked" styleClass="menuButton" text="Update Income" textFill="WHITE">
+               </font>
+               <styleClass>
+                  <String fx:value="menuButton" />
+                  <String fx:value="hide" />
+               </styleClass></Button>
+            <Button fx:id="updateIncomeButton" mnemonicParsing="false" onAction="#isUpdateIncomeButtonClicked" text="Update Income" textFill="WHITE">
                <font>
                   <Font size="18.0" />
-               </font></Button>
+               </font>
+               <styleClass>
+                  <String fx:value="menuButton" />
+                  <String fx:value="hide" />
+               </styleClass></Button>
          </children>
       </HBox>
    </children>
