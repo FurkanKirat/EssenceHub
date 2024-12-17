@@ -122,25 +122,7 @@ public class EmployeeMenuController {
         dashboardPanel.getStyleClass().add("selected-border");
         currentNode = dashboardPanel;
 
-        boolean isSent = false;
-        List<Task> tasks = Task.getUserTasks(LoginPageController.getUser().getId());
-        for(Task task: tasks){
-            if(!task.isTaskDone() && LocalDateTime.now().isAfter(task.getFinishTime())){
-                NotificationSender.send("Task not finished","You did not finished your task before the deadline!");
-                isSent=true;
-                break;
-            }
-        }
-        for(Task task: tasks){
-            
-            if(isSent){
-                break;
-            }
-            if(!task.isTaskDone() && task.getFinishTime().minusDays(1).isBefore(LocalDateTime.now())){
-                NotificationSender.send("Task not finished","1 day left until the deadline for one of your tasks!");
-                break;
-            }
-        }
+
     }
 
     public void loadFXMLContent(String fxmlFile) {

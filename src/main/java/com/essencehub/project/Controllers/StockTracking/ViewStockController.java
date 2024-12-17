@@ -89,6 +89,7 @@ public class ViewStockController {
 
         tableViewCombo.valueProperty().addListener((observable, oldValue, newValue) -> updateTableView(newValue));
         updateTableView("All");
+        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/viewBarChart.fxml", chartVBox);
     }
 
     private void initializeTableViewCombo() {

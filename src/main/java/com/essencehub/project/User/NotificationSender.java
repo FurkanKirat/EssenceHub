@@ -8,7 +8,6 @@ public class NotificationSender {
 
     public static void send(String title,String message) {
 
-
         if (SystemTray.isSupported()) {
             sendNotification(title, message);
         } else {
@@ -29,8 +28,8 @@ public class NotificationSender {
 
             tray.add(trayIcon);
 
-            trayIcon.displayMessage(title, message, TrayIcon.MessageType.INFO);
 
+            trayIcon.displayMessage(title, message, TrayIcon.MessageType.INFO);
         } catch (Exception e) {
             e.printStackTrace();
         }

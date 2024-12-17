@@ -19,6 +19,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OutgoingsController {
 
@@ -70,17 +72,45 @@ public class OutgoingsController {
     @FXML
     private TableView<Outgoings> outcomeTableView;
 
+
+    public ObservableList<Outgoings> outcomes;
+    public ObservableList<Outgoings> outcomesForLineChart;
+    public ObservableList<Outgoings> outcomesForPieChart;
+    public ObservableList<Outgoings> outcomesFromMost = FXCollections.observableArrayList();
+    private String[] timePeriods = {"Last Month", "Last 6 Months", "Last 1 Year", "All Outgoings"};
+    private double totalOutcome = 0;
+    private LocalDate ourDay;
+    private LocalDate startProcessWhere;
+    private int delay;
+    private boolean listFromMost = false;
+
+
     @FXML
     void isAddOutcomeButtonClicked(ActionEvent event) {
-
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/AddOutcome.fxml");
     }
+
     @FXML
     void isUpdateOutcomeButtonClicked(ActionEvent event) {
-
+        AdminMenuController adminMenuController = AdminMenuController.getInstance();
+        adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Finance/UpdateOutcome.fxml");
     }
 
     @FXML
     void isLineChartButtonSelected(ActionEvent event) {
+        outcomesForLineChart = getRidOfRepeatDate(outcomesForLineChart);
+
+        if(outcomeComboBox.getValue() == null){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Empty");
+            alert.setHeaderText("Operation Failed");
+            alert.setContentText("Choose a category first");
+            alert.showAndWait();
+            lineChartButton.setSelected(false);
+            return;
+        }
+
         lineChart.setVisible(lineChart.isVisible());
 
         boolean isVisible = lineChart.isVisible();
@@ -88,7 +118,7 @@ public class OutgoingsController {
 
         if(lineChart.isVisible()){
             XYChart.Series series = new XYChart.Series();
-            for (Outgoings outcome : outcomes) {
+            for (Outgoings outcome : outcomesForLineChart) {
                 series.getData().add(new XYChart.Data(outcome.getDate().toString(), Double.parseDouble(outcome.getCost())));
             }
 
@@ -96,8 +126,41 @@ public class OutgoingsController {
         }
     }
 
+    public ObservableList<Outgoings> getRidOfRepeatDate(ObservableList<Outgoings> outcomes) {
+        Map<LocalDate, Double> dateToAmount = new HashMap<>();
+
+        // Aggregate amounts by date only
+        for (Outgoings out : outcomes) {
+            LocalDate date = out.getDate();
+            double cost = Double.parseDouble(out.getCost());
+            dateToAmount.put(date, dateToAmount.getOrDefault(date, 0.0) + cost);
+        }
+
+        // Create the final list, one entry per date
+        ObservableList<Outgoings> aggregated = FXCollections.observableArrayList();
+        for (Map.Entry<LocalDate, Double> entry : dateToAmount.entrySet()) {
+            LocalDate date = entry.getKey();
+            String costStr = String.valueOf(entry.getValue());
+            // Choose a generic title or modify as needed
+            aggregated.add(new Outgoings(date, "Aggregated", costStr));
+        }
+
+        return aggregated;
+    }
+
     @FXML
     void isPieChartButtonSelected(ActionEvent event) {
+        outcomesForPieChart = getRidOfRepeatTitle(outcomesForPieChart);
+        if(outcomeComboBox.getValue() == null){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Empty");
+            alert.setHeaderText("Operation Failed");
+            alert.setContentText("Choose a category first");
+            alert.showAndWait();
+            pieChartButton.setSelected(false);
+            return;
+        }
+
         pieChart.setVisible(pieChart.isVisible());
 
         boolean isVisible = pieChart.isVisible();
@@ -111,7 +174,7 @@ public class OutgoingsController {
                     .sum();
 
             // Populate PieChart data
-            for (Outgoings outgoing : outcomes) {
+            for (Outgoings outgoing : outcomesForPieChart) {
                 double cost = Double.parseDouble(outgoing.getCost());
                 double percentage = (cost / totalIncome) * 100;
 
@@ -122,7 +185,35 @@ public class OutgoingsController {
             pieChart.setData(pieChartData);
 
         }
+    }
 
+    public ObservableList<Outgoings> getRidOfRepeatTitle(ObservableList<Outgoings> outcomes1) {
+        Map<String, Double> titleToCost = new HashMap<>();
+        Map<String, LocalDate> titleToDate = new HashMap<>();
+
+        // Aggregate amounts by title and track the earliest date
+        for (Outgoings out : outcomes1) {
+            String title = out.getTitle();
+            double newAmount = titleToCost.getOrDefault(title, 0.0) + Double.parseDouble(out.getCost());
+            titleToCost.put(title, newAmount);
+
+            // If it's the first time we see this title or if we found an earlier date, update the stored date
+            if (!titleToDate.containsKey(title) || out.getDate().isBefore(titleToDate.get(title))) {
+                titleToDate.put(title, out.getDate());
+            }
+
+        }
+
+        // Create the final list with combined entries
+        ObservableList<Outgoings> outgoingsReturn = FXCollections.observableArrayList();
+        for (Map.Entry<String, Double> entry : titleToCost.entrySet()) {
+            String title = entry.getKey();
+            String cost = entry.getValue() + "";
+            LocalDate date = titleToDate.get(title);
+
+            outgoingsReturn.add(new Outgoings(date, title, cost));
+        }
+        return outgoingsReturn;
     }
 
     public ObservableList<Outgoings> getOutcomeList() {
@@ -148,16 +239,6 @@ public class OutgoingsController {
         return outgoings;
     }
 
-    public ObservableList<Outgoings> outcomes;
-    public ObservableList<Outgoings> outcomesFromMost = FXCollections.observableArrayList();
-    private String[] timePeriods = {"Last Month", "Last 6 Months", "Last 1 Year", "All Outgoings"};
-    private double totalOutcome = 0;
-    private LocalDate ourDay;
-    private LocalDate startProcessWhere;
-    private int delay;
-    private boolean listFromMost = false;
-
-
     @FXML
     void expensesIconVBoxClicked(MouseEvent event) {
         AdminMenuController adminMenuController = AdminMenuController.getInstance();
@@ -178,6 +259,10 @@ public class OutgoingsController {
 
     @FXML
     void outcomeComboBoxIsSelected(ActionEvent event) {
+        pieChartButton.setSelected(false);
+        lineChartButton.setSelected(false);
+        pieChart.setVisible(false);
+        lineChart.setVisible(false);
         if (outcomeComboBox.getValue().equals("Last Month")) {
             delay = 1;
             startProcessWhere = ourDay.minusMonths(delay);
@@ -199,8 +284,6 @@ public class OutgoingsController {
 
     @FXML
     private void initialize() {
-
-        initializeChartToggles();
         outcomeComboBox.getItems().clear();
         outcomeComboBox.getItems().addAll(timePeriods);
 
@@ -224,11 +307,16 @@ public class OutgoingsController {
     }
 
     private void fillTable(){
+        outcomesForPieChart =  FXCollections.observableArrayList();
+        outcomesForLineChart =  FXCollections.observableArrayList();
+
         outcomeTableView.getItems().clear();
         totalOutcome = 0;
         ObservableList<Outgoings> tableItems = outcomeTableView.getItems();
 
         if(ourDay.equals(startProcessWhere)){
+            outcomesForPieChart.addAll(outcomes);
+            outcomesForLineChart.addAll(outcomes);
             if(listFromMost){
 
                 tableItems.addAll(outcomesFromMost);
@@ -250,6 +338,8 @@ public class OutgoingsController {
                 for (Outgoings outcomes : outcomesFromMost) {
                     if(outcomes.getDate().isAfter(startProcessWhere) ||outcomes.getDate().equals(startProcessWhere)){
                         tableItems.add(outcomes);
+                        outcomesForPieChart.add(outcomes);
+                        outcomesForLineChart.add(outcomes);
                         totalOutcome += Double.parseDouble(outcomes.getCost());
                     }
                 }
@@ -258,6 +348,8 @@ public class OutgoingsController {
                 for (Outgoings outgoings : outcomes) {
                     if(outgoings.getDate().isAfter(startProcessWhere) || outgoings.getDate().equals(startProcessWhere)){
                         tableItems.add(outgoings);
+                        outcomesForPieChart.add(outgoings);
+                        outcomesForLineChart.add(outgoings);
                         totalOutcome += Double.parseDouble(outgoings.getCost());
                     }
                 }
@@ -276,12 +368,7 @@ public class OutgoingsController {
             return Double.compare(cost2, cost1);
         });
     }
-    private void initializeChartToggles() {
-        ToggleGroup group = new ToggleGroup();
-        pieChartButton.setToggleGroup(group);
-        lineChartButton.setToggleGroup(group);
-        pieChartButton.setSelected(true);
-    }
+
 
 
 

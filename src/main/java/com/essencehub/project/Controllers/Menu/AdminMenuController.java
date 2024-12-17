@@ -92,13 +92,7 @@ public class AdminMenuController {
 
         currentNode = dashboardPanel;
 
-        List<Task> tasks = Task.getAllTasks();
-        for(Task task: tasks){
-            if(!task.isTaskDone()&& LocalDateTime.now().isAfter(task.getFinishTime())){
-                NotificationSender.send("Task not finished","Someone did not finished their task before the deadline!");
-                break;
-            }
-        }
+
     }
 
     @FXML

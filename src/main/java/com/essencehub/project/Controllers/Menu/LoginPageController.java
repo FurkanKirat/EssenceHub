@@ -3,7 +3,9 @@ package com.essencehub.project.Controllers.Menu;
 
 import com.essencehub.project.Controllers.Settings.ThemeController;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
+import com.essencehub.project.User.NotificationSender;
 import com.essencehub.project.User.Performance;
+import com.essencehub.project.User.Task;
 import com.essencehub.project.User.User;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -27,6 +29,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.List;
 
 public class LoginPageController {
 
@@ -151,6 +156,8 @@ public class LoginPageController {
             }
             warning.setVisible(false);
             loadAppropriateMenu(event);
+            sendNotifications(loggedUser.isAdmin());
+
 
         } catch (NullPointerException e) {
             warning.setText("A required component is missing!");
@@ -235,6 +242,7 @@ public class LoginPageController {
         stage.setScene(scene);
         stage.show();
         stage.centerOnScreen();
+
     }
 
     private String getStringOrNull(ResultSet resultSet, String columnLabel) throws SQLException {
@@ -244,6 +252,57 @@ public class LoginPageController {
     private Performance getPerformance(ResultSet resultSet, String columnLabel) throws SQLException {
         String value = resultSet.getString(columnLabel);
         return (value != null) ? Performance.valueOf(value.toUpperCase()) : null;
+    }
+    private void sendNotifications(boolean isAdmin){
+
+        if(isAdmin){
+            List<Task> tasks = Task.getAllTasks();
+            for(Task task: tasks){
+                if(!task.isTaskDone()&& LocalDateTime.now().isAfter(task.getFinishTime())){
+                    NotificationSender.send("Task not finished","Someone did not finished their task before the deadline!");
+                    break;
+                }
+            }
+        }
+        else{
+
+            boolean isSent = false;
+            List<Task> tasks = Task.getUserTasks(LoginPageController.getUser().getId());
+            Task soonestTask = null;
+
+            for (Task task : tasks) {
+                if (!task.isTaskDone() && LocalDateTime.now().isAfter(task.getFinishTime())) {
+                    NotificationSender.send("Task Not Completed", "You did not finished one of your tasks before the deadline!");
+                    isSent = true;
+                    break;
+                }
+            }
+
+            if (!isSent) {
+                for (Task task : tasks) {
+                    if (!task.isTaskDone()) {
+                        if (soonestTask == null || task.getFinishTime().isBefore(soonestTask.getFinishTime())) {
+                            soonestTask = task;
+                        }
+                    }
+                }
+
+                if (soonestTask != null) {
+                    Duration remainingTime = Duration.between(LocalDateTime.now(), soonestTask.getFinishTime());
+                    long days = remainingTime.toDays();
+                    long hours = remainingTime.toHoursPart();
+                    long minutes = remainingTime.toMinutesPart();
+
+                    NotificationSender.send(
+                            "Upcoming Task Deadline",
+                            "Task \"" + soonestTask.getTitle() + "\" has the closest deadline: "
+                                    + days + " days, " + hours + " hours, and " + minutes + " minutes left!"
+                    );
+                }
+            }
+
+
+        }
     }
 
 
