@@ -16,23 +16,39 @@
 
 <VBox prefHeight="807.2" prefWidth="973.6" spacing="10.0" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Task.EmployeeOpenTaskController">
     <children>
-        <HBox prefHeight="45.6" prefWidth="200.0">
+        <HBox prefHeight="60.0" prefWidth="200.0">
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="474.0">
-                    <children>
-                        <Label alignment="CENTER" style="-fx-font-size: 25px; -fx-font-weight: bold;" styleClass="TaskLabel" text="Task" />
-                    </children>
+               <children>
+                  <Label text="Tasks" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="482.0" HBox.hgrow="ALWAYS">
                     <children>
-                        <ImageView fx:id="goBackIcon" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#goBackIconClicked" pickOnBounds="true" preserveRatio="true" styleClass="hide">
-                            <image>
-                                <Image url="@../../images/General/goBack.png" />
-                            </image>
-                            <effect>
-                                <DropShadow />
-                            </effect>
-                        </ImageView>
+                  <VBox alignment="CENTER" onMouseClicked="#goBackIconClicked" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
+                     <children>
+                              <ImageView fx:id="goBackIcon" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@../../images/General/goBack.png" />
+                                  </image>
+                                  <effect>
+                                      <DropShadow />
+                                  </effect>
+                              </ImageView>
+                        <Label text="Back" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                  </VBox>
                     </children>
                <HBox.margin>
                   <Insets right="10.0" />
@@ -40,43 +56,74 @@
                 </HBox>
             </children>
         </HBox>
-        <HBox prefHeight="100.0" prefWidth="200.0">
+        <HBox prefHeight="60.0" prefWidth="200.0">
             <children>
                 <HBox prefHeight="100.0" prefWidth="468.0" spacing="10.0">
                     <children>
-                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="150.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" styleClass="TaskLabel" text="Receiver:" />
+                  <Label prefWidth="120.0" text="Receiver:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
                         <TextField fx:id="receiverTextField" editable="false" prefHeight="26.0" prefWidth="300.0" styleClass="menuTextField" />
                     </children>
                 </HBox>
                 <HBox prefHeight="100.0" prefWidth="475.0" spacing="10.0" />
             </children>
         </HBox>
-        <HBox spacing="10.0">
+        <HBox prefHeight="60.0" spacing="10.0">
             <children>
-                <Label alignment="CENTER" prefWidth="150.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" styleClass="TaskLabel" text="Task Title:" />
-                <TextField fx:id="titleTextField" prefHeight="35.0" prefWidth="301.0" promptText="Enter the task title" styleClass="menuTextField" />
-            <HBox prefHeight="100.0" prefWidth="509.0" spacing="10.0">
+            <Label prefWidth="120.0" text="Task Title:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+                <TextField fx:id="titleTextField" prefHeight="35.0" prefWidth="300.0" promptText="Enter the task title" styleClass="menuTextField" />
+            <HBox prefHeight="60.0" prefWidth="477.0" spacing="10.0">
                <children>
-                  <Label style="-fx-font-size: 20; -fx-font-weight: bold;" styleClass="TaskLabel" text="Due Date:">
+                  <Label prefWidth="120.0" text="Due Date:" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
+<<<<<<< Updated upstream
                   <TextField fx:id="dueDateField" prefHeight="35.0" prefWidth="301.0" promptText="Enter the task due" styleClass="menuTextField" />
+=======
+                  <TextField fx:id="dueDateField" prefHeight="35.0" prefWidth="300.0" promptText="Enter the task due" styleClass="menuTextField" />
+>>>>>>> Stashed changes
                </children>
             </HBox>
             </children>
         </HBox>
+<<<<<<< Updated upstream
         <Label alignment="CENTER" style="-fx-font-size: 20px; -fx-font-weight: bold;" styleClass="TaskLabel" text="Task Description" />
+=======
+      <Label text="Task Description:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+>>>>>>> Stashed changes
         <TextArea fx:id="descriptionTextArea" editable="false" prefHeight="248.0" prefWidth="560.0" promptText="Enter task details..." wrapText="true" />
         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
          <children>
             <ComboBox fx:id="taskStatusCombobox" prefWidth="150.0" />
+<<<<<<< Updated upstream
             <Button mnemonicParsing="false" onAction="#changeProgressClicked" text="Change Progress">
                <styleClass>
                   <String fx:value="menuButton" />
                   <String fx:value="hide" />
                </styleClass></Button>
+=======
+            <Button mnemonicParsing="false" onAction="#changeProgressClicked" text="Change Progress" textFill="WHITE">
+               <styleClass>
+                  <String fx:value="menuButton" />
+                  <String fx:value="hide" />
+               </styleClass>
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+>>>>>>> Stashed changes
          </children>
         </HBox>
     </children>

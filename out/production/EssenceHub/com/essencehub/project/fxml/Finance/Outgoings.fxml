@@ -5,6 +5,10 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
+<<<<<<< Updated upstream
+=======
+<?import javafx.scene.control.Button?>
+>>>>>>> Stashed changes
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -31,11 +35,17 @@
                   </Label>
                </children>
             </HBox>
+<<<<<<< Updated upstream
             <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="478.0" HBox.hgrow="ALWAYS">
                <children>
                   <VBox fx:id="incomeIconVBox" alignment="CENTER" onMouseClicked="#incomeIconVBoxClicked" prefHeight="60.0" prefWidth="60.0" styleClass="settingsProfile">
+=======
+            <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="478.0" spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox fx:id="incomeIconVBox1" alignment="CENTER" onMouseClicked="#incomeIconVBoxClicked" prefHeight="60.0" prefWidth="80.0" styleClass="settingsProfile">
+>>>>>>> Stashed changes
                      <children>
-                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" smooth="false" styleClass="hide">
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" styleClass="hide">
                            <image>
                               <Image url="@../../images/Finance/income.png" />
                            </image>
@@ -43,9 +53,21 @@
                               <DropShadow />
                            </effect>
                         </ImageView>
+                        <Label text="Income" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
                      </children>
                   </VBox>
+<<<<<<< Updated upstream
                   <VBox fx:id="expensesIconVBox" alignment="CENTER" onMouseClicked="#expensesIconVBoxClicked" prefHeight="60.0" prefWidth="60.0" styleClass="settingsProfile">
+=======
+                  <VBox fx:id="expensesIconVBox1" alignment="CENTER" onMouseClicked="#expensesIconVBoxClicked" prefHeight="60.0" prefWidth="80.0" styleClass="selectedProfile">
+>>>>>>> Stashed changes
                      <children>
                         <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" styleClass="hide">
                            <image>
@@ -55,6 +77,14 @@
                               <DropShadow />
                            </effect>
                         </ImageView>
+                        <Label text="Expenses" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
                      </children>
                   </VBox>
                </children>
@@ -67,15 +97,75 @@
       <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="943.0" spacing="10.0">
          <children>
             <ComboBox fx:id="outcomeComboBox" onAction="#outcomeComboBoxIsSelected" prefWidth="150.0" />
-            <RadioButton fx:id="theMostButton" mnemonicParsing="false" onAction="#isTheMostButtonClicked" prefHeight="18.0" prefWidth="107.0" text="From Most" />
+            <RadioButton fx:id="theMostButton" mnemonicParsing="false" onAction="#isTheMostButtonClicked" prefHeight="18.0" prefWidth="107.0" text="From Most" textFill="WHITE" />
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="lineChartButton" mnemonicParsing="false" onAction="#isLineChartButtonSelected" text="lineChart" textFill="WHITE" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton fx:id="pieChartButton" mnemonicParsing="false" onAction="#isPieChartButtonSelected" text="pieChart" textFill="WHITE" />
+               </children>
+            </VBox>
+            <Label prefHeight="27.0" prefWidth="193.0" text="Total Outgoings:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <TextField fx:id="outcomeField" editable="false" prefHeight="26.0" prefWidth="400.0" />
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+      <HBox prefHeight="34.0" prefWidth="943.0" />
+      <HBox prefHeight="253.0" prefWidth="943.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="137.0" text="Total Outgoings:" />
-            <TextField fx:id="outcomeField" editable="false" prefHeight="26.0" prefWidth="630.0" />
+            <VBox prefHeight="195.0" prefWidth="682.0">
+               <children>
+                  <LineChart fx:id="lineChart" prefHeight="181.0" prefWidth="433.0">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" fx:id="x" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis fx:id="y" side="LEFT" />
+                     </yAxis>
+                  </LineChart>
+               </children>
+            </VBox>
+            <VBox prefHeight="207.0" prefWidth="760.0">
+               <children>
+                  <PieChart fx:id="pieChart" />
+               </children>
+            </VBox>
          </children>
       </HBox>
+      <VBox prefHeight="264.0" prefWidth="943.0">
+         <children>
+            <TableView fx:id="outcomeTableView" prefHeight="309.0" prefWidth="943.0">
+               <columns>
+                  <TableColumn fx:id="titleColumn" prefWidth="356.80002439022064" text="Title" />
+                  <TableColumn fx:id="dateColumn" minWidth="0.0" prefWidth="331.99993896484375" text="Date" />
+                  <TableColumn fx:id="costColumn" prefWidth="253.5999755859375" text="Cost" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </VBox>
+      <HBox prefHeight="60.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Button fx:id="addOutcomeButton" mnemonicParsing="false" onAction="#isAddOutcomeButtonClicked" styleClass="menuButton" text="Add Outcome" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="updateOutcomeButton" mnemonicParsing="false" onAction="#isUpdateOutcomeButtonClicked" styleClass="menuButton" text="Update Outcome" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+<<<<<<< Updated upstream
       <TableView fx:id="outcomeTableView" prefHeight="228.0" prefWidth="943.0">
          <columns>
             <TableColumn fx:id="titleColumn" prefWidth="356.80002439022064" resizable="false" text="Title" />
@@ -121,6 +211,8 @@
             </VBox>
          </children>
       </HBox>
+=======
+>>>>>>> Stashed changes
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
