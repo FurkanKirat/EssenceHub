@@ -53,6 +53,10 @@ public class AdminViewTaskController {
         AdminMenuController adminMenuController = AdminMenuController.getInstance();
         adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/Task/AssignTask.fxml");
     }
+    @FXML
+    void viewTaskIconClicked(MouseEvent event) {
+
+    }
 
     private static Task task;
 
