@@ -31,19 +31,15 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="549.0" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
-                  <VBox alignment="CENTER" prefHeight="60.0" prefWidth="80.0">
+                  <VBox alignment="CENTER" onMouseClicked="#sendRequestIcon" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
                      <children>
-                        <ImageView fitHeight="45.0" fitWidth="45.0" onMouseClicked="#sendRequestIcon" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" styleClass="selected">
                            <image>
                               <Image url="@../../images/RequestLeave/date.png" />
                            </image>
                            <effect>
                               <DropShadow />
                            </effect>
-                           <styleClass>
-                              <String fx:value="hide" />
-                              <String fx:value="selected" />
-                           </styleClass>
                         </ImageView>
                         <Label text="Send Request" textFill="WHITE">
                            <font>
@@ -55,19 +51,15 @@
                         </Label>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" prefHeight="60.0" prefWidth="80.0">
+                  <VBox alignment="CENTER" onMouseClicked="#viewRequestsIcon" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
                      <children>
-                        <ImageView fitHeight="45.0" fitWidth="45.0" onMouseClicked="#viewRequestsIcon" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" styleClass="selected">
                            <image>
                               <Image url="@../../images/RequestLeave/requests.png" />
                            </image>
                            <effect>
                               <DropShadow />
                            </effect>
-                           <styleClass>
-                              <String fx:value="hide" />
-                              <String fx:value="selected" />
-                           </styleClass>
                         </ImageView>
                         <Label text="Requests" textFill="WHITE">
                            <font>

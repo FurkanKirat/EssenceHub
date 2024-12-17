@@ -41,6 +41,9 @@ public class OutgoingsController {
     private RadioButton pieChartButton;
 
     @FXML
+    private RadioButton lineChartButton;
+
+    @FXML
     private TextField outcomeField;
 
     @FXML
@@ -66,6 +69,15 @@ public class OutgoingsController {
 
     @FXML
     private TableView<Outgoings> outcomeTableView;
+
+    @FXML
+    void isAddOutcomeButtonClicked(ActionEvent event) {
+
+    }
+    @FXML
+    void isUpdateOutcomeButtonClicked(ActionEvent event) {
+
+    }
 
     @FXML
     void isLineChartButtonSelected(ActionEvent event) {
@@ -187,6 +199,8 @@ public class OutgoingsController {
 
     @FXML
     private void initialize() {
+
+        initializeChartToggles();
         outcomeComboBox.getItems().clear();
         outcomeComboBox.getItems().addAll(timePeriods);
 
@@ -261,6 +275,12 @@ public class OutgoingsController {
             double cost2 = Double.parseDouble(i2.getCost());
             return Double.compare(cost2, cost1);
         });
+    }
+    private void initializeChartToggles() {
+        ToggleGroup group = new ToggleGroup();
+        pieChartButton.setToggleGroup(group);
+        lineChartButton.setToggleGroup(group);
+        pieChartButton.setSelected(true);
     }
 
 

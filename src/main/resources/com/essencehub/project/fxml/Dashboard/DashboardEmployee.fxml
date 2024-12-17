@@ -10,17 +10,26 @@
 
 <VBox fx:id="func" prefHeight="807.2" prefWidth="973.6" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Dashboard.EmployeeDashboardController">
    <children>
-      <HBox alignment="CENTER" prefHeight="60.0" prefWidth="923.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0">
          <children>
-            <Label alignment="CENTER" text="Last Tasks" textFill="WHITE">
+            <Label text="Dashboard" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
             </Label>
          </children>
       </HBox>
-      <VBox prefHeight="255.0" prefWidth="943.0">
+      <VBox prefHeight="315.0" prefWidth="943.0" spacing="10.0" styleClass="container">
          <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="923.0">
+               <children>
+                  <Label alignment="CENTER" text="Last Tasks" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
             <TableView fx:id="taskTable" onMouseClicked="#taskClicked" prefHeight="255.0" prefWidth="302.0">
                <columns>
                   <TableColumn fx:id="taskColumn" prefWidth="131.20000457763672" text="Title" />
@@ -35,6 +44,9 @@
                </columnResizePolicy>
             </TableView>
          </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+         </padding>
       </VBox>
    </children>
    <padding>

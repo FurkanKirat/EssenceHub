@@ -230,6 +230,7 @@ public class IncomeController {
 
     @FXML
     private void initialize() {
+        initializeChartToggles();
         incomeComboBox.getItems().clear();
         incomeComboBox.getItems().addAll(timePeriods);
 
@@ -313,6 +314,12 @@ public class IncomeController {
             LocalDate date2 = i2.getDate();
             return date2.compareTo(date1);
         });
+    }
+    private void initializeChartToggles() {
+        ToggleGroup group = new ToggleGroup();
+        pieChartButton.setToggleGroup(group);
+        lineChartButton.setToggleGroup(group);
+        lineChartButton.setSelected(true);
     }
 
 }
