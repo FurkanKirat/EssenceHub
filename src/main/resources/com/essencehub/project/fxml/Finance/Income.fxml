@@ -9,7 +9,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -17,6 +16,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -35,9 +35,9 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="422.0" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
-                  <VBox fx:id="incomeIconVBox" alignment="CENTER" onMouseClicked="#incomeIconVBoxClicked" prefHeight="60.0" prefWidth="80.0" styleClass="settingsProfile">
+                  <VBox fx:id="incomeIconVBox" alignment="CENTER" onMouseClicked="#incomeIconVBoxClicked" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
                      <children>
-                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" styleClass="hide">
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/Finance/income.png" />
                            </image>
@@ -55,9 +55,9 @@
                         </Label>
                      </children>
                   </VBox>
-                  <VBox fx:id="expensesIconVBox" alignment="CENTER" onMouseClicked="#expensesIconVBoxClicked" prefHeight="60.0" prefWidth="80.0" styleClass="selectedProfile">
+                  <VBox fx:id="expensesIconVBox" alignment="CENTER" onMouseClicked="#expensesIconVBoxClicked" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
                      <children>
-                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" styleClass="hide">
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/Finance/expenses.png" />
                            </image>
@@ -84,29 +84,35 @@
       </HBox>
       <HBox fx:id="fifth" alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <ComboBox fx:id="incomeComboBox" onAction="#incomeComboBoxIsSelected" prefHeight="26.0" prefWidth="170.0" />
-            <RadioButton fx:id="theMostButton" mnemonicParsing="false" onAction="#isTheMostClicked" prefHeight="18.0" prefWidth="116.0" text="From Most" textFill="WHITE" />
-            <Separator orientation="VERTICAL" prefHeight="200.0" />
-            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="626.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="240.0" spacing="10.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <RadioButton fx:id="pieChartButton" mnemonicParsing="false" onAction="#isPieChartButtonSelected" text="Pie Chart" textFill="WHITE" />
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <RadioButton fx:id="lineChartButton" mnemonicParsing="false" onAction="#isLineChartButtonSelected" text="Line Chart" textFill="WHITE" />
-                     </children>
-                  </VBox>
-                  <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <Label prefWidth="130.0" text="Total Income" textFill="WHITE">
+                  <ComboBox fx:id="incomeComboBox" onAction="#incomeComboBoxIsSelected" prefHeight="26.0" prefWidth="120.0" />
+                  <RadioButton fx:id="theMostButton" mnemonicParsing="false" onAction="#isTheMostClicked" prefHeight="18.0" prefWidth="110.0" text="From Most" textFill="WHITE" />
+               </children>
+            </HBox>
+            <Pane maxHeight="50.0" prefHeight="50.0" prefWidth="4.0" styleClass="container" />
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="230.0" spacing="10.0">
+               <children>
+                  <RadioButton fx:id="pieChartButton" mnemonicParsing="false" onAction="#isPieChartButtonSelected" prefWidth="80.0" text="Pie Chart" textFill="WHITE" />
+                  <RadioButton fx:id="lineChartButton" mnemonicParsing="false" onAction="#isLineChartButtonSelected" prefHeight="0.0" prefWidth="80.0" text="Line Chart" textFill="WHITE" />
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <Pane maxHeight="50.0" prefHeight="50.0" prefWidth="4.0" styleClass="container" />
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="420.0">
+               <children>
+                  <Label prefWidth="150.0" text="Total Income:" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="incomeField" editable="false" prefWidth="250.0" styleClass="menuTextField" />
+                  <TextField fx:id="incomeField" editable="false" prefWidth="230.0" styleClass="menuTextField" />
                </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
             </HBox>
          </children>
       </HBox>
@@ -116,10 +122,10 @@
                <children>
                   <LineChart fx:id="lineChart" prefHeight="181.0" prefWidth="433.0">
                     <xAxis>
-                      <CategoryAxis side="BOTTOM" fx:id="x" />
+                      <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" fx:id="x" />
                     </xAxis>
                     <yAxis>
-                      <NumberAxis fx:id="y" side="LEFT" />
+                      <NumberAxis fx:id="y" side="LEFT" tickLabelFill="WHITE" />
                     </yAxis>
                   </LineChart>
                </children>
