@@ -44,9 +44,6 @@ public class PickProfileController {
     private ImageView img6;
 
     @FXML
-    private ImageView img7;
-
-    @FXML
     private VBox vBox1;
 
     @FXML
@@ -64,8 +61,6 @@ public class PickProfileController {
     @FXML
     private VBox vBox6;
 
-    @FXML
-    private VBox vBox7;
 
     private List<ImageView> images;
     private List<Pane> boxes;
@@ -77,8 +72,8 @@ public class PickProfileController {
     @FXML
     public void initialize() {
 
-        images = Arrays.asList(img1, img2, img3, img4, img5, img6,img7);
-        boxes = Arrays.asList(vBox1, vBox2, vBox3, vBox4, vBox5, vBox6,vBox7);
+        images = Arrays.asList(img1, img2, img3, img4, img5, img6);
+        boxes = Arrays.asList(vBox1, vBox2, vBox3, vBox4, vBox5, vBox6);
         user = LoginPageController.getUser();
         selectedImageLocation = user.getImageLocation();
 
@@ -145,63 +140,14 @@ public class PickProfileController {
         selectedImageLocation = "/com/essencehub/project/images/ProfilePictures/defaultpicture6.png";
     }
 
-    @FXML
-    void img7Clicked(MouseEvent event) {
-        clearStyle();
-        vBox7.getStyleClass().add("container");
-        img7.getStyleClass().add("buttonClicked");
-        uploadImage(event);
-    }
 
     void clearStyle(){
-        for(int i = 0;i<7;i++) {
+        for(int i = 0;i<6;i++) {
             images.get(i).getStyleClass().remove("buttonClicked");
             boxes.get(i).getStyleClass().remove("container");
         }
     }
 
-    void uploadImage(Event event) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
-        fileChooser.getExtensionFilters().add(
-                new FileChooser.ExtensionFilter("PNG Files", "*.png")
-        );
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        File selectedFile = fileChooser.showOpenDialog(stage);
-
-        if (selectedFile == null || !selectedFile.exists()) {
-            //System.err.println("Invalid file selected.");
-            return;
-        }
-
-        String absolutePath = System.getProperty("user.home") + "/essencehub/ProfilePictures/" + user.getId() + ".png";
-
-        selectedImageLocation = "file:" + System.getProperty("user.home") + "\\essencehub\\ProfilePictures\\" + user.getId() + ".png";
-
-        System.out.println(selectedImageLocation);
-        File profilePicture = new File(absolutePath);
-
-        if (!profilePicture.getParentFile().exists()) {
-            boolean created = profilePicture.getParentFile().mkdirs();
-            if (!created) {
-                System.err.println("Failed to create target folder: " + profilePicture.getParentFile().getAbsolutePath());
-                return;
-            }
-        }
-
-        try {
-            Files.copy(selectedFile.toPath(), profilePicture.toPath(), StandardCopyOption.REPLACE_EXISTING);
-
-            System.out.println("The file was copied successfully: " + profilePicture.getAbsolutePath());
-
-            String imageUrl = profilePicture.toURI().toString();
-
-            System.out.println("Profile picture updated: " + imageUrl);
-        } catch (IOException e) {
-            System.err.println("Error copying file: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
 
 
 

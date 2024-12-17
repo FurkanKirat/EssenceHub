@@ -68,7 +68,7 @@
             </children>
         </HBox>
         <Label alignment="CENTER" style="-fx-font-size: 20px; -fx-font-weight: bold;" styleClass="TaskLabel" text="Task Description" />
-        <TextArea fx:id="descriptionTextArea" prefHeight="248.0" prefWidth="560.0" promptText="Enter task details..." wrapText="true" />
+        <TextArea fx:id="descriptionTextArea" editable="false" prefHeight="248.0" prefWidth="560.0" promptText="Enter task details..." wrapText="true" />
         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
          <children>
             <ComboBox fx:id="taskStatusCombobox" prefWidth="150.0" />
