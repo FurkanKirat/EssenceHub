@@ -3,12 +3,19 @@ package com.essencehub.project.Controllers.StockTracking;
 import com.essencehub.project.Stock.Product;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,6 +26,18 @@ public class ViewStockController {
 
     @FXML
     private ComboBox<String> tableViewCombo;
+
+    @FXML
+    private Button addProductButton;
+
+    @FXML
+    private RadioButton barChartRadio;
+
+    @FXML
+    private ImageView changeMenuIcon;
+
+    @FXML
+    private VBox chartVBox;
 
     @FXML
     private TableColumn<Product, String> productNameColumn;
@@ -35,12 +54,36 @@ public class ViewStockController {
     @FXML
     private TableView<Product> stockView;
 
+    @FXML
+    private Button updateProductButton;
+
+    @FXML
+    private ComboBox<?> yearCombobox;
+
+    @FXML
+    private LineChart<String, Number> lineChart;
+
+    @FXML
+    private NumberAxis numberAxis;
+
+    @FXML
+    private RadioButton pieChartRadio;
+
+    @FXML
+    private CategoryAxis categoryAxis;
+
+    @FXML
+    private VBox func;
+
     public void initialize() {
         initializeTableViewCombo();
         initializeTableColumns();
+        initializeChartToggles();
+
 
         tableViewCombo.valueProperty().addListener((observable, oldValue, newValue) -> updateTableView(newValue));
         updateTableView("All");
+        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/viewBarChart.fxml", chartVBox);
     }
 
     private void initializeTableViewCombo() {
@@ -53,6 +96,13 @@ public class ViewStockController {
         stockColumn.setCellValueFactory(new PropertyValueFactory<>("count"));
         buyingDateColumn.setCellValueFactory(new PropertyValueFactory<>("buyingDate"));
         sellingDateColumn.setCellValueFactory(new PropertyValueFactory<>("sellingDate"));
+    }
+
+    private void initializeChartToggles() {
+        ToggleGroup group = new ToggleGroup();
+        pieChartRadio.setToggleGroup(group);
+        barChartRadio.setToggleGroup(group);
+        barChartRadio.setSelected(true);
     }
 
     private void updateTableView(String selectedTimeRange) {
@@ -99,21 +149,34 @@ public class ViewStockController {
 
     @FXML
     void barChartRadioClicked(MouseEvent event) {
-
+        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/viewBarChart.fxml", chartVBox);
     }
 
     @FXML
     void changeMenuIconClicked(MouseEvent event) {
-
+        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/Stock.fxml", func);
     }
 
     @FXML
     void pieChartRadioClicked(MouseEvent event) {
-
+        loadFXMLContent("/com/essencehub/project/fxml/StockTracking/ViewPieChart.fxml", chartVBox);
     }
 
     @FXML
     void updateProductButtonClicked(MouseEvent event) {
 
+    }
+
+    private void loadFXMLContent(String fxmlFile, VBox targetVBox) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Node newContent = loader.load();
+
+            targetVBox.getChildren().clear();
+            targetVBox.getChildren().add(newContent);
+            VBox.setVgrow(newContent, Priority.ALWAYS);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
