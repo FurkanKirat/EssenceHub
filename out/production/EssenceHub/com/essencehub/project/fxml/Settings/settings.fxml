@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Settings.SettingsController">
+<BorderPane prefHeight="890.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Settings.SettingsController">
    <left>
       <VBox prefHeight="200.0" prefWidth="370.0" spacing="10.0" styleClass="first-color" BorderPane.alignment="CENTER">
          <children>
@@ -189,7 +189,7 @@
       </VBox>
    </left>
    <center>
-      <VBox fx:id="centerVBox" prefHeight="200.0" prefWidth="100.0" spacing="30.0" styleClass="second-color" BorderPane.alignment="CENTER">
+      <VBox fx:id="centerVBox" prefHeight="200.0" prefWidth="100.0" spacing="20.0" styleClass="second-color" BorderPane.alignment="CENTER">
          <children>
             <Label text="Profile Information" textFill="WHITE">
                <font>
@@ -285,7 +285,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox prefHeight="281.0" prefWidth="864.0" spacing="10.0">
+            <VBox prefHeight="300.0" prefWidth="864.0" spacing="10.0">
                <children>
                   <Label text="Salary &amp; Performance" textFill="WHITE">
                      <font>
@@ -336,9 +336,29 @@
                         <TextField fx:id="vacationDaysTextField" editable="false" prefHeight="26.0" prefWidth="460.0" styleClass="menuTextField" />
                      </children>
                   </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Label text="Work Hours Start:" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Pane prefHeight="38.0" prefWidth="86.0" />
+                        <TextField fx:id="workHoursStartTextField" editable="false" prefWidth="256.0" styleClass="menuTextField" />
+                        <Label text="End:" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="workHoursEndField" editable="false" prefWidth="256.0" styleClass="menuTextField" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+            <HBox prefHeight="40.0" prefWidth="864.0" spacing="30.0">
                <children>
                   <Button fx:id="EditInfoButton" mnemonicParsing="false" onMouseClicked="#EditInfoButtonClicked" text="Edit Informations" textFill="WHITE">
                      <font>

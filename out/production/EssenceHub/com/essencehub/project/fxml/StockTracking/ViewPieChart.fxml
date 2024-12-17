@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox fx:id="chartVBox" prefHeight="339.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.StockTracking.ViewPieChartController">
    <children>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <!-- ComboBox for selecting time range -->
+            <ComboBox fx:id="timeRangeCombobox" prefHeight="26.0" prefWidth="315.0" />
+         </children>
+      </HBox>
+
+      <!-- Pie Chart to display product stock data -->
       <PieChart fx:id="pieChart" />
    </children>
 </VBox>

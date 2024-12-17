@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -12,56 +14,93 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="gradient-background" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Message.MessageAppController">
-   <bottom>
-      <HBox fx:id="sendHBox" alignment="CENTER_LEFT" prefHeight="86.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+<BorderPane minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Message.MessageAppController">
+   <left>
+      <VBox prefHeight="890.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="302.0">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="88.0" onMouseClicked="#homepageClicked" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/Settings/homepage.png" />
-                     </image>
-                  </ImageView>
+                  <Label text="Chats" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Label>
                </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+            <ListView fx:id="usersListView" onEditCommit="#userSelected" onMouseClicked="#userSelected" prefHeight="785.0" prefWidth="300.0" styleClass="second-color" />
+         </children>
+         <styleClass>
+            <String fx:value="rightBorderForVBox" />
+            <String fx:value="second-color" />
+         </styleClass>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="second-color">
                <children>
-                  <TextArea fx:id="text" />
-                  <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="734.0" spacing="10.0">
                      <children>
-                        <Label prefHeight="20.0" prefWidth="58.0" text="   Send">
+                        <ImageView fx:id="profilePicture" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/ProfilePictures/defaultpicture1.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <Label fx:id="name" prefWidth="300.0" text="Name" textFill="WHITE">
                            <font>
-                              <Font name="System Bold" size="14.0" />
+                              <Font name="System Bold" size="25.0" />
                            </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
                         </Label>
-                        <Button fx:id="sendButton" onMouseClicked="#handleSendButtonClick" prefHeight="54.0" prefWidth="51.0">
-                           <graphic>
-                              <ImageView fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../images/Message/send.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
                      </children>
-                  </VBox>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="454.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <VBox alignment="CENTER" onMouseClicked="#homepageClicked" prefHeight="80.0" prefWidth="80.0" styleClass="hide">
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/Settings/homepage.png" />
+                                 </image>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="674.0" prefWidth="1015.0" styleClass="lightGrayBackground">
+               <content>
+                  <VBox fx:id="messageBox" spacing="10.0" />
+               </content>
+            </ScrollPane>
+            <HBox alignment="CENTER" prefHeight="115.0" prefWidth="1015.0">
+               <children>
+                  <TextArea fx:id="text" onKeyPressed="#enterPressed" prefHeight="115.0" prefWidth="534.0" promptText="Type In" />
                </children>
             </HBox>
          </children>
-      </HBox>
-   </bottom>
-   <center>
-      <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="298.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <content>
-            <VBox fx:id="messageBox" spacing="10.0" />
-         </content>
-      </ScrollPane>
+      </VBox>
    </center>
-   <left>
-      <ListView fx:id="usersListView" onEditCommit="#userSelected" onMouseClicked="#userSelected" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </left>
-   <top>
-      <Label fx:id="userLabel" styleClass="messageLabel" text="Current User" BorderPane.alignment="CENTER" />
-   </top>
 </BorderPane>

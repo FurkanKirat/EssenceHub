@@ -2,6 +2,7 @@ package com.essencehub.project.Controllers.Menu;
 
 import com.essencehub.project.Controllers.Settings.ThemeController;
 import com.essencehub.project.User.NotificationSender;
+import com.essencehub.project.User.Task;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 public class AdminMenuController {
     private double savedWidth;
@@ -71,7 +75,6 @@ public class AdminMenuController {
     }
     Node currentNode;
     public void initialize() {
-
         try {
 
             String name =  LoginPageController.getUser().getName();
@@ -89,6 +92,13 @@ public class AdminMenuController {
 
         currentNode = dashboardPanel;
 
+        List<Task> tasks = Task.getAllTasks();
+        for(Task task: tasks){
+            if(!task.isTaskDone()&& LocalDateTime.now().isAfter(task.getFinishTime())){
+                NotificationSender.send("Task not finished","Someone did not finished their task before the deadline!");
+                break;
+            }
+        }
     }
 
     @FXML

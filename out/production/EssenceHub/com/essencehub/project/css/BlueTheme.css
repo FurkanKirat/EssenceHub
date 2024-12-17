@@ -130,6 +130,9 @@
 .employeeLabel {
     -fx-text-fill: #d0d0d0;
 }
+.messageLabel {
+    -fx-text-fill: #e0e0e0;
+}
 
 /* Stock - Dark Blue Theme */
 .chart-legend-item {
@@ -155,62 +158,279 @@
 
 /* TableView Styles - Dark Blue Theme */
 .table-view {
-    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-color: rgba(255, 255, 255, 0.1); /* Şeffaf ve yuvarlak köşeli */
     -fx-background-radius: 10;
-    -fx-border-color: #5a8aa5;
+    -fx-border-color: #5a8aa5; /* Mavi tema ile uyumlu */
     -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
 }
 
+/* Column Header Styles */
 .table-view .column-header {
-    -fx-background-color: #1b2838;
-    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(to bottom, #1b2838, #2a394d); /* Mavi temaya uygun gradient */
+    -fx-text-fill: #e0e0e0; /* Açık gri metin rengi */
     -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+    -fx-border-color: #5a8aa5; /* Mavi tema ile uyumlu */
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 5 0 5 0;
 }
+
+/* Text inside column headers */
+.table-view .column-header .text {
+    -fx-fill: #e0e0e0; /* Açık gri metin */
+}
+
+/* Row Cell Styles */
+.table-view .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+/* Hover Effect for Rows */
+.table-view .table-row-cell:hover {
+    -fx-background-color: #254b64; /* Mavi temaya uyumlu hover rengi */
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0.5, 0, 0);
+}
+
+/* Focused Row Effect */
+.table-view .table-row-cell:focused {
+    -fx-background-color: #1b2838; /* Mavi temaya uygun odaklanmış satır rengi */
+    -fx-text-fill: #5a8aa5; /* Mavi tema ile uyumlu */
+    -fx-border-color: #5a8aa5;
+    -fx-border-width: 0 0 2 0;
+}
+
+/* Selected Row Styles */
+.table-view .table-row-cell:selected {
+    -fx-background-color: #254b64; /* Seçilen satır rengi */
+    -fx-text-fill: #a8df65; /* Yeşil seçili metin rengi */
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.5, 0, 0);
+}
+
+/* Pressed Row Styles */
+.table-view .table-row-cell:pressed {
+    -fx-background-color: #1d3a53; /* Mavi temaya uyumlu basılı satır rengi */
+    -fx-text-fill: white;
+}
+
+/* Scroll Bar Styling */
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: #5a8aa5; /* Mavi temaya uyumlu scroll bar rengi */
+    -fx-background-radius: 5;
+}
+
+.table-view .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+.table-view .scroll-bar:horizontal .thumb {
+    -fx-background-color: #5a8aa5;
+    -fx-background-radius: 5;
+}
+
+/* Selection Bar within Columns */
+.table-view .column-header:focused {
+    -fx-background-color: #254b64; /* Seçili sütun başlığı rengi */
+}
+
+/* Focused Column Header */
+.table-view .column-header:focused {
+    -fx-border-color: #5a8aa5;
+    -fx-border-width: 0 0 2 0;
+}
+
+/* Separator between columns */
+.table-view .column-header:pressed {
+    -fx-background-color: #1d3a53; /* Basılı sütun başlığı rengi */
+}
+.table-view .table-row-cell,
+.table-view .column-header,
+.table-view .table-cell {
+    -fx-text-fill: white; /* Açık mavi metin */
+}
+.table-view .column-header:first-of-type {
+    -fx-background-radius: 10 0 0 0; /* Sol üst köşe yuvarlatma */
+    -fx-border-radius: 10 0 0 0;
+}
+
+.table-view .column-header:last-of-type {
+    -fx-background-radius: 0 10 0 0; /* Sağ üst köşe yuvarlatma */
+    -fx-border-radius: 0 10 0 0;
+}
+
 
 /* Radio Button - Dark Blue Theme */
 .radio-button {
-    -fx-background-color: transparent;
-    -fx-text-fill: #d0d0d0;
-    -fx-font-size: 14px;
+    -fx-background-color: transparent; /* Şeffaf arka plan */
+    -fx-text-fill: #e0e0e0; /* Yazı rengi */
+    -fx-font-size: 14px; /* Yazı boyutu */
 }
+
 .radio-button .box {
-    -fx-border-color: #5a8aa5;
+    -fx-border-color: #5a8aa5; /* Mavi kenar rengi */
     -fx-border-width: 2px;
-    -fx-border-radius: 50%;
+    -fx-border-radius: 50%; /* Yuvarlak görünüm */
     -fx-background-radius: 50%;
-    -fx-background-color: transparent;
-    -fx-min-width: 16px;
+    -fx-background-color: transparent; /* İç kısmı şeffaf */
+    -fx-min-width: 16px; /* Çember boyutları */
     -fx-min-height: 16px;
     -fx-max-width: 16px;
     -fx-max-height: 16px;
 }
+
 .radio-button:selected .box {
-    -fx-background-color: #5a8aa5;
-    -fx-border-color: #1b2838;
+    -fx-background-color: #5a8aa5; /* Seçildiğinde dolgu rengi */
+    -fx-border-color: #1b2838; /* Mavi kenar rengi */
 }
+
 .radio-button .box:hover {
-    -fx-border-color: #254b64;
+    -fx-border-color: #254b64; /* Hover durumunda kenar rengi */
 }
+
 .radio-button:selected .box:hover {
-    -fx-background-color: #254b64;
+    -fx-background-color: #254b64; /* Seçili ve hover durumunda dolgu rengi */
 }
+
 .radio-button:selected .radio .dot {
     -fx-background-color: #1d3a53;
     -fx-background-insets: 0;
 }
+
 .radio-button .label {
-    -fx-text-fill: #d0d0d0;
+    -fx-text-fill: #e0e0e0; /* Metin rengi */
 }
 
-.tab-pane {
-    -fx-background-color: transparent; /* Tüm arka planı şeffaf yapar */
-    -fx-border-color: transparent;    /* Kenarlıkları kaldırır */
+/* ScrollPane Styles - Dark Blue Theme */
+.scroll-pane {
+    -fx-background-color: transparent; /* Arka planı şeffaf */
+    -fx-background-radius: 10; /* Arka plan yuvarlaklığı */
 }
 
-.tab-header-area {
-    -fx-background-color: transparent; /* Sekme çubuğunun arka planı */
+.scroll-pane .viewport {
+    -fx-background-color: transparent; /* İçerik bölgesi şeffaf */
 }
 
-.tab-content-area {
-    -fx-background-color: transparent; /* Sekme içerik alanının arka planı */
+.scroll-bar:vertical {
+    -fx-background-color: transparent; /* Dikey kaydırma çubuğu şeffaf */
+    -fx-border-color: #1b2838; /* Çubuk kenar rengi */
+    -fx-border-width: 1; /* Kenar kalınlığı */
 }
+
+.scroll-bar .thumb {
+    -fx-background-color: #254b64; /* Kaydırma tutacağı rengi */
+    /* Yuvarlak tutacak */
+}
+
+.scroll-bar .track {
+    -fx-background-color: transparent; /* Track arka planı */
+}
+
+/* DatePicker Styles - Dark Blue Theme */
+.date-picker {
+    -fx-background-color: #1b2838; /* Mavi arka plan */
+    -fx-text-fill: #e0e0e0;
+    -fx-border-color: #5a8aa5; /* Mavi kenar rengi */
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.date-picker:hover {
+    -fx-background-color: #254b64; /* Hover rengi */
+}
+
+.date-picker:focused {
+    -fx-border-color: #5a8aa5; /* Focus rengi */
+    -fx-background-color: #1b2838;
+}
+
+/* Popup styles */
+.date-picker-popup {
+    -fx-background-color: #1b2838; /* Popup arka planı */
+    -fx-border-color: #5a8aa5;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.calendar-pane {
+    -fx-background-color: #1b2838;
+    -fx-border-color: #5a8aa5;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.calendar-pane .day-cell {
+    -fx-text-fill: #e0e0e0;
+    -fx-background-color: transparent;
+}
+
+.calendar-pane .day-cell:hover {
+    -fx-background-color: #254b64;
+    -fx-text-fill: #ffffff;
+}
+
+.calendar-pane .day-cell:filled {
+    -fx-text-fill: #e0e0e0;
+}
+
+.calendar-pane .day-cell:selected {
+    -fx-background-color: #5a8aa5; /* Seçili gün rengi */
+    -fx-text-fill: #1b2838; /* Seçili gün metin rengi */
+}
+
+/* Arrows in DatePicker */
+.date-picker .arrow {
+    -fx-background-color: #5a8aa5; /* Ok rengi */
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
+}
+
+.date-picker .arrow:hover {
+    -fx-background-color: #254b64;
+}
+
+/* TextField inside DatePicker */
+.date-picker .text-input {
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #5a8aa5; /* Mavi kenar rengi */
+    -fx-text-fill: #e0e0e0;
+    -fx-font-size: 14px;
+}
+
+/* Whatsapp */
+.rightBorderForVBox {
+    -fx-border-color: #1b2838; /* Mavi kenar rengi */
+    -fx-border-width: 0 6 0 0;
+}
+
+.lightGrayBackground{
+    -fx-background-color: #2a394d; /* Mavi tonlarıyla uyumlu gri */
+}
+
+.tranparentBackground{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.messageSenderLabel{
+    -fx-background-color: #254b64; /* Mavi tema rengi */
+    -fx-padding: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-text-fill: white;
+}
+
+.messageReceiverLabel{
+    -fx-background-color: #1b2838; /* Mavi tema rengi */
+    -fx-padding: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-text-fill: white;
+}
+

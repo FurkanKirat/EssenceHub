@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="centerVBox" prefHeight="807.2" prefWidth="973.6" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.EmployeeOperations.InfoEmployeeController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="943.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="406.0">
+               <children>
+                  <Label text="Employee Information" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="577.0" spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ComboBox fx:id="userCombobox" onAction="#userChanged" prefHeight="26.0" prefWidth="259.0" />
+                  <VBox alignment="CENTER" prefHeight="60.0" prefWidth="60.0">
+                     <children>
+                        <ImageView fx:id="infoIcon" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#infoIconClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/EmployeeOperation/info.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <styleClass>
+                              <String fx:value="hide" />
+                              <String fx:value="selected" />
+                           </styleClass>
+                        </ImageView>
+                        <Label text="Info" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="60.0" prefWidth="60.0">
+                     <children>
+                        <ImageView fx:id="fireIcon" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#fireIconClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/EmployeeOperation/fire.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <styleClass>
+                              <String fx:value="hide" />
+                              <String fx:value="selected" />
+                           </styleClass>
+                        </ImageView>
+                        <Label text="Fire" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="60.0" prefWidth="60.0">
+                     <children>
+                        <ImageView fx:id="hireIcon" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#hireIconClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/EmployeeOperation/hire.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <styleClass>
+                              <String fx:value="hide" />
+                              <String fx:value="selected" />
+                           </styleClass>
+                        </ImageView>
+                        <Label text="Hire" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="60.0" prefWidth="60.0">
+                     <children>
+                        <ImageView fx:id="updateIcon" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#updateIconClicked" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/EmployeeOperation/update.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <styleClass>
+                              <String fx:value="hide" />
+                              <String fx:value="selected" />
+                           </styleClass>
+                        </ImageView>
+                        <Label text="Update" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <VBox prefHeight="220.0" prefWidth="864.0" spacing="10.0">
+         <children>
+            <Label text="Profile" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="Id:" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="42.0" prefWidth="78.0" />
+                  <TextField fx:id="idTextField" editable="false" prefHeight="26.0" prefWidth="283.0" styleClass="menuTextField" />
+                  <Label text="Department:" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="departmentTextField" editable="false" prefHeight="26.0" prefWidth="297.0" styleClass="menuTextField" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="Name:" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="42.0" prefWidth="46.0" />
+                  <TextField fx:id="nameTextField" editable="false" prefHeight="26.0" prefWidth="284.0" styleClass="menuTextField" />
+                  <Label text="Surname:" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="42.0" prefWidth="14.0" />
+                  <TextField fx:id="surnameTextField" editable="false" prefHeight="26.0" prefWidth="298.0" styleClass="menuTextField" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="Date Of Birth:" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="42.0" prefWidth="122.0" />
+                  <TextField fx:id="dateOfBirthTextField" editable="false" prefHeight="42.0" prefWidth="573.0" styleClass="menuTextField" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox prefHeight="159.0" prefWidth="864.0" spacing="10.0">
+         <children>
+            <Label text="Contact" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="Phone Number:" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="38.0" prefWidth="103.0" />
+                  <TextField fx:id="phoneNumTextField" editable="false" prefHeight="26.0" prefWidth="574.0" styleClass="menuTextField" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="E-Mail:" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="38.0" prefWidth="174.0" />
+                  <TextField fx:id="emailTextField" editable="false" prefHeight="26.0" prefWidth="575.0" styleClass="menuTextField" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox prefHeight="310.0" prefWidth="864.0" spacing="10.0">
+         <children>
+            <Label text="Salary &amp; Performance" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="Salary:" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="44.0" prefWidth="179.0" />
+                  <TextField fx:id="salaryTextField" editable="false" prefHeight="26.0" prefWidth="570.0" styleClass="menuTextField" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="864.0" spacing="10.0">
+               <children>
+                  <Label text="Performance:" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="44.0" prefWidth="124.0" />
+                  <TextField fx:id="performanceTextField" editable="false" prefHeight="26.0" prefWidth="572.0" styleClass="menuTextField" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="Bonus Salary Based On Performance:" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="45.0" prefWidth="52.0" />
+                  <TextField fx:id="bonusSalaryTextField" editable="false" prefHeight="26.0" prefWidth="459.0" styleClass="menuTextField" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="Remaining Vacation Days:" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="45.0" prefWidth="138.0" />
+                  <TextField fx:id="vacationDaysTextField" editable="false" prefHeight="26.0" prefWidth="460.0" styleClass="menuTextField" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="Work Hours Start:" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="38.0" prefWidth="86.0" />
+                  <TextField fx:id="workHoursStartTextField" editable="false" prefWidth="256.0" styleClass="menuTextField" />
+                  <Label text="End:" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="workHoursEndTextField" editable="false" prefWidth="256.0" styleClass="menuTextField" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+   </padding>
+</VBox>

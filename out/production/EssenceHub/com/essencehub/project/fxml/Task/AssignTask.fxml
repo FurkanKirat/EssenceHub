@@ -17,7 +17,7 @@
 
 <VBox alignment="TOP_CENTER" prefHeight="807.2" prefWidth="973.6" spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.essencehub.project.Controllers.Task.AssignTaskController">
    <children>
-      <HBox prefHeight="45.6" prefWidth="974.0">
+      <HBox prefHeight="60.0" prefWidth="974.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="417.0">
                <children>
@@ -31,19 +31,51 @@
                   <Insets left="10.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="49.0" prefWidth="567.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_RIGHT" prefHeight="49.0" prefWidth="567.0" spacing="10.0" HBox.hgrow="ALWAYS">
                <padding>
                   <Insets right="10.0" />
                </padding>
                <children>
-                  <ImageView fx:id="viewTaskIcon" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#viewTaskIconClicked" pickOnBounds="true" preserveRatio="true" styleClass="hide">
-                     <image>
-                        <Image url="@../../images/Task/taskview.png" />
-                     </image>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </ImageView>
+                  <VBox alignment="CENTER" onMouseClicked="#assignTaskIconClicked" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
+                     <children>
+                        <ImageView fx:id="assignTaskIcon" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" styleClass="hide">
+                           <image>
+                              <Image url="@../../images/Task/taskassign.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <Label text="Assign Task" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" onMouseClicked="#viewTaskIconClicked" prefHeight="60.0" prefWidth="80.0" styleClass="hide">
+                     <children>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" styleClass="hide">
+                           <image>
+                              <Image url="@../../images/Task/taskview.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <Label text="View Task" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Label>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
          </children>
@@ -70,7 +102,7 @@
                </children>
             </HBox>
             <Label alignment="CENTER" style="-fx-font-size: 20; -fx-font-weight: bold;" styleClass="TaskLabel" text="Task Description" />
-            <TextArea fx:id="descriptionTextArea" prefHeight="262.0" prefWidth="934.0" promptText="Enter task details..." wrapText="true" />
+            <TextArea fx:id="descriptionTextArea" prefHeight="262.0" prefWidth="934.0" promptText="Enter task details..." styleClass="tranparentBackground" wrapText="true" />
             <Button mnemonicParsing="false" onAction="#assignTask" prefHeight="26.0" prefWidth="147.0" text="Assign the Task" textFill="WHITE">
                <font>
                   <Font size="18.0" />

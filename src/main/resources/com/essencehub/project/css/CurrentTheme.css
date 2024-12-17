@@ -1,15 +1,15 @@
-/* General Styles - Purple Theme */
+/* General Styles - Green Theme */
 .gradient-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2e1a47, #5a3d7a);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
 }
 .first-color {
-    -fx-background-color: #2e1a47;
+    -fx-background-color: #134e5e;
 }
 .second-color {
-    -fx-background-color: #3f2659;
+    -fx-background-color: #0c7764;
 }
 .line-color {
-    -fx-background-color: #9b7dbb;
+    -fx-background-color: #a8df65;
 }
 .container {
     -fx-background-color: rgba(255, 255, 255, 0.1);
@@ -19,22 +19,22 @@
     -fx-cursor: hand;
 }
 .selected-border {
-    -fx-border-color: #9b7dbb;
+    -fx-border-color: #a8df65;
     -fx-border-width: 0 3 0 0;
 }
 .selected:hover {
-    -fx-background-color: #6a4d8c;
+    -fx-background-color: #168f5e;
 }
 .selected:clicked {
-    -fx-background-color: #6a4d8c;
+    -fx-background-color: #168f5e;
 }
 .buttonClicked {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(155, 125, 187, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(64, 128, 64, 0.5), 10, 0.5, 0, 0);
 }
 .settingsProfile:hover {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(155, 125, 187, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(64, 128, 64, 0.5), 10, 0.5, 0, 0);
 }
 .menuButton {
     -fx-background-color: rgba(255, 255, 255, 0.1);
@@ -44,49 +44,50 @@
 .text-input {
     -fx-background-color: rgba(0, 0, 0, 0);
     -fx-border-width: 0 0 1 0;
-    -fx-border-color: #9b7dbb;
+    -fx-border-color: #a8df65;
 }
 .menuTextField {
-    -fx-text-fill: #d8d0e8;
+    -fx-text-fill: #e0e0e0;
     -fx-font-size: 15px;
 }
 /* combo box */
 .combo-box {
-    -fx-background-color: #2e1a47;
-    -fx-border-color: #9b7dbb;
+    -fx-background-color: #134e5e;
+    -fx-border-color: #a8df65;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
     -fx-font-size: 14px;
+
 }
 
 .combo-box .arrow {
-    -fx-background-color: #9b7dbb;
-    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
+    -fx-background-color: #a8df65;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Ok işareti */
 }
 
 .combo-box:hover {
-    -fx-background-color: #6a4d8c;
-    -list-cell-background-color: #6a4d8c;
+    -fx-background-color: #168f5e;
+    -list-cell-background-color: #168f5e;
 }
 
 .list-cell {
-    -fx-background-color: #2e1a47;
-    -fx-text-fill: #d8d0e8;
+    -fx-background-color: #134e5e;
+    -fx-text-fill: #e0e0e0;
     -fx-font-size: 14px;
 }
 
 .list-cell:hover {
-    -fx-background-color: #6a4d8c;
+    -fx-background-color: #168f5e;
     -fx-text-fill: #ffffff;
 }
 .combo-box .text-input {
     -fx-background-color: transparent;
 }
 
-/* Login Page - Purple Theme */
+/* Login Page - Green Theme */
 .loginTextField {
     -fx-border-width: 2px;
-    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #2e1a47, #5a3d7a);
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
     -fx-background-color: transparent;
     -fx-text-fill: black;
     -fx-font-weight: bold;
@@ -97,137 +98,153 @@
     -fx-font-weight: bold;
 }
 #anchor1 {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2e1a47, #5a3d7a);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
 }
 #loginbtn {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2e1a47, #5a3d7a);
-    -fx-text-fill: #d8d0e8;
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #134e5e, #71b280);
+    -fx-text-fill: #e0e0e0;
     -fx-background-radius: 15;
     -fx-cursor: hand;
     -fx-font-weight: bold;
 }
 #logo {
-    -fx-fill: linear-gradient(#2e1a47, #5a3d7a);
+    -fx-fill: linear-gradient(#134e5e, #71b280);
 }
 #appLabel {
-    -fx-text-fill: #d8d0e8;
-    -fx-back-color: #5a3d7a;
+    -fx-text-fill: #e0e0e0;
+    -fx-back-color: #71b280;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-family: "sans-serif";
 }
 #profile {
-    -fx-fill: #835da6;
+    -fx-fill: #6abf69;
 }
 
-.loginImage {
-    -fx-effect: innershadow(gaussian, #2e1a47, 5, 1, 0, 0);
+.loginImage{
+     -fx-effect: innershadow(gaussian, #134e5e, 5, 1, 0, 0);
 }
 
-/* Tasks - Purple Theme */
+/* Tasks - Green Theme */
 .TaskLabel {
-    -fx-text-fill: #d8d0e8;
+    -fx-text-fill: #e0e0e0;
 }
 
-/* Employee Option - Purple Theme */
+/* Employee Option - Green Theme */
 .employeeLabel {
-    -fx-text-fill: #d8d0e8;
+    -fx-text-fill: #e0e0e0;
 }
+
 .messageLabel {
     -fx-text-fill: #e0e0e0;
 }
 
-/* Stock - Purple Theme */
+/* Stock - Green Theme */
 .chart-legend-item {
-    -fx-text-fill: #9b7dbb;
+    -fx-text-fill: black;
 }
 .chart-pie-label-line {
-    -fx-stroke: #9b7dbb;
-    -fx-fill: #9b7dbb;
+    -fx-stroke: #a8df65;
+    -fx-fill: #a8df65;
 }
 .chart-pie-label {
-    -fx-fill: #9b7dbb;
+    -fx-fill: #a8df65;
 }
 .chart-legend {
-    -fx-background-color: #3f2659;
-    -fx-stroke: #3f2659;
+    -fx-background-color: white;
+    -fx-stroke: #0c7764;
 }
 .axis-label {
-    -fx-text-fill: #9b7dbb;
+    -fx-text-fill: white;
 }
 .chart-pie-label {
-    -fx-fill: #d8d0e8;
+    -fx-fill: white;
+}
+/* BarChart Y-Axis Label Color - White */
+.chart-legend-item {
+    -fx-text-fill: #a8df65;
 }
 
-/* TableView Styles - Purple Theme */
+.chart .x-axis .axis-label,
+.chart .y-axis .axis-label {
+    -fx-text-fill: white; /* Y eksenindeki etiketlerin rengi beyaz */
+}
+
+.chart .x-axis .tick-label,
+.chart .y-axis .tick-label {
+    -fx-text-fill: white; /* Y eksenindeki sayı etiketlerinin rengi beyaz */
+}
+
+
+/* TableView Styles - Green Theme */
 .table-view {
     -fx-background-color: rgba(255, 255, 255, 0.1); /* Şeffaf ve yuvarlak köşeli */
     -fx-background-radius: 10;
-    -fx-border-color: #9b7dbb;
+    -fx-border-color: #a8df65;
     -fx-border-width: 1;
     -fx-border-radius: 10;
     -fx-font-family: "Segoe UI";
     -fx-font-size: 14px;
-    -fx-text-fill: #d8d0e8;
+    -fx-text-fill: #e6f2ff;
 }
 
 /* Column Header Styles */
 .table-view .column-header {
-    -fx-background-color: linear-gradient(to bottom, #2e1a47, #3f2659);
-    -fx-text-fill: #d8d0e8; /* Açık mor yazı */
+    -fx-background-color: linear-gradient(to bottom, #134e5e, #0c7764);
+    -fx-text-fill: #e0e0e0; /* Light gray text for better contrast */
     -fx-font-weight: bold;
-    -fx-font-size: 14px; /* Opsiyonel: Yazı boyutu ayarı */
+    -fx-font-size: 14px; /* Optional: Adjust font size */
     -fx-alignment: center;
-    -fx-border-color: #9b7dbb;
-    -fx-border-width: 0 0 1 0; /* Sadece alt çizgi */
-    -fx-padding: 5 0 5 0; /* Üst ve alt boşluk */
+    -fx-border-color: #a8df65;
+    -fx-border-width: 0 0 1 0; /* Border only at the bottom */
+    -fx-padding: 5 0 5 0; /* Top and bottom padding for better spacing */
 }
 
 /* Text inside column headers */
 .table-view .column-header .text {
-    -fx-fill: #d8d0e8; /* Açık mor yazı */
+    -fx-fill: #e0e0e0;  /* Light gray text for header */
 }
 
 /* Row Cell Styles */
 .table-view .table-row-cell {
-    -fx-background-color: transparent; /* Varsayılan olarak şeffaf */
-    -fx-text-fill: #d8d0e8;
+    -fx-background-color: transparent; /* Transparent background by default */
+    -fx-text-fill: #e6f2ff;
     -fx-font-size: 14px;
 }
 
 /* Hover Effect for Rows */
 .table-view .table-row-cell:hover {
-    -fx-background-color: #6a4d8c;
-    -fx-text-fill: #ffffff;
+    -fx-background-color: #168f5e;
+    -fx-text-fill: #e6f2ff;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0.5, 0, 0);
 }
 
 /* Focused Row Effect */
 .table-view .table-row-cell:focused {
-    -fx-background-color: #3f2659;
-    -fx-text-fill: #9b7dbb;
-    -fx-border-color: #9b7dbb;
-    -fx-border-width: 0 0 2 0; /* Alt çizgi efekti */
+    -fx-background-color: #134e5e;
+    -fx-text-fill: #a8df65;
+    -fx-border-color: #a8df65;
+    -fx-border-width: 0 0 2 0; /* Underline effect */
 }
 
 /* Selected Row Styles */
 .table-view .table-row-cell:selected {
-    -fx-background-color: #5a3d7a;
-    -fx-text-fill: #ffffff;
+    -fx-background-color: #71b280;
+    -fx-text-fill: #134e5e;
     -fx-font-weight: bold;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.5, 0, 0);
 }
 
 /* Pressed Row Styles */
 .table-view .table-row-cell:pressed {
-    -fx-background-color: #2e1a47;
+    -fx-background-color: #0c7764;
     -fx-text-fill: #ffffff;
 }
 
 /* Scroll Bar Styling */
 .table-view .scroll-bar:vertical .thumb {
-    -fx-background-color: #9b7dbb;
+    -fx-background-color: #a8df65;
     -fx-background-radius: 5;
 }
 
@@ -236,31 +253,31 @@
 }
 
 .table-view .scroll-bar:horizontal .thumb {
-    -fx-background-color: #9b7dbb;
+    -fx-background-color: #a8df65;
     -fx-background-radius: 5;
 }
 
 /* Selection Bar within Columns */
 .table-view .column-header:focused {
-    -fx-background-color: #6a4d8c;
+    -fx-background-color: #168f5e;
 }
 
 /* Focused Column Header */
 .table-view .column-header:focused {
-    -fx-border-color: #5a3d7a;
+    -fx-border-color: #71b280;
     -fx-border-width: 0 0 2 0;
 }
 
 /* Separator between columns */
 .table-view .column-header:pressed {
-    -fx-background-color: #3f2659;
+    -fx-background-color:#0c7764;
 }
+
 .table-view .table-row-cell,
 .table-view .column-header,
 .table-view .table-cell {
     -fx-text-fill: white; /* Açık mavi metin */
 }
-
 .table-view .column-header:first-of-type {
     -fx-background-radius: 10 0 0 0; /* Sol üst köşe yuvarlatma */
     -fx-border-radius: 10 0 0 0;
@@ -271,15 +288,15 @@
     -fx-border-radius: 0 10 0 0;
 }
 
-/* Radio Button - Purple Theme */
+/* Radio Button - Green Theme */
 .radio-button {
     -fx-background-color: transparent; /* Şeffaf arka plan */
-    -fx-text-fill: #d8d0e8; /* Yazı rengi (Açık mor) */
+    -fx-text-fill: #e0e0e0; /* Yazı rengi */
     -fx-font-size: 14px; /* Yazı boyutu */
 }
 
 .radio-button .box {
-    -fx-border-color: #9b7dbb; /* Kenar rengi (Açık mor) */
+    -fx-border-color: #a8df65; /* Kenar rengi */
     -fx-border-width: 2px;
     -fx-border-radius: 50%; /* Yuvarlak görünüm */
     -fx-background-radius: 50%;
@@ -291,27 +308,27 @@
 }
 
 .radio-button:selected .box {
-    -fx-background-color: #9b7dbb; /* Seçildiğinde dolgu rengi */
-    -fx-border-color: #3f2659; /* Kenar rengi (Koyu mor) */
+    -fx-background-color: #a8df65; /* Seçildiğinde dolgu rengi */
+    -fx-border-color: #134e5e; /* Kenar rengi */
 }
 
 .radio-button .box:hover {
-    -fx-border-color: #6a4d8c; /* Hover durumunda kenar rengi */
+    -fx-border-color: #168f5e; /* Hover durumunda kenar rengi */
 }
 
 .radio-button:selected .box:hover {
-    -fx-background-color: #6a4d8c; /* Seçili ve hover durumunda dolgu rengi */
+    -fx-background-color: #168f5e; /* Seçili ve hover durumunda dolgu rengi */
 }
-
 .radio-button:selected .radio .dot {
-    -fx-background-color: #5a3d7a; /* Nokta rengi */
+    -fx-background-color: #0c7764;
     -fx-background-insets: 0;
 }
 
 .radio-button .label {
-    -fx-text-fill: #d8d0e8; /* Metin rengi */
+    -fx-text-fill: #e0e0e0; /* Metin rengi */
 }
-/* ScrollPane Styles - Purple Theme */
+
+/* ScrollPane Styles - Green Theme */
 .scroll-pane {
     -fx-background-color: transparent; /* Arka planı şeffaf */
     -fx-background-radius: 10; /* Arka plan yuvarlaklığı */
@@ -323,114 +340,109 @@
 
 .scroll-bar:vertical {
     -fx-background-color: transparent; /* Dikey kaydırma çubuğu şeffaf */
-    -fx-border-color: #3f2659; /* Çubuk kenar rengi (Koyu mor) */
+    -fx-border-color: #134e5e; /* Çubuk kenar rengi */
     -fx-border-width: 1; /* Kenar kalınlığı */
 }
 
 .scroll-bar .thumb {
-    -fx-background-color: #6a4d8c; /* Kaydırma tutacağı rengi (Orta mor) */
-    -fx-background-radius: 10; /* Yuvarlak tutacak */
+    -fx-background-color:#0c7764; /* Kaydırma tutacağı rengi */
+     /* Yuvarlak tutacak */
 }
 
 .scroll-bar .track {
     -fx-background-color: transparent; /* Track arka planı */
 }
-/* DatePicker Styles - Purple Theme */
+
+/* DatePicker Styles - Green Theme */
 .date-picker {
-    -fx-background-color: #3f2659; /* Arka plan koyu mor */
-    -fx-text-fill: #e0e0e0; /* Açık gri yazı */
-    -fx-border-color: #6a4d8c; /* Orta mor kenar */
+    -fx-background-color: #134e5e;
+    -fx-text-fill: #e0e0e0;
+    -fx-border-color: #a8df65;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
 }
 
 .date-picker:hover {
-    -fx-background-color: #6a4d8c; /* Hover durumda açık mor */
+    -fx-background-color: #168f5e;
 }
 
 .date-picker:focused {
-    -fx-border-color: #9c78b8; /* Daha açık mor kenar */
-    -fx-background-color: #3f2659; /* Arka plan */
+    -fx-border-color: #71b280;
+    -fx-background-color: #134e5e;
 }
 
 /* Popup styles */
 .date-picker-popup {
-    -fx-background-color: #3f2659; /* Açılır pencere arka plan */
-    -fx-border-color: #6a4d8c; /* Kenar rengi */
+    -fx-background-color: #134e5e;
+    -fx-border-color: #a8df65;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
 }
 
 .calendar-pane {
-    -fx-background-color: #3f2659; /* Takvim arka plan */
-    -fx-border-color: #6a4d8c; /* Kenar rengi */
+    -fx-background-color: #134e5e;
+    -fx-border-color: #a8df65;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
 }
 
 .calendar-pane .day-cell {
-    -fx-text-fill: #e0e0e0; /* Gün hücreleri yazı rengi */
-    -fx-background-color: transparent; /* Arka plan */
+    -fx-text-fill: #e0e0e0;
+    -fx-background-color: transparent;
 }
 
 .calendar-pane .day-cell:hover {
-    -fx-background-color: #6a4d8c; /* Hover durumunda hücre rengi */
-    -fx-text-fill: #ffffff; /* Beyaz yazı */
+    -fx-background-color: #168f5e;
+    -fx-text-fill: #ffffff;
 }
 
 .calendar-pane .day-cell:filled {
-    -fx-text-fill: #e0e0e0; /* Doluluk durumu */
+    -fx-text-fill: #e0e0e0;
 }
 
 .calendar-pane .day-cell:selected {
-    -fx-background-color: #9c78b8; /* Seçili hücre arka plan */
-    -fx-text-fill: #3f2659; /* Yazı rengi koyu mor */
+    -fx-background-color: #a8df65;
+    -fx-text-fill: #134e5e;
 }
 
 /* Arrows in DatePicker */
 .date-picker .arrow {
-    -fx-background-color: #9c78b8; /* Oklar için arka plan */
-    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Ok şekli */
+    -fx-background-color: #a8df65;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
 }
 
 .date-picker .arrow:hover {
-    -fx-background-color: #6a4d8c; /* Hover durumunda açık mor */
+    -fx-background-color: #168f5e;
 }
 
 /* TextField inside DatePicker */
 .date-picker .text-input {
     -fx-background-color: transparent;
-    -fx-border-width: 0 0 1 0; /* Alt çizgi */
-    -fx-border-color: #6a4d8c; /* Alt çizgi rengi */
-    -fx-text-fill: #e0e0e0; /* Yazı rengi */
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #a8df65;
+    -fx-text-fill: #e0e0e0;
     -fx-font-size: 14px;
 }
 /* Whatsapp */
 .rightBorderForVBox {
-    -fx-border-color: #3f2659; /* Kenar rengi (Koyu mor) */
-    -fx-border-width: 0 6 0 0; /* Sağ kenar genişliği */
+    -fx-border-color: #134e5e;
+    -fx-border-width: 0 6 0 0;
+}
+.lightGrayBackground{
+    -fx-background-color: #DADADA;
+}
+.tranparentBackground{
+    -fx-background-color: rgba(0,0,0,0);
 }
 
-.lightGrayBackground {
-    -fx-background-color: #e0d8e9; /* Arka plan rengi (Açık mor-gri tonları) */
+.messageSenderLabel{
+    -fx-background-color: #0c7764; -fx-padding: 10px; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-fill: white;
 }
 
-.transparentBackground {
-    -fx-background-color: rgba(0, 0, 0, 0); /* Şeffaf arka plan */
+.messageReceiverLabel{
+    -fx-background-color: #134e5e; -fx-padding: 10px; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-fill: white;
 }
 
-.messageSenderLabel {
-    -fx-background-color: #6a4d8c; /* Gönderici mesaj arka planı (Orta mor) */
-    -fx-padding: 10px; /* Mesaj iç boşluğu */
-    -fx-border-radius: 10px; /* Kenar yuvarlatma */
-    -fx-background-radius: 10px; /* Arka plan yuvarlatma */
-    -fx-text-fill: #ffffff; /* Yazı rengi (Beyaz) */
-}
 
-.messageReceiverLabel {
-    -fx-background-color: #3f2659; /* Alıcı mesaj arka planı (Koyu mor) */
-    -fx-padding: 10px; /* Mesaj iç boşluğu */
-    -fx-border-radius: 10px; /* Kenar yuvarlatma */
-    -fx-background-radius: 10px; /* Arka plan yuvarlatma */
-    -fx-text-fill: #ffffff; /* Yazı rengi (Beyaz) */
-}
+
+

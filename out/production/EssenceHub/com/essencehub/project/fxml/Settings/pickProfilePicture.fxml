@@ -124,20 +124,6 @@
                   </ImageView>
                </children>
             </VBox>
-            <VBox fx:id="vBox7" alignment="CENTER" prefHeight="65.0" prefWidth="65.0">
-               <children>
-                  <ImageView fx:id="img7" fitHeight="60.0" fitWidth="60.0" onMouseClicked="#img7Clicked" pickOnBounds="true" preserveRatio="true">
-                     <styleClass>
-                        <String fx:value="hide" />
-                        <String fx:value="selected" />
-                        <String fx:value="settingsProfile" />
-                     </styleClass>
-                     <image>
-                        <Image url="@../../images/ProfilePictures/upload.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </VBox>
             <VBox fx:id="vBox11" alignment="CENTER" prefHeight="65.0" prefWidth="65.0" />
          </children>
          <padding>

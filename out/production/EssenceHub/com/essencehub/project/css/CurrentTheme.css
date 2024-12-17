@@ -179,57 +179,115 @@
 
 /* TableView Styles - Green Theme */
 .table-view {
-    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-color: rgba(255, 255, 255, 0.1); /* Şeffaf ve yuvarlak köşeli */
     -fx-background-radius: 10;
     -fx-border-color: #a8df65;
     -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 14px;
+    -fx-text-fill: #e6f2ff;
 }
 
+/* Column Header Styles */
 .table-view .column-header {
-    -fx-background-color:  #134e5e;
-    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(to bottom, #134e5e, #0c7764);
+    -fx-text-fill: #e0e0e0; /* Light gray text for better contrast */
     -fx-font-weight: bold;
+    -fx-font-size: 14px; /* Optional: Adjust font size */
+    -fx-alignment: center;
+    -fx-border-color: #a8df65;
+    -fx-border-width: 0 0 1 0; /* Border only at the bottom */
+    -fx-padding: 5 0 5 0; /* Top and bottom padding for better spacing */
 }
 
+/* Text inside column headers */
+.table-view .column-header .text {
+    -fx-fill: #e0e0e0;  /* Light gray text for header */
+}
+
+/* Row Cell Styles */
 .table-view .table-row-cell {
-    -fx-background-color: transparent;
-    -fx-text-fill: white;
+    -fx-background-color: transparent; /* Transparent background by default */
+    -fx-text-fill: #e6f2ff;
+    -fx-font-size: 14px;
 }
 
-.table-view .table-row-cell:focused {
-    -fx-background-color: #168f5e;
-    -fx-text-fill: white;
-}
-
+/* Hover Effect for Rows */
 .table-view .table-row-cell:hover {
     -fx-background-color: #168f5e;
-    -fx-text-fill: white;
+    -fx-text-fill: #e6f2ff;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0.5, 0, 0);
 }
 
-.table-view .table-row-cell:pressed {
+/* Focused Row Effect */
+.table-view .table-row-cell:focused {
     -fx-background-color: #134e5e;
-    -fx-text-fill: white;
+    -fx-text-fill: #a8df65;
+    -fx-border-color: #a8df65;
+    -fx-border-width: 0 0 2 0; /* Underline effect */
 }
 
-.table-view .column-header:pressed {
+/* Selected Row Styles */
+.table-view .table-row-cell:selected {
+    -fx-background-color: #71b280;
+    -fx-text-fill: #134e5e;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.5, 0, 0);
+}
+
+/* Pressed Row Styles */
+.table-view .table-row-cell:pressed {
     -fx-background-color: #0c7764;
+    -fx-text-fill: #ffffff;
 }
 
+/* Scroll Bar Styling */
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: #a8df65;
+    -fx-background-radius: 5;
+}
+
+.table-view .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+.table-view .scroll-bar:horizontal .thumb {
+    -fx-background-color: #a8df65;
+    -fx-background-radius: 5;
+}
+
+/* Selection Bar within Columns */
 .table-view .column-header:focused {
     -fx-background-color: #168f5e;
 }
 
-.table-view .column-header {
-    -fx-background-color: #134e5e;
-    -fx-text-fill: #e0e0e0;  /* Light gray text for better contrast */
-    -fx-font-weight: bold;
-    -fx-font-size: 14px;  /* Optional: Adjust font size */
-    -fx-alignment: center;
+/* Focused Column Header */
+.table-view .column-header:focused {
+    -fx-border-color: #71b280;
+    -fx-border-width: 0 0 2 0;
 }
 
-.table-view .column-header .text {
-    -fx-fill: #e0e0e0;  /* Light gray text for header */
+/* Separator between columns */
+.table-view .column-header:pressed {
+    -fx-background-color:#0c7764;
 }
+
+.table-view .table-row-cell,
+.table-view .column-header,
+.table-view .table-cell {
+    -fx-text-fill: white; /* Açık mavi metin */
+}
+.table-view .column-header:first-of-type {
+    -fx-background-radius: 10 0 0 0; /* Sol üst köşe yuvarlatma */
+    -fx-border-radius: 10 0 0 0;
+}
+
+.table-view .column-header:last-of-type {
+    -fx-background-radius: 0 10 0 0; /* Sağ üst köşe yuvarlatma */
+    -fx-border-radius: 0 10 0 0;
+}
+
 /* Radio Button - Green Theme */
 .radio-button {
     -fx-background-color: transparent; /* Şeffaf arka plan */
@@ -272,11 +330,7 @@
 
 /* ScrollPane Styles - Green Theme */
 .scroll-pane {
-
     -fx-background-color: transparent; /* Arka planı şeffaf */
-    -fx-border-color: #a8df65; /* Kenar çizgisi rengi */
-    -fx-border-width: 2; /* Kenar kalınlığı */
-    -fx-border-radius: 10; /* Kenar yuvarlaklığı */
     -fx-background-radius: 10; /* Arka plan yuvarlaklığı */
 }
 
@@ -292,12 +346,103 @@
 
 .scroll-bar .thumb {
     -fx-background-color:#0c7764; /* Kaydırma tutacağı rengi */
-    -fx-background-radius: 5; /* Yuvarlak tutacak */
+     /* Yuvarlak tutacak */
 }
 
 .scroll-bar .track {
     -fx-background-color: transparent; /* Track arka planı */
 }
+
+/* DatePicker Styles - Green Theme */
+.date-picker {
+    -fx-background-color: #134e5e;
+    -fx-text-fill: #e0e0e0;
+    -fx-border-color: #a8df65;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.date-picker:hover {
+    -fx-background-color: #168f5e;
+}
+
+.date-picker:focused {
+    -fx-border-color: #71b280;
+    -fx-background-color: #134e5e;
+}
+
+/* Popup styles */
+.date-picker-popup {
+    -fx-background-color: #134e5e;
+    -fx-border-color: #a8df65;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.calendar-pane {
+    -fx-background-color: #134e5e;
+    -fx-border-color: #a8df65;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.calendar-pane .day-cell {
+    -fx-text-fill: #e0e0e0;
+    -fx-background-color: transparent;
+}
+
+.calendar-pane .day-cell:hover {
+    -fx-background-color: #168f5e;
+    -fx-text-fill: #ffffff;
+}
+
+.calendar-pane .day-cell:filled {
+    -fx-text-fill: #e0e0e0;
+}
+
+.calendar-pane .day-cell:selected {
+    -fx-background-color: #a8df65;
+    -fx-text-fill: #134e5e;
+}
+
+/* Arrows in DatePicker */
+.date-picker .arrow {
+    -fx-background-color: #a8df65;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
+}
+
+.date-picker .arrow:hover {
+    -fx-background-color: #168f5e;
+}
+
+/* TextField inside DatePicker */
+.date-picker .text-input {
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #a8df65;
+    -fx-text-fill: #e0e0e0;
+    -fx-font-size: 14px;
+}
+/* Whatsapp */
+.rightBorderForVBox {
+    -fx-border-color: #134e5e;
+    -fx-border-width: 0 6 0 0;
+}
+.lightGrayBackground{
+    -fx-background-color: #DADADA;
+}
+.tranparentBackground{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.messageSenderLabel{
+    -fx-background-color: #0c7764; -fx-padding: 10px; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-fill: white;
+}
+
+.messageReceiverLabel{
+    -fx-background-color: #134e5e; -fx-padding: 10px; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-fill: white;
+}
+
 
 
 
