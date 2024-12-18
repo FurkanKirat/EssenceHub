@@ -85,7 +85,7 @@
       </HBox>
       <HBox fx:id="fifth" alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="240.0" spacing="10.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="240.0" spacing="10.0">
                <children>
                   <ComboBox fx:id="incomeComboBox" onAction="#incomeComboBoxIsSelected" prefHeight="26.0" prefWidth="120.0" />
                   <RadioButton fx:id="theMostButton" mnemonicParsing="false" onAction="#isTheMostClicked" prefHeight="18.0" prefWidth="110.0" text="From Most" textFill="WHITE" />
@@ -117,11 +117,11 @@
             </HBox>
          </children>
       </HBox>
-      <HBox prefHeight="224.0" prefWidth="968.0">
+      <HBox prefHeight="250.0" prefWidth="968.0">
          <children>
             <VBox prefHeight="195.0" prefWidth="682.0">
                <children>
-                  <LineChart fx:id="lineChart" prefHeight="181.0" prefWidth="433.0">
+                  <LineChart fx:id="lineChart" prefHeight="221.0" prefWidth="433.0">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" fx:id="x" />
                     </xAxis>
@@ -138,9 +138,9 @@
             </VBox>
          </children>
       </HBox>
-      <VBox prefHeight="332.0" prefWidth="943.0">
+      <VBox prefHeight="310.0" prefWidth="943.0">
          <children>
-            <TableView fx:id="incomeTableView" prefHeight="332.0" prefWidth="943.0">
+            <TableView fx:id="incomeTableView" prefHeight="310.0" prefWidth="943.0">
                <columns>
                   <TableColumn fx:id="titleColumn" prefWidth="361.59998166561127" text="Title" />
                   <TableColumn fx:id="dateColumn" prefWidth="333.6000061035156" text="Date" />
@@ -152,7 +152,7 @@
             </TableView>
          </children>
       </VBox>
-      <HBox fx:id="sixth" alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="943.0" spacing="10.0">
+      <HBox fx:id="sixth" alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="943.0" spacing="10.0">
          <children>
             <Button fx:id="addIncomeButton" mnemonicParsing="false" onAction="#isAddButtonClicked" text="Add Income" textFill="WHITE">
                <font>

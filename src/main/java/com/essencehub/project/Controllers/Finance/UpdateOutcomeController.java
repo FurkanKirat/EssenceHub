@@ -63,7 +63,7 @@ public class UpdateOutcomeController {
         String outcomeString = updateOutcomeSelectComboBox.getValue();
 
         if (outcomeString == null || outcomeString.isEmpty()) {
-            showAlert(Alert.AlertType.WARNING, "Update Failed", "No Selection Made", "Please select an outcome record to update.");
+            showAlert(Alert.AlertType.WARNING, "Update Failed", "No Selection Made", "Please select an expense record to update.");
             return;
         }
 

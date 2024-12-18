@@ -444,6 +444,22 @@
     -fx-background-color: #134e5e; -fx-padding: 10px; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-fill: white;
 }
 
+.chart {
+    -fx-text-fill: white; /* Ana başlık rengi */
+}
+
+.axis {
+    -fx-tick-label-fill: white; /* X ve Y ekseni etiket yazı rengi */
+}
+
+.chart-legend {
+    -fx-text-fill: white; /* Grafik açıklama (legend) yazıları rengi */
+}
+
+.chart-bar {
+    -fx-bar-fill: #4CAF50; /* İsteğe bağlı: çubukların rengini ayarlar */
+}
+
 
 
 

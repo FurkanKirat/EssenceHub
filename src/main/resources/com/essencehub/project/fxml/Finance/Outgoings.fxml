@@ -107,7 +107,7 @@
             <Pane maxHeight="50.0" prefHeight="50.0" prefWidth="4.0" styleClass="container" />
             <HBox alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="420.0" spacing="10.0">
                <children>
-                  <Label prefHeight="27.0" prefWidth="150.0" text="Total Outgoings:" textFill="WHITE">
+                  <Label prefHeight="27.0" prefWidth="150.0" text="Total Expenses:" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -123,11 +123,11 @@
             </HBox>
          </children>
       </HBox>
-      <HBox prefHeight="253.0" prefWidth="943.0">
+      <HBox prefHeight="250.0" prefWidth="943.0">
          <children>
             <VBox prefHeight="195.0" prefWidth="682.0">
                <children>
-                  <LineChart fx:id="lineChart" prefHeight="181.0" prefWidth="433.0">
+                  <LineChart fx:id="lineChart" prefHeight="248.0" prefWidth="433.0">
                      <xAxis>
                         <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" fx:id="x" />
                      </xAxis>
@@ -144,9 +144,9 @@
             </VBox>
          </children>
       </HBox>
-      <VBox prefHeight="264.0" prefWidth="943.0">
+      <VBox prefHeight="311.0" prefWidth="943.0">
          <children>
-            <TableView fx:id="outcomeTableView" prefHeight="309.0" prefWidth="943.0">
+            <TableView fx:id="outcomeTableView" prefHeight="310.0" prefWidth="943.0">
                <columns>
                   <TableColumn fx:id="titleColumn" prefWidth="356.80002439022064" text="Title" />
                   <TableColumn fx:id="dateColumn" minWidth="0.0" prefWidth="331.99993896484375" text="Date" />
@@ -158,9 +158,9 @@
             </TableView>
          </children>
       </VBox>
-      <HBox prefHeight="60.0" prefWidth="200.0" spacing="10.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <Button fx:id="addOutcomeButton" mnemonicParsing="false" onAction="#isAddOutcomeButtonClicked" text="Add Outcome" textFill="WHITE">
+            <Button fx:id="addOutcomeButton" mnemonicParsing="false" onAction="#isAddOutcomeButtonClicked" text="Add Expenses" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -169,7 +169,7 @@
                   <String fx:value="hide" />
                </styleClass>
             </Button>
-            <Button fx:id="updateOutcomeButton" mnemonicParsing="false" onAction="#isUpdateOutcomeButtonClicked" text="Update Outcome" textFill="WHITE">
+            <Button fx:id="updateOutcomeButton" mnemonicParsing="false" onAction="#isUpdateOutcomeButtonClicked" text="Update Expenses" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>

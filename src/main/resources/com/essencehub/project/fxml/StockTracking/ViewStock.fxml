@@ -106,7 +106,6 @@
          <columns>
             <TableColumn fx:id="productNameColumn" prefWidth="216.80001527071" text="Product Name" />
             <TableColumn fx:id="stockColumn" minWidth="0.0" prefWidth="147.9999542236328" text="Stock Quantity" />
-            <TableColumn fx:id="dateColumn" minWidth="0.0" prefWidth="253.60003662109375" text="Date" />
             <TableColumn fx:id="buyingDateColumn" minWidth="0.0" prefWidth="200.0" text="Buying Date" />
             <TableColumn fx:id="sellingDateColumn" minWidth="0.0" prefWidth="150.0" text="Selling Date" />
          </columns>

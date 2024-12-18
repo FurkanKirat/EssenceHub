@@ -95,12 +95,12 @@ public class OutgoingsController {
 
     @FXML
     void isAddOutcomeButtonClicked(ActionEvent event) {
-        createNewScene("/com/essencehub/project/fxml/Finance/AddOutcome.fxml","Add Outgoings",event);
+        createNewScene("/com/essencehub/project/fxml/Finance/AddOutcome.fxml","Add Expenses",event);
     }
 
     @FXML
     void isUpdateOutcomeButtonClicked(ActionEvent event) {
-        createNewScene("/com/essencehub/project/fxml/Finance/UpdateOutcome.fxml","Update Outgoings",event);
+        createNewScene("/com/essencehub/project/fxml/Finance/UpdateOutcome.fxml","Update Expenses",event);
     }
 
     @FXML
