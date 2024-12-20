@@ -12,7 +12,7 @@ private String amount;
         this.title = title;
         this.amount = amount;
     }
-    // Getter and Setter for date
+    // Getter and Setters
     public LocalDate getDate() {
         return date;
     }
@@ -21,7 +21,6 @@ private String amount;
         this.date = date;
     }
 
-    // Getter and Setter for Title
     public String getTitle() {
         return title;
     }
@@ -30,7 +29,6 @@ private String amount;
         this.title = Title;
     }
 
-    // Getter and Setter for Amount
     public String getAmount() {
         return amount;
     }

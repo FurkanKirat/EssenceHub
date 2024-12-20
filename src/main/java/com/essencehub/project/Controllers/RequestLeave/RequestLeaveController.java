@@ -27,7 +27,7 @@ public class RequestLeaveController {
 
     @FXML
     void sendRequestClicked(MouseEvent event) {
-        // Send new request to the database
+
         if(startPicker.getValue().isAfter(endPicker.getValue())){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Leave Request Failed");

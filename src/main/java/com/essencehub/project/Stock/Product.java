@@ -104,26 +104,26 @@ public class Product {
         }
     }
 
-    // Remove product from stock and record the income
     public static void removeProduct(String productName, int quantityToRemove) {
-        String selectStockSQL = "SELECT count, sellingPrice FROM Stock WHERE name = ?";
-        String updateStockSQL = "UPDATE Stock SET count = count - ? WHERE name = ? AND count >= ?";
+        String selectStockSQL = "SELECT id, count, sellingPrice FROM Stock WHERE name = ? AND count >= ? LIMIT 1";
+        String updateStockSQL = "UPDATE Stock SET count = count - ? WHERE id = ?";
 
         try (Connection connection = DatabaseConnection.getConnection()) {
             if (connection != null) {
                 try (PreparedStatement selectStatement = connection.prepareStatement(selectStockSQL)) {
                     selectStatement.setString(1, productName);
+                    selectStatement.setInt(2, quantityToRemove);
 
                     try (ResultSet resultSet = selectStatement.executeQuery()) {
                         if (resultSet.next()) {
+                            int productId = resultSet.getInt("id");
                             int currentCount = resultSet.getInt("count");
                             int sellingPrice = resultSet.getInt("sellingPrice");
 
                             if (currentCount >= quantityToRemove) {
                                 try (PreparedStatement updateStatement = connection.prepareStatement(updateStockSQL)) {
                                     updateStatement.setInt(1, quantityToRemove);
-                                    updateStatement.setString(2, productName);
-                                    updateStatement.setInt(3, quantityToRemove);
+                                    updateStatement.setInt(2, productId);
 
                                     int affectedRows = updateStatement.executeUpdate();
                                     if (affectedRows > 0) {
@@ -142,7 +142,7 @@ public class Product {
                                 System.out.println("Insufficient stock! Available quantity: " + currentCount);
                             }
                         } else {
-                            System.out.println("Product not found in the stock.");
+                            System.out.println("Product not found or insufficient quantity.");
                         }
                     }
                 }
@@ -154,6 +154,7 @@ public class Product {
             e.printStackTrace();
         }
     }
+
     public static List<Product> getAllProducts() {
         String query = "SELECT id, name, count, buyingDate, sellingDate, buyingPrice, sellingPrice FROM Stock";
         List<Product> productList = new ArrayList<>();
@@ -175,6 +176,7 @@ public class Product {
 
                         Product product = new Product(name, count, buyingDate, sellingDate, buyingPrice, sellingPrice);
                         productList.add(product);
+
                     }
                 }
             } else {

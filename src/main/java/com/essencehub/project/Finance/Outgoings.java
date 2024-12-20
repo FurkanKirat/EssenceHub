@@ -13,6 +13,7 @@ public class Outgoings {
         this.cost = cost;
     }
 
+    // Getter and Setters
     public LocalDate getDate() {
         return date;
     }
@@ -21,7 +22,6 @@ public class Outgoings {
         this.date = date;
     }
 
-    // Getter and Setter for Title
     public String getTitle() {
         return title;
     }
@@ -30,7 +30,6 @@ public class Outgoings {
         this.title = Title;
     }
 
-    // Getter and Setter for Amount
     public String getAmount() {
         return cost;
     }

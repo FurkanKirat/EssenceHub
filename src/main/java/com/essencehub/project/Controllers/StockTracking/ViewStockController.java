@@ -131,7 +131,7 @@ public class ViewStockController {
                 query += " AND buyingDate > '" + currentDate.minusYears(5) + "'";
             }
 
-            query += " GROUP BY name"; // Ürün adına göre gruplama
+            query += " GROUP BY name";
 
             ResultSet resultSet = statement.executeQuery(query);
 
@@ -176,6 +176,12 @@ public class ViewStockController {
     @FXML
     void updateProductButtonClicked(MouseEvent event) {
         createNewScene("/com/essencehub/project/fxml/StockTracking/updateProduct.fxml","Update Product", event);
+    }
+
+
+    @FXML
+    void removeProductClicked(MouseEvent event) {
+        createNewScene("/com/essencehub/project/fxml/StockTracking/setTransaction.fxml","Remove Product",event);
     }
 
     private void loadFXMLContent(String fxmlFile, VBox targetVBox) {

@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class IncomeController {
-    // will be deleted, for debug purposes
+
     public ObservableList<Income> getIncomeList() {
         ObservableList<Income> incomes = FXCollections.observableArrayList();
         String sql = "SELECT date, title, amount FROM Income";

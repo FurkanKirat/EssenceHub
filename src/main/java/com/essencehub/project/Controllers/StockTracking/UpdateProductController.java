@@ -93,6 +93,8 @@ public class UpdateProductController {
 
 
             clearForm();
+            AdminMenuController adminMenuController = AdminMenuController.getInstance();
+            adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/StockTracking/ViewStock.fxml");
 
         } catch (NumberFormatException e) {
             System.out.println("Please enter a valid numeric value for sale price.");

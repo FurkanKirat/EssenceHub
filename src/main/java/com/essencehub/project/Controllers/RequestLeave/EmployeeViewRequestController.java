@@ -40,7 +40,7 @@ public class EmployeeViewRequestController {
     }
 
     public void initialize(){
-        //Get requests from database
+
         endDateColumn.setCellValueFactory(new PropertyValueFactory<>("endDate"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
         startDateColumn.setCellValueFactory(new PropertyValueFactory<>("startDate"));

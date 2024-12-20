@@ -63,7 +63,7 @@
 
 .combo-box .arrow {
     -fx-background-color: #a8df65;
-    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Ok işareti */
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
 }
 
 .combo-box:hover {
@@ -169,18 +169,18 @@
 
 .chart .x-axis .axis-label,
 .chart .y-axis .axis-label {
-    -fx-text-fill: white; /* Y eksenindeki etiketlerin rengi beyaz */
+    -fx-text-fill: white;
 }
 
 .chart .x-axis .tick-label,
 .chart .y-axis .tick-label {
-    -fx-text-fill: white; /* Y eksenindeki sayı etiketlerinin rengi beyaz */
+    -fx-text-fill: white;
 }
 
 
 /* TableView Styles - Green Theme */
 .table-view {
-    -fx-background-color: rgba(255, 255, 255, 0.1); /* Şeffaf ve yuvarlak köşeli */
+    -fx-background-color: rgba(255, 255, 255, 0.1); /* transparent and rounded */
     -fx-background-radius: 10;
     -fx-border-color: #a8df65;
     -fx-border-width: 1;
@@ -193,13 +193,13 @@
 /* Column Header Styles */
 .table-view .column-header {
     -fx-background-color: linear-gradient(to bottom, #134e5e, #0c7764);
-    -fx-text-fill: #e0e0e0; /* Light gray text for better contrast */
+    -fx-text-fill: #e0e0e0;
     -fx-font-weight: bold;
-    -fx-font-size: 14px; /* Optional: Adjust font size */
+    -fx-font-size: 14px;
     -fx-alignment: center;
     -fx-border-color: #a8df65;
-    -fx-border-width: 0 0 1 0; /* Border only at the bottom */
-    -fx-padding: 5 0 5 0; /* Top and bottom padding for better spacing */
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 5 0 5 0;
 }
 
 /* Text inside column headers */
@@ -277,48 +277,48 @@
 .table-view .table-row-cell,
 .table-view .column-header,
 .table-view .table-cell {
-    -fx-text-fill: white; /* Açık mavi metin */
+    -fx-text-fill: white;
 }
 .table-view .column-header:first-of-type {
-    -fx-background-radius: 10 0 0 0; /* Sol üst köşe yuvarlatma */
+    -fx-background-radius: 10 0 0 0;
     -fx-border-radius: 10 0 0 0;
 }
 
 .table-view .column-header:last-of-type {
-    -fx-background-radius: 0 10 0 0; /* Sağ üst köşe yuvarlatma */
+    -fx-background-radius: 0 10 0 0;
     -fx-border-radius: 0 10 0 0;
 }
 
 /* Radio Button - Green Theme */
 .radio-button {
-    -fx-background-color: transparent; /* Şeffaf arka plan */
-    -fx-text-fill: #e0e0e0; /* Yazı rengi */
-    -fx-font-size: 14px; /* Yazı boyutu */
+    -fx-background-color: transparent;
+    -fx-text-fill: #e0e0e0;
+    -fx-font-size: 14px;
 }
 
 .radio-button .box {
-    -fx-border-color: #a8df65; /* Kenar rengi */
+    -fx-border-color: #a8df65;
     -fx-border-width: 2px;
-    -fx-border-radius: 50%; /* Yuvarlak görünüm */
+    -fx-border-radius: 50%;
     -fx-background-radius: 50%;
-    -fx-background-color: transparent; /* İç kısmı şeffaf */
-    -fx-min-width: 16px; /* Çember boyutları */
+    -fx-background-color: transparent;
+    -fx-min-width: 16px;
     -fx-min-height: 16px;
     -fx-max-width: 16px;
     -fx-max-height: 16px;
 }
 
 .radio-button:selected .box {
-    -fx-background-color: #a8df65; /* Seçildiğinde dolgu rengi */
-    -fx-border-color: #134e5e; /* Kenar rengi */
+    -fx-background-color: #a8df65;
+    -fx-border-color: #134e5e;
 }
 
 .radio-button .box:hover {
-    -fx-border-color: #168f5e; /* Hover durumunda kenar rengi */
+    -fx-border-color: #168f5e;
 }
 
 .radio-button:selected .box:hover {
-    -fx-background-color: #168f5e; /* Seçili ve hover durumunda dolgu rengi */
+    -fx-background-color: #168f5e;
 }
 .radio-button:selected .radio .dot {
     -fx-background-color: #0c7764;
@@ -326,32 +326,31 @@
 }
 
 .radio-button .label {
-    -fx-text-fill: #e0e0e0; /* Metin rengi */
+    -fx-text-fill: #e0e0e0;
 }
 
 /* ScrollPane Styles - Green Theme */
 .scroll-pane {
-    -fx-background-color: transparent; /* Arka planı şeffaf */
-    -fx-background-radius: 10; /* Arka plan yuvarlaklığı */
+    -fx-background-color: transparent;
+    -fx-background-radius: 10;
 }
 
 .scroll-pane .viewport {
-    -fx-background-color: transparent; /* İçerik bölgesi şeffaf */
+    -fx-background-color: transparent;
 }
 
 .scroll-bar:vertical {
-    -fx-background-color: transparent; /* Dikey kaydırma çubuğu şeffaf */
-    -fx-border-color: #134e5e; /* Çubuk kenar rengi */
-    -fx-border-width: 1; /* Kenar kalınlığı */
+    -fx-background-color: transparent;
+    -fx-border-color: #134e5e;
+    -fx-border-width: 1;
 }
 
 .scroll-bar .thumb {
-    -fx-background-color:#0c7764; /* Kaydırma tutacağı rengi */
-     /* Yuvarlak tutacak */
+    -fx-background-color:#0c7764;
 }
 
 .scroll-bar .track {
-    -fx-background-color: transparent; /* Track arka planı */
+    -fx-background-color: transparent;
 }
 
 /* DatePicker Styles - Green Theme */
@@ -445,19 +444,19 @@
 }
 
 .chart {
-    -fx-text-fill: white; /* Ana başlık rengi */
+    -fx-text-fill: white;
 }
 
 .axis {
-    -fx-tick-label-fill: white; /* X ve Y ekseni etiket yazı rengi */
+    -fx-tick-label-fill: white;
 }
 
 .chart-legend {
-    -fx-text-fill: white; /* Grafik açıklama (legend) yazıları rengi */
+    -fx-text-fill: white;
 }
 
 .chart-bar {
-    -fx-bar-fill: #4CAF50; /* İsteğe bağlı: çubukların rengini ayarlar */
+    -fx-bar-fill: #4CAF50;
 }
 
 

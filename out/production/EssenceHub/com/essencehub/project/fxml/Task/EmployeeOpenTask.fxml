@@ -86,64 +86,28 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                  <TextField fx:id="dueDateField" prefHeight="35.0" prefWidth="301.0" promptText="Enter the task due" styleClass="menuTextField" />
-=======
                   <TextField fx:id="dueDateField" prefHeight="35.0" prefWidth="300.0" promptText="Enter the task due" styleClass="menuTextField" />
->>>>>>> Stashed changes
-=======
-                  <TextField fx:id="dueDateField" prefHeight="35.0" prefWidth="300.0" promptText="Enter the task due" styleClass="menuTextField" />
->>>>>>> Stashed changes
                </children>
             </HBox>
             </children>
         </HBox>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        <Label alignment="CENTER" style="-fx-font-size: 20px; -fx-font-weight: bold;" styleClass="TaskLabel" text="Task Description" />
-=======
-=======
->>>>>>> Stashed changes
       <Label text="Task Description:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
         <TextArea fx:id="descriptionTextArea" editable="false" prefHeight="248.0" prefWidth="560.0" promptText="Enter task details..." wrapText="true" />
         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
          <children>
             <ComboBox fx:id="taskStatusCombobox" prefWidth="150.0" />
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            <Button mnemonicParsing="false" onAction="#changeProgressClicked" text="Change Progress">
-               <styleClass>
-                  <String fx:value="menuButton" />
-                  <String fx:value="hide" />
-               </styleClass></Button>
-=======
             <Button mnemonicParsing="false" onAction="#changeProgressClicked" text="Change Progress" textFill="WHITE">
                <styleClass>
                   <String fx:value="menuButton" />
                   <String fx:value="hide" />
-=======
-            <Button mnemonicParsing="false" onAction="#changeProgressClicked" text="Change Progress" textFill="WHITE">
-               <styleClass>
-                  <String fx:value="menuButton" />
-                  <String fx:value="hide" />
->>>>>>> Stashed changes
                </styleClass>
                <font>
                   <Font size="18.0" />
                </font></Button>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
          </children>
         </HBox>
     </children>

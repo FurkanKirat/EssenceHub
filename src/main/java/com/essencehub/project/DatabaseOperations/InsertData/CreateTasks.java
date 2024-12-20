@@ -31,10 +31,8 @@ public class CreateTasks {
 
                         boolean isTaskDone = random.nextBoolean();
 
-                        // Progress değerini %0 ile %100 arasında rastgele belirle
                         int progress = random.nextInt(101);
 
-                        // Bitiş zamanı (finish_time) için rastgele bir zaman oluştur
                         LocalDateTime finishTime = sendDateTime.plusDays(random.nextInt(7));
 
                         preparedStatement.setInt(1, senderId);

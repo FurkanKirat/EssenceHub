@@ -164,22 +164,18 @@ public class Task {
                 LocalDateTime sendDateTime = resultSet.getTimestamp("send_date_time").toLocalDateTime();
                 boolean isTaskDone = resultSet.getBoolean("is_task_done");
 
-                // Yeni alanlar: progress ve finish_date
                 int progress = resultSet.getInt("progress");
                 LocalDateTime finishDate = resultSet.getTimestamp("finish_time") != null ?
                         resultSet.getTimestamp("finish_time").toLocalDateTime() : null;
 
-                // Gönderici bilgileri
                 User sender = new User(senderId);
                 sender.setName(resultSet.getString("sender_name"));
                 sender.setSurname(resultSet.getString("sender_surname"));
 
-                // Alıcı bilgileri
                 User receiver = new User(receiverId);
                 receiver.setName(resultSet.getString("receiver_name"));
                 receiver.setSurname(resultSet.getString("receiver_surname"));
 
-                // Görevi oluştur ve listeye ekle
                 Task taskObj = new Task(sender, receiver, task, title, sendDateTime, isTaskDone, progress, finishDate);
                 taskObj.setId(id);
                 taskList.add(taskObj);
@@ -209,7 +205,6 @@ public class Task {
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            // Receiver ID parametresini ayarla
             preparedStatement.setInt(1, currentUserId);
 
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
@@ -222,23 +217,22 @@ public class Task {
                     LocalDateTime sendDateTime = resultSet.getTimestamp("send_date_time").toLocalDateTime();
                     boolean isTaskDone = resultSet.getBoolean("is_task_done");
 
-                    // Yeni alanlar
                     LocalDateTime finishTime = resultSet.getTimestamp("finish_time") != null
                             ? resultSet.getTimestamp("finish_time").toLocalDateTime()
-                            : null; // Eğer finish_time NULL ise
+                            : null; // if finish time is null
                     int progress = resultSet.getInt("progress");
 
-                    // Gönderici bilgileri
+                    // Sender Infos
                     User sender = new User(senderId);
                     sender.setName(resultSet.getString("sender_name"));
                     sender.setSurname(resultSet.getString("sender_surname"));
 
-                    // Alıcı bilgileri
+                    // Receiver Infos
                     User receiver = new User(receiverId);
                     receiver.setName(resultSet.getString("receiver_name"));
                     receiver.setSurname(resultSet.getString("receiver_surname"));
 
-                    // Görevi oluştur ve listeye ekle
+                    // Creates task and adds it to the list
                     Task taskObj = new Task(sender, receiver, task, title, sendDateTime, isTaskDone, progress, finishTime);
                     taskObj.setId(id);
                     taskList.add(taskObj);
@@ -252,7 +246,6 @@ public class Task {
     }
 
 
-    // SEND TASK
     public static void sendTaskMain(User sender, User receiver, String task, String title, LocalDateTime sendDateTime, boolean isTaskDone, int progress, LocalDateTime finishTime) {
         Task taskTemp = new Task(sender, receiver, task, title, sendDateTime, isTaskDone, progress, finishTime);
         sendTask(taskTemp);
@@ -288,7 +281,6 @@ public class Task {
         }
     }
 
-    //UPDATE TASK
     public static void updateTask(Task task) {
         String updateTaskSQL = "UPDATE Task SET "
                 + "task = ?, "

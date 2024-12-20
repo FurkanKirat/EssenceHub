@@ -1,5 +1,6 @@
 package com.essencehub.project.Controllers.StockTracking;
 
+import com.essencehub.project.Controllers.Menu.AdminMenuController;
 import com.essencehub.project.DatabaseOperations.DatabaseConnection;
 import com.essencehub.project.Stock.Product;
 import javafx.collections.FXCollections;
@@ -75,6 +76,8 @@ public class TransactionProductController {
 
 
             clearForm();
+            AdminMenuController adminMenuController = AdminMenuController.getInstance();
+            adminMenuController.loadFXMLContent("/com/essencehub/project/fxml/StockTracking/ViewStock.fxml");
 
         } catch (NumberFormatException e) {
             System.out.println("Please enter a valid numeric value for count.");

@@ -40,6 +40,7 @@
     -fx-background-color: rgba(255, 255, 255, 0.1);
     -fx-background-radius: 30;
     -fx-text-fill : white;
+    -fx-cursor: hand;
 }
 .text-input {
     -fx-background-color: rgba(0, 0, 0, 0);
@@ -50,38 +51,40 @@
     -fx-text-fill: #e0e0e0;
     -fx-font-size: 15px;
 }
-/* combo box */
+/* ComboBox - Gray Theme */
 .combo-box {
-    -fx-background-color: #134e5e;
-    -fx-border-color: #a8df65;
-    -fx-border-radius: 5;
+    -fx-background-color: #3a3a3a; /* Dark gray background */
+    -fx-border-color: #575757; /* Light gray border */
+    -fx-border-radius: 5; /* Rounded corners */
     -fx-background-radius: 5;
     -fx-font-size: 14px;
-
+    -fx-text-fill: #e0e0e0; /* Light gray text */
 }
 
 .combo-box .arrow {
-    -fx-background-color: #a8df65;
-    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Ok işareti */
+    -fx-background-color: #575757; /* Gray arrow background */
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Arrow shape */
 }
 
 .combo-box:hover {
-    -fx-background-color: #168f5e;
-    -list-cell-background-color: #168f5e;
+    -fx-background-color: #474747; /* Slightly darker gray on hover */
 }
 
 .list-cell {
-    -fx-background-color: #134e5e;
-    -fx-text-fill: #e0e0e0;
+    -fx-background-color: #3a3a3a; /* Background for dropdown items */
+    -fx-text-fill: #e0e0e0; /* Text color for dropdown items */
     -fx-font-size: 14px;
 }
 
 .list-cell:hover {
-    -fx-background-color: #168f5e;
-    -fx-text-fill: #ffffff;
+    -fx-background-color: #575757; /* Dark gray background on hover */
+    -fx-text-fill: #ffffff; /* White text on hover */
 }
+
 .combo-box .text-input {
-    -fx-background-color: transparent;
+    -fx-background-color: transparent; /* Transparent text input */
+    -fx-border-width: 0;
+    -fx-text-fill: #e0e0e0; /* Text color for input */
 }
 
 /* Login Page */
@@ -165,7 +168,6 @@
     -fx-fill: #e0e0e0;
 }
 
-/* General Styles ile Uyumluluk */
 
 /* TableView Styles - Gray Theme */
 .table-view {
@@ -266,7 +268,7 @@
 .table-view .table-row-cell,
 .table-view .column-header,
 .table-view .table-cell {
-    -fx-text-fill: white; /* Açık mavi metin */
+    -fx-text-fill: white;
 }
 .table-view .column-header:first-of-type {
     -fx-background-radius: 10 0 0 0; /* Rounded top-left corner */
@@ -442,6 +444,22 @@
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
     -fx-text-fill: white; /* White text */
+}
+
+.chart {
+    -fx-text-fill: white;
+}
+
+.axis {
+    -fx-tick-label-fill: white;
+}
+
+.chart-legend {
+    -fx-text-fill: white;
+}
+
+.chart-bar {
+    -fx-bar-fill: #4CAF50;
 }
 
 

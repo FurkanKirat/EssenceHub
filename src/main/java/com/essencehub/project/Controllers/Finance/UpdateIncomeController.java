@@ -99,7 +99,7 @@ public class UpdateIncomeController {
         // Step 2: Get the new value
         String whatToChange = updateIncomeStatusComboBox.getValue();
         if(whatToChange.equals("Date")){
-            if (isValidDate(whatToChange, "yyyy-MM-dd")) {
+            if (isValidDate(updateIncomeTextField.getText(), "yyyy-MM-dd")) {
 
             } else {
                 showAlert(Alert.AlertType.ERROR, "Invalid Date", "Format Error", "Please enter a date in the format yyyy-MM-dd.");
@@ -193,6 +193,7 @@ public class UpdateIncomeController {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
         try {
             // Parse the date to validate format
+            System.out.println(dateStr);
             LocalDate.parse(dateStr, formatter);
             return true; // Date is valid
         } catch (DateTimeParseException e) {

@@ -44,6 +44,7 @@
     -fx-background-color: rgba(255, 255, 255, 0.1);
     -fx-background-radius: 30;
     -fx-text-fill : white;
+    -fx-cursor: hand;
 }
 .text-input {
     -fx-background-color: rgba(0, 0, 0, 0);
@@ -67,7 +68,7 @@
 
 .combo-box .arrow {
     -fx-background-color: #FF4500;
-    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Ok işareti */
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* arrow */
 }
 
 .combo-box:hover {
@@ -178,17 +179,17 @@
 
 .chart .x-axis .axis-label,
 .chart .y-axis .axis-label {
-    -fx-text-fill: white; /* Y eksenindeki etiketlerin rengi beyaz */
+    -fx-text-fill: white; /* white in y axis */
 }
 
 .chart .x-axis .tick-label,
 .chart .y-axis .tick-label {
-    -fx-text-fill: white; /* Y eksenindeki sayı etiketlerinin rengi beyaz */
+    -fx-text-fill: white;
 }
 
 /* TableView Styles - Red Theme */
 .table-view {
-    -fx-background-color: rgba(255, 255, 255, 0.1); /* Şeffaf ve yuvarlak köşeli */
+    -fx-background-color: rgba(255, 255, 255, 0.1);
     -fx-background-radius: 10;
     -fx-border-color: #FF4500;
     -fx-border-width: 1;
@@ -286,12 +287,12 @@
     -fx-text-fill: #ffffff; /* Beyaz metin rengi */
 }
 .table-view .column-header:first-of-type {
-    -fx-background-radius: 10 0 0 0; /* Sol üst köşe yuvarlatma */
+    -fx-background-radius: 10 0 0 0;
     -fx-border-radius: 10 0 0 0;
 }
 
 .table-view .column-header:last-of-type {
-    -fx-background-radius: 0 10 0 0; /* Sağ üst köşe yuvarlatma */
+    -fx-background-radius: 0 10 0 0;
     -fx-border-radius: 0 10 0 0;
 }
 
@@ -456,4 +457,20 @@
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
     -fx-text-fill: #ffffff; /* White text */
+}
+
+.chart {
+    -fx-text-fill: white;
+}
+
+.axis {
+    -fx-tick-label-fill: white;
+}
+
+.chart-legend {
+    -fx-text-fill: white;
+}
+
+.chart-bar {
+    -fx-bar-fill: #4CAF50;
 }

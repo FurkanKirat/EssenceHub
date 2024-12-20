@@ -100,7 +100,7 @@ public class UpdateOutcomeController {
         // Step 2: Get the new value
         String whatToChange = updateOutcomeStatusComboBox.getValue();
         if(whatToChange.equals("Date")){
-            if (isValidDate(whatToChange, "yyyy-MM-dd")) {
+            if (isValidDate(updateOutcomeTextField.getText(), "yyyy-MM-dd")) {
 
             } else {
                 showAlert(Alert.AlertType.ERROR, "Invalid Date", "Format Error", "Please enter a date in the format yyyy-MM-dd.");

@@ -61,7 +61,8 @@ public class LeaveRequest {
     public void setId(int id) {
         this.id = id;
     }
-//Database operations
+
+    //Database operations
 
     public static void addLeaveRequest(LocalDate startDate, LocalDate endDate, int employeeId, String status) {
         String insertSQL = "INSERT INTO LeaveRequest (startDate, endDate, employeeId, status) VALUES (?, ?, ?, ?);";
@@ -195,7 +196,6 @@ public class LeaveRequest {
             preparedStatement.setString(1, leaveRequest.getStatus());
             preparedStatement.setInt(2, leaveRequest.getId());
 
-            // Güncelleme işlemi
             int rowsUpdated = preparedStatement.executeUpdate();
 
             if(rowsUpdated>0){
@@ -205,7 +205,6 @@ public class LeaveRequest {
                 System.out.println("LeaveRequest güncellenemedi ");
             }
 
-            // En az bir satır güncellenmişse başarılı
 
         } catch (SQLException e) {
             System.out.println("LeaveRequest güncellenirken bir hata oluştu: " + e.getMessage());

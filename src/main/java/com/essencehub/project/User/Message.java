@@ -96,7 +96,7 @@ public class Message {
         return messages;
     }
 
-    //SEND MESSAGE
+
     public static void sendMessageMain(User sender, User receiver, String message, LocalDateTime sendDateTime) {
         Message messageTemp = new Message(sender, receiver, message, sendDateTime);
         sendMessage(messageTemp);
@@ -108,15 +108,12 @@ public class Message {
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
-            // Adding to the database
+
             preparedStatement.setInt(1, message.getSender().getId());
             preparedStatement.setInt(2, message.getReceiver().getId());
             preparedStatement.setString(3, message.getMessage());
-
-            // We can set LocalDateTime directly, it is compatible with DATETIME type in MySQL
             preparedStatement.setObject(4, message.getSendDateTime());
 
-            //run SQL command
             preparedStatement.executeUpdate();
             System.out.println("Message sent successfully.");
 

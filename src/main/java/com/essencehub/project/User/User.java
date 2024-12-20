@@ -54,7 +54,6 @@ public class User {
         this.monthlyPerformance = monthlyPerformance;
         this.bonusSalary = bonusSalary;
         this.imageLocation = imageLocation;
-        //this.image = new Image(imageLocation);
         this.fullName =  name + " " + surname;
         this.workingHour = workingHour;
 
@@ -224,6 +223,7 @@ public class User {
         updateImageInDatabase();
     }
 
+    // Database user methods
     private void updateImageInDatabase() {
         String updateSQL = "UPDATE User SET imageLocation = ? WHERE id = ?";
         try (Connection connection = DatabaseConnection.getConnection();
@@ -244,8 +244,6 @@ public class User {
         }
     }
 
-
-    // Database user methods
     private void updatePasswordInDatabase() {
         String updateSQL = "UPDATE User SET password = ? WHERE id = ?";
         try (Connection connection = DatabaseConnection.getConnection();
@@ -293,7 +291,7 @@ public class User {
                 user.setActive(resultSet.getBoolean("isActive"));
                 user.setPassword(resultSet.getString("password"));
                 user.setImageLocation(resultSet.getString("imageLocation"));
-                user.setWorkingHour(resultSet.getString("workingHour")); // Setting workingHour
+                user.setWorkingHour(resultSet.getString("workingHour"));
 
             }
 
@@ -339,7 +337,6 @@ public class User {
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            // We set the parameters
             statement.setString(1, user.getName());
             statement.setString(2, user.getSurname());
             statement.setString(3, user.getPhoneNumber());
@@ -353,11 +350,10 @@ public class User {
                     user.getMonthlyPerformance() != null ? user.getMonthlyPerformance().toString() : null);
             statement.setDouble(11, user.getBonusSalary());
             statement.setBoolean(12, user.isActive());
-            statement.setString(13, user.getPassword()); // Şifreyi ekliyoruz
+            statement.setString(13, user.getPassword());
             statement.setString(14, user.getImageLocation());
-            statement.setString(15, user.getWorkingHour()); // Adding workingHour field
+            statement.setString(15, user.getWorkingHour());
 
-            // We add it to the database
             statement.executeUpdate();
             System.out.println("User added successfully.");
 
@@ -367,7 +363,6 @@ public class User {
     }
 
 
-    //UPDATE USER
     public static void updateUser(User user) {
         String sql = "UPDATE User SET name = ?, surname = ?, phoneNumber = ?, salary = ?, isAdmin = ?, birth = ?, department = ?, email = ?, remainingLeaveDays = ?, monthlyPerformance = ?, bonusSalary = ?, isActive = ?, imageLocation = ?, workingHour = ? WHERE id = ?";
 
@@ -388,7 +383,7 @@ public class User {
             statement.setDouble(11, user.getBonusSalary());
             statement.setBoolean(12, user.isActive());
             statement.setString(13, user.getImageLocation());
-            statement.setString(14, user.getWorkingHour()); // Adding workingHour field
+            statement.setString(14, user.getWorkingHour());
             statement.setInt(15, user.getId());
 
             int rowsAffected = statement.executeUpdate();
@@ -403,42 +398,6 @@ public class User {
         }
     }
 
-    /*public static void updateUser(String name, String surname, String phoneNumber, double baseSalary, boolean isAdmin, String birth,String department,
-                                  String email, int remainingLeaveDays, boolean isActive, String password, Performance monthlyPerformance, int bonusSalary, String imageLocation) {
-        User user = new User(name,surname,phoneNumber,baseSalary,isAdmin,birth,department,email,remainingLeaveDays,isActive,password,monthlyPerformance,bonusSalary, imageLocation);
-        String sql = "UPDATE User SET name = ?, surname = ?, phoneNumber = ?, salary = ?, isAdmin = ?, birth = ?, department = ?, email = ?, remainingLeaveDays = ?, monthlyPerformance = ?, bonusSalary = ?, isActive = ?, imageLocation WHERE id = ?";
-
-        try (Connection connection = DatabaseConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
-
-
-            statement.setString(1, user.getName());
-            statement.setString(2, user.getSurname());
-            statement.setString(3, user.getPhoneNumber());
-            statement.setDouble(4, user.getSalary());
-            statement.setBoolean(5, user.isAdmin());
-            statement.setString(6, user.getBirth());
-            statement.setString(7, user.getDepartment());
-            statement.setString(8, user.getEmail());
-            statement.setInt(9, user.getRemainingLeaveDays());
-            statement.setString(10,
-                    user.getMonthlyPerformance() != null ? user.getMonthlyPerformance().toString() : null);
-            statement.setDouble(11, user.getBonusSalary());
-            statement.setBoolean(12, user.isActive());
-            statement.setString(13, user.getImageLocation());
-            statement.setInt(14, user.getId());
-
-            int rowsAffected = statement.executeUpdate();
-            if (rowsAffected > 0) {
-                System.out.println("User updated successfully.");
-            } else {
-                System.out.println("User not found.");
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }*/
 
     public static List<User> getUsers() {
         List<User> users = new ArrayList<>();
@@ -471,7 +430,7 @@ public class User {
                 user.setActive(resultSet.getBoolean("isActive"));
                 user.setPassword(resultSet.getString("password"));
                 user.setImageLocation(resultSet.getString("imageLocation"));
-                user.setWorkingHour(resultSet.getString("workingHour")); // Setting workingHour
+                user.setWorkingHour(resultSet.getString("workingHour"));
 
                 users.add(user);
             }
@@ -514,7 +473,7 @@ public class User {
                 employee.setActive(true);
                 employee.setPassword(resultSet.getString("password"));
                 employee.setImageLocation(resultSet.getString("imageLocation"));
-                employee.setWorkingHour(resultSet.getString("workingHour")); // Setting workingHour
+                employee.setWorkingHour(resultSet.getString("workingHour"));
 
                 employees.add(employee);
             }

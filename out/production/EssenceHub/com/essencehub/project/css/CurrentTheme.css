@@ -1,159 +1,100 @@
-<<<<<<< Updated upstream
-/* General Styles - Purple Theme */
+/* General Styles - Light Blue Theme */
 .gradient-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2e1a47, #5a3d7a);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
 }
 .first-color {
-    -fx-background-color: #2e1a47;
+    -fx-background-color: #1a3b5d;
 }
 .second-color {
-    -fx-background-color: #3f2659;
+    -fx-background-color: #5a8abf;
 }
 .line-color {
-    -fx-background-color: #9b7dbb;
-=======
-/* General Styles - Dark Blue Theme */
-.gradient-background {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1b2838, #2a394d);
-}
-.first-color {
-    -fx-background-color: #1b2838;
-}
-.second-color {
-    -fx-background-color: #1d3a53;
-}
-.line-color {
-    -fx-background-color: #5a8aa5;
->>>>>>> Stashed changes
+    -fx-background-color: #d0e2f2;
 }
 .container {
-    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-color: rgba(255, 255, 255, 0.2);
     -fx-background-radius: 10;
 }
 .hide {
     -fx-cursor: hand;
 }
 .selected-border {
-<<<<<<< Updated upstream
-    -fx-border-color: #9b7dbb;
+    -fx-border-color: #d0e2f2;
     -fx-border-width: 0 3 0 0;
 }
 .selected:hover {
-    -fx-background-color: #6a4d8c;
+    -fx-background-color: #3974a7;
 }
 .selected:clicked {
-    -fx-background-color: #6a4d8c;
+    -fx-background-color: #3974a7;
 }
 .buttonClicked {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(155, 125, 187, 0.5), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(58, 138, 191, 0.5), 10, 0.5, 0, 0);
 }
 .settingsProfile:hover {
     -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(155, 125, 187, 0.5), 10, 0.5, 0, 0);
-=======
-    -fx-border-color: #5a8aa5;
-    -fx-border-width: 0 3 0 0;
-}
-.selected:hover {
-    -fx-background-color: #254b64;
-}
-.selected:clicked {
-    -fx-background-color: #254b64;
-}
-.buttonClicked {
-    -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(50, 90, 120, 0.5), 10, 0.5, 0, 0);
-}
-.settingsProfile:hover {
-    -fx-opacity: 0.8;
-    -fx-effect: dropshadow(gaussian, rgba(50, 90, 120, 0.5), 10, 0.5, 0, 0);
->>>>>>> Stashed changes
+    -fx-effect: dropshadow(gaussian, rgba(58, 138, 191, 0.5), 10, 0.5, 0, 0);
 }
 .menuButton {
-    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-color: rgba(255, 255, 255, 0.2);
     -fx-background-radius: 30;
-    -fx-text-fill: white;
+    -fx-text-fill : white;
+    -fx-cursor: hand;
 }
 .text-input {
     -fx-background-color: rgba(0, 0, 0, 0);
     -fx-border-width: 0 0 1 0;
-<<<<<<< Updated upstream
-    -fx-border-color: #9b7dbb;
+    -fx-border-color: #d0e2f2;
 }
 .menuTextField {
-    -fx-text-fill: #d8d0e8;
-=======
-    -fx-border-color: #5a8aa5;
-}
-.menuTextField {
-    -fx-text-fill: #d0d0d0;
->>>>>>> Stashed changes
+    -fx-text-fill: #d0e2f2;
     -fx-font-size: 15px;
 }
-/* combo box */
+/* ComboBox - Light Blue Theme */
 .combo-box {
-<<<<<<< Updated upstream
-    -fx-background-color: #2e1a47;
-    -fx-border-color: #9b7dbb;
-=======
-    -fx-background-color: #1b2838;
-    -fx-border-color: #5a8aa5;
->>>>>>> Stashed changes
+    -fx-background-color: #1a3b5d;
+    -fx-border-color: #d0e2f2;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
     -fx-font-size: 14px;
-}
-.combo-box .arrow {
-<<<<<<< Updated upstream
-    -fx-background-color: #9b7dbb;
-=======
-    -fx-background-color: #5a8aa5;
->>>>>>> Stashed changes
-    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
-}
-.combo-box:hover {
-<<<<<<< Updated upstream
-    -fx-background-color: #6a4d8c;
-    -list-cell-background-color: #6a4d8c;
-=======
-    -fx-background-color: #254b64;
-    -list-cell-background-color: #254b64;
->>>>>>> Stashed changes
-}
-.list-cell {
-<<<<<<< Updated upstream
-    -fx-background-color: #2e1a47;
-    -fx-text-fill: #d8d0e8;
-=======
-    -fx-background-color: #1b2838;
-    -fx-text-fill: #d0d0d0;
->>>>>>> Stashed changes
-    -fx-font-size: 14px;
-}
-.list-cell:hover {
-<<<<<<< Updated upstream
-    -fx-background-color: #6a4d8c;
-=======
-    -fx-background-color: #254b64;
->>>>>>> Stashed changes
-    -fx-text-fill: #ffffff;
-}
-.combo-box .text-input {
-    -fx-background-color: transparent;
+    -fx-text-fill: #e6f2ff;
 }
 
-<<<<<<< Updated upstream
-/* Login Page - Purple Theme */
+.combo-box .arrow {
+    -fx-background-color: #d0e2f2;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Ok şekli */
+}
+
+.combo-box:hover {
+    -fx-background-color:  #3974a7
+}
+
+.combo-box .text-input {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e6f2ff;
+}
+
+
+.list-cell {
+    -fx-background-color: #1a3b5d;
+    -fx-text-fill: #e6f2ff;
+    -fx-font-size: 14px;
+}
+
+.list-cell:hover {
+    -fx-background-color: #3974a7;
+    -fx-text-fill: #ffffff;
+}
+
+.list-cell:selected {
+    -fx-background-color:#1a3b5d;
+    -fx-text-fill: #ffffff;
+}
+/* Login Page - Light Blue Theme */
 .loginTextField {
     -fx-border-width: 2px;
-    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #2e1a47, #5a3d7a);
-=======
-/* Login Page - Dark Blue Theme */
-.loginTextField {
-    -fx-border-width: 2px;
-    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #1b2838, #2a394d);
->>>>>>> Stashed changes
+    -fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
     -fx-background-color: transparent;
     -fx-text-fill: black;
     -fx-font-weight: bold;
@@ -164,215 +105,133 @@
     -fx-font-weight: bold;
 }
 #anchor1 {
-<<<<<<< Updated upstream
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2e1a47, #5a3d7a);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
 }
 #loginbtn {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2e1a47, #5a3d7a);
-    -fx-text-fill: #d8d0e8;
-=======
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1b2838, #2a394d);
-}
-#loginbtn {
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1b2838, #2a394d);
-    -fx-text-fill: #d0d0d0;
->>>>>>> Stashed changes
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1a3b5d, #5a8abf);
+    -fx-text-fill: #ffffff;
     -fx-background-radius: 15;
     -fx-cursor: hand;
     -fx-font-weight: bold;
 }
 #logo {
-<<<<<<< Updated upstream
-    -fx-fill: linear-gradient(#2e1a47, #5a3d7a);
+    -fx-fill: linear-gradient(#1a3b5d, #5a8abf);
 }
 #appLabel {
-    -fx-text-fill: #d8d0e8;
-    -fx-back-color: #5a3d7a;
-=======
-    -fx-fill: linear-gradient(#1b2838, #2a394d);
-}
-#appLabel {
-    -fx-text-fill: #d0d0d0;
-    -fx-back-color: #2a394d;
->>>>>>> Stashed changes
+    -fx-text-fill: #ffffff;
+    -fx-back-color: #5a8abf;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-font-family: "sans-serif";
 }
 #profile {
-<<<<<<< Updated upstream
-    -fx-fill: #835da6;
+    -fx-fill: #3974a7;
 }
 
-.loginImage {
-    -fx-effect: innershadow(gaussian, #2e1a47, 5, 1, 0, 0);
+.loginImage{
+    -fx-effect: innershadow(gaussian, #1a3b5d, 5, 1, 0, 0);
 }
 
-/* Tasks - Purple Theme */
+/* Tasks - Light Blue Theme */
 .TaskLabel {
-    -fx-text-fill: #d8d0e8;
+    -fx-text-fill: white;
 }
 
-/* Employee Option - Purple Theme */
+/* Employee Option - Light Blue Theme */
 .employeeLabel {
-    -fx-text-fill: #d8d0e8;
-=======
-    -fx-fill: #4a7895;
+    -fx-text-fill: #e6f2ff;
 }
 
-.loginImage {
-    -fx-effect: innershadow(gaussian, #1b2838, 5, 1, 0, 0);
-}
-
-/* Tasks - Dark Blue Theme */
-.TaskLabel {
-    -fx-text-fill: #d0d0d0;
-}
-
-/* Employee Option - Dark Blue Theme */
-.employeeLabel {
-    -fx-text-fill: #d0d0d0;
->>>>>>> Stashed changes
-}
-.messageLabel {
-    -fx-text-fill: #e0e0e0;
-}
-
-<<<<<<< Updated upstream
-/* Stock - Purple Theme */
+/* Stock - Light Blue Theme */
 .chart-legend-item {
-    -fx-text-fill: #9b7dbb;
+    -fx-text-fill: #e6f2ff;
 }
 .chart-pie-label-line {
-    -fx-stroke: #9b7dbb;
-    -fx-fill: #9b7dbb;
+    -fx-stroke: #e6f2ff;
+    -fx-fill: #e6f2ff;
 }
 .chart-pie-label {
-    -fx-fill: #9b7dbb;
+    -fx-fill: #e6f2ff;
 }
 .chart-legend {
-    -fx-background-color: #3f2659;
-    -fx-stroke: #3f2659;
+    -fx-background-color: #5a8abf;
+    -fx-stroke: #5a8abf;
 }
 .axis-label {
-    -fx-text-fill: #9b7dbb;
+    -fx-text-fill: #d0e2f2;
 }
 .chart-pie-label {
-    -fx-fill: #d8d0e8;
+    -fx-fill: #d0e2f2;
 }
 
-/* TableView Styles - Purple Theme */
+/* TableView Styles - Light Blue Theme */
 .table-view {
-    -fx-background-color: rgba(255, 255, 255, 0.1); /* Şeffaf ve yuvarlak köşeli */
-    -fx-background-radius: 10;
-    -fx-border-color: #9b7dbb;
-=======
-/* Stock - Dark Blue Theme */
-.chart-legend-item {
-    -fx-text-fill: #5a8aa5;
-}
-.chart-pie-label-line {
-    -fx-stroke: #5a8aa5;
-    -fx-fill: #5a8aa5;
-}
-.chart-pie-label {
-    -fx-fill: #5a8aa5;
-}
-.chart-legend {
-    -fx-background-color: #1d3a53;
-    -fx-stroke: #1d3a53;
-}
-.axis-label {
-    -fx-text-fill: #5a8aa5;
-}
-.chart-pie-label {
-    -fx-fill: #d0d0d0;
-}
-
-/* TableView Styles - Dark Blue Theme */
-.table-view {
-    -fx-background-color: rgba(255, 255, 255, 0.1); /* Şeffaf ve yuvarlak köşeli */
-    -fx-background-radius: 10;
-    -fx-border-color: #5a8aa5; /* Mavi tema ile uyumlu */
->>>>>>> Stashed changes
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-border-color: #5a8abf;
     -fx-border-width: 1;
     -fx-border-radius: 10;
     -fx-font-family: "Segoe UI";
     -fx-font-size: 14px;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     -fx-text-fill: #e6f2ff;
-=======
-    -fx-text-fill: #d8d0e8;
->>>>>>> Stashed changes
-=======
-    -fx-text-fill: white;
->>>>>>> Stashed changes
 }
 
 /* Column Header Styles */
 .table-view .column-header {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    -fx-background-color: linear-gradient(to bottom, #134e5e, #0c7764);
-    -fx-text-fill: #e0e0e0; /* Light gray text for better contrast */
-=======
-    -fx-background-color: linear-gradient(to bottom, #1b2838, #2a394d); /* Mavi temaya uygun gradient */
-    -fx-text-fill: #e0e0e0; /* Açık gri metin rengi */
->>>>>>> Stashed changes
+    -fx-background-color: #1a3b5d;
+    -fx-text-fill: #e6f2ff;
     -fx-font-weight: bold;
     -fx-font-size: 14px;
     -fx-alignment: center;
-    -fx-border-color: #5a8aa5; /* Mavi tema ile uyumlu */
+    -fx-border-color: #5a8abf;
     -fx-border-width: 0 0 1 0;
     -fx-padding: 5 0 5 0;
 }
 
 /* Text inside column headers */
 .table-view .column-header .text {
-    -fx-fill: #e0e0e0; /* Açık gri metin */
+    -fx-fill: #ffffff;
 }
 
 /* Row Cell Styles */
 .table-view .table-row-cell {
     -fx-background-color: transparent;
-    -fx-text-fill: white;
+    -fx-text-fill: #e6f2ff;
     -fx-font-size: 14px;
 }
 
 /* Hover Effect for Rows */
 .table-view .table-row-cell:hover {
-    -fx-background-color: #254b64; /* Mavi temaya uyumlu hover rengi */
-    -fx-text-fill: white;
+    -fx-background-color: rgba(57, 116, 167, 0.8);
+    -fx-text-fill: #ffffff;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0.5, 0, 0);
 }
 
 /* Focused Row Effect */
 .table-view .table-row-cell:focused {
-    -fx-background-color: #1b2838; /* Mavi temaya uygun odaklanmış satır rengi */
-    -fx-text-fill: #5a8aa5; /* Mavi tema ile uyumlu */
-    -fx-border-color: #5a8aa5;
+    -fx-background-color: #3974a7;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #d0e2f2;
     -fx-border-width: 0 0 2 0;
 }
 
 /* Selected Row Styles */
 .table-view .table-row-cell:selected {
-    -fx-background-color: #254b64; /* Seçilen satır rengi */
-    -fx-text-fill: #a8df65; /* Yeşil seçili metin rengi */
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3974a7, #1a3b5d);
+    -fx-text-fill: #ffffff;
     -fx-font-weight: bold;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(208, 226, 242, 0.8), 10, 0.5, 0, 0);
 }
 
 /* Pressed Row Styles */
 .table-view .table-row-cell:pressed {
-    -fx-background-color: #1d3a53; /* Mavi temaya uyumlu basılı satır rengi */
-    -fx-text-fill: white;
+    -fx-background-color: #3974a7;
+    -fx-text-fill: #ffffff;
 }
 
 /* Scroll Bar Styling */
 .table-view .scroll-bar:vertical .thumb {
-    -fx-background-color: #5a8aa5; /* Mavi temaya uyumlu scroll bar rengi */
+    -fx-background-color: #5a8abf;
     -fx-background-radius: 5;
 }
 
@@ -381,452 +240,216 @@
 }
 
 .table-view .scroll-bar:horizontal .thumb {
-    -fx-background-color: #5a8aa5;
+    -fx-background-color: #5a8abf;
     -fx-background-radius: 5;
 }
 
 /* Selection Bar within Columns */
 .table-view .column-header:focused {
-    -fx-background-color: #254b64; /* Seçili sütun başlığı rengi */
+    -fx-background-color: #3974a7;
 }
 
 /* Focused Column Header */
 .table-view .column-header:focused {
-    -fx-border-color: #5a8aa5;
+    -fx-border-color: #d0e2f2;
     -fx-border-width: 0 0 2 0;
 }
 
 /* Separator between columns */
 .table-view .column-header:pressed {
-    -fx-background-color: #1d3a53; /* Basılı sütun başlığı rengi */
-}
-<<<<<<< Updated upstream
-
-=======
-    -fx-background-color: linear-gradient(to bottom, #2e1a47, #3f2659);
-    -fx-text-fill: #d8d0e8; /* Açık mor yazı */
-    -fx-font-weight: bold;
-    -fx-font-size: 14px; /* Opsiyonel: Yazı boyutu ayarı */
-    -fx-alignment: center;
-    -fx-border-color: #9b7dbb;
-    -fx-border-width: 0 0 1 0; /* Sadece alt çizgi */
-    -fx-padding: 5 0 5 0; /* Üst ve alt boşluk */
+    -fx-background-color: #1a3b5d;
 }
 
-/* Text inside column headers */
-.table-view .column-header .text {
-    -fx-fill: #d8d0e8; /* Açık mor yazı */
-}
-
-/* Row Cell Styles */
-.table-view .table-row-cell {
-    -fx-background-color: transparent; /* Varsayılan olarak şeffaf */
-    -fx-text-fill: #d8d0e8;
-    -fx-font-size: 14px;
-}
-
-/* Hover Effect for Rows */
-.table-view .table-row-cell:hover {
-    -fx-background-color: #6a4d8c;
-    -fx-text-fill: #ffffff;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0.5, 0, 0);
-}
-
-/* Focused Row Effect */
-.table-view .table-row-cell:focused {
-    -fx-background-color: #3f2659;
-    -fx-text-fill: #9b7dbb;
-    -fx-border-color: #9b7dbb;
-    -fx-border-width: 0 0 2 0; /* Alt çizgi efekti */
-}
-
-/* Selected Row Styles */
-.table-view .table-row-cell:selected {
-    -fx-background-color: #5a3d7a;
-    -fx-text-fill: #ffffff;
-    -fx-font-weight: bold;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.5, 0, 0);
-}
-
-/* Pressed Row Styles */
-.table-view .table-row-cell:pressed {
-    -fx-background-color: #2e1a47;
-    -fx-text-fill: #ffffff;
-}
-
-/* Scroll Bar Styling */
-.table-view .scroll-bar:vertical .thumb {
-    -fx-background-color: #9b7dbb;
-    -fx-background-radius: 5;
-}
-
-.table-view .scroll-bar:vertical .track {
-    -fx-background-color: transparent;
-}
-
-.table-view .scroll-bar:horizontal .thumb {
-    -fx-background-color: #9b7dbb;
-    -fx-background-radius: 5;
-}
-
-/* Selection Bar within Columns */
-.table-view .column-header:focused {
-    -fx-background-color: #6a4d8c;
-}
-
-/* Focused Column Header */
-.table-view .column-header:focused {
-    -fx-border-color: #5a3d7a;
-    -fx-border-width: 0 0 2 0;
-}
-
-/* Separator between columns */
-.table-view .column-header:pressed {
-    -fx-background-color: #3f2659;
-}
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 .table-view .table-row-cell,
 .table-view .column-header,
 .table-view .table-cell {
-    -fx-text-fill: white; /* Açık mavi metin */
+    -fx-text-fill: #e6f2ff;
 }
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 .table-view .column-header:first-of-type {
-    -fx-background-radius: 10 0 0 0; /* Sol üst köşe yuvarlatma */
+    -fx-background-radius: 10 0 0 0;
     -fx-border-radius: 10 0 0 0;
 }
 
 .table-view .column-header:last-of-type {
-    -fx-background-radius: 0 10 0 0; /* Sağ üst köşe yuvarlatma */
+    -fx-background-radius: 0 10 0 0;
     -fx-border-radius: 0 10 0 0;
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/* Radio Button - Green Theme */
-=======
-/* Radio Button - Purple Theme */
->>>>>>> Stashed changes
-=======
-
-/* Radio Button - Dark Blue Theme */
->>>>>>> Stashed changes
+/* Radio Button - Light Blue Theme */
 .radio-button {
-    -fx-background-color: transparent; /* Şeffaf arka plan */
-    -fx-text-fill: #d8d0e8; /* Yazı rengi (Açık mor) */
-    -fx-font-size: 14px; /* Yazı boyutu */
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-text-fill: #e6f2ff; /* Light blue text */
+    -fx-font-size: 14px; /* Text size */
 }
 
 .radio-button .box {
-<<<<<<< Updated upstream
-    -fx-border-color: #9b7dbb; /* Kenar rengi (Açık mor) */
-=======
-    -fx-border-color: #5a8aa5; /* Mavi kenar rengi */
->>>>>>> Stashed changes
+    -fx-border-color: #d0e2f2; /* Light blue border */
     -fx-border-width: 2px;
-    -fx-border-radius: 50%; /* Yuvarlak görünüm */
+    -fx-border-radius: 50%; /* Round shape */
     -fx-background-radius: 50%;
-    -fx-background-color: transparent; /* İç kısmı şeffaf */
-    -fx-min-width: 16px; /* Çember boyutları */
+    -fx-background-color: transparent; /* Transparent inside */
+    -fx-min-width: 16px; /* Circle size */
     -fx-min-height: 16px;
     -fx-max-width: 16px;
     -fx-max-height: 16px;
 }
 
 .radio-button:selected .box {
-<<<<<<< Updated upstream
-    -fx-background-color: #9b7dbb; /* Seçildiğinde dolgu rengi */
-    -fx-border-color: #3f2659; /* Kenar rengi (Koyu mor) */
+    -fx-background-color: #5a8abf; /* Blue fill */
+    -fx-border-color: #1a3b5d; /* Darker blue border */
 }
 
 .radio-button .box:hover {
-    -fx-border-color: #6a4d8c; /* Hover durumunda kenar rengi */
+    -fx-border-color: #3974a7; /* Medium blue border on hover */
 }
 
 .radio-button:selected .box:hover {
-    -fx-background-color: #6a4d8c; /* Seçili ve hover durumunda dolgu rengi */
+    -fx-background-color: #3974a7; /* Medium blue fill on hover */
 }
 
 .radio-button:selected .radio .dot {
-    -fx-background-color: #5a3d7a; /* Nokta rengi */
-=======
-    -fx-background-color: #5a8aa5; /* Seçildiğinde dolgu rengi */
-    -fx-border-color: #1b2838; /* Mavi kenar rengi */
-}
-
-.radio-button .box:hover {
-    -fx-border-color: #254b64; /* Hover durumunda kenar rengi */
-}
-
-.radio-button:selected .box:hover {
-    -fx-background-color: #254b64; /* Seçili ve hover durumunda dolgu rengi */
-}
-
-.radio-button:selected .radio .dot {
-    -fx-background-color: #1d3a53;
->>>>>>> Stashed changes
+    -fx-background-color: #1a3b5d; /* Dark blue dot */
     -fx-background-insets: 0;
 }
 
 .radio-button .label {
-    -fx-text-fill: #d8d0e8; /* Metin rengi */
+    -fx-text-fill: #e6f2ff; /* Light blue text */
 }
-<<<<<<< Updated upstream
-/* ScrollPane Styles - Purple Theme */
-=======
 
-/* ScrollPane Styles - Dark Blue Theme */
->>>>>>> Stashed changes
+/* ScrollPane Styles - Light Blue Theme */
 .scroll-pane {
-    -fx-background-color: transparent; /* Arka planı şeffaf */
-    -fx-background-radius: 10; /* Arka plan yuvarlaklığı */
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-background-radius: 10; /* Rounded background */
 }
 
 .scroll-pane .viewport {
-    -fx-background-color: transparent; /* İçerik bölgesi şeffaf */
+    -fx-background-color: transparent; /* Transparent content area */
 }
 
 .scroll-bar:vertical {
-    -fx-background-color: transparent; /* Dikey kaydırma çubuğu şeffaf */
-<<<<<<< Updated upstream
-    -fx-border-color: #3f2659; /* Çubuk kenar rengi (Koyu mor) */
-=======
-    -fx-border-color: #1b2838; /* Çubuk kenar rengi */
->>>>>>> Stashed changes
-    -fx-border-width: 1; /* Kenar kalınlığı */
+    -fx-background-color: transparent; /* Transparent vertical scrollbar */
+    -fx-border-color: #1a3b5d; /* Dark blue border */
+    -fx-border-width: 1; /* Border thickness */
 }
 
 .scroll-bar .thumb {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    -fx-background-color:#0c7764; /* Kaydırma tutacağı rengi */
-     /* Yuvarlak tutacak */
-=======
-    -fx-background-color: #6a4d8c; /* Kaydırma tutacağı rengi (Orta mor) */
-    -fx-background-radius: 10; /* Yuvarlak tutacak */
->>>>>>> Stashed changes
-=======
-    -fx-background-color: #254b64; /* Kaydırma tutacağı rengi */
-    /* Yuvarlak tutacak */
->>>>>>> Stashed changes
+    -fx-background-color: #5a8abf; /* Blue color */
 }
 
 .scroll-bar .track {
-    -fx-background-color: transparent; /* Track arka planı */
+    -fx-background-color: transparent; /* Transparent track */
 }
-/* DatePicker Styles - Purple Theme */
+/* DatePicker Styles - Light Blue Theme */
 .date-picker {
-    -fx-background-color: #3f2659; /* Arka plan koyu mor */
-    -fx-text-fill: #e0e0e0; /* Açık gri yazı */
-    -fx-border-color: #6a4d8c; /* Orta mor kenar */
-    -fx-border-radius: 5;
-    -fx-background-radius: 5;
-}
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/* DatePicker Styles - Green Theme */
-=======
-/* DatePicker Styles - Dark Blue Theme */
->>>>>>> Stashed changes
-.date-picker {
-    -fx-background-color: #1b2838; /* Mavi arka plan */
-    -fx-text-fill: #e0e0e0;
-    -fx-border-color: #5a8aa5; /* Mavi kenar rengi */
+    -fx-background-color: #1a3b5d; /* Dark blue background */
+    -fx-text-fill: #e6f2ff; /* Light blue text */
+    -fx-border-color: #d0e2f2; /* Soft blue border */
     -fx-border-radius: 5;
     -fx-background-radius: 5;
 }
 
 .date-picker:hover {
-    -fx-background-color: #254b64; /* Hover rengi */
+    -fx-background-color: #3974a7; /* Lighter blue background */
 }
 
 .date-picker:focused {
-    -fx-border-color: #5a8aa5; /* Focus rengi */
-    -fx-background-color: #1b2838;
+    -fx-border-color: #d0e2f2; /* Soft blue border */
+    -fx-background-color: #1a3b5d; /* Dark blue background */
 }
 
 /* Popup styles */
 .date-picker-popup {
-    -fx-background-color: #1b2838; /* Popup arka planı */
-    -fx-border-color: #5a8aa5;
+    -fx-background-color: #1a3b5d; /* Dark blue background */
+    -fx-border-color: #d0e2f2; /* Soft blue border */
     -fx-border-radius: 5;
     -fx-background-radius: 5;
 }
 
 .calendar-pane {
-    -fx-background-color: #1b2838;
-    -fx-border-color: #5a8aa5;
+    -fx-background-color: #1a3b5d; /* Dark blue background */
+    -fx-border-color: #d0e2f2; /* Soft blue border */
     -fx-border-radius: 5;
     -fx-background-radius: 5;
 }
 
 .calendar-pane .day-cell {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #e6f2ff; /* Light blue text */
     -fx-background-color: transparent;
 }
 
 .calendar-pane .day-cell:hover {
-    -fx-background-color: #254b64;
-    -fx-text-fill: #ffffff;
+    -fx-background-color: #3974a7; /* Lighter blue background */
+    -fx-text-fill: #ffffff; /* White text */
 }
 
 .calendar-pane .day-cell:filled {
-    -fx-text-fill: #e0e0e0;
+    -fx-text-fill: #e6f2ff; /* Light blue text */
 }
 
 .calendar-pane .day-cell:selected {
-    -fx-background-color: #5a8aa5; /* Seçili gün rengi */
-    -fx-text-fill: #1b2838; /* Seçili gün metin rengi */
+    -fx-background-color: #d0e2f2; /* Soft blue background */
+    -fx-text-fill: #1a3b5d; /* Dark blue text */
 }
 
 /* Arrows in DatePicker */
 .date-picker .arrow {
-    -fx-background-color: #5a8aa5; /* Ok rengi */
+    -fx-background-color: #d0e2f2; /* Soft blue color */
     -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
 }
 
 .date-picker .arrow:hover {
-    -fx-background-color: #254b64;
+    -fx-background-color: #3974a7; /* Lighter blue color */
 }
 
 /* TextField inside DatePicker */
 .date-picker .text-input {
     -fx-background-color: transparent;
     -fx-border-width: 0 0 1 0;
-    -fx-border-color: #5a8aa5; /* Mavi kenar rengi */
-    -fx-text-fill: #e0e0e0;
+    -fx-border-color: #d0e2f2; /* Soft blue border */
+    -fx-text-fill: #e6f2ff; /* Light blue text */
     -fx-font-size: 14px;
 }
 
 /* Whatsapp */
 .rightBorderForVBox {
-    -fx-border-color: #1b2838; /* Mavi kenar rengi */
+    -fx-border-color: #1a3b5d; /* Dark blue border */
     -fx-border-width: 0 6 0 0;
 }
-
-.lightGrayBackground{
-    -fx-background-color: #2a394d; /* Mavi tonlarıyla uyumlu gri */
-}
-
-.tranparentBackground{
-    -fx-background-color: rgba(0,0,0,0);
-}
-
-.messageSenderLabel{
-    -fx-background-color: #254b64; /* Mavi tema rengi */
-    -fx-padding: 10px;
-    -fx-border-radius: 10px;
-    -fx-background-radius: 10px;
-    -fx-text-fill: white;
-}
-
-.messageReceiverLabel{
-    -fx-background-color: #1b2838; /* Mavi tema rengi */
-    -fx-padding: 10px;
-    -fx-border-radius: 10px;
-    -fx-background-radius: 10px;
-    -fx-text-fill: white;
-}
-
-<<<<<<< Updated upstream
-
-=======
-.date-picker:hover {
-    -fx-background-color: #6a4d8c; /* Hover durumda açık mor */
-}
->>>>>>> Stashed changes
-
-.date-picker:focused {
-    -fx-border-color: #9c78b8; /* Daha açık mor kenar */
-    -fx-background-color: #3f2659; /* Arka plan */
-}
-
-/* Popup styles */
-.date-picker-popup {
-    -fx-background-color: #3f2659; /* Açılır pencere arka plan */
-    -fx-border-color: #6a4d8c; /* Kenar rengi */
-    -fx-border-radius: 5;
-    -fx-background-radius: 5;
-}
-
-.calendar-pane {
-    -fx-background-color: #3f2659; /* Takvim arka plan */
-    -fx-border-color: #6a4d8c; /* Kenar rengi */
-    -fx-border-radius: 5;
-    -fx-background-radius: 5;
-}
-
-.calendar-pane .day-cell {
-    -fx-text-fill: #e0e0e0; /* Gün hücreleri yazı rengi */
-    -fx-background-color: transparent; /* Arka plan */
-}
-
-.calendar-pane .day-cell:hover {
-    -fx-background-color: #6a4d8c; /* Hover durumunda hücre rengi */
-    -fx-text-fill: #ffffff; /* Beyaz yazı */
-}
-
-.calendar-pane .day-cell:filled {
-    -fx-text-fill: #e0e0e0; /* Doluluk durumu */
-}
-
-.calendar-pane .day-cell:selected {
-    -fx-background-color: #9c78b8; /* Seçili hücre arka plan */
-    -fx-text-fill: #3f2659; /* Yazı rengi koyu mor */
-}
-
-/* Arrows in DatePicker */
-.date-picker .arrow {
-    -fx-background-color: #9c78b8; /* Oklar için arka plan */
-    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Ok şekli */
-}
-
-.date-picker .arrow:hover {
-    -fx-background-color: #6a4d8c; /* Hover durumunda açık mor */
-}
-
-/* TextField inside DatePicker */
-.date-picker .text-input {
-    -fx-background-color: transparent;
-    -fx-border-width: 0 0 1 0; /* Alt çizgi */
-    -fx-border-color: #6a4d8c; /* Alt çizgi rengi */
-    -fx-text-fill: #e0e0e0; /* Yazı rengi */
-    -fx-font-size: 14px;
-}
-/* Whatsapp */
-.rightBorderForVBox {
-    -fx-border-color: #3f2659; /* Kenar rengi (Koyu mor) */
-    -fx-border-width: 0 6 0 0; /* Sağ kenar genişliği */
-}
-
 .lightGrayBackground {
-    -fx-background-color: #e0d8e9; /* Arka plan rengi (Açık mor-gri tonları) */
+    -fx-background-color: #d0e2f2; /* Light blue background */
 }
-
-.transparentBackground {
-    -fx-background-color: rgba(0, 0, 0, 0); /* Şeffaf arka plan */
+.tranparentBackground {
+    -fx-background-color: rgba(0, 0, 0, 0);
 }
 
 .messageSenderLabel {
-    -fx-background-color: #6a4d8c; /* Gönderici mesaj arka planı (Orta mor) */
-    -fx-padding: 10px; /* Mesaj iç boşluğu */
-    -fx-border-radius: 10px; /* Kenar yuvarlatma */
-    -fx-background-radius: 10px; /* Arka plan yuvarlatma */
-    -fx-text-fill: #ffffff; /* Yazı rengi (Beyaz) */
+    -fx-background-color: #1a3b5d; /* Dark blue background */
+    -fx-padding: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-text-fill: #e6f2ff; /* Light blue text */
 }
 
 .messageReceiverLabel {
-    -fx-background-color: #3f2659; /* Alıcı mesaj arka planı (Koyu mor) */
-    -fx-padding: 10px; /* Mesaj iç boşluğu */
-    -fx-border-radius: 10px; /* Kenar yuvarlatma */
-    -fx-background-radius: 10px; /* Arka plan yuvarlatma */
-    -fx-text-fill: #ffffff; /* Yazı rengi (Beyaz) */
+    -fx-background-color: #5a8abf; /* Light blue background */
+    -fx-padding: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-text-fill: #ffffff; /* White text */
 }
-=======
->>>>>>> Stashed changes
+
+.chart {
+    -fx-text-fill: white;
+}
+
+.axis {
+    -fx-tick-label-fill: white;
+}
+
+.chart-legend {
+    -fx-text-fill: white;
+}
+
+.chart-bar {
+    -fx-bar-fill: #4CAF50;
+}

@@ -48,7 +48,6 @@ public class ViewPieChartController {
             Connection connection = DatabaseConnection.getConnection();
             Statement statement = connection.createStatement();
 
-            // Sorgu oluşturma
             String query = "SELECT name, SUM(count) AS totalCount FROM Stock WHERE 1=1";
 
             LocalDate currentDate = LocalDate.now();

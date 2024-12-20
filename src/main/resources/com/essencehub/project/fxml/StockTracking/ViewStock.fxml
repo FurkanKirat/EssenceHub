@@ -133,6 +133,15 @@
                   <String fx:value="menuButton" />
                </styleClass>
             </Button>
+            <Button fx:id="removeProduct" mnemonicParsing="false" onMouseClicked="#removeProductClicked" text="Remove Product" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="hide" />
+                  <String fx:value="menuButton" />
+               </styleClass>
+            </Button>
          </children>
       </HBox>
    </children>
