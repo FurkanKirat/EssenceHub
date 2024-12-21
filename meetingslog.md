@@ -57,8 +57,7 @@
 **Agenda:** Project review and submission preparation
 - Reviewed the entire project for completeness and functionality.
 - Ensured all modules were properly connected and tested.
-- Discussed the final README and documentation updates.
-- Prepared the project for submission.
+- Prepared the project for presentation.
 
 **Participants:** Ahmet, Hidayet, Çağkan, Furkan, Yusuf
 
@@ -67,7 +66,6 @@
 ### December 16, 2024
 **Agenda:** Submission and final remarks
 - Confirmed that the GitHub repository was up-to-date.
-- Zipped and uploaded the project as "gSX_FinalProjectCode.zip."
 - Reflected on the project’s challenges and successes.
 
 **Participants:** Ahmet, Hidayet, Çağkan, Furkan, Yusuf
